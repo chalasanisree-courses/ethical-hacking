@@ -860,10 +860,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#listen-on-the-wire-then-slip-past-the-guards" class="md-nav__link">
+  <a href="#1-sniffing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listen on the wire, then slip past the guards
+        1. Sniffing
       
     </span>
   </a>
@@ -871,10 +871,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learning-objectives" class="md-nav__link">
+  <a href="#2-reading-traffic" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Learning objectives
+        2. Reading traffic
       
     </span>
   </a>
@@ -882,10 +882,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concept-notes" class="md-nav__link">
+  <a href="#3-network-defenses" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concept notes
+        3. Network defenses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-evasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Evasion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lab-this-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lab this week
       
     </span>
   </a>
@@ -897,17 +919,6 @@
     <span class="md-ellipsis">
       
         Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#labs-aci-skill-labs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Labs (ACI Skill Labs)
       
     </span>
   </a>
@@ -1538,46 +1549,41 @@
   
 
 
+<p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
-<div class="week-hero">
-<p class="eyebrow">Network &amp; Crypto · Unit 5 · CEH Domain 3 (System Hacking Phases &amp; Network)</p>
-<h2 id="listen-on-the-wire-then-slip-past-the-guards">Listen on the wire, then slip past the guards<a class="headerlink" href="#listen-on-the-wire-then-slip-past-the-guards" title="Permanent link">&para;</a></h2>
-<div class="meta-row">
-<p><span class="chip">Lecture + Lab</span>
-<span class="chip">2 labs</span>
-<span class="chip">Wireshark</span></p>
+<div class="admonition abstract">
+<p class="admonition-title">What this page covers</p>
+<ul>
+<li>Capturing and reading network traffic</li>
+<li>ARP spoofing / man-in-the-middle</li>
+<li>IDS, firewalls, and honeypots — and evasion</li>
+</ul>
+<p><strong>Lab this week:</strong> Sniffer + firewall-evasion labs · <strong>Reading:</strong> Wireshark guide, MITRE ATT&amp;CK</p>
 </div>
+<h2 id="1-sniffing">1. Sniffing<a class="headerlink" href="#1-sniffing" title="Permanent link">&para;</a></h2>
+<p>A sniffer captures packets off the wire. On a switched network you need <strong>active</strong> techniques — ARP poisoning to become a man-in-the-middle — to see traffic that isn't yours. Cleartext protocols leak credentials directly.</p>
+<h2 id="2-reading-traffic">2. Reading traffic<a class="headerlink" href="#2-reading-traffic" title="Permanent link">&para;</a></h2>
+<p>With Wireshark you follow TCP streams, filter by protocol, and extract data. This is where "the network is the attack surface" becomes concrete — and why encryption matters.</p>
+<h2 id="3-network-defenses">3. Network defenses<a class="headerlink" href="#3-network-defenses" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>IDS/IPS</strong> — signature and anomaly detection.</li>
+<li><strong>Firewalls</strong> — stateful and application-layer rule sets.</li>
+<li><strong>Honeypots</strong> — decoys that catch and study attackers.</li>
+</ul>
+<h2 id="4-evasion">4. Evasion<a class="headerlink" href="#4-evasion" title="Permanent link">&para;</a></h2>
+<p>Attackers tunnel, encrypt, and fragment to slip past defenses. Exfiltrating data over an <strong>encrypted channel</strong> is hard to detect — which is exactly what this week's second lab demonstrates.</p>
+<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
+<p>Complete <strong>Capturing and Analyzing Network Traffic Using a Sniffer</strong> and <strong>Attacking the Firewall and Stealing Data Over an Encrypted Channel</strong>. Launch from the ACI Skill Labs portal.</p>
 </div>
-<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
+<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Capture and analyze network traffic with a sniffer.</li>
-<li>Explain how ARP spoofing / MITM exposes cleartext data.</li>
-<li>Describe IDS, firewalls, and honeypots — and common evasion techniques.</li>
+<li><strong>Wireshark User's Guide.</strong> <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>
+<li><strong>MITRE ATT&amp;CK — Network Sniffing (T1040)</strong> · <strong>Defense Evasion (TA0005).</strong> <a href="https://attack.mitre.org/techniques/T1040/">T1040</a> · <a href="https://attack.mitre.org/tactics/TA0005/">TA0005</a></li>
 </ul>
-<h2 id="concept-notes">Concept notes<a class="headerlink" href="#concept-notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Sniffing</strong> — promiscuous mode, span ports, active vs. passive sniffing, ARP poisoning.</li>
-<li><strong>Reading traffic</strong> — following streams, extracting credentials from cleartext protocols.</li>
-<li><strong>Network defenses</strong> — IDS/IPS signatures, firewall rule types, honeypots.</li>
-<li><strong>Evasion</strong> — tunneling, encryption, fragmentation; why exfil over an encrypted channel is hard to catch.</li>
-</ul>
-<h2 id="reading-free"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Wireshark User's Guide</strong> — capturing &amp; analyzing traffic.
-  <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>
-<li><strong>MITRE ATT&amp;CK — Network Sniffing (T1040)</strong> and <strong>Defense Evasion (TA0005)</strong>.
-  <a href="https://attack.mitre.org/techniques/T1040/">T1040</a> · <a href="https://attack.mitre.org/tactics/TA0005/">TA0005</a></li>
-</ul>
-<h2 id="labs-aci-skill-labs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Labs (ACI Skill Labs)<a class="headerlink" href="#labs-aci-skill-labs" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Capturing and Analyzing Network Traffic Using a Sniffer</strong> <em>(graded)</em></li>
-<li><strong>Attacking the Firewall and Stealing Data Over an Encrypted Channel</strong> <em>(graded — evasion/exfiltration)</em></li>
-</ol>
-<h2 id="assignment"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span> Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Complete both labs.</li>
-<li><strong>Short answer:</strong> From a provided capture, identify the protocol, extract the leaked data, and recommend one defense.</li>
-</ul>
+<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
+<p>From a provided capture, identify the protocol, extract the leaked data, and recommend one defense.</p>
 
 
 
@@ -1608,6 +1614,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../week03/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 3 · Scanning &amp; Enumeration">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Week 3 · Scanning & Enumeration
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../week05/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 5 · Cryptography">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Week 5 · Cryptography
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1633,7 +1679,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

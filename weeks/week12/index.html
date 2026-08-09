@@ -1281,10 +1281,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#put-it-all-together-and-write-it-up" class="md-nav__link">
+  <a href="#1-methodology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Put it all together — and write it up
+        1. Methodology
       
     </span>
   </a>
@@ -1292,10 +1292,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#learning-objectives" class="md-nav__link">
+  <a href="#2-frameworks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Learning objectives
+        2. Frameworks
       
     </span>
   </a>
@@ -1303,10 +1303,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concept-notes" class="md-nav__link">
+  <a href="#3-deliverables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concept notes
+        3. Deliverables
       
     </span>
   </a>
@@ -1314,10 +1314,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
+  <a href="#4-professionalism" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading (free)
+        4. Professionalism
       
     </span>
   </a>
@@ -1329,6 +1329,17 @@
     <span class="md-ellipsis">
       
         Capstone
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-free" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading (free)
       
     </span>
   </a>
@@ -1549,48 +1560,42 @@
   
 
 
+<p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-12-penetration-testing-capstone">Week 12 · Penetration Testing &amp; Capstone<a class="headerlink" href="#week-12-penetration-testing-capstone" title="Permanent link">&para;</a></h1>
-<div class="week-hero">
-<p class="eyebrow">Wireless &amp; Pentest · Unit 11 · CEH Domain 1 (Methodology &amp; Reporting)</p>
-<h2 id="put-it-all-together-and-write-it-up">Put it all together — and write it up<a class="headerlink" href="#put-it-all-together-and-write-it-up" title="Permanent link">&para;</a></h2>
-<div class="meta-row">
-<p><span class="chip">Lecture + Capstone</span>
-<span class="chip">Final exam</span>
-<span class="chip">Report</span></p>
+<div class="admonition abstract">
+<p class="admonition-title">What this page covers</p>
+<ul>
+<li>A full penetration-testing methodology, end to end</li>
+<li>Scoping an engagement and writing the report</li>
+<li>Capstone + final exam</li>
+</ul>
+<p><strong>This week:</strong> capstone report + final exam · <strong>Reading:</strong> NIST SP 800-115, PTES</p>
 </div>
-</div>
-<h2 id="learning-objectives">Learning objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Describe a full penetration-testing methodology end to end.</li>
-<li>Scope an engagement: rules of engagement, authorization, boundaries.</li>
-<li>Analyze findings and produce a professional penetration-test report with prioritized remediation.</li>
-</ul>
-<h2 id="concept-notes">Concept notes<a class="headerlink" href="#concept-notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Methodology</strong> — pre-engagement → recon → scanning → exploitation → post-exploitation → reporting.</li>
-<li><strong>Frameworks</strong> — NIST SP 800-115, PTES, OSSTMM; how they compare.</li>
-<li><strong>Deliverables</strong> — executive summary, findings with severity (CVSS), evidence, remediation.</li>
-<li><strong>Professionalism</strong> — retest, disclosure, client communication.</li>
-</ul>
-<h2 id="reading-free"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 2-5 4.5v11l5-4.5zM6.5 5C4.55 5 2.45 5.4 1 6.5v14.66c0 .25.25.5.5.5.1 0 .15-.07.25-.07 1.35-.65 3.3-1.09 4.75-1.09 1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.31 4.75 1.06.1.05.15.03.25.03.25 0 .5-.25.5-.5V6.5c-.6-.45-1.25-.75-2-1V19c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V6.5C10.55 5.4 8.45 5 6.5 5"/></svg></span> Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>NIST SP 800-115</strong> — full document, focus on §5–8 (analysis, reporting, remediation).
-  <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
-<li><strong>Penetration Testing Execution Standard (PTES)</strong> — Reporting section.
-  <a href="http://www.pentest-standard.org/index.php/Main_Page">pentest-standard.org</a></li>
-</ul>
+<h2 id="1-methodology">1. Methodology<a class="headerlink" href="#1-methodology" title="Permanent link">&para;</a></h2>
+<p>Pre-engagement → reconnaissance → scanning → exploitation → post-exploitation → <strong>reporting</strong>. Every week of this course was one link in that chain; now you run the whole thing.</p>
+<h2 id="2-frameworks">2. Frameworks<a class="headerlink" href="#2-frameworks" title="Permanent link">&para;</a></h2>
+<p><strong>NIST SP 800-115</strong>, <strong>PTES</strong>, and <strong>OSSTMM</strong> each formalize the process. They matter because a repeatable methodology is what separates a professional test from random hacking.</p>
+<h2 id="3-deliverables">3. Deliverables<a class="headerlink" href="#3-deliverables" title="Permanent link">&para;</a></h2>
+<p>The report <em>is</em> the product: an executive summary, findings with severity (CVSS), evidence, and prioritized remediation. Clear communication to a non-technical stakeholder is a graded skill.</p>
+<h2 id="4-professionalism">4. Professionalism<a class="headerlink" href="#4-professionalism" title="Permanent link">&para;</a></h2>
+<p>Retesting, responsible disclosure, and client communication close the loop.</p>
 <h2 id="capstone"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Capstone<a class="headerlink" href="#capstone" title="Permanent link">&para;</a></h2>
-<p>Choose a set of the quarter's lab targets and run a mini end-to-end engagement (recon → exploit → document).</p>
-<h2 id="assessment"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-6a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m7 0h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"/></svg></span> Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">ACI Skill Labs — capstone</p>
+<p>Choose a set of the quarter's lab targets and run a mini end-to-end engagement (recon → exploit → document) from the ACI Skill Labs portal.</p>
+</div>
+<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Capstone penetration-test report (graded, 20%)</strong> — professional deliverable: scope, methodology, findings with severity, evidence, and remediation.</li>
+<li><strong>NIST SP 800-115</strong> §5–8 (analysis, reporting, remediation). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
+<li><strong>PTES — Reporting.</strong> <a href="http://www.pentest-standard.org/index.php/Main_Page">pentest-standard.org</a></li>
+</ul>
+<h2 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Capstone penetration-test report</strong> — scope, methodology, findings with severity, evidence, remediation.</li>
 <li><strong>Final exam</strong> — cumulative, CEH-style.</li>
 </ul>
 <h2 id="where-to-go-next">Where to go next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Sit the <strong>CEH</strong> exam (you've now covered the domains).</li>
-<li>Explore <strong>Cloud</strong> and <strong>IoT/OT</strong> hacking (CEH modules beyond this course's outline) as optional enrichment — see the <a href="../../reference/resources/">Free Resource Library</a>.</li>
-</ul>
+<p>Sit the <strong>CEH</strong> exam, and explore <strong>Cloud</strong> and <strong>IoT/OT</strong> hacking as optional enrichment — see the <a href="../../reference/resources/">Free Resource Library</a>.</p>
 
 
 
@@ -1621,6 +1626,46 @@
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../week11/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 11 · Wireless Hacking">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Week 11 · Wireless Hacking
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../reference/ceh-map/" class="md-footer__link md-footer__link--next" aria-label="Next: CEH Domain → Week Map">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                CEH Domain → Week Map
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1646,7 +1691,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
