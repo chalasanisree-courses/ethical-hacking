@@ -54,3 +54,44 @@
 .card li { padding: 8px 0; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .9rem; }
 .card li:first-child { border-top: none; }
 .card li em { color: var(--md-default-fg-color--light); font-style: normal; font-size: .8rem; }
+
+/* ─────────────────────────────────────────────────────────────
+   Interactive notes: kill-chain diagram, ATT&CK tags, defender view
+   ───────────────────────────────────────────────────────────── */
+
+/* Kill-chain interactive diagram */
+.killchain { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 18px 14px; margin: 20px 0 0; overflow-x: auto; background: var(--md-default-bg-color); }
+.kc-phase { cursor: pointer; transition: filter .15s; }
+.kc-phase:hover { filter: brightness(.95); }
+.kc-phase.selected { filter: drop-shadow(0 3px 10px rgba(0,0,0,.18)); }
+.kc-hint { text-align: center; font-size: .8rem; margin: 12px 0 0; color: var(--md-default-fg-color--light); }
+.kc-hint b { color: var(--ceh-accent); }
+.kc-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 16px 22px; margin: 14px 0 0; background: var(--md-default-bg-color); }
+.kc-panel.active { display: block; }
+.kc-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.kc-panel .kc-weeks { font-size: .8rem; color: var(--md-default-fg-color--light); margin-top: 10px;
+  padding-top: 10px; border-top: 1px solid var(--md-default-fg-color--lightest); }
+
+/* ATT&CK technique tag strip */
+.attck-strip { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0 20px; }
+.attck-strip .lbl { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--md-default-fg-color--light); margin-right: 2px; }
+.attck-tag { font-family: var(--md-code-font, monospace); font-size: .72rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color);
+  text-decoration: none; border: 1px solid var(--md-default-fg-color--lightest); white-space: nowrap; }
+.attck-tag:hover { background: #FEE2E2; color: #B91C1C; border-color: #FCA5A5; }
+
+/* Kill-chain position badge (per week) */
+.kc-badge { display: inline-flex; align-items: center; gap: 7px; font-size: .78rem; font-weight: 600;
+  background: rgba(57,73,171,.10); border: 1px solid rgba(57,73,171,.25); color: var(--ceh-accent);
+  padding: 4px 12px; border-radius: 999px; margin: 2px 0 4px; }
+
+/* Custom "Defender's view" admonition (blue, shield) */
+:root { --md-admonition-icon--defender: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>'); }
+.md-typeset .admonition.defender, .md-typeset details.defender { border-color: #1E40AF; }
+.md-typeset .defender > .admonition-title, .md-typeset .defender > summary { background-color: rgba(30,64,175,.10); }
+.md-typeset .defender > .admonition-title::before, .md-typeset .defender > summary::before {
+  background-color: #1E40AF; -webkit-mask-image: var(--md-admonition-icon--defender); mask-image: var(--md-admonition-icon--defender); }
+.md-typeset .defender > .admonition-title, .md-typeset .defender > summary { color: #1E40AF; }

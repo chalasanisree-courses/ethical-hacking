@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-12-penetration-testing-capstone" class="md-skip">
+        <a href="#week-12-penetration-testing" class="md-skip">
           Skip to content
         </a>
       
@@ -1281,10 +1281,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-methodology" class="md-nav__link">
+  <a href="#1-the-methodology-end-to-end" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Methodology
+        1. The methodology, end to end
       
     </span>
   </a>
@@ -1292,10 +1292,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-frameworks" class="md-nav__link">
+  <a href="#2-covering-tracks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Frameworks
+        2. Covering tracks
       
     </span>
   </a>
@@ -1303,10 +1303,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-deliverables" class="md-nav__link">
+  <a href="#3-frameworks-deliverables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Deliverables
+        3. Frameworks &amp; deliverables
       
     </span>
   </a>
@@ -1314,43 +1314,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-professionalism" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Professionalism
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#capstone" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Capstone
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assessment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assessment
+        Defender's view
       
     </span>
   </a>
@@ -1362,6 +1329,17 @@
     <span class="md-ellipsis">
       
         Where to go next
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -1561,41 +1539,54 @@
 
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-12-penetration-testing-capstone">Week 12 · Penetration Testing &amp; Capstone<a class="headerlink" href="#week-12-penetration-testing-capstone" title="Permanent link">&para;</a></h1>
+<h1 id="week-12-penetration-testing">Week 12 · Penetration Testing<a class="headerlink" href="#week-12-penetration-testing" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Ties the whole kill chain together</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1070/" target="_blank">T1070 Indicator Removal</a>
+<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0005/" target="_blank">TA0005 Defense Evasion</a>
+<a class="attck-tag" href="https://attack.mitre.org/" target="_blank">Full ATT&CK matrix</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
 <li>A full penetration-testing methodology, end to end</li>
+<li>Covering tracks — and why it's the defender's problem too</li>
 <li>Scoping an engagement and writing the report</li>
-<li>Capstone + final exam</li>
 </ul>
-<p><strong>This week:</strong> capstone report + final exam · <strong>Reading:</strong> NIST SP 800-115, PTES</p>
 </div>
-<h2 id="1-methodology">1. Methodology<a class="headerlink" href="#1-methodology" title="Permanent link">&para;</a></h2>
-<p>Pre-engagement → reconnaissance → scanning → exploitation → post-exploitation → <strong>reporting</strong>. Every week of this course was one link in that chain; now you run the whole thing.</p>
-<h2 id="2-frameworks">2. Frameworks<a class="headerlink" href="#2-frameworks" title="Permanent link">&para;</a></h2>
-<p><strong>NIST SP 800-115</strong>, <strong>PTES</strong>, and <strong>OSSTMM</strong> each formalize the process. They matter because a repeatable methodology is what separates a professional test from random hacking.</p>
-<h2 id="3-deliverables">3. Deliverables<a class="headerlink" href="#3-deliverables" title="Permanent link">&para;</a></h2>
-<p>The report <em>is</em> the product: an executive summary, findings with severity (CVSS), evidence, and prioritized remediation. Clear communication to a non-technical stakeholder is a graded skill.</p>
-<h2 id="4-professionalism">4. Professionalism<a class="headerlink" href="#4-professionalism" title="Permanent link">&para;</a></h2>
+<h2 id="1-the-methodology-end-to-end">1. The methodology, end to end<a class="headerlink" href="#1-the-methodology-end-to-end" title="Permanent link">&para;</a></h2>
+<p>Pre-engagement → reconnaissance → scanning → exploitation → post-exploitation → <strong>reporting</strong>. Every week of this course was one link in that chain (revisit the <a href="../week01/">Week 1 kill chain</a>); now you run the whole thing.</p>
+<h2 id="2-covering-tracks">2. Covering tracks<a class="headerlink" href="#2-covering-tracks" title="Permanent link">&para;</a></h2>
+<p>The final attacker phase: log tampering, timestomping, and anti-forensics to hide the intrusion. For a pen tester this is documented, not hidden — but understanding it is what lets a defender detect it.</p>
+<h2 id="3-frameworks-deliverables">3. Frameworks &amp; deliverables<a class="headerlink" href="#3-frameworks-deliverables" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>📐 Frameworks</summary>
+<p><strong>NIST SP 800-115</strong>, <strong>PTES</strong>, and <strong>OSSTMM</strong> formalize the process. A repeatable methodology is what separates a professional test from random hacking.</p>
+</details>
+<details class="note">
+<summary>📝 The report</summary>
+<p>The report <em>is</em> the product: executive summary, findings with severity (CVSS), evidence, and prioritized remediation. Clear communication to a non-technical stakeholder is a core skill.</p>
+</details>
+<details class="note">
+<summary>🤝 Professionalism</summary>
 <p>Retesting, responsible disclosure, and client communication close the loop.</p>
-<h2 id="capstone"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Capstone<a class="headerlink" href="#capstone" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — capstone</p>
-<p>Choose a set of the quarter's lab targets and run a mini end-to-end engagement (recon → exploit → document) from the ACI Skill Labs portal.</p>
+</details>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Covering tracks targets your logs — cleared event logs (Windows Event ID 1102), truncated <code>/var/log</code>, or modified timestamps. If the logs were only stored locally, you've lost the evidence.</p>
+<p><strong>Best control:</strong> forward logs to a remote, tamper-evident SIEM in real time, and use file-integrity monitoring — so clearing local logs no longer erases the trail.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="where-to-go-next">Where to go next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
+<p>Sit the <strong>CEH</strong> exam — you've now covered the domains — and explore <strong>Cloud</strong> and <strong>IoT/OT</strong> hacking as optional enrichment via the <a href="../../reference/resources/">Free Resource Library</a>.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>NIST SP 800-115</strong> §5–8 (analysis, reporting, remediation). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
 <li><strong>PTES — Reporting.</strong> <a href="http://www.pentest-standard.org/index.php/Main_Page">pentest-standard.org</a></li>
 </ul>
-<h2 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Capstone penetration-test report</strong> — scope, methodology, findings with severity, evidence, remediation.</li>
-<li><strong>Final exam</strong> — cumulative, CEH-style.</li>
-</ul>
-<h2 id="where-to-go-next">Where to go next<a class="headerlink" href="#where-to-go-next" title="Permanent link">&para;</a></h2>
-<p>Sit the <strong>CEH</strong> exam, and explore <strong>Cloud</strong> and <strong>IoT/OT</strong> hacking as optional enrichment — see the <a href="../../reference/resources/">Free Resource Library</a>.</p>
 
 
 
@@ -1695,6 +1686,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

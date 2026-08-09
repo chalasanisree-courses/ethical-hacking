@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-6-system-attacks-midterm" class="md-skip">
+        <a href="#week-6-system-attacks" class="md-skip">
           Skip to content
         </a>
       
@@ -992,10 +992,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-metasploit" class="md-nav__link">
+  <a href="#2-the-toolkit" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Metasploit
+        2. The toolkit
       
     </span>
   </a>
@@ -1003,10 +1003,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-privilege-escalation" class="md-nav__link">
+  <a href="#3-post-exploitation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Privilege escalation
+        3. Post-exploitation
       
     </span>
   </a>
@@ -1014,10 +1014,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-post-exploitation" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Post-exploitation
+        Defender's view
       
     </span>
   </a>
@@ -1025,32 +1025,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assessment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assessment
+        References
       
     </span>
   </a>
@@ -1550,7 +1528,15 @@
 
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-6-system-attacks-midterm">Week 6 · System Attacks · Midterm<a class="headerlink" href="#week-6-system-attacks-midterm" title="Permanent link">&para;</a></h1>
+<h1 id="week-6-system-attacks">Week 6 · System Attacks<a class="headerlink" href="#week-6-system-attacks" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1190/" target="_blank">T1190 Exploit Public-Facing App</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1059/" target="_blank">T1059 Command &amp; Scripting</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1068/" target="_blank">T1068 Exploit for PrivEsc</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
@@ -1558,28 +1544,36 @@
 <li>Privilege escalation and post-exploitation</li>
 <li>Using Metasploit to deliver and manage an exploit</li>
 </ul>
-<p><strong>Lab this week:</strong> Exploitation labs · <strong>Reading:</strong> Metasploit Unleashed, Kali Revealed · <strong>Midterm this week</strong></p>
 </div>
 <h2 id="1-exploitation-basics">1. Exploitation basics<a class="headerlink" href="#1-exploitation-basics" title="Permanent link">&para;</a></h2>
-<p>Match a vulnerability to an exploit, deliver a payload, and get a shell. Payloads range from a simple reverse shell to a full Meterpreter session.</p>
-<h2 id="2-metasploit">2. Metasploit<a class="headerlink" href="#2-metasploit" title="Permanent link">&para;</a></h2>
-<p>The framework that standardizes this: modules, <code>msfconsole</code>, and Meterpreter for post-exploitation. It's how one operator manages exploits, payloads, and sessions consistently.</p>
-<h2 id="3-privilege-escalation">3. Privilege escalation<a class="headerlink" href="#3-privilege-escalation" title="Permanent link">&para;</a></h2>
-<p>Landing on a box is rarely the end — you usually arrive as a low-privileged user. Windows and Linux each have well-known escalation paths (misconfigurations, weak permissions, credential reuse).</p>
-<h2 id="4-post-exploitation">4. Post-exploitation<a class="headerlink" href="#4-post-exploitation" title="Permanent link">&para;</a></h2>
+<p>Match a vulnerability to an exploit, deliver a payload, and get a shell. Payloads range from a simple reverse shell to a full Meterpreter session. The exploit usually lands you as a <strong>low-privileged</strong> user — not root.</p>
+<h2 id="2-the-toolkit">2. The toolkit<a class="headerlink" href="#2-the-toolkit" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🧰 Metasploit Framework</summary>
+<p>Modules, <code>msfconsole</code>, and Meterpreter for post-exploitation — the standard way to manage exploits, payloads, and sessions.</p>
+</details>
+<details class="note">
+<summary>⬆️ Privilege escalation</summary>
+<p>Windows and Linux each have well-known paths: misconfigurations, weak permissions, credential reuse, kernel exploits, SUID/sudo abuse.</p>
+</details>
+<details class="note">
+<summary>🔑 Password cracking</summary>
+<p>Offline cracking of dumped hashes with John or Hashcat once you have a foothold.</p>
+</details>
+<h2 id="3-post-exploitation">3. Post-exploitation<a class="headerlink" href="#3-post-exploitation" title="Permanent link">&para;</a></h2>
 <p>Persistence, pivoting to other hosts, and covering tracks — and, crucially, the artifacts each of these leaves behind for defenders to catch.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Remote and Local Exploitation</strong> and <strong>Using Browser Exploitation to Take Over a Host's Computer</strong>. Launch from the ACI Skill Labs portal.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Exploitation is the <strong>highest-signal</strong> phase — a request to a vulnerable endpoint with an anomalous payload, followed by an unexpected outbound (reverse shell) connection. Privilege escalation is quieter and depends on host telemetry (Sysmon, auditd) being configured beforehand.</p>
+<p><strong>Best control:</strong> the single most effective remediation is <strong>patching</strong> so the exploit fails, backed by least-privilege accounts and EDR.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Metasploit Unleashed</strong> (OffSec, free). <a href="https://www.offsec.com/metasploit-unleashed/">offsec.com/metasploit-unleashed</a></li>
 <li><strong>Kali Linux Revealed</strong> (official, free). <a href="https://www.kali.org/download-kali-linux-revealed-book/">kali.org book</a></li>
 </ul>
-<h2 id="assessment">Assessment<a class="headerlink" href="#assessment" title="Permanent link">&para;</a></h2>
-<p>Complete both labs. <strong>Midterm exam</strong> covers Units 1–6 (CEH-style).</p>
 
 
 
@@ -1679,6 +1673,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

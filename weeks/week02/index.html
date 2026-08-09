@@ -761,10 +761,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-osint" class="md-nav__link">
+  <a href="#3-osint-techniques" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. OSINT
+        3. OSINT techniques
       
     </span>
   </a>
@@ -783,10 +783,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
+        Defender's view
       
     </span>
   </a>
@@ -794,21 +794,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,6 +1540,14 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-2-reconnaissance-footprinting">Week 2 · Reconnaissance &amp; Footprinting<a class="headerlink" href="#week-2-reconnaissance-footprinting" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 1 — Reconnaissance</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1595/" target="_blank">T1595 Active Scanning</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1590/" target="_blank">T1590 Victim Network Info</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1589/" target="_blank">T1589 Victim Identity Info</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
@@ -1559,29 +1556,39 @@
 <li>OSINT techniques and search operators</li>
 <li>How a footprint feeds everything that follows</li>
 </ul>
-<p><strong>Lab this week:</strong> Recon labs · <strong>Reading:</strong> NIST SP 800-115 §4, OSINT Framework</p>
 </div>
 <h2 id="1-passive-vs-active-recon">1. Passive vs. active recon<a class="headerlink" href="#1-passive-vs-active-recon" title="Permanent link">&para;</a></h2>
-<p><strong>Passive</strong> recon uses public information and never touches the target directly — it's stealthy and low-risk. <strong>Active</strong> recon interacts with the target (and starts to carry legal weight). You always start passive.</p>
+<p><strong>Passive</strong> recon uses public information and never touches the target directly — it's stealthy and low-risk. <strong>Active</strong> recon interacts with the target and starts to carry legal weight. You always start passive.</p>
 <h2 id="2-whois-dns">2. WHOIS &amp; DNS<a class="headerlink" href="#2-whois-dns" title="Permanent link">&para;</a></h2>
 <p>Registrars, name servers, and DNS records reveal domains, IP ranges, mail servers, and often subdomains. Certificate-transparency logs are a goldmine for discovering hosts an organization didn't mean to expose.</p>
-<h2 id="3-osint">3. OSINT<a class="headerlink" href="#3-osint" title="Permanent link">&para;</a></h2>
-<p>Open-source intelligence — search-engine operators ("dorking"), job postings, employee social media, document metadata, and breach data — builds a picture of people, technologies, and exposure before you send a single scan.</p>
+<h2 id="3-osint-techniques">3. OSINT techniques<a class="headerlink" href="#3-osint-techniques" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🔎 Search operators (dorking)</summary>
+<p>Targeted queries (<code>site:</code>, <code>filetype:</code>, <code>intitle:</code>) surface exposed documents, admin panels, and credentials in public search indexes.</p>
+</details>
+<details class="note">
+<summary>🧾 Metadata &amp; documents</summary>
+<p>Office/PDF metadata leaks usernames, software versions, and internal paths. Tools like <code>exiftool</code> extract it.</p>
+</details>
+<details class="note">
+<summary>👥 People &amp; tech stack</summary>
+<p>Job posts, LinkedIn, and GitHub reveal the technologies in use and the people to target for social engineering (Week 8).</p>
+</details>
 <h2 id="4-the-footprint">4. The footprint<a class="headerlink" href="#4-the-footprint" title="Permanent link">&para;</a></h2>
 <p>The output of this week is a <strong>target profile</strong>: domains, hosts, emails, technologies, and exposed services. That profile drives your scanning (Week 3) and your social-engineering pretexts (Week 8).</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Footprinting and Reconnaissance Techniques with AI</strong> (primer) and <strong>Performing Reconnaissance from the WAN</strong> (graded). Launch from the ACI Skill Labs portal.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Passive recon is essentially invisible — it happens on third-party infrastructure the defender doesn't control. Active footprinting (DNS brute force, subdomain enumeration) can show as spikes in NXDOMAIN responses or automated request patterns.</p>
+<p><strong>Best control:</strong> you can't detect passive OSINT, so <strong>minimize the footprint</strong> — reduce metadata leakage, lock down DNS zone transfers, and monitor certificate-transparency logs for shadow assets you didn't know were public.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>NIST SP 800-115</strong> §4 (review &amp; target identification). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
 <li><strong>OSINT Framework.</strong> <a href="https://osintframework.com/">osintframework.com</a></li>
 <li><strong>MITRE ATT&amp;CK — Reconnaissance (TA0043).</strong> <a href="https://attack.mitre.org/tactics/TA0043/">attack.mitre.org</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>Footprint a provided practice domain and submit a one-page recon summary: assets found, methods used, and what a defender should hide.</p>
 
 
 
@@ -1681,6 +1688,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

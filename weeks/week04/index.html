@@ -882,10 +882,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-network-defenses" class="md-nav__link">
+  <a href="#3-network-defenses-evasion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Network defenses
+        3. Network defenses &amp; evasion
       
     </span>
   </a>
@@ -893,10 +893,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-evasion" class="md-nav__link">
+  <a href="#4-exfiltration-over-an-encrypted-channel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Evasion
+        4. Exfiltration over an encrypted channel
       
     </span>
   </a>
@@ -904,10 +904,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
+        Defender's view
       
     </span>
   </a>
@@ -915,21 +915,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,6 +1540,14 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phases 2–3 — Sniffing &amp; Evasion</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1040/" target="_blank">T1040 Network Sniffing</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1557/" target="_blank">T1557 Adversary-in-the-Middle</a>
+<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0005/" target="_blank">TA0005 Defense Evasion</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
@@ -1558,32 +1555,38 @@
 <li>ARP spoofing / man-in-the-middle</li>
 <li>IDS, firewalls, and honeypots — and evasion</li>
 </ul>
-<p><strong>Lab this week:</strong> Sniffer + firewall-evasion labs · <strong>Reading:</strong> Wireshark guide, MITRE ATT&amp;CK</p>
 </div>
 <h2 id="1-sniffing">1. Sniffing<a class="headerlink" href="#1-sniffing" title="Permanent link">&para;</a></h2>
 <p>A sniffer captures packets off the wire. On a switched network you need <strong>active</strong> techniques — ARP poisoning to become a man-in-the-middle — to see traffic that isn't yours. Cleartext protocols leak credentials directly.</p>
 <h2 id="2-reading-traffic">2. Reading traffic<a class="headerlink" href="#2-reading-traffic" title="Permanent link">&para;</a></h2>
 <p>With Wireshark you follow TCP streams, filter by protocol, and extract data. This is where "the network is the attack surface" becomes concrete — and why encryption matters.</p>
-<h2 id="3-network-defenses">3. Network defenses<a class="headerlink" href="#3-network-defenses" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>IDS/IPS</strong> — signature and anomaly detection.</li>
-<li><strong>Firewalls</strong> — stateful and application-layer rule sets.</li>
-<li><strong>Honeypots</strong> — decoys that catch and study attackers.</li>
-</ul>
-<h2 id="4-evasion">4. Evasion<a class="headerlink" href="#4-evasion" title="Permanent link">&para;</a></h2>
-<p>Attackers tunnel, encrypt, and fragment to slip past defenses. Exfiltrating data over an <strong>encrypted channel</strong> is hard to detect — which is exactly what this week's second lab demonstrates.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Capturing and Analyzing Network Traffic Using a Sniffer</strong> and <strong>Attacking the Firewall and Stealing Data Over an Encrypted Channel</strong>. Launch from the ACI Skill Labs portal.</p>
+<h2 id="3-network-defenses-evasion">3. Network defenses &amp; evasion<a class="headerlink" href="#3-network-defenses-evasion" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🛡️ IDS / IPS</summary>
+<p>Signature and anomaly detection on the wire. Evaded via encryption, fragmentation, and timing.</p>
+</details>
+<details class="note">
+<summary>🧱 Firewalls</summary>
+<p>Stateful and application-layer rule sets. Evaded via tunneling over allowed ports (e.g., data exfil over HTTPS/DNS).</p>
+</details>
+<details class="note">
+<summary>🍯 Honeypots</summary>
+<p>Decoy systems that catch and study attackers — a signal source for defenders, a trap to avoid for attackers.</p>
+</details>
+<h2 id="4-exfiltration-over-an-encrypted-channel">4. Exfiltration over an encrypted channel<a class="headerlink" href="#4-exfiltration-over-an-encrypted-channel" title="Permanent link">&para;</a></h2>
+<p>Attackers tunnel, encrypt, and fragment to slip past defenses. Exfiltrating data over an <strong>encrypted channel</strong> is hard to detect — which is exactly the scenario this week's material demonstrates.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Passive sniffing produces <strong>no traffic</strong> — it's undetectable on the wire. What <em>is</em> detectable is the ARP poisoning that enables it: sudden ARP table changes, a MAC address claiming to be the gateway, or duplicate-IP warnings.</p>
+<p><strong>Best control:</strong> encrypt everything in transit (so captured traffic is useless), enable <strong>Dynamic ARP Inspection</strong> and port security on switches, and segment sensitive networks.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Wireshark User's Guide.</strong> <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>
 <li><strong>MITRE ATT&amp;CK — Network Sniffing (T1040)</strong> · <strong>Defense Evasion (TA0005).</strong> <a href="https://attack.mitre.org/techniques/T1040/">T1040</a> · <a href="https://attack.mitre.org/tactics/TA0005/">TA0005</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>From a provided capture, identify the protocol, extract the leaked data, and recommend one defense.</p>
 
 
 
@@ -1683,6 +1686,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

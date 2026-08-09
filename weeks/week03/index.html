@@ -811,10 +811,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-the-defenders-view" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. The defender's view
+        Defender's view
       
     </span>
   </a>
@@ -822,32 +822,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1562,6 +1540,14 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-3-scanning-enumeration">Week 3 · Scanning &amp; Enumeration<a class="headerlink" href="#week-3-scanning-enumeration" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 2 — Scanning</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1595/" target="_blank">T1595 Active Scanning</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1046/" target="_blank">T1046 Service Discovery</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1018/" target="_blank">T1018 Remote System Discovery</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
@@ -1570,7 +1556,6 @@
 <li>Turning open ports into real intel through <strong>enumeration</strong></li>
 <li>How scanning looks from the <strong>defender's</strong> side</li>
 </ul>
-<p><strong>Lab this week:</strong> Scanning + Enumeration labs · <strong>Reading:</strong> Nmap book, NIST SP 800-115</p>
 </div>
 <h2 id="1-why-scan">1. Why scan?<a class="headerlink" href="#1-why-scan" title="Permanent link">&para;</a></h2>
 <p>Reconnaissance told you <em>who</em> the target is. Scanning tells you <em>what's reachable</em> — which hosts are up, which ports are open, and what's listening. It's the bridge between "here's a domain" and "here's an exploitable service."</p>
@@ -1604,43 +1589,46 @@
 </ul>
 <p>Every port comes back as <strong>open</strong>, <strong>closed</strong>, or <strong>filtered</strong> (a firewall is dropping the probe).</p>
 <h2 id="3-nmap-in-depth">3. Nmap in depth<a class="headerlink" href="#3-nmap-in-depth" title="Permanent link">&para;</a></h2>
-<details class="example">
-<summary>Host discovery — who's alive?</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nmap<span class="w"> </span>-sn<span class="w"> </span><span class="m">10</span>.0.0.0/24<span class="w">      </span><span class="c1"># ping sweep, no port scan</span>
+<p>Click each technique to expand.</p>
+<details class="note">
+<summary>🔎 Host discovery — who's alive?</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nmap<span class="w"> </span>-sn<span class="w"> </span><span class="m">10</span>.0.0.0/24<span class="w">      </span><span class="c1"># ping sweep, no port scan</span>
 </code></pre></div>
+Finds live hosts before you spend time scanning ports.</p>
 </details>
-<details class="example">
-<summary>Service &amp; version detection</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmap<span class="w"> </span>-sV<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">     </span><span class="c1"># all ports, identify service versions</span>
+<details class="note">
+<summary>🏷️ Service &amp; version detection</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmap<span class="w"> </span>-sV<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">     </span><span class="c1"># all ports, identify service versions</span>
 </code></pre></div>
+Turns "port 22 open" into "OpenSSH 8.9 — here's the exact version."</p>
 </details>
-<details class="example">
-<summary>OS fingerprint + default scripts</summary>
+<details class="note">
+<summary>🖐️ OS fingerprint + default scripts</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nmap<span class="w"> </span>-O<span class="w"> </span>-sC<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">      </span><span class="c1"># OS guess + safe NSE scripts</span>
 </code></pre></div>
 </details>
 <h2 id="4-enumeration">4. Enumeration<a class="headerlink" href="#4-enumeration" title="Permanent link">&para;</a></h2>
-<p>Scanning finds the door; enumeration reads the nameplate. Pull detail out of a discovered service:</p>
+<p>Scanning finds the door; enumeration reads the nameplate. Once a service is found, you pull details out of it:</p>
 <ul>
 <li><strong>SMB</strong> — shares, users, domains</li>
 <li><strong>SNMP</strong> — device config (watch for the <code>public</code> community string)</li>
 <li><strong>SMTP</strong> — valid usernames via <code>VRFY</code>/<code>RCPT</code></li>
 </ul>
 <p>The goal: convert "a port is open" into "here's the version, the users, and the shares."</p>
-<h2 id="5-the-defenders-view">5. The defender's view<a class="headerlink" href="#5-the-defenders-view" title="Permanent link">&para;</a></h2>
-<p>A ping sweep and a full port scan light up IDS signatures and firewall logs. Knowing what scanning <em>looks like</em> to a defender is exactly what makes you good at the "defend" half of the course — and it previews next week's IDS/firewall material.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Scanning the Network on the LAN</strong> and <strong>Enumerating Hosts Using Wireshark, Windows, and Linux Commands</strong>. Launch from the ACI Skill Labs portal.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>A ping sweep and a full port scan generate hundreds of connection attempts in seconds — high-signal, but easy to bury in internet background noise. Useful detection looks for <strong>one source touching many ports/hosts in a short window</strong>, often with a scanner user-agent on web ports.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>index=web_logs status=404 (useragent=&quot;*nmap*&quot; OR useragent=&quot;*gobuster*&quot;)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>| stats count by clientip | where count &gt; 50
+</code></pre></div>
+<p><strong>Best control:</strong> you can't stop scanning, so <strong>reduce the attack surface</strong> — close unused ports, put management services behind a VPN, and rate-limit at the edge.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Nmap Network Scanning</strong> (official book) — Host Discovery &amp; Port Scanning. <a href="https://nmap.org/book/toc.html">nmap.org/book</a></li>
 <li><strong>NIST SP 800-115</strong> §4.2–4.3. <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>Complete both labs and take the Units 3–4 quiz (recon, scanning, enumeration).</p>
 
 
 
@@ -1740,6 +1728,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

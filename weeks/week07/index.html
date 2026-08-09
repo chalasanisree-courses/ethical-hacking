@@ -1020,10 +1020,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-rat-lifecycle" class="md-nav__link">
+  <a href="#2-attack-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. RAT lifecycle
+        2. Attack types
       
     </span>
   </a>
@@ -1031,10 +1031,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-denial-of-service" class="md-nav__link">
+  <a href="#3-command-control" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Denial of service
+        3. Command &amp; control
       
     </span>
   </a>
@@ -1042,10 +1042,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-session-hijacking" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Session hijacking
+        Defender's view
       
     </span>
   </a>
@@ -1053,32 +1053,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,6 +1529,14 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-7-trojans-malware-dos">Week 7 · Trojans, Malware &amp; DoS<a class="headerlink" href="#week-7-trojans-malware-dos" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 4 — Maintaining Access</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1071/" target="_blank">T1071 App-Layer C2</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1499/" target="_blank">T1499 Endpoint DoS</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1185/" target="_blank">T1185 Session Hijacking</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
@@ -1558,28 +1544,36 @@
 <li>How a RAT is built, delivered, and detected</li>
 <li>Denial-of-service and session hijacking</li>
 </ul>
-<p><strong>Lab this week:</strong> RAT + DoS labs · <strong>Reading:</strong> MITRE ATT&amp;CK, CISA</p>
 </div>
 <h2 id="1-malware-taxonomy">1. Malware taxonomy<a class="headerlink" href="#1-malware-taxonomy" title="Permanent link">&para;</a></h2>
-<p>Distinguish <strong>propagation</strong> (how it spreads: virus, worm) from <strong>payload</strong> (what it does: backdoor, ransomware, RAT). A Remote Access Trojan gives an attacker ongoing control of a compromised host.</p>
-<h2 id="2-rat-lifecycle">2. RAT lifecycle<a class="headerlink" href="#2-rat-lifecycle" title="Permanent link">&para;</a></h2>
-<p>Build → deliver → command-and-control → persist. Understanding each stage tells a defender exactly where to place detection and prevention.</p>
-<h2 id="3-denial-of-service">3. Denial of service<a class="headerlink" href="#3-denial-of-service" title="Permanent link">&para;</a></h2>
-<p>Volumetric, protocol, and application-layer attacks — and amplification, where a small request triggers a huge response. DDoS spreads the source across many hosts.</p>
-<h2 id="4-session-hijacking">4. Session hijacking<a class="headerlink" href="#4-session-hijacking" title="Permanent link">&para;</a></h2>
-<p>Stealing or forging a session token lets an attacker ride a legitimate user's authenticated session. It's why HTTPS and secure, <code>HttpOnly</code> cookies matter.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Crafting and Deploying Malware Using a Remote Access Trojan (RAT)</strong> and <strong>Performing a Denial of Service Attack from the WAN</strong>. Launch from the ACI Skill Labs portal.</p>
+<p>Distinguish <strong>propagation</strong> (how it spreads: virus, worm) from <strong>payload</strong> (what it does: backdoor, ransomware, RAT). A Remote Access Trojan gives an attacker ongoing control of a compromised host — the essence of <em>maintaining access</em>.</p>
+<h2 id="2-attack-types">2. Attack types<a class="headerlink" href="#2-attack-types" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🐀 RAT lifecycle</summary>
+<p>Build → deliver → command-and-control → persist. Understanding each stage tells a defender exactly where to place detection.</p>
+</details>
+<details class="note">
+<summary>🌊 Denial of service</summary>
+<p>Volumetric, protocol, and application-layer attacks — plus amplification, where a small request triggers a huge response. DDoS spreads the source across many hosts.</p>
+</details>
+<details class="note">
+<summary>🎫 Session hijacking</summary>
+<p>Stealing or forging a session token to ride a legitimate user's authenticated session. Why HTTPS and secure, <code>HttpOnly</code> cookies matter.</p>
+</details>
+<h2 id="3-command-control">3. Command &amp; control<a class="headerlink" href="#3-command-control" title="Permanent link">&para;</a></h2>
+<p>Modern malware "phones home" to a C2 server, often disguised as normal HTTPS or DNS traffic to blend in — the link between a foothold and a persistent operation.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>RAT/C2 traffic shows as <strong>beaconing</strong> — regular, small outbound connections to an unfamiliar host, sometimes on odd intervals. DoS shows as a traffic-volume anomaly. Session hijacking shows as a session used from two locations at once.</p>
+<p><strong>Best control:</strong> egress filtering and DNS monitoring to catch C2, EDR to catch the RAT on-host, and upstream DDoS mitigation for volumetric attacks.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>MITRE ATT&amp;CK — Command &amp; Control (TA0011)</strong> · <strong>Endpoint DoS (T1499).</strong> <a href="https://attack.mitre.org/tactics/TA0011/">TA0011</a> · <a href="https://attack.mitre.org/techniques/T1499/">T1499</a></li>
 <li><strong>CISA — Understanding Denial-of-Service Attacks.</strong> <a href="https://www.cisa.gov/news-events/news/understanding-denial-service-attacks">cisa.gov</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>For the RAT you deployed, list three detection or prevention controls a defender could use at different layers.</p>
 
 
 
@@ -1679,6 +1673,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

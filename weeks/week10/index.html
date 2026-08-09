@@ -1182,10 +1182,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-automation" class="md-nav__link">
+  <a href="#3-defense" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Automation
+        3. Defense
       
     </span>
   </a>
@@ -1193,10 +1193,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-defense" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Defense
+        Defender's view
       
     </span>
   </a>
@@ -1204,32 +1204,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,39 +1529,50 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-10-web-attacks-ii-sql-injection">Week 10 · Web Attacks II — SQL Injection<a class="headerlink" href="#week-10-web-attacks-ii-sql-injection" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1190/" target="_blank">T1190 Exploit Public-Facing App</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1005/" target="_blank">T1005 Data from Local System</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1552/" target="_blank">T1552 Unsecured Credentials</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
 <li>How SQL injection works and why it's still so damaging</li>
 <li>In-band, blind, and error-based SQLi</li>
 <li>Defenses: parameterized queries, validation, least privilege</li>
-<li>XSS and CSRF as sibling attacks (lecture)</li>
 </ul>
-<p><strong>Lab this week:</strong> SQL injection labs · <strong>Reading:</strong> OWASP SQLi + cheat sheet</p>
 </div>
 <h2 id="1-sqli-mechanics">1. SQLi mechanics<a class="headerlink" href="#1-sqli-mechanics" title="Permanent link">&para;</a></h2>
-<p>Untrusted input concatenated into a database query lets an attacker change the query's meaning — the classic <code>' OR 1=1 --</code>. From there: dump data, bypass auth, sometimes reach the OS.</p>
+<p>Untrusted input concatenated into a database query lets an attacker change the query's meaning — the classic <code>' OR 1=1 --</code>. From there: dump data, bypass authentication, sometimes reach the OS.</p>
 <h2 id="2-variants">2. Variants<a class="headerlink" href="#2-variants" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Union-based</strong> — append your own result set.</li>
-<li><strong>Error-based</strong> — leak data through error messages.</li>
-<li><strong>Blind (boolean/time-based)</strong> — infer data when there's no visible output.</li>
-</ul>
-<h2 id="3-automation">3. Automation<a class="headerlink" href="#3-automation" title="Permanent link">&para;</a></h2>
-<p>Tools like sqlmap scale these techniques — useful to understand both as an attacker and to recognize the traffic as a defender.</p>
-<h2 id="4-defense">4. Defense<a class="headerlink" href="#4-defense" title="Permanent link">&para;</a></h2>
-<p>Prepared statements / parameterized queries are the real fix, backed by input validation, least-privilege database accounts, and a WAF. In lecture we'll relate <strong>XSS</strong> (stored/reflected) and <strong>CSRF</strong> as the other major injection-style web attacks.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Performing SQL Injection to Manipulate Tables in a Database</strong> and <strong>SQL Injection Methodologies with AI</strong>. Launch from the ACI Skill Labs portal.</p>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🔗 In-band (union / error-based)</summary>
+<p>Results come back in the response — either appended via <code>UNION</code> or leaked through database error messages.</p>
+</details>
+<details class="note">
+<summary>🕶️ Blind (boolean / time-based)</summary>
+<p>No visible output, so you infer data one bit at a time from true/false responses or deliberate time delays.</p>
+</details>
+<details class="note">
+<summary>🤖 Automation (sqlmap)</summary>
+<p>Tools scale these techniques — useful to understand both as an attacker and to recognize the traffic as a defender.</p>
+</details>
+<h2 id="3-defense">3. Defense<a class="headerlink" href="#3-defense" title="Permanent link">&para;</a></h2>
+<p>Prepared statements / parameterized queries are the real fix, backed by input validation, least-privilege database accounts, and a WAF. In lecture we also relate <strong>XSS</strong> and <strong>CSRF</strong> as the other major injection-style web attacks.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>SQLi shows as <strong>suspicious query strings</strong> in web logs (quotes, <code>UNION</code>, <code>--</code>, encoded variants), database <strong>error spikes</strong>, or unusual query volume/latency from the app's DB account.</p>
+<p><strong>Best control:</strong> parameterized queries eliminate the class entirely; least-privilege DB accounts limit the blast radius; a WAF catches known patterns.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>OWASP — SQL Injection</strong> · <strong>SQL Injection Prevention Cheat Sheet.</strong> <a href="https://owasp.org/www-community/attacks/SQL_Injection">Attack</a> · <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">Prevention</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>Complete both labs and take the Unit 8 quiz (web-server, web-app, and SQL-injection attacks + defenses).</p>
 
 
 
@@ -1683,6 +1672,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

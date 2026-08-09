@@ -1264,10 +1264,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-wep-vs-wpa" class="md-nav__link">
+  <a href="#2-cracking-wi-fi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. WEP vs. WPA
+        2. Cracking Wi-Fi
       
     </span>
   </a>
@@ -1275,10 +1275,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-aircrack-ng-workflow" class="md-nav__link">
+  <a href="#3-bluetooth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Aircrack-ng workflow
+        3. Bluetooth
       
     </span>
   </a>
@@ -1286,10 +1286,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-bluetooth-lecture" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Bluetooth (lecture)
+        Defender's view
       
     </span>
   </a>
@@ -1297,32 +1297,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,35 +1529,51 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-11-wireless-hacking">Week 11 · Wireless Hacking<a class="headerlink" href="#week-11-wireless-hacking" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (wireless)</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1040/" target="_blank">T1040 Network Sniffing</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1557/" target="_blank">T1557 Adversary-in-the-Middle</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1110/" target="_blank">T1110 Brute Force</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
 <li>Wi-Fi security: WEP, WPA/WPA2/WPA3</li>
 <li>Capturing a handshake and cracking the key</li>
-<li>Bluetooth attack surface (lecture)</li>
+<li>Bluetooth attack surface</li>
 </ul>
-<p><strong>Lab this week:</strong> WEP/WPA cracking · <strong>Reading:</strong> Aircrack-ng docs</p>
 </div>
 <h2 id="1-wireless-architecture">1. Wireless architecture<a class="headerlink" href="#1-wireless-architecture" title="Permanent link">&para;</a></h2>
-<p>SSIDs, access points, association, and the WPA 4-way handshake. Attacks travel through the air, so range and monitor-mode capture matter.</p>
-<h2 id="2-wep-vs-wpa">2. WEP vs. WPA<a class="headerlink" href="#2-wep-vs-wpa" title="Permanent link">&para;</a></h2>
-<p><strong>WEP</strong> is fundamentally broken (IV reuse) and crackable in minutes. <strong>WPA/WPA2</strong> require capturing the handshake and running a dictionary/brute-force attack offline. <strong>WPA3</strong> closes several of these gaps.</p>
-<h2 id="3-aircrack-ng-workflow">3. Aircrack-ng workflow<a class="headerlink" href="#3-aircrack-ng-workflow" title="Permanent link">&para;</a></h2>
-<p>Put the adapter in monitor mode → capture the handshake → crack against a wordlist. The lab walks the full sequence.</p>
-<h2 id="4-bluetooth-lecture">4. Bluetooth (lecture)<a class="headerlink" href="#4-bluetooth-lecture" title="Permanent link">&para;</a></h2>
-<p>Bluejacking, bluesnarfing, and BLE exposure — a smaller but real attack surface on modern devices.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Breaking WEP and WPA and Decrypting the Traffic</strong>. Launch from the ACI Skill Labs portal.</p>
+<p>SSIDs, access points, association, and the WPA 4-way handshake. Attacks travel through the air, so range and monitor-mode capture matter — no physical network access required.</p>
+<h2 id="2-cracking-wi-fi">2. Cracking Wi-Fi<a class="headerlink" href="#2-cracking-wi-fi" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>💥 WEP</summary>
+<p>Fundamentally broken (IV reuse) — crackable in minutes regardless of key strength.</p>
+</details>
+<details class="note">
+<summary>🤝 WPA / WPA2</summary>
+<p>Capture the 4-way handshake, then run an <strong>offline</strong> dictionary/brute-force attack against it. Strength depends entirely on passphrase quality.</p>
+</details>
+<details class="note">
+<summary>🛰️ Aircrack-ng workflow</summary>
+<p>Monitor mode → capture handshake → crack against a wordlist. WPA3 closes several of these gaps.</p>
+</details>
+<h2 id="3-bluetooth">3. Bluetooth<a class="headerlink" href="#3-bluetooth" title="Permanent link">&para;</a></h2>
+<p>Bluejacking, bluesnarfing, and BLE exposure — a smaller but real attack surface on modern devices, especially wearables and IoT.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Handshake capture is passive and nearly invisible. What's detectable is the <strong>deauthentication flood</strong> used to force a re-handshake, and <strong>rogue/evil-twin access points</strong> — caught by a Wireless IDS (WIDS) watching for unexpected BSSIDs and deauth storms.</p>
+<p><strong>Best control:</strong> WPA3 (or WPA2 with a long random passphrase), 802.1X/enterprise auth, and WIDS for rogue-AP detection.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Aircrack-ng documentation &amp; tutorials.</strong> <a href="https://www.aircrack-ng.org/documentation.html">aircrack-ng.org/documentation</a></li>
 <li><strong>MITRE ATT&amp;CK</strong> (adversary-in-the-middle / wireless-relevant techniques). <a href="https://attack.mitre.org/">attack.mitre.org</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>Explain why capturing the WPA2 handshake doesn't instantly reveal the key, and what makes a passphrase crackable.</p>
 
 
 
@@ -1679,6 +1673,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

@@ -1143,10 +1143,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-web-app-attacks" class="md-nav__link">
+  <a href="#2-web-app-attack-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Web-app attacks
+        2. Web-app attack classes
       
     </span>
   </a>
@@ -1165,10 +1165,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-methodology" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Methodology
+        Defender's view
       
     </span>
   </a>
@@ -1176,32 +1176,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,35 +1529,51 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-9-web-attacks-i">Week 9 · Web Attacks I<a class="headerlink" href="#week-9-web-attacks-i" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1190/" target="_blank">T1190 Exploit Public-Facing App</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1505/" target="_blank">T1505 Server Software Component</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1059/" target="_blank">T1059 Command &amp; Scripting</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
 <li>The web-server and web-application attack surface</li>
 <li>The OWASP Top 10 as a shared vocabulary</li>
-<li>Exploiting a vulnerable web app</li>
+<li>How web attacks lead to backend access</li>
 </ul>
-<p><strong>Lab this week:</strong> Webserver + web-app labs · <strong>Reading:</strong> OWASP Top 10 &amp; WSTG</p>
 </div>
 <h2 id="1-web-server-attacks">1. Web-server attacks<a class="headerlink" href="#1-web-server-attacks" title="Permanent link">&para;</a></h2>
-<p>Misconfiguration, default credentials, outdated components, and directory traversal. The server itself is a target before you ever reach the application.</p>
-<h2 id="2-web-app-attacks">2. Web-app attacks<a class="headerlink" href="#2-web-app-attacks" title="Permanent link">&para;</a></h2>
-<p>Broken access control, injection, cross-site scripting (XSS), cross-site request forgery (CSRF), and insecure design. The web is the single biggest attack surface most organizations expose.</p>
+<p>Misconfiguration, default credentials, outdated components, and directory traversal. The server itself is a target before you ever reach the application — and a web shell here means persistent access.</p>
+<h2 id="2-web-app-attack-classes">2. Web-app attack classes<a class="headerlink" href="#2-web-app-attack-classes" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🧩 Broken access control</summary>
+<p>Acting outside intended permissions — IDOR, forced browsing, privilege bypass. The #1 OWASP risk.</p>
+</details>
+<details class="note">
+<summary>💉 Injection</summary>
+<p>Untrusted input interpreted as code/query — SQLi (Week 10), command injection, LDAP injection.</p>
+</details>
+<details class="note">
+<summary>🖼️ XSS &amp; CSRF</summary>
+<p>Stored/reflected cross-site scripting runs attacker JS in a victim's browser; CSRF forces authenticated actions.</p>
+</details>
 <h2 id="3-the-owasp-top-10">3. The OWASP Top 10<a class="headerlink" href="#3-the-owasp-top-10" title="Permanent link">&para;</a></h2>
 <p>A community-maintained list of the most critical web risks — the vocabulary you'll use to classify and communicate findings for the rest of the course.</p>
-<h2 id="4-methodology">4. Methodology<a class="headerlink" href="#4-methodology" title="Permanent link">&para;</a></h2>
-<p>Map the app → discover inputs → exploit → document. This previews the OWASP Web Security Testing Guide you'll lean on in Week 10.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Attacking Webservers from the WAN</strong> and <strong>Exploiting a Vulnerable Web Application</strong>. Launch from the ACI Skill Labs portal.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Web attacks are visible in <strong>access logs and WAF logs</strong>: anomalous request paths, encoded payloads, unexpected POST bodies, spikes of 4xx/5xx responses, and requests to endpoints that shouldn't exist.</p>
+<p><strong>Best control:</strong> secure coding (input validation, output encoding) is the real fix; a WAF and timely patching are the layers behind it.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>OWASP Top 10.</strong> <a href="https://owasp.org/www-project-top-ten/">owasp.org/www-project-top-ten</a></li>
 <li><strong>OWASP Web Security Testing Guide (WSTG).</strong> <a href="https://owasp.org/www-project-web-security-testing-guide/">owasp.org/www-project-web-security-testing-guide</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>Tie two findings from the vulnerable app to specific OWASP Top 10 categories and propose fixes.</p>
 
 
 
@@ -1679,6 +1673,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>

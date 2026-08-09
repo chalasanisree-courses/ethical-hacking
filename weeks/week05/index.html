@@ -932,10 +932,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lab-this-week" class="md-nav__link">
+  <a href="#defenders-view" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lab this week
+        Defender's view
       
     </span>
   </a>
@@ -943,21 +943,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-free" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading (free)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#assignment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assignment
+        References
       
     </span>
   </a>
@@ -1551,6 +1540,14 @@
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-5-cryptography">Week 5 · Cryptography<a class="headerlink" href="#week-5-cryptography" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Foundational — underpins every phase</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1110/" target="_blank">T1110 Brute Force</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1600/" target="_blank">T1600 Weaken Encryption</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1557/" target="_blank">T1557 AiTM (downgrade)</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
@@ -1558,27 +1555,37 @@
 <li>PKI: keys, certificates, and certificate authorities</li>
 <li>Hashing, signatures, and common crypto attacks</li>
 </ul>
-<p><strong>Lab this week:</strong> Cryptography + Public Key labs · <strong>Reading:</strong> Crypto 101</p>
 </div>
 <h2 id="1-symmetric-vs-asymmetric">1. Symmetric vs. asymmetric<a class="headerlink" href="#1-symmetric-vs-asymmetric" title="Permanent link">&para;</a></h2>
-<p><strong>Symmetric</strong> (AES) uses one shared key — fast, but key distribution is the hard part. <strong>Asymmetric</strong> (RSA, ECC) uses a public/private pair, which solves key exchange and enables signatures.</p>
+<p><strong>Symmetric</strong> (AES) uses one shared key — fast, but key distribution is the hard part. <strong>Asymmetric</strong> (RSA, ECC) uses a public/private pair, which solves key exchange and enables digital signatures.</p>
 <h2 id="2-pki">2. PKI<a class="headerlink" href="#2-pki" title="Permanent link">&para;</a></h2>
 <p>Public Key Infrastructure ties a public key to an identity through <strong>certificates</strong> signed by a <strong>certificate authority</strong>. This is the trust model behind HTTPS: chains of trust, X.509 certificates, and the TLS handshake.</p>
 <h2 id="3-hashing-integrity">3. Hashing &amp; integrity<a class="headerlink" href="#3-hashing-integrity" title="Permanent link">&para;</a></h2>
 <p>Hashes (SHA-2) verify integrity and store passwords — but a hash is <strong>not</strong> encryption. Salting defends against precomputed (rainbow-table) attacks.</p>
 <h2 id="4-attacks">4. Attacks<a class="headerlink" href="#4-attacks" title="Permanent link">&para;</a></h2>
-<p>Brute force, birthday attacks, downgrade attacks, and weak-key/weak-configuration issues. Most real-world crypto failures are implementation and configuration mistakes, not broken math.</p>
-<h2 id="lab-this-week"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 22a3 3 0 0 1-3-3c0-.6.18-1.16.5-1.63L9 7.81V6a1 1 0 0 1-1-1V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1v1.81l5.5 9.56c.32.47.5 1.03.5 1.63a3 3 0 0 1-3 3zm-1-3a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1c0-.21-.07-.41-.18-.57l-2.29-3.96L14 17l-5.07-5.07-3.75 6.5c-.11.16-.18.36-.18.57m8-9a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"/></svg></span> Lab this week<a class="headerlink" href="#lab-this-week" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">ACI Skill Labs — hands-on &amp; auto-graded</p>
-<p>Complete <strong>Cryptography Techniques with AI</strong> (primer) and <strong>Using Public Key Encryption to Secure Messages</strong> (graded). Launch from the ACI Skill Labs portal.</p>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🔨 Brute force &amp; dictionary</summary>
+<p>Feasible when keys/passwords are weak or hashing is fast/unsalted. Defended by strong keys, slow hashes (bcrypt/argon2), and salting.</p>
+</details>
+<details class="note">
+<summary>⬇️ Downgrade &amp; weak configuration</summary>
+<p>Forcing a connection to an old, breakable cipher (e.g., SSL stripping, export ciphers). Most real crypto failures are configuration, not broken math.</p>
+</details>
+<details class="note">
+<summary>🎂 Birthday / collision</summary>
+<p>Exploits the math of hash collisions — why MD5 and SHA-1 are deprecated for signatures.</p>
+</details>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
+<div class="admonition defender">
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>Crypto weakness rarely triggers an alert on its own — it shows up as <strong>deprecated ciphers, expired or mismatched certificates, and downgrade attempts</strong> in TLS inspection logs.</p>
+<p><strong>Best control:</strong> enforce modern TLS (1.2+), disable legacy ciphers, use HSTS, and monitor certificate transparency and expiry. Store passwords with slow, salted hashes.</p>
 </div>
-<h2 id="reading-free">Reading (free)<a class="headerlink" href="#reading-free" title="Permanent link">&para;</a></h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Crypto 101</strong> (free book) — Ch. 1–7 (block/stream ciphers, key exchange, public-key, hashes). <a href="https://www.crypto101.io/">crypto101.io</a></li>
 </ul>
-<h2 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h2>
-<p>Generate a keypair, sign and verify a message, and explain in a paragraph what a certificate adds on top of a raw public key.</p>
 
 
 
@@ -1678,6 +1685,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
       
     
   </body>
