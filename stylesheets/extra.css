@@ -1,0 +1,47 @@
+/* Ethical Hacking course site — light custom styling on top of Material */
+
+:root {
+  --ceh-accent: #3949ab;
+}
+
+/* Week hero banner */
+.week-hero {
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, rgba(57,73,171,.14), rgba(0,150,136,.10));
+  border: 1px solid rgba(57,73,171,.25);
+}
+.week-hero .eyebrow {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin: 0 0 4px;
+}
+.week-hero h2, .week-hero h1 { margin: 0; border: none; }
+
+/* Meta chip row */
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+.chip {
+  display: inline-block;
+  font-size: .78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(57,73,171,.12);
+  border: 1px solid rgba(57,73,171,.25);
+  white-space: nowrap;
+}
+
+/* Reference tables a touch tighter */
+.md-typeset table:not([class]) th { font-weight: 600; }
+
+/* Cards grid on the homepage */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 14px; margin: 18px 0; }
+.card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: var(--md-default-bg-color);
+}
+.card h3 { margin-top: 0; }
