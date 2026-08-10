@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/index.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/reference/ceh-map/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/reference/ceh-map.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/reference/resources/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/reference/resources.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/reference/tools/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/reference/tools.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week01/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/cryptography.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week02/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/ethics-law-methodology.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week03/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/malware-trojans-dos.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week04/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/network-hacking-sniffing.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week05/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/penetration-testing.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week06/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/reconnaissance-footprinting.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week07/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/scanning-enumeration.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week08/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/social-engineering-identity.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week09/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/system-attacks.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week10/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/web-attacks-servers-apps.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week11/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/web-attacks-sqli-session.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
     <url>
-         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/week12/</loc>
+         <loc>https://chalasanisree-courses.github.io/ethical-hacking/weeks/wireless-hacking.html</loc>
          <lastmod>2026-08-10</lastmod>
     </url>
 </urlset>

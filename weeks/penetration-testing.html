@@ -12,31 +12,31 @@
         <meta name="author" content="Sara Chalasani">
       
       
-        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/week07/">
+        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/penetration-testing.html">
       
       
-        <link rel="prev" href="../week06/">
+        <link rel="prev" href="wireless-hacking.html">
       
       
-        <link rel="next" href="../week08/">
+        <link rel="next" href="social-engineering-identity.html">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Week 7 · Malware, Trojans & DoS - Ethical Hacking</title>
+        <title>Week 11 · Penetration Testing - Ethical Hacking</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-7-malware-trojans-dos" class="md-skip">
+        <a href="#week-11-penetration-testing-methodology-reporting" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 7 · Malware, Trojans & DoS
+              Week 11 · Penetration Testing
             
           </span>
         </div>
@@ -229,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week01/" class="md-tabs__link">
+        <a href="ethics-law-methodology.html" class="md-tabs__link">
           
   
   
@@ -272,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week02/" class="md-tabs__link">
+        <a href="reconnaissance-footprinting.html" class="md-tabs__link">
           
   
   
@@ -294,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week04/" class="md-tabs__link">
+        <a href="network-hacking-sniffing.html" class="md-tabs__link">
           
   
   
@@ -312,13 +312,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../week06/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="system-attacks.html" class="md-tabs__link">
           
   
   
@@ -340,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week08/" class="md-tabs__link">
+        <a href="web-attacks-servers-apps.html" class="md-tabs__link">
           
   
   
@@ -358,11 +356,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../week10/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="wireless-hacking.html" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week12/" class="md-tabs__link">
+        <a href="social-engineering-identity.html" class="md-tabs__link">
           
   
   
@@ -406,7 +406,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/ceh-map/" class="md-tabs__link">
+        <a href="../reference/ceh-map.html" class="md-tabs__link">
           
   
   
@@ -444,7 +444,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -557,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week01/" class="md-nav__link">
+      <a href="ethics-law-methodology.html" class="md-nav__link">
         
   
   
@@ -650,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week02/" class="md-nav__link">
+      <a href="reconnaissance-footprinting.html" class="md-nav__link">
         
   
   
@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week03/" class="md-nav__link">
+      <a href="scanning-enumeration.html" class="md-nav__link">
         
   
   
@@ -771,7 +771,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week04/" class="md-nav__link">
+      <a href="network-hacking-sniffing.html" class="md-nav__link">
         
   
   
@@ -799,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week05/" class="md-nav__link">
+      <a href="cryptography.html" class="md-nav__link">
         
   
   
@@ -831,10 +831,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -846,22 +844,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -879,7 +874,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -897,7 +892,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week06/" class="md-nav__link">
+      <a href="system-attacks.html" class="md-nav__link">
         
   
   
@@ -922,37 +917,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 7 · Malware, Trojans & DoS
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="malware-trojans-dos.html" class="md-nav__link">
         
   
   
@@ -968,81 +936,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-malware-taxonomy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Malware taxonomy
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-the-rat-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. The RAT lifecycle
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-denial-of-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Denial of service
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#defenders-view" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Defender's view
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1120,7 +1013,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week08/" class="md-nav__link">
+      <a href="web-attacks-servers-apps.html" class="md-nav__link">
         
   
   
@@ -1148,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week09/" class="md-nav__link">
+      <a href="web-attacks-sqli-session.html" class="md-nav__link">
         
   
   
@@ -1180,8 +1073,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -1193,19 +1088,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   
@@ -1223,7 +1121,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1241,7 +1139,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week10/" class="md-nav__link">
+      <a href="wireless-hacking.html" class="md-nav__link">
         
   
   
@@ -1266,10 +1164,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../week11/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 · Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="penetration-testing.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1285,6 +1210,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-the-methodology-end-to-end" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The methodology, end to end
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-covering-tracks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Covering tracks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frameworks-the-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Frameworks &amp; the report
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defenders-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defender's view
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1360,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week12/" class="md-nav__link">
+      <a href="social-engineering-identity.html" class="md-nav__link">
         
   
   
@@ -1455,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/ceh-map/" class="md-nav__link">
+      <a href="../reference/ceh-map.html" class="md-nav__link">
         
   
   
@@ -1483,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tools/" class="md-nav__link">
+      <a href="../reference/tools.html" class="md-nav__link">
         
   
   
@@ -1511,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/resources/" class="md-nav__link">
+      <a href="../reference/resources.html" class="md-nav__link">
         
   
   
@@ -1556,7 +1556,7 @@
 
 
   
-    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/week07.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/penetration-testing.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1564,74 +1564,57 @@
   
 
 
-<p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-7-malware-trojans-dos">Week 7 · Malware, Trojans &amp; DoS<a class="headerlink" href="#week-7-malware-trojans-dos" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 4 — Maintaining Access &amp; Impact</span></p>
+<p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
+<h1 id="week-11-penetration-testing-methodology-reporting">Week 11 · Penetration Testing — Methodology &amp; Reporting<a class="headerlink" href="#week-11-penetration-testing-methodology-reporting" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 5 — Covering Tracks &amp; Reporting</span></p>
 <div class="attck-strip">
 <span class="lbl">ATT&CK</span>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1071/" target="_blank">T1071 App-Layer C2</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1219/" target="_blank">T1219 Remote Access Software</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1499/" target="_blank">T1499 Endpoint DoS</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1070/" target="_blank">T1070 Indicator Removal</a>
+<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0005/" target="_blank">TA0005 Defense Evasion</a>
+<a class="attck-tag" href="https://attack.mitre.org/" target="_blank">Full ATT&CK matrix</a>
 </div>
 
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
-<li>Malware types: viruses, worms, trojans, RATs, ransomware</li>
-<li>How a RAT is built, delivered, and detected</li>
-<li>Command-and-control (C2) — how malware "phones home"</li>
-<li>Denial-of-service and DDoS</li>
+<li>The full penetration-testing methodology, end to end</li>
+<li>Covering tracks — and why it's the defender's problem too</li>
+<li>Scoping an engagement and writing the report <em>(the skill you'll apply in the Week 12 final project)</em></li>
 </ul>
 </div>
-<h2 id="1-malware-taxonomy">1. Malware taxonomy<a class="headerlink" href="#1-malware-taxonomy" title="Permanent link">&para;</a></h2>
-<p>The key distinction is <strong>propagation</strong> (how it spreads) vs. <strong>payload</strong> (what it does):</p>
-<ul>
-<li><strong>Virus</strong> — attaches to a file/program; spreads when that file runs.</li>
-<li><strong>Worm</strong> — self-propagates across a network with no user action (WannaCry spread this way).</li>
-<li><strong>Trojan</strong> — disguised as something legitimate; the user runs it willingly.</li>
-<li><strong>RAT (Remote Access Trojan)</strong> — a trojan whose payload gives the attacker ongoing remote control — the essence of <em>maintaining access</em>.</li>
-<li><strong>Ransomware</strong> — encrypts data for extortion; often the final payload of a longer intrusion.</li>
-</ul>
-<h2 id="2-the-rat-lifecycle">2. The RAT lifecycle<a class="headerlink" href="#2-the-rat-lifecycle" title="Permanent link">&para;</a></h2>
-<p>Click each stage to expand.</p>
+<h2 id="1-the-methodology-end-to-end">1. The methodology, end to end<a class="headerlink" href="#1-the-methodology-end-to-end" title="Permanent link">&para;</a></h2>
+<p>Every technical week of this course was one link in a chain. A real engagement runs the whole thing in order:</p>
+<p><strong>Pre-engagement</strong> (scope, rules of engagement, authorization) → <strong>Reconnaissance</strong> → <strong>Scanning &amp; vuln analysis</strong> → <strong>Exploitation</strong> → <strong>Post-exploitation</strong> (privilege escalation, pivoting) → <strong>Reporting</strong>. Revisit the <a href="ethics-law-methodology.html">Week 1 kill chain</a> — this is that diagram, run for real against a live scope.</p>
+<h2 id="2-covering-tracks">2. Covering tracks<a class="headerlink" href="#2-covering-tracks" title="Permanent link">&para;</a></h2>
+<p>The final <em>attacker</em> phase is hiding the intrusion: clearing logs, timestomping files, and disabling security tooling. For a <strong>pentester</strong> this is documented rather than hidden — but understanding it is exactly what lets a defender detect and reconstruct an attack after the fact.</p>
+<h2 id="3-frameworks-the-report">3. Frameworks &amp; the report<a class="headerlink" href="#3-frameworks-the-report" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
 <details class="note">
-<summary>🔨 Build &amp; obfuscate</summary>
-<p>The attacker generates a payload (e.g., with <code>msfvenom</code>) and obfuscates/encodes it to slip past antivirus signature matching.</p>
+<summary>📐 Frameworks</summary>
+<p><strong>NIST SP 800-115</strong>, <strong>PTES</strong> (Penetration Testing Execution Standard), and <strong>OSSTMM</strong> each formalize the process so results are repeatable and comparable. A named methodology is what separates a professional test from random hacking.</p>
 </details>
 <details class="note">
-<summary>📬 Deliver &amp; execute</summary>
-<p>The payload reaches the victim (phishing attachment, malicious download, trojanized installer) and runs — often via a document macro or a fake update.</p>
+<summary>📝 The report — the actual product</summary>
+<p>Clients don't pay for shells; they pay for the <strong>report</strong>: an executive summary, a technical findings section with severity (CVSS) and evidence, and prioritized, actionable remediation. Communicating clearly to a non-technical stakeholder is a graded, career-critical skill.</p>
 </details>
 <details class="note">
-<summary>📡 Command &amp; control</summary>
-<p>The implant connects back to the attacker's C2 server, disguised as ordinary HTTPS or DNS traffic so it blends into normal outbound flow.</p>
+<summary>🤝 Professionalism</summary>
+<p>Retesting after fixes, responsible disclosure, and careful client communication close the loop and are part of the ethics you set up in Week 1.</p>
 </details>
-<details class="note">
-<summary>🔒 Persist</summary>
-<p>Registry run keys, scheduled tasks, or services ensure the RAT survives reboots.</p>
-</details>
-<h2 id="3-denial-of-service">3. Denial of service<a class="headerlink" href="#3-denial-of-service" title="Permanent link">&para;</a></h2>
-<p>DoS attacks target <strong>availability</strong> rather than access:</p>
-<ul>
-<li><strong>Volumetric</strong> — overwhelm bandwidth with traffic (UDP/ICMP floods).</li>
-<li><strong>Protocol</strong> — exhaust connection tables (SYN floods).</li>
-<li><strong>Application-layer</strong> — cheap requests that force expensive server work (HTTP floods, Slowloris).</li>
-<li><strong>Amplification</strong> — a small spoofed request triggers a huge response (DNS/NTP/memcached reflection), and <strong>DDoS</strong> spreads the source across a botnet so there's no single IP to block.</li>
-</ul>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p class="admonition-title">How this looks from the SOC seat</p>
-<p>RAT/C2 traffic shows up as <strong>beaconing</strong> — small, regular outbound connections to an unfamiliar host at suspiciously even intervals. Malware on-host shows as unusual process trees (a Word doc spawning PowerShell). DoS shows as a traffic-volume anomaly against a baseline.</p>
-<p><strong>Best control:</strong> <strong>egress filtering and DNS monitoring</strong> to catch C2 leaving the network, <strong>EDR</strong> to catch the implant on-host, and <strong>upstream/CDN DDoS mitigation</strong> for volumetric attacks — you can't absorb a botnet at your own edge.</p>
+<p>Covering-tracks activity targets <em>your</em> evidence: cleared Windows event logs (<strong>Event ID 1102</strong>), truncated <code>/var/log</code>, stopped auditd, or files with impossible timestamps. If logs live only on the compromised host, the attacker can erase the story.</p>
+<p><strong>Best control:</strong> forward logs to a <strong>remote, tamper-evident SIEM in real time</strong>, and use file-integrity monitoring — so clearing local logs no longer erases the trail. The pentest report's value to the <em>defender</em> is a prioritized list of exactly what to fix first.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Real-world context</p>
-<p><strong>Emotet</strong> began as a banking trojan and evolved into a delivery platform — a RAT that, once resident, downloaded other malware (including ransomware) and used the victim's own contacts to spread. It's the textbook example of "maintaining access" as a business model, and of why C2 detection matters more than any single signature.</p>
+<p class="admonition-title">Looking ahead — the final project</p>
+<p>You'll apply everything on this page in the <strong>Week 12 final project</strong>: taking the MGM identity-layer attack and writing it up as a professional incident/pen-test report — timeline, ATT&amp;CK mapping, findings, and layered remediation.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>MITRE ATT&amp;CK — Command &amp; Control (TA0011)</strong> · <strong>Endpoint DoS (T1499).</strong> <a href="https://attack.mitre.org/tactics/TA0011/">TA0011</a> · <a href="https://attack.mitre.org/techniques/T1499/">T1499</a></li>
-<li><strong>CISA — Understanding Denial-of-Service Attacks.</strong> <a href="https://www.cisa.gov/news-events/news/understanding-denial-service-attacks">cisa.gov</a></li>
+<li><strong>NIST SP 800-115</strong> §5–8 (analysis, reporting, remediation). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
+<li><strong>Penetration Testing Execution Standard (PTES) — Reporting.</strong> <a href="http://www.pentest-standard.org/index.php/Main_Page">pentest-standard.org</a></li>
 </ul>
 
 
@@ -1668,7 +1651,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week06/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 6 · System Attacks">
+          <a href="wireless-hacking.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 10 · Wireless Hacking">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1678,20 +1661,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 6 · System Attacks
+                Week 10 · Wireless Hacking
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week08/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 8 · Web Attacks I — Servers &amp; Apps">
+          <a href="social-engineering-identity.html" class="md-footer__link md-footer__link--next" aria-label="Next: Week 12 · Social Engineering &amp; the Identity Layer">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 8 · Web Attacks I — Servers & Apps
+                Week 12 · Social Engineering & the Identity Layer
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1728,12 +1711,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

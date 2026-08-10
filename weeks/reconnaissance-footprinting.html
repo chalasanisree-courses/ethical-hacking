@@ -12,31 +12,31 @@
         <meta name="author" content="Sara Chalasani">
       
       
-        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/week03/">
+        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/reconnaissance-footprinting.html">
       
       
-        <link rel="prev" href="../week02/">
+        <link rel="prev" href="ethics-law-methodology.html">
       
       
-        <link rel="next" href="../week04/">
+        <link rel="next" href="scanning-enumeration.html">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Week 3 · Scanning, Enumeration & Vuln Analysis - Ethical Hacking</title>
+        <title>Week 2 · Reconnaissance & Footprinting - Ethical Hacking</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-3-scanning-enumeration-vulnerability-analysis" class="md-skip">
+        <a href="#week-2-reconnaissance-footprinting" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 3 · Scanning, Enumeration & Vuln Analysis
+              Week 2 · Reconnaissance & Footprinting
             
           </span>
         </div>
@@ -229,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week01/" class="md-tabs__link">
+        <a href="ethics-law-methodology.html" class="md-tabs__link">
           
   
   
@@ -274,7 +274,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../week02/" class="md-tabs__link">
+        <a href="reconnaissance-footprinting.html" class="md-tabs__link">
           
   
   
@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week04/" class="md-tabs__link">
+        <a href="network-hacking-sniffing.html" class="md-tabs__link">
           
   
   
@@ -318,7 +318,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week06/" class="md-tabs__link">
+        <a href="system-attacks.html" class="md-tabs__link">
           
   
   
@@ -340,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week08/" class="md-tabs__link">
+        <a href="web-attacks-servers-apps.html" class="md-tabs__link">
           
   
   
@@ -362,7 +362,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week10/" class="md-tabs__link">
+        <a href="wireless-hacking.html" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week12/" class="md-tabs__link">
+        <a href="social-engineering-identity.html" class="md-tabs__link">
           
   
   
@@ -406,7 +406,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/ceh-map/" class="md-tabs__link">
+        <a href="../reference/ceh-map.html" class="md-tabs__link">
           
   
   
@@ -444,7 +444,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -557,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week01/" class="md-nav__link">
+      <a href="ethics-law-methodology.html" class="md-nav__link">
         
   
   
@@ -652,34 +652,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../week02/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 · Reconnaissance & Footprinting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -699,7 +671,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 · Scanning, Enumeration & Vuln Analysis
+    Week 2 · Reconnaissance & Footprinting
   
 
     
@@ -710,14 +682,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="reconnaissance-footprinting.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Week 3 · Scanning, Enumeration & Vuln Analysis
+    Week 2 · Reconnaissance & Footprinting
   
 
     
@@ -743,10 +715,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-why-scan" class="md-nav__link">
+  <a href="#1-reconnaissance-is-the-phase-that-decides-everything" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Why scan?
+        1. Reconnaissance is the phase that decides everything
       
     </span>
   </a>
@@ -754,10 +726,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-scan-types" class="md-nav__link">
+  <a href="#2-whois-dns-the-technical-footprint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Scan types
+        2. WHOIS &amp; DNS — the technical footprint
       
     </span>
   </a>
@@ -765,10 +737,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-nmap-in-depth" class="md-nav__link">
+  <a href="#3-osint-the-human-and-technology-footprint" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Nmap in depth
+        3. OSINT — the human and technology footprint
       
     </span>
   </a>
@@ -776,21 +748,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-enumeration" class="md-nav__link">
+  <a href="#4-the-footprint-the-output-that-drives-everything" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Enumeration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-vulnerability-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Vulnerability analysis
+        4. The footprint — the output that drives everything
       
     </span>
   </a>
@@ -823,6 +784,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="scanning-enumeration.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 · Scanning, Enumeration & Vuln Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -900,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week04/" class="md-nav__link">
+      <a href="network-hacking-sniffing.html" class="md-nav__link">
         
   
   
@@ -928,7 +917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week05/" class="md-nav__link">
+      <a href="cryptography.html" class="md-nav__link">
         
   
   
@@ -1021,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week06/" class="md-nav__link">
+      <a href="system-attacks.html" class="md-nav__link">
         
   
   
@@ -1049,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week07/" class="md-nav__link">
+      <a href="malware-trojans-dos.html" class="md-nav__link">
         
   
   
@@ -1142,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week08/" class="md-nav__link">
+      <a href="web-attacks-servers-apps.html" class="md-nav__link">
         
   
   
@@ -1170,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week09/" class="md-nav__link">
+      <a href="web-attacks-sqli-session.html" class="md-nav__link">
         
   
   
@@ -1263,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week10/" class="md-nav__link">
+      <a href="wireless-hacking.html" class="md-nav__link">
         
   
   
@@ -1291,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week11/" class="md-nav__link">
+      <a href="penetration-testing.html" class="md-nav__link">
         
   
   
@@ -1382,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week12/" class="md-nav__link">
+      <a href="social-engineering-identity.html" class="md-nav__link">
         
   
   
@@ -1477,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/ceh-map/" class="md-nav__link">
+      <a href="../reference/ceh-map.html" class="md-nav__link">
         
   
   
@@ -1505,7 +1494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tools/" class="md-nav__link">
+      <a href="../reference/tools.html" class="md-nav__link">
         
   
   
@@ -1533,7 +1522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/resources/" class="md-nav__link">
+      <a href="../reference/resources.html" class="md-nav__link">
         
   
   
@@ -1578,7 +1567,7 @@
 
 
   
-    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/week03.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/reconnaissance-footprinting.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1586,112 +1575,90 @@
   
 
 
-<p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-3-scanning-enumeration-vulnerability-analysis">Week 3 · Scanning, Enumeration &amp; Vulnerability Analysis<a class="headerlink" href="#week-3-scanning-enumeration-vulnerability-analysis" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 2 — Scanning</span></p>
+<p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
+<h1 id="week-2-reconnaissance-footprinting">Week 2 · Reconnaissance &amp; Footprinting<a class="headerlink" href="#week-2-reconnaissance-footprinting" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 1 — Reconnaissance</span></p>
 <div class="attck-strip">
 <span class="lbl">ATT&CK</span>
 <a class="attck-tag" href="https://attack.mitre.org/techniques/T1595/" target="_blank">T1595 Active Scanning</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1046/" target="_blank">T1046 Service Discovery</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1018/" target="_blank">T1018 Remote System Discovery</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1590/" target="_blank">T1590 Victim Network Info</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1589/" target="_blank">T1589 Victim Identity Info</a>
 </div>
 
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
-<li>The main <strong>scan types</strong> and when to use each</li>
-<li><strong>Nmap</strong> for host discovery, service/OS detection, and scripting</li>
-<li>Turning open ports into real intel through <strong>enumeration</strong></li>
-<li><strong>Vulnerability analysis</strong> — from "here's a service" to "here's an exploitable flaw"</li>
-<li>How scanning looks from the <strong>defender's</strong> side</li>
+<li>Passive vs. active reconnaissance — and why the order matters</li>
+<li>WHOIS, DNS, and subdomain discovery</li>
+<li>OSINT techniques and search operators</li>
+<li>How a footprint feeds every later phase</li>
 </ul>
 </div>
-<h2 id="1-why-scan">1. Why scan?<a class="headerlink" href="#1-why-scan" title="Permanent link">&para;</a></h2>
-<p>Reconnaissance (Week 2) told you <em>who</em> the target is. Scanning tells you <em>what's reachable</em> — which hosts are up, which ports are open, and what's listening. It's the bridge between "here's a domain" and "here's an exploitable service," and it's the first phase where you actually send packets <em>to</em> the target — which is why it needs authorization.</p>
+<h2 id="1-reconnaissance-is-the-phase-that-decides-everything">1. Reconnaissance is the phase that decides everything<a class="headerlink" href="#1-reconnaissance-is-the-phase-that-decides-everything" title="Permanent link">&para;</a></h2>
+<p>Before an attacker touches a target, they learn everything they can about it. Recon is the least glamorous phase and the most important — a thorough footprint is what makes every later step efficient, and a sloppy one is why amateurs get caught throwing exploits at the wrong systems. The goal is to map the target's <strong>attack surface</strong>: every domain, host, service, technology, and person that could be a way in.</p>
+<p>The first split is between passive and active:</p>
 <table>
 <thead>
 <tr>
-<th>Passive recon (Week 2)</th>
-<th>Active scanning (this week)</th>
+<th>Passive reconnaissance</th>
+<th>Active reconnaissance</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>🕵️ No packets to the target</td>
-<td>📡 You send probes to the target</td>
+<td>Uses only third-party / public sources</td>
+<td>Interacts with the target directly</td>
 </tr>
 <tr>
-<td>Public data, OSINT, WHOIS/DNS</td>
-<td>Live host &amp; port discovery</td>
+<td>The target sees nothing</td>
+<td>The target <em>can</em> log your probes</td>
 </tr>
 <tr>
 <td>Stealthy, low legal risk</td>
-<td>Noisy — <strong>authorization required</strong></td>
+<td>Louder — begins to carry legal weight</td>
 </tr>
 </tbody>
 </table>
-<h2 id="2-scan-types">2. Scan types<a class="headerlink" href="#2-scan-types" title="Permanent link">&para;</a></h2>
-<p>Scanning is a trade-off between <strong>speed, stealth, and reliability</strong>:</p>
+<p>You always <strong>start passive</strong> — squeeze every drop out of public data before you send a single packet the target could notice.</p>
+<h2 id="2-whois-dns-the-technical-footprint">2. WHOIS &amp; DNS — the technical footprint<a class="headerlink" href="#2-whois-dns-the-technical-footprint" title="Permanent link">&para;</a></h2>
+<p>Domains and DNS are a rich, public map of an organization's infrastructure:</p>
 <ul>
-<li><strong>TCP connect scan (<code>-sT</code>)</strong> — completes the full three-way handshake. Reliable and works without special privileges, but every connection is logged by the target — loud.</li>
-<li><strong>SYN "half-open" scan (<code>-sS</code>)</strong> — sends the SYN, reads the reply, then never completes the handshake. Faster and quieter because many systems don't log the incomplete connection. The default for most engagements.</li>
-<li><strong>UDP scan (<code>-sU</code>)</strong> — for connectionless services (DNS, SNMP, DHCP, TFTP). Slow and ambiguous (no response can mean "open" <em>or</em> "filtered"), but essential — a lot of juicy services are UDP.</li>
+<li><strong>WHOIS</strong> — registrar, registration dates, and (historically) contact details for a domain.</li>
+<li><strong>DNS records</strong> — <code>A</code>/<code>AAAA</code> (hosts), <code>MX</code> (mail servers), <code>NS</code> (name servers), <code>TXT</code> (often leaking SaaS providers and SPF/DKIM config).</li>
+<li><strong>Subdomain discovery</strong> — brute-forcing or pulling from <strong>certificate-transparency logs</strong> (<code>crt.sh</code>), which publicly record every TLS certificate ever issued — a goldmine for finding <code>dev</code>, <code>staging</code>, <code>vpn</code>, and <code>admin</code> hosts an org never meant to expose.</li>
+<li><strong>Zone transfers</strong> — a misconfigured DNS server that allows <code>AXFR</code> will hand you its entire zone.</li>
 </ul>
-<p>Every port comes back as <strong>open</strong>, <strong>closed</strong>, or <strong>filtered</strong> (a firewall silently dropping the probe — itself a useful signal about the network's defenses).</p>
-<h2 id="3-nmap-in-depth">3. Nmap in depth<a class="headerlink" href="#3-nmap-in-depth" title="Permanent link">&para;</a></h2>
-<p>Nmap is the workhorse. The moves that matter for this course — click to expand:</p>
-<details class="example">
-<summary>Host discovery — who's alive?</summary>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nmap<span class="w"> </span>-sn<span class="w"> </span><span class="m">10</span>.0.0.0/24<span class="w">      </span><span class="c1"># ping sweep, no port scan</span>
-</code></pre></div>
-Find live hosts <em>before</em> you spend time port-scanning dead space.</p>
+<h2 id="3-osint-the-human-and-technology-footprint">3. OSINT — the human and technology footprint<a class="headerlink" href="#3-osint-the-human-and-technology-footprint" title="Permanent link">&para;</a></h2>
+<p>Click each to expand.</p>
+<details class="note">
+<summary>🔎 Search operators (Google dorking)</summary>
+<p>Targeted queries surface exposed material: <code>site:target.com filetype:pdf</code> (documents with metadata), <code>intitle:"index of"</code> (open directories), <code>inurl:admin</code> (management panels). <strong>Shodan</strong> does the same for internet-connected devices — finding exposed databases, cameras, and industrial controllers by banner.</p>
 </details>
-<details class="example">
-<summary>Service &amp; version detection</summary>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmap<span class="w"> </span>-sV<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">     </span><span class="c1"># all 65,535 ports, identify service versions</span>
-</code></pre></div>
-Turns "port 22 open" into "OpenSSH 8.9p1 — here's the exact build," which is what makes vulnerability matching possible.</p>
+<details class="note">
+<summary>🧾 Metadata &amp; documents</summary>
+<p>Office and PDF files leak internal usernames, software versions, and file paths in their metadata (<code>exiftool</code>). A single published PDF can reveal the naming convention for employee accounts.</p>
 </details>
-<details class="example">
-<summary>OS fingerprint + default scripts</summary>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nmap<span class="w"> </span>-O<span class="w"> </span>-sC<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">      </span><span class="c1"># OS guess + the safe NSE script set</span>
-</code></pre></div>
-The Nmap Scripting Engine (NSE) has hundreds of scripts — from grabbing SMB shares to testing for specific CVEs.</p>
+<details class="note">
+<summary>👥 People &amp; tech stack</summary>
+<p>LinkedIn reveals employees, roles, and the technologies a company hires for (a job posting for "Palo Alto firewall admin" tells you their firewall). GitHub sometimes leaks credentials and internal code. This is the raw material for the spear-phishing you'll study in Module 7.</p>
 </details>
-<h2 id="4-enumeration">4. Enumeration<a class="headerlink" href="#4-enumeration" title="Permanent link">&para;</a></h2>
-<p>Scanning finds the door; enumeration reads the nameplate. Once a service is identified, you interrogate it for detail an attacker can act on:</p>
-<ul>
-<li><strong>SMB</strong> — shares, users, group memberships, domain info (<code>enum4linux</code>, <code>smbclient</code>).</li>
-<li><strong>SNMP</strong> — full device configuration, routing tables, running processes (watch for the default <code>public</code> community string — a classic finding).</li>
-<li><strong>SMTP</strong> — valid usernames via the <code>VRFY</code> and <code>RCPT TO</code> verbs, which feeds password attacks later.</li>
-<li><strong>LDAP / rpcbind / NFS</strong> — directory data, exported filesystems.</li>
-</ul>
-<p>The goal is to convert "a port is open" into "here's the version, the users, the shares, and the misconfigurations I can target."</p>
-<h2 id="5-vulnerability-analysis">5. Vulnerability analysis<a class="headerlink" href="#5-vulnerability-analysis" title="Permanent link">&para;</a></h2>
-<p>The last step of this phase is turning your service inventory into a <strong>list of exploitable weaknesses</strong>:</p>
-<ul>
-<li><strong>Automated scanners</strong> — <strong>Nessus</strong> and <strong>OpenVAS</strong> cross-reference each detected service/version against a vulnerability database and produce a severity-ranked report (CVSS scores).</li>
-<li><strong>Manual matching</strong> — <code>searchsploit</code> against the local Exploit-DB, plus the NVD (<a href="https://nvd.nist.gov">nvd.nist.gov</a>) for CVE detail and exploitability.</li>
-<li><strong>The judgment call</strong> — not every reported vuln is real or reachable. Some need specific configs, some are already patched, some are false positives. Narrowing the scanner's output to <em>what actually works against this target</em> is the skill that separates a pentester from a scan-and-paste report.</li>
-</ul>
-<p>This hands you the target list for Module 4's exploitation.</p>
+<h2 id="4-the-footprint-the-output-that-drives-everything">4. The footprint — the output that drives everything<a class="headerlink" href="#4-the-footprint-the-output-that-drives-everything" title="Permanent link">&para;</a></h2>
+<p>The deliverable of this week is a <strong>target profile</strong>: domains, live hosts, IP ranges, exposed services, technologies in use, and named people with emails. That profile drives your <strong>scanning</strong> (Week 3 — you scan what you found), your <strong>exploitation</strong> (you match exploits to the versions you fingerprinted), and your <strong>social engineering</strong> (Module 12 — you phish the people you identified).</p>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p class="admonition-title">How this looks from the SOC seat</p>
-<p>A ping sweep and a full port scan generate hundreds of connection attempts in seconds — high-signal, but easy to bury in internet background noise. Vulnerability scanners are <em>louder</em> still (they actively probe each service). Useful detection looks for <strong>one source touching many ports/hosts in a short window</strong>, often with a scanner user-agent on web ports.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>index=web_logs status=404 (useragent=&quot;*nmap*&quot; OR useragent=&quot;*nessus*&quot; OR useragent=&quot;*gobuster*&quot;)
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>| stats count by clientip | where count &gt; 50
-</code></pre></div>
-<p><strong>Best control:</strong> you can't stop scanning, so <strong>reduce the attack surface</strong> — close unused ports, put management services behind a VPN, rate-limit at the edge, and run your <em>own</em> vuln scans first so you patch what the attacker would find.</p>
+<p>Passive recon is essentially <strong>undetectable</strong> — it happens on infrastructure the defender doesn't control (search engines, WHOIS, certificate logs). Active footprinting (DNS brute-forcing, subdomain enumeration) may show as spikes in <code>NXDOMAIN</code> responses or automated request patterns, but it's easy to lose in the noise.</p>
+<p><strong>Best control:</strong> you can't detect what you can't see, so <strong>shrink the footprint</strong> — disable DNS zone transfers, strip metadata from published documents, monitor certificate-transparency logs for shadow assets you didn't know were public, and run your <em>own</em> OSINT against yourself to find what an attacker would.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Real-world context</p>
-<p>The 2017 <strong>Equifax</strong> breach began with an unpatched, internet-facing Apache Struts service (CVE-2017-5638) — a flaw a routine vulnerability scan would have flagged. Scanning and vuln analysis aren't just an attacker's phase; they're the exact discipline that would have <em>prevented</em> one of the largest breaches in history.</p>
+<p class="admonition-title">Real-world context — recon found the side door</p>
+<p>The 2013 <strong>Target</strong> breach (40M+ payment cards) didn't start at Target at all. Attackers did reconnaissance to identify Target's <strong>third-party HVAC vendor</strong>, Fazio Mechanical, compromised <em>them</em> first, and used their network access to pivot into Target's systems. Footprinting the supply chain — the vendors, the partners, the people — is exactly how modern attackers find the unguarded side door.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Nmap Network Scanning</strong> (official book) — Host Discovery &amp; Port Scanning. <a href="https://nmap.org/book/toc.html">nmap.org/book</a></li>
-<li><strong>NIST SP 800-115</strong> §4.2 (network scanning), §4.3 (vulnerability scanning). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
+<li><strong>NIST SP 800-115</strong> §4 (review &amp; target identification). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
+<li><strong>OSINT Framework.</strong> <a href="https://osintframework.com/">osintframework.com</a></li>
+<li><strong>MITRE ATT&amp;CK — Reconnaissance (TA0043).</strong> <a href="https://attack.mitre.org/tactics/TA0043/">attack.mitre.org</a></li>
 </ul>
 
 
@@ -1728,7 +1695,7 @@ The Nmap Scripting Engine (NSE) has hundreds of scripts — from grabbing SMB sh
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week02/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 · Reconnaissance &amp; Footprinting">
+          <a href="ethics-law-methodology.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 1 · Ethics, Law &amp; Methodology">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1738,20 +1705,20 @@ The Nmap Scripting Engine (NSE) has hundreds of scripts — from grabbing SMB sh
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 2 · Reconnaissance & Footprinting
+                Week 1 · Ethics, Law & Methodology
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week04/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 4 · Network Hacking &amp; Sniffing">
+          <a href="scanning-enumeration.html" class="md-footer__link md-footer__link--next" aria-label="Next: Week 3 · Scanning, Enumeration &amp; Vuln Analysis">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 4 · Network Hacking & Sniffing
+                Week 3 · Scanning, Enumeration & Vuln Analysis
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1788,12 +1755,12 @@ The Nmap Scripting Engine (NSE) has hundreds of scripts — from grabbing SMB sh
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

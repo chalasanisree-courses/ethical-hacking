@@ -12,31 +12,31 @@
         <meta name="author" content="Sara Chalasani">
       
       
-        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/week01/">
+        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/scanning-enumeration.html">
       
       
-        <link rel="prev" href="../..">
+        <link rel="prev" href="reconnaissance-footprinting.html">
       
       
-        <link rel="next" href="../week02/">
+        <link rel="next" href="network-hacking-sniffing.html">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Week 1 · Ethics, Law & Methodology - Ethical Hacking</title>
+        <title>Week 3 · Scanning, Enumeration & Vuln Analysis - Ethical Hacking</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-1-ethics-law-methodology" class="md-skip">
+        <a href="#week-3-scanning-enumeration-vulnerability-analysis" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 1 · Ethics, Law & Methodology
+              Week 3 · Scanning, Enumeration & Vuln Analysis
             
           </span>
         </div>
@@ -229,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -246,13 +246,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="ethics-law-methodology.html" class="md-tabs__link">
           
   
   
@@ -270,11 +268,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../week02/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="reconnaissance-footprinting.html" class="md-tabs__link">
           
   
   
@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week04/" class="md-tabs__link">
+        <a href="network-hacking-sniffing.html" class="md-tabs__link">
           
   
   
@@ -318,7 +318,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week06/" class="md-tabs__link">
+        <a href="system-attacks.html" class="md-tabs__link">
           
   
   
@@ -340,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week08/" class="md-tabs__link">
+        <a href="web-attacks-servers-apps.html" class="md-tabs__link">
           
   
   
@@ -362,7 +362,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week10/" class="md-tabs__link">
+        <a href="wireless-hacking.html" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week12/" class="md-tabs__link">
+        <a href="social-engineering-identity.html" class="md-tabs__link">
           
   
   
@@ -406,7 +406,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/ceh-map/" class="md-tabs__link">
+        <a href="../reference/ceh-map.html" class="md-tabs__link">
           
   
   
@@ -444,7 +444,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -498,12 +498,105 @@
       
   
   
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 1 · Foundation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 1 · Foundation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ethics-law-methodology.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 · Ethics, Law & Methodology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
   
     
     
+      
+        
       
         
       
@@ -523,17 +616,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Module 1 · Foundation
+    Module 2 · Recon & Scanning
   
 
     
@@ -544,16 +637,44 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Module 1 · Foundation
+    Module 2 · Recon & Scanning
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="reconnaissance-footprinting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 · Reconnaissance & Footprinting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -578,7 +699,7 @@
   <span class="md-ellipsis">
     
   
-    Week 1 · Ethics, Law & Methodology
+    Week 3 · Scanning, Enumeration & Vuln Analysis
   
 
     
@@ -589,14 +710,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="scanning-enumeration.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Week 1 · Ethics, Law & Methodology
+    Week 3 · Scanning, Enumeration & Vuln Analysis
   
 
     
@@ -622,10 +743,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-is-ethical-hacking" class="md-nav__link">
+  <a href="#1-why-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. What is ethical hacking?
+        1. Why scan?
       
     </span>
   </a>
@@ -633,10 +754,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-the-legal-frame-the-line-between-a-test-and-a-crime" class="md-nav__link">
+  <a href="#2-scan-types" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. The legal frame — the line between a test and a crime
+        2. Scan types
       
     </span>
   </a>
@@ -644,10 +765,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-five-phase-kill-chain" class="md-nav__link">
+  <a href="#3-nmap-in-depth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The five-phase kill chain
+        3. Nmap in depth
       
     </span>
   </a>
@@ -655,10 +776,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-attck-the-shared-vocabulary" class="md-nav__link">
+  <a href="#4-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. ATT&amp;CK — the shared vocabulary
+        4. Enumeration
       
     </span>
   </a>
@@ -666,10 +787,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-the-defenders-view" class="md-nav__link">
+  <a href="#5-vulnerability-analysis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. The Defender's view
+        5. Vulnerability analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defenders-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defender's view
       
     </span>
   </a>
@@ -691,127 +823,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Module 2 · Recon & Scanning
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Module 2 · Recon & Scanning
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week02/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 2 · Reconnaissance & Footprinting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week03/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 3 · Scanning, Enumeration & Vuln Analysis
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -889,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week04/" class="md-nav__link">
+      <a href="network-hacking-sniffing.html" class="md-nav__link">
         
   
   
@@ -917,7 +928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week05/" class="md-nav__link">
+      <a href="cryptography.html" class="md-nav__link">
         
   
   
@@ -1010,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week06/" class="md-nav__link">
+      <a href="system-attacks.html" class="md-nav__link">
         
   
   
@@ -1038,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week07/" class="md-nav__link">
+      <a href="malware-trojans-dos.html" class="md-nav__link">
         
   
   
@@ -1131,7 +1142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week08/" class="md-nav__link">
+      <a href="web-attacks-servers-apps.html" class="md-nav__link">
         
   
   
@@ -1159,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week09/" class="md-nav__link">
+      <a href="web-attacks-sqli-session.html" class="md-nav__link">
         
   
   
@@ -1252,7 +1263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week10/" class="md-nav__link">
+      <a href="wireless-hacking.html" class="md-nav__link">
         
   
   
@@ -1280,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week11/" class="md-nav__link">
+      <a href="penetration-testing.html" class="md-nav__link">
         
   
   
@@ -1371,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week12/" class="md-nav__link">
+      <a href="social-engineering-identity.html" class="md-nav__link">
         
   
   
@@ -1466,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/ceh-map/" class="md-nav__link">
+      <a href="../reference/ceh-map.html" class="md-nav__link">
         
   
   
@@ -1494,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tools/" class="md-nav__link">
+      <a href="../reference/tools.html" class="md-nav__link">
         
   
   
@@ -1522,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/resources/" class="md-nav__link">
+      <a href="../reference/resources.html" class="md-nav__link">
         
   
   
@@ -1567,7 +1578,7 @@
 
 
   
-    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/week01.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/scanning-enumeration.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1575,124 +1586,112 @@
   
 
 
-<p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-1-ethics-law-methodology">Week 1 · Ethics, Law &amp; Methodology<a class="headerlink" href="#week-1-ethics-law-methodology" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Frames the whole course</span></p>
+<p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
+<h1 id="week-3-scanning-enumeration-vulnerability-analysis">Week 3 · Scanning, Enumeration &amp; Vulnerability Analysis<a class="headerlink" href="#week-3-scanning-enumeration-vulnerability-analysis" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Kill chain · Phase 2 — Scanning</span></p>
+<div class="attck-strip">
+<span class="lbl">ATT&CK</span>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1595/" target="_blank">T1595 Active Scanning</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1046/" target="_blank">T1046 Service Discovery</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1018/" target="_blank">T1018 Remote System Discovery</a>
+</div>
+
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
-<li>What ethical hacking is — and the legal line that defines it</li>
-<li>Authorization, scope, and rules of engagement</li>
-<li>The <strong>five-phase kill chain</strong> we'll follow all term</li>
-<li><strong>MITRE ATT&amp;CK</strong> as the shared technique vocabulary</li>
-<li>How to read the <strong>Defender's view</strong> panels on every page</li>
+<li>The main <strong>scan types</strong> and when to use each</li>
+<li><strong>Nmap</strong> for host discovery, service/OS detection, and scripting</li>
+<li>Turning open ports into real intel through <strong>enumeration</strong></li>
+<li><strong>Vulnerability analysis</strong> — from "here's a service" to "here's an exploitable flaw"</li>
+<li>How scanning looks from the <strong>defender's</strong> side</li>
 </ul>
 </div>
-<h2 id="1-what-is-ethical-hacking">1. What is ethical hacking?<a class="headerlink" href="#1-what-is-ethical-hacking" title="Permanent link">&para;</a></h2>
-<p>An ethical hacker uses the same tools, techniques, and mindset as a malicious attacker — but with <strong>written permission</strong> and a defensive purpose. The value is simple: you cannot defend a system well until you understand exactly how it gets broken, so organizations hire people to break in <em>safely</em> and report how.</p>
-<p>The colored "hats" describe <strong>intent and authorization</strong>, not skill:</p>
+<h2 id="1-why-scan">1. Why scan?<a class="headerlink" href="#1-why-scan" title="Permanent link">&para;</a></h2>
+<p>Reconnaissance (Week 2) told you <em>who</em> the target is. Scanning tells you <em>what's reachable</em> — which hosts are up, which ports are open, and what's listening. It's the bridge between "here's a domain" and "here's an exploitable service," and it's the first phase where you actually send packets <em>to</em> the target — which is why it needs authorization.</p>
+<table>
+<thead>
+<tr>
+<th>Passive recon (Week 2)</th>
+<th>Active scanning (this week)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🕵️ No packets to the target</td>
+<td>📡 You send probes to the target</td>
+</tr>
+<tr>
+<td>Public data, OSINT, WHOIS/DNS</td>
+<td>Live host &amp; port discovery</td>
+</tr>
+<tr>
+<td>Stealthy, low legal risk</td>
+<td>Noisy — <strong>authorization required</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-scan-types">2. Scan types<a class="headerlink" href="#2-scan-types" title="Permanent link">&para;</a></h2>
+<p>Scanning is a trade-off between <strong>speed, stealth, and reliability</strong>:</p>
 <ul>
-<li><strong>White hat</strong> — authorized, works to improve security (this course).</li>
-<li><strong>Black hat</strong> — unauthorized, works for personal gain or harm.</li>
-<li><strong>Grey hat</strong> — operates in between; may probe without permission but disclose findings. Legally still exposed, even with good intent.</li>
+<li><strong>TCP connect scan (<code>-sT</code>)</strong> — completes the full three-way handshake. Reliable and works without special privileges, but every connection is logged by the target — loud.</li>
+<li><strong>SYN "half-open" scan (<code>-sS</code>)</strong> — sends the SYN, reads the reply, then never completes the handshake. Faster and quieter because many systems don't log the incomplete connection. The default for most engagements.</li>
+<li><strong>UDP scan (<code>-sU</code>)</strong> — for connectionless services (DNS, SNMP, DHCP, TFTP). Slow and ambiguous (no response can mean "open" <em>or</em> "filtered"), but essential — a lot of juicy services are UDP.</li>
 </ul>
-<p>You'll also hear related terms: a <strong>vulnerability assessment</strong> finds and lists weaknesses; a <strong>penetration test</strong> actively exploits them to prove impact; a <strong>red team</strong> simulates a real adversary end-to-end, including people and physical controls. This course builds toward the penetration-test skill set.</p>
-<h2 id="2-the-legal-frame-the-line-between-a-test-and-a-crime">2. The legal frame — the line between a test and a crime<a class="headerlink" href="#2-the-legal-frame-the-line-between-a-test-and-a-crime" title="Permanent link">&para;</a></h2>
-<p>The <em>only</em> thing separating a penetration test from a felony is <strong>authorization</strong>. The exact same port scan is professional work with a signed contract and a crime without one. Before any testing, a professional engagement establishes:</p>
+<p>Every port comes back as <strong>open</strong>, <strong>closed</strong>, or <strong>filtered</strong> (a firewall silently dropping the probe — itself a useful signal about the network's defenses).</p>
+<h2 id="3-nmap-in-depth">3. Nmap in depth<a class="headerlink" href="#3-nmap-in-depth" title="Permanent link">&para;</a></h2>
+<p>Nmap is the workhorse. The moves that matter for this course — click to expand:</p>
+<details class="example">
+<summary>Host discovery — who's alive?</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nmap<span class="w"> </span>-sn<span class="w"> </span><span class="m">10</span>.0.0.0/24<span class="w">      </span><span class="c1"># ping sweep, no port scan</span>
+</code></pre></div>
+Find live hosts <em>before</em> you spend time port-scanning dead space.</p>
+</details>
+<details class="example">
+<summary>Service &amp; version detection</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmap<span class="w"> </span>-sV<span class="w"> </span>-p-<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">     </span><span class="c1"># all 65,535 ports, identify service versions</span>
+</code></pre></div>
+Turns "port 22 open" into "OpenSSH 8.9p1 — here's the exact build," which is what makes vulnerability matching possible.</p>
+</details>
+<details class="example">
+<summary>OS fingerprint + default scripts</summary>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nmap<span class="w"> </span>-O<span class="w"> </span>-sC<span class="w"> </span><span class="m">10</span>.0.0.5<span class="w">      </span><span class="c1"># OS guess + the safe NSE script set</span>
+</code></pre></div>
+The Nmap Scripting Engine (NSE) has hundreds of scripts — from grabbing SMB shares to testing for specific CVEs.</p>
+</details>
+<h2 id="4-enumeration">4. Enumeration<a class="headerlink" href="#4-enumeration" title="Permanent link">&para;</a></h2>
+<p>Scanning finds the door; enumeration reads the nameplate. Once a service is identified, you interrogate it for detail an attacker can act on:</p>
 <ul>
-<li><strong>Scope</strong> — precisely which systems, IP ranges, and applications are in bounds (and which are explicitly <em>out</em>).</li>
-<li><strong>Rules of engagement (RoE)</strong> — allowed techniques, testing windows, what to do if you find sensitive data or actively break something, and emergency contacts.</li>
-<li><strong>Written authorization</strong> — a signed "get out of jail" letter from someone with the authority to grant it.</li>
-<li>Often an <strong>NDA</strong>, and rules for handling any data you access.</li>
+<li><strong>SMB</strong> — shares, users, group memberships, domain info (<code>enum4linux</code>, <code>smbclient</code>).</li>
+<li><strong>SNMP</strong> — full device configuration, routing tables, running processes (watch for the default <code>public</code> community string — a classic finding).</li>
+<li><strong>SMTP</strong> — valid usernames via the <code>VRFY</code> and <code>RCPT TO</code> verbs, which feeds password attacks later.</li>
+<li><strong>LDAP / rpcbind / NFS</strong> — directory data, exported filesystems.</li>
 </ul>
-<p>In the U.S. the governing law is the <strong>Computer Fraud and Abuse Act (CFAA)</strong>, backed by state statutes (e.g., California Penal Code §502). "I had good intentions" is not a legal defense — <strong>authorization is</strong>. When anything is unclear, you stop and confirm scope before proceeding.</p>
-<div class="admonition note">
-<p class="admonition-title">Real-world context — authorization is not optional</p>
-<p>In 2019, two professional penetration testers from <strong>Coalfire</strong> were <strong>arrested and jailed</strong> while physically testing an Iowa courthouse — even though they had a signed contract from the state judicial branch. The scope had been miscommunicated between the state and the <em>county</em> that actually owned the building. The lesson every pentester learns from this case: a signed contract isn't enough if the <em>right</em> person didn't authorize the <em>specific</em> target. Scope and authorization are the difference between a paycheck and handcuffs.</p>
-</div>
-<h2 id="3-the-five-phase-kill-chain">3. The five-phase kill chain<a class="headerlink" href="#3-the-five-phase-kill-chain" title="Permanent link">&para;</a></h2>
-<p>Every <em>technical</em> attack in this course — and most real breaches — follows the same arc. We'll return to this diagram all term: each of Weeks 2–11 lives on one of these phases. <strong>Click a phase</strong> to see what it means and which weeks cover it.</p>
-<div class="admonition note">
-<p class="admonition-title">One track runs parallel to this</p>
-<p><strong>Module 7 (Week 12) — Social Engineering &amp; the Identity Layer</strong> is deliberately <em>off</em> this diagram. Social engineering doesn't exploit a machine; it manipulates a person so the attacker can <strong>log in, not hack in</strong>. It's a parallel track we close the course on.</p>
-</div>
-<div class="killchain" markdown="0">
-<svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;height:auto;" role="img" aria-label="Five-phase ethical hacking kill chain">
-  <defs>
-    <marker id="kc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa0a6"/>
-    </marker>
-  </defs>
-  <rect class="kc-phase" id="kc-rect-1" x="10" y="35" width="150" height="80" rx="8" fill="#E6F1FB" stroke="#0C447C" stroke-width="1" onclick="khShow(1)"/>
-  <text x="85" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#0C447C" pointer-events="none">1 · Reconnaissance</text>
-  <text x="85" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#0C447C" pointer-events="none">Profile the target</text>
-  <line x1="162" y1="75" x2="176" y2="75" stroke="#9aa0a6" stroke-width="1.2" marker-end="url(#kc-arrow)"/>
-  <rect class="kc-phase" id="kc-rect-2" x="178" y="35" width="150" height="80" rx="8" fill="#E6F1FB" stroke="#0C447C" stroke-width="1" onclick="khShow(2)"/>
-  <text x="253" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#0C447C" pointer-events="none">2 · Scanning</text>
-  <text x="253" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#0C447C" pointer-events="none">Find what's reachable</text>
-  <line x1="330" y1="75" x2="344" y2="75" stroke="#9aa0a6" stroke-width="1.2" marker-end="url(#kc-arrow)"/>
-  <rect class="kc-phase" id="kc-rect-3" x="346" y="35" width="150" height="80" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="1" onclick="khShow(3)"/>
-  <text x="421" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#854F0B" pointer-events="none">3 · Gaining Access</text>
-  <text x="421" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#854F0B" pointer-events="none">Exploit &amp; foothold</text>
-  <line x1="498" y1="75" x2="512" y2="75" stroke="#9aa0a6" stroke-width="1.2" marker-end="url(#kc-arrow)"/>
-  <rect class="kc-phase" id="kc-rect-4" x="514" y="35" width="150" height="80" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="1" onclick="khShow(4)"/>
-  <text x="589" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#854F0B" pointer-events="none">4 · Maintaining</text>
-  <text x="589" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#854F0B" pointer-events="none">Persistence &amp; C2</text>
-  <line x1="666" y1="75" x2="680" y2="75" stroke="#9aa0a6" stroke-width="1.2" marker-end="url(#kc-arrow)"/>
-  <rect class="kc-phase" id="kc-rect-5" x="682" y="35" width="150" height="80" rx="8" fill="#FCEBEB" stroke="#791F1F" stroke-width="1" onclick="khShow(5)"/>
-  <text x="757" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#791F1F" pointer-events="none">5 · Covering Tracks</text>
-  <text x="757" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#791F1F" pointer-events="none">Evade &amp; clean up</text>
-</svg>
-<p class="kc-hint">↑ <b>Click any phase</b> to see what it covers</p>
-
-<div class="kc-panel" id="kc-panel-1">
-<h4>1 · Reconnaissance</h4>
-<p>Gather information about the target without (or before) touching it directly: footprinting, OSINT, WHOIS, and DNS. The output is a target profile that drives everything else.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 2 · <b>ATT&amp;CK tactic:</b> Reconnaissance (TA0043)</div>
-</div>
-<div class="kc-panel" id="kc-panel-2">
-<h4>2 · Scanning &amp; Enumeration</h4>
-<p>Actively probe the target to find live hosts, open ports, services, and versions — then enumerate those services for users, shares, and configuration.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 3 (and network sniffing, Week 4) · <b>ATT&amp;CK tactic:</b> Discovery (TA0007)</div>
-</div>
-<div class="kc-panel" id="kc-panel-3">
-<h4>3 · Gaining Access</h4>
-<p>Exploit a vulnerability to get code execution — on a system, a web app, a wireless network, or a person. This is the foothold.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 6 (systems), Weeks 8–9 (web), Week 10 (wireless) · <b>ATT&amp;CK tactics:</b> Initial Access (TA0001), Execution (TA0002)</div>
-</div>
-<div class="kc-panel" id="kc-panel-4">
-<h4>4 · Maintaining Access</h4>
-<p>Keep the foothold alive: backdoors, trojans/RATs, and command-and-control. Also where denial-of-service and session hijacking live.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 7 · <b>ATT&amp;CK tactics:</b> Persistence (TA0003), Command &amp; Control (TA0011)</div>
-</div>
-<div class="kc-panel" id="kc-panel-5">
-<h4>5 · Covering Tracks</h4>
-<p>Evade detection and hide the intrusion — log tampering, timestomping, and anti-forensics. For the defender, this is where good logging and a pen-test report matter most.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 11 (methodology &amp; reporting) · <b>ATT&amp;CK tactic:</b> Defense Evasion (TA0005)</div>
-</div>
-</div>
-
-<h2 id="4-attck-the-shared-vocabulary">4. ATT&amp;CK — the shared vocabulary<a class="headerlink" href="#4-attck-the-shared-vocabulary" title="Permanent link">&para;</a></h2>
-<p>Throughout the course, each week is tagged with the <strong>MITRE ATT&amp;CK</strong> techniques it covers — the same technique IDs used by every SOC and threat-intel team in industry. You'll see a tag strip like this near the top of each page:</p>
-<div class="attck-strip">
-<span class="lbl">ATT&CK</span>
-<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0043/" target="_blank">TA0043 Recon</a>
-<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0007/" target="_blank">TA0007 Discovery</a>
-<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0001/" target="_blank">TA0001 Initial Access</a>
-</div>
-
-<p>Clicking a tag opens its definition on the MITRE ATT&amp;CK site.</p>
-<h2 id="5-the-defenders-view">5. The Defender's view<a class="headerlink" href="#5-the-defenders-view" title="Permanent link">&para;</a></h2>
-<p>Every attack leaves a trace. On each week's page you'll find a blue <strong>Defender's view</strong> panel showing how that week's technique looks from the SOC seat — the logs, signatures, or telemetry that reveal it, and the one control that best stops it:</p>
+<p>The goal is to convert "a port is open" into "here's the version, the users, the shares, and the misconfigurations I can target."</p>
+<h2 id="5-vulnerability-analysis">5. Vulnerability analysis<a class="headerlink" href="#5-vulnerability-analysis" title="Permanent link">&para;</a></h2>
+<p>The last step of this phase is turning your service inventory into a <strong>list of exploitable weaknesses</strong>:</p>
+<ul>
+<li><strong>Automated scanners</strong> — <strong>Nessus</strong> and <strong>OpenVAS</strong> cross-reference each detected service/version against a vulnerability database and produce a severity-ranked report (CVSS scores).</li>
+<li><strong>Manual matching</strong> — <code>searchsploit</code> against the local Exploit-DB, plus the NVD (<a href="https://nvd.nist.gov">nvd.nist.gov</a>) for CVE detail and exploitability.</li>
+<li><strong>The judgment call</strong> — not every reported vuln is real or reachable. Some need specific configs, some are already patched, some are false positives. Narrowing the scanner's output to <em>what actually works against this target</em> is the skill that separates a pentester from a scan-and-paste report.</li>
+</ul>
+<p>This hands you the target list for Module 4's exploitation.</p>
+<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
-<p class="admonition-title">Defender's view — example</p>
-<p>Reconnaissance is noisy but easy to dismiss as background internet traffic. A defender watches for <strong>directionality and pattern</strong>: a single source touching many ports or many URLs in seconds, often with a scanner user-agent. The best control isn't detection — it's <strong>reducing what's exposed</strong> in the first place.</p>
+<p class="admonition-title">How this looks from the SOC seat</p>
+<p>A ping sweep and a full port scan generate hundreds of connection attempts in seconds — high-signal, but easy to bury in internet background noise. Vulnerability scanners are <em>louder</em> still (they actively probe each service). Useful detection looks for <strong>one source touching many ports/hosts in a short window</strong>, often with a scanner user-agent on web ports.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>index=web_logs status=404 (useragent=&quot;*nmap*&quot; OR useragent=&quot;*nessus*&quot; OR useragent=&quot;*gobuster*&quot;)
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>| stats count by clientip | where count &gt; 50
+</code></pre></div>
+<p><strong>Best control:</strong> you can't stop scanning, so <strong>reduce the attack surface</strong> — close unused ports, put management services behind a VPN, rate-limit at the edge, and run your <em>own</em> vuln scans first so you patch what the attacker would find.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Real-world context</p>
+<p>The 2017 <strong>Equifax</strong> breach began with an unpatched, internet-facing Apache Struts service (CVE-2017-5638) — a flaw a routine vulnerability scan would have flagged. Scanning and vuln analysis aren't just an attacker's phase; they're the exact discipline that would have <em>prevented</em> one of the largest breaches in history.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Maurushat, <em>Ethical Hacking</em></strong> (uOttawa, open access) — Introduction + Ch. 1. <a href="https://press.uottawa.ca/en/9780776627946/ethical-hacking/">Publisher</a> · <a href="https://library.oapen.org/bitstream/id/ab438eb4-5f5d-4509-8c0b-f6c57f271e84/9780776627922.pdf">PDF</a></li>
-<li><strong>NIST SP 800-115</strong> §1–2. <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
-<li><strong>MITRE ATT&amp;CK</strong> — the framework we'll use all term. <a href="https://attack.mitre.org/">attack.mitre.org</a></li>
+<li><strong>Nmap Network Scanning</strong> (official book) — Host Discovery &amp; Port Scanning. <a href="https://nmap.org/book/toc.html">nmap.org/book</a></li>
+<li><strong>NIST SP 800-115</strong> §4.2 (network scanning), §4.3 (vulnerability scanning). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
 </ul>
 
 
@@ -1729,7 +1728,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home">
+          <a href="reconnaissance-footprinting.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 2 · Reconnaissance &amp; Footprinting">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1739,20 +1738,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Home
+                Week 2 · Reconnaissance & Footprinting
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week02/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 2 · Reconnaissance &amp; Footprinting">
+          <a href="network-hacking-sniffing.html" class="md-footer__link md-footer__link--next" aria-label="Next: Week 4 · Network Hacking &amp; Sniffing">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 2 · Reconnaissance & Footprinting
+                Week 4 · Network Hacking & Sniffing
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1789,12 +1788,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>

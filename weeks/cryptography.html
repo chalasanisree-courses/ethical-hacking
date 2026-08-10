@@ -12,31 +12,31 @@
         <meta name="author" content="Sara Chalasani">
       
       
-        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/week04/">
+        <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/cryptography.html">
       
       
-        <link rel="prev" href="../week03/">
+        <link rel="prev" href="network-hacking-sniffing.html">
       
       
-        <link rel="next" href="../week05/">
+        <link rel="next" href="system-attacks.html">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Week 4 · Network Hacking & Sniffing - Ethical Hacking</title>
+        <title>Week 5 · Cryptography - Ethical Hacking</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-4-network-hacking-sniffing" class="md-skip">
+        <a href="#week-5-cryptography" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-header__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 4 · Network Hacking & Sniffing
+              Week 5 · Cryptography
             
           </span>
         </div>
@@ -229,7 +229,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../index.html" class="md-tabs__link">
         
   
   
@@ -250,7 +250,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week01/" class="md-tabs__link">
+        <a href="ethics-law-methodology.html" class="md-tabs__link">
           
   
   
@@ -272,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week02/" class="md-tabs__link">
+        <a href="reconnaissance-footprinting.html" class="md-tabs__link">
           
   
   
@@ -296,7 +296,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="network-hacking-sniffing.html" class="md-tabs__link">
           
   
   
@@ -318,7 +318,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week06/" class="md-tabs__link">
+        <a href="system-attacks.html" class="md-tabs__link">
           
   
   
@@ -340,7 +340,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week08/" class="md-tabs__link">
+        <a href="web-attacks-servers-apps.html" class="md-tabs__link">
           
   
   
@@ -362,7 +362,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week10/" class="md-tabs__link">
+        <a href="wireless-hacking.html" class="md-tabs__link">
           
   
   
@@ -384,7 +384,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week12/" class="md-tabs__link">
+        <a href="social-engineering-identity.html" class="md-tabs__link">
           
   
   
@@ -406,7 +406,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/ceh-map/" class="md-tabs__link">
+        <a href="../reference/ceh-map.html" class="md-tabs__link">
           
   
   
@@ -444,7 +444,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
+    <a href="../index.html" title="Ethical Hacking" class="md-nav__button md-logo" aria-label="Ethical Hacking" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -474,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../index.html" class="md-nav__link">
         
   
   
@@ -557,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week01/" class="md-nav__link">
+      <a href="ethics-law-methodology.html" class="md-nav__link">
         
   
   
@@ -650,7 +650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week02/" class="md-nav__link">
+      <a href="reconnaissance-footprinting.html" class="md-nav__link">
         
   
   
@@ -678,7 +678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week03/" class="md-nav__link">
+      <a href="scanning-enumeration.html" class="md-nav__link">
         
   
   
@@ -773,6 +773,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="network-hacking-sniffing.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 · Network Hacking & Sniffing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -792,7 +820,7 @@
   <span class="md-ellipsis">
     
   
-    Week 4 · Network Hacking & Sniffing
+    Week 5 · Cryptography
   
 
     
@@ -803,14 +831,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="cryptography.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Week 4 · Network Hacking & Sniffing
+    Week 5 · Cryptography
   
 
     
@@ -836,10 +864,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-sniffing-reading-the-wire" class="md-nav__link">
+  <a href="#1-symmetric-vs-asymmetric-two-tools-for-two-jobs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Sniffing — reading the wire
+        1. Symmetric vs. asymmetric — two tools for two jobs
       
     </span>
   </a>
@@ -847,10 +875,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-man-in-the-middle-via-arp-spoofing" class="md-nav__link">
+  <a href="#2-pki-turning-keys-into-trust" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Man-in-the-middle via ARP spoofing
+        2. PKI — turning keys into trust
       
     </span>
   </a>
@@ -858,10 +886,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-network-defenses-evasion" class="md-nav__link">
+  <a href="#3-hashing-salting-signatures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Network defenses &amp; evasion
+        3. Hashing, salting &amp; signatures
       
     </span>
   </a>
@@ -869,10 +897,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-evasion-in-one-line" class="md-nav__link">
+  <a href="#4-how-crypto-actually-fails" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Evasion in one line
+        4. How crypto actually fails
       
     </span>
   </a>
@@ -905,34 +933,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week05/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 5 · Cryptography
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1010,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week06/" class="md-nav__link">
+      <a href="system-attacks.html" class="md-nav__link">
         
   
   
@@ -1038,7 +1038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week07/" class="md-nav__link">
+      <a href="malware-trojans-dos.html" class="md-nav__link">
         
   
   
@@ -1131,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week08/" class="md-nav__link">
+      <a href="web-attacks-servers-apps.html" class="md-nav__link">
         
   
   
@@ -1159,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week09/" class="md-nav__link">
+      <a href="web-attacks-sqli-session.html" class="md-nav__link">
         
   
   
@@ -1252,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week10/" class="md-nav__link">
+      <a href="wireless-hacking.html" class="md-nav__link">
         
   
   
@@ -1280,7 +1280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week11/" class="md-nav__link">
+      <a href="penetration-testing.html" class="md-nav__link">
         
   
   
@@ -1371,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../week12/" class="md-nav__link">
+      <a href="social-engineering-identity.html" class="md-nav__link">
         
   
   
@@ -1466,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/ceh-map/" class="md-nav__link">
+      <a href="../reference/ceh-map.html" class="md-nav__link">
         
   
   
@@ -1494,7 +1494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/tools/" class="md-nav__link">
+      <a href="../reference/tools.html" class="md-nav__link">
         
   
   
@@ -1522,7 +1522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/resources/" class="md-nav__link">
+      <a href="../reference/resources.html" class="md-nav__link">
         
   
   
@@ -1567,7 +1567,7 @@
 
 
   
-    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/week04.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/chalasanisree-courses/ethical-hacking/edit/main/docs/weeks/cryptography.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1575,59 +1575,67 @@
   
 
 
-<p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phases 2–3 — Sniffing &amp; Evasion</span></p>
+<p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
+<h1 id="week-5-cryptography">Week 5 · Cryptography<a class="headerlink" href="#week-5-cryptography" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 Foundational — underpins every phase</span></p>
 <div class="attck-strip">
 <span class="lbl">ATT&CK</span>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1040/" target="_blank">T1040 Network Sniffing</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1557/" target="_blank">T1557 Adversary-in-the-Middle</a>
-<a class="attck-tag" href="https://attack.mitre.org/tactics/TA0005/" target="_blank">TA0005 Defense Evasion</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1110/" target="_blank">T1110 Brute Force</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1600/" target="_blank">T1600 Weaken Encryption</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1557/" target="_blank">T1557 AiTM (downgrade)</a>
 </div>
 
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
-<li>How traffic is captured off the wire — and why switches don't stop it</li>
-<li>ARP spoofing and man-in-the-middle</li>
-<li>IDS, firewalls, and honeypots — and how attackers evade them</li>
+<li>Symmetric vs. asymmetric encryption — and what each is for</li>
+<li>PKI: keys, certificates, and the chain of trust</li>
+<li>Hashing, salting, and digital signatures</li>
+<li>How cryptography fails in practice — almost always in <em>implementation</em></li>
 </ul>
 </div>
-<h2 id="1-sniffing-reading-the-wire">1. Sniffing — reading the wire<a class="headerlink" href="#1-sniffing-reading-the-wire" title="Permanent link">&para;</a></h2>
-<p>A <strong>sniffer</strong> (Wireshark, tcpdump) captures packets as they cross the network. On old hub-based networks every packet reached every port, so sniffing was trivial. Modern <strong>switches</strong> send each frame only to its destination port — so to see traffic that isn't yours, you have to actively insert yourself into the path. That's the difference between <strong>passive</strong> sniffing (just listening to what reaches you) and <strong>active</strong> sniffing (manipulating the network so more traffic reaches you).</p>
-<p>The payoff is enormous: any protocol that sends data in <strong>cleartext</strong> — HTTP, FTP, Telnet, unencrypted SMTP, old database connections — leaks its credentials and content directly to anyone on the path. This single fact is the reason the entire web moved to HTTPS.</p>
-<h2 id="2-man-in-the-middle-via-arp-spoofing">2. Man-in-the-middle via ARP spoofing<a class="headerlink" href="#2-man-in-the-middle-via-arp-spoofing" title="Permanent link">&para;</a></h2>
-<p>On a local network, hosts find each other by MAC address using <strong>ARP</strong>, a trusting protocol with no authentication. <strong>ARP spoofing</strong> abuses that: the attacker sends forged ARP replies telling the victim "<em>I</em> am the gateway" and telling the gateway "<em>I</em> am the victim." Now all of the victim's traffic flows <em>through</em> the attacker — a <strong>man-in-the-middle</strong> position from which they can read, capture credentials, or modify traffic in transit.</p>
-<h2 id="3-network-defenses-evasion">3. Network defenses &amp; evasion<a class="headerlink" href="#3-network-defenses-evasion" title="Permanent link">&para;</a></h2>
+<h2 id="1-symmetric-vs-asymmetric-two-tools-for-two-jobs">1. Symmetric vs. asymmetric — two tools for two jobs<a class="headerlink" href="#1-symmetric-vs-asymmetric-two-tools-for-two-jobs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Symmetric</strong> encryption (AES) uses <strong>one shared key</strong> to encrypt and decrypt. It's fast and handles bulk data — but both sides need the same secret, so <em>how do you share the key safely</em> becomes the hard problem.</li>
+<li><strong>Asymmetric</strong> encryption (RSA, ECC) uses a <strong>key pair</strong>: a public key anyone can have and a private key you guard. Anything encrypted with the public key can only be opened with the private key. This solves key distribution and enables <strong>digital signatures</strong>.</li>
+</ul>
+<p>In the real world they work together: asymmetric crypto is used briefly to exchange a symmetric session key, then fast symmetric crypto protects the actual conversation. That's exactly what happens in the <strong>TLS handshake</strong> behind every HTTPS connection.</p>
+<h2 id="2-pki-turning-keys-into-trust">2. PKI — turning keys into trust<a class="headerlink" href="#2-pki-turning-keys-into-trust" title="Permanent link">&para;</a></h2>
+<p>A public key alone doesn't tell you <em>who</em> it belongs to. <strong>Public Key Infrastructure</strong> solves that with <strong>digital certificates</strong>: a trusted <strong>Certificate Authority (CA)</strong> cryptographically signs a statement binding a public key to an identity (a domain, an organization). Your browser trusts a small set of root CAs, and trust flows down a <strong>chain</strong> to the site's certificate. This is the machinery that lets you connect to a bank you've never met and know you're really talking to them.</p>
+<h2 id="3-hashing-salting-signatures">3. Hashing, salting &amp; signatures<a class="headerlink" href="#3-hashing-salting-signatures" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Hashing</strong> (SHA-256) is one-way — it produces a fixed fingerprint you can't reverse. It's used for integrity checks and password storage. <strong>A hash is not encryption</strong> (there's no key and no decryption).</li>
+<li><strong>Salting</strong> adds a unique random value to each password before hashing, so identical passwords produce different hashes and precomputed <strong>rainbow tables</strong> are useless. Modern password storage also uses <strong>slow</strong> hashes (bcrypt, argon2) so guessing is expensive.</li>
+<li><strong>Digital signatures</strong> reverse asymmetric crypto — sign with the private key, verify with the public key — proving authenticity and integrity.</li>
+</ul>
+<h2 id="4-how-crypto-actually-fails">4. How crypto actually fails<a class="headerlink" href="#4-how-crypto-actually-fails" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <details class="note">
-<summary>🛡️ IDS / IPS</summary>
-<p>Intrusion detection/prevention systems (Snort, Suricata) inspect traffic for known-bad <strong>signatures</strong> and statistical <strong>anomalies</strong>. Attackers evade them with encryption, packet <strong>fragmentation</strong>, timing changes, and by hiding inside protocols the IDS doesn't fully parse.</p>
+<summary>🔨 Brute force &amp; weak secrets</summary>
+<p>Feasible when keys or passwords are short, or when hashing is fast and unsalted. Defended by strong keys, slow salted hashes, and rate limiting.</p>
 </details>
 <details class="note">
-<summary>🧱 Firewalls</summary>
-<p>Firewalls enforce which connections are allowed. Attackers evade them by <strong>tunneling</strong> — smuggling their traffic inside an allowed protocol (data exfiltration over HTTPS or DNS, which almost every firewall permits outbound).</p>
+<summary>⚙️ Implementation &amp; configuration errors</summary>
+<p>The math is rarely the weak point — the <em>implementation</em> is. Wrong cipher mode, reused nonces, missing salt, deprecated ciphers, or a downgrade attack that forces a connection back to breakable crypto.</p>
 </details>
 <details class="note">
-<summary>🍯 Honeypots</summary>
-<p>Decoy systems designed to be attacked, so defenders can study intruders and generate high-confidence alerts. For the attacker, an unexpectedly easy target that logs everything is a red flag to recognize and avoid.</p>
+<summary>🎂 Collision &amp; deprecation</summary>
+<p>MD5 and SHA-1 are broken for signatures because attackers can engineer <strong>collisions</strong> (two inputs, same hash). This is why they're deprecated for certificates.</p>
 </details>
-<h2 id="4-evasion-in-one-line">4. Evasion in one line<a class="headerlink" href="#4-evasion-in-one-line" title="Permanent link">&para;</a></h2>
-<p>The theme of this week's offensive side is that <strong>defenses inspect what they can see</strong>. Encrypt it, fragment it, or tunnel it inside allowed traffic, and much of the inspection stops working — which is exactly why exfiltrating data over an encrypted channel is so hard to catch.</p>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p class="admonition-title">How this looks from the SOC seat</p>
-<p>Passive sniffing produces <strong>no traffic at all</strong> — it's undetectable on the wire. What <em>is</em> detectable is the <strong>ARP poisoning</strong> that enables active MITM: sudden changes to ARP tables, a MAC address suddenly claiming to be the gateway, or duplicate-IP warnings. Tunneled exfiltration shows up as anomalies — oddly large or oddly regular DNS/HTTPS flows to an unfamiliar host.</p>
-<p><strong>Best control:</strong> <strong>encrypt everything in transit</strong> so captured traffic is useless; enable <strong>Dynamic ARP Inspection</strong> and port security on switches to block spoofing; and <strong>segment</strong> sensitive networks so a foothold in one place can't sniff everything.</p>
+<p>Crypto weakness rarely fires a single alert — it surfaces as <strong>deprecated ciphers, expired or mismatched certificates, and downgrade attempts</strong> in TLS inspection logs, or as a breach <em>after the fact</em> when weakly-stored passwords are cracked en masse.</p>
+<p><strong>Best control:</strong> enforce modern TLS (1.2+), disable legacy ciphers and protocols, use <strong>HSTS</strong>, monitor certificate expiry and transparency logs, and store passwords only with <strong>slow, salted</strong> hashes (bcrypt/argon2). Treat "roll your own crypto" as a finding.</p>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Real-world context — Firesheep</p>
-<p>In 2010 a developer released <strong>Firesheep</strong>, a one-click Firefox extension that sniffed unencrypted session cookies on open Wi-Fi and let anyone instantly log in as other people on Facebook, Twitter, and more. It wasn't new — it just made cleartext sniffing <em>trivially</em> visible to the public. The backlash is a big reason the entire web shifted to <strong>HTTPS-everywhere</strong>. It's the perfect illustration of why "the network is an attack surface."</p>
+<p class="admonition-title">Real-world context — the Adobe password disaster</p>
+<p>In 2013, attackers stole ~153 million <strong>Adobe</strong> account records. Adobe hadn't hashed the passwords — they <em>encrypted</em> them with a symmetric cipher in <strong>ECB mode</strong> and no salt. ECB encrypts identical blocks identically, so every user with the same password had the <em>same</em> ciphertext, and the plaintext password <em>hints</em> were stored right alongside. Researchers recovered vast numbers of passwords without breaking any math. It's the textbook lesson that <strong>using crypto and using it correctly are completely different things.</strong></p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Wireshark User's Guide.</strong> <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>
-<li><strong>MITRE ATT&amp;CK — Network Sniffing (T1040)</strong> · <strong>Defense Evasion (TA0005).</strong> <a href="https://attack.mitre.org/techniques/T1040/">T1040</a> · <a href="https://attack.mitre.org/tactics/TA0005/">TA0005</a></li>
+<li><strong>Crypto 101</strong> (free book) — Ch. 1–7 (block/stream ciphers, key exchange, public-key, hashes). <a href="https://www.crypto101.io/">crypto101.io</a></li>
+<li><strong>OWASP — Password Storage Cheat Sheet.</strong> <a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html">cheatsheetseries.owasp.org</a></li>
 </ul>
 
 
@@ -1664,7 +1672,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week03/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 3 · Scanning, Enumeration &amp; Vuln Analysis">
+          <a href="network-hacking-sniffing.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 4 · Network Hacking &amp; Sniffing">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1674,20 +1682,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 3 · Scanning, Enumeration & Vuln Analysis
+                Week 4 · Network Hacking & Sniffing
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week05/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 5 · Cryptography">
+          <a href="system-attacks.html" class="md-footer__link md-footer__link--next" aria-label="Next: Week 6 · System Attacks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 5 · Cryptography
+                Week 6 · System Attacks
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1724,12 +1732,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "navigation.footer", "toc.integrate", "content.code.copy", "content.action.edit", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/extra.js"></script>
+        <script src="../javascripts/extra.js"></script>
       
     
   </body>
