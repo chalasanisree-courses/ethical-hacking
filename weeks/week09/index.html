@@ -29,7 +29,7 @@
     
     
       
-        <title>Week 9 · Web Attacks I - Ethical Hacking</title>
+        <title>Week 9 · Web Attacks II — SQLi & Session Hijacking - Ethical Hacking</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-9-web-attacks-i" class="md-skip">
+        <a href="#week-9-web-attacks-ii-sql-injection-session-hijacking" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 9 · Web Attacks I
+              Week 9 · Web Attacks II — SQLi & Session Hijacking
             
           </span>
         </div>
@@ -346,7 +346,7 @@
   
     
   
-  Module 5 · Human & Web
+  Module 5 · Web
 
         </a>
       </li>
@@ -362,13 +362,35 @@
     
     
       <li class="md-tabs__item">
-        <a href="../week11/" class="md-tabs__link">
+        <a href="../week10/" class="md-tabs__link">
           
   
   
     
   
-  Module 6 · Wireless & Pentest
+  Module 6 · Wireless & Pen Testing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../week12/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Module 7 · The Human / Identity Layer
 
         </a>
       </li>
@@ -663,7 +685,7 @@
   <span class="md-ellipsis">
     
   
-    Week 3 · Scanning & Enumeration
+    Week 3 · Scanning, Enumeration & Vuln Analysis
   
 
     
@@ -905,7 +927,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 · Trojans, Malware & DoS
+    Week 7 · Malware, Trojans & DoS
   
 
     
@@ -941,8 +963,6 @@
       
         
       
-        
-      
     
     
     
@@ -969,7 +989,7 @@
   <span class="md-ellipsis">
     
   
-    Module 5 · Human & Web
+    Module 5 · Web
   
 
     
@@ -985,7 +1005,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Module 5 · Human & Web
+    Module 5 · Web
   
 
           </label>
@@ -1005,7 +1025,7 @@
   <span class="md-ellipsis">
     
   
-    Week 8 · Social Engineering
+    Week 8 · Web Attacks I — Servers & Apps
   
 
     
@@ -1042,7 +1062,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 · Web Attacks I
+    Week 9 · Web Attacks II — SQLi & Session Hijacking
   
 
     
@@ -1060,7 +1080,7 @@
   <span class="md-ellipsis">
     
   
-    Week 9 · Web Attacks I
+    Week 9 · Web Attacks II — SQLi & Session Hijacking
   
 
     
@@ -1086,10 +1106,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-web-server-attacks" class="md-nav__link">
+  <a href="#1-sql-injection-mechanics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Web-server attacks
+        1. SQL injection mechanics
       
     </span>
   </a>
@@ -1097,10 +1117,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-web-app-attack-classes" class="md-nav__link">
+  <a href="#2-sqli-variants" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Web-app attack classes
+        2. SQLi variants
       
     </span>
   </a>
@@ -1108,10 +1128,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-the-owasp-top-10" class="md-nav__link">
+  <a href="#3-session-hijacking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. The OWASP Top 10
+        3. Session hijacking
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Defense
       
     </span>
   </a>
@@ -1144,34 +1175,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../week10/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 10 · Web Attacks II — SQLi
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1220,7 +1223,7 @@
   <span class="md-ellipsis">
     
   
-    Module 6 · Wireless & Pentest
+    Module 6 · Wireless & Pen Testing
   
 
     
@@ -1236,7 +1239,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Module 6 · Wireless & Pentest
+    Module 6 · Wireless & Pen Testing
   
 
           </label>
@@ -1249,14 +1252,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../week11/" class="md-nav__link">
+      <a href="../week10/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Week 11 · Wireless Hacking
+    Week 10 · Wireless Hacking
   
 
     
@@ -1277,6 +1280,97 @@
   
   
     <li class="md-nav__item">
+      <a href="../week11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 · Penetration Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module 7 · The Human / Identity Layer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Module 7 · The Human / Identity Layer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../week12/" class="md-nav__link">
         
   
@@ -1284,7 +1378,7 @@
   <span class="md-ellipsis">
     
   
-    Week 12 · Pentest & Capstone
+    Week 12 · Social Engineering & the Identity Layer
   
 
     
@@ -1333,10 +1427,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1354,8 +1448,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1482,51 +1576,66 @@
 
 
 <p><a href="../../">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-9-web-attacks-i">Week 9 · Web Attacks I<a class="headerlink" href="#week-9-web-attacks-i" title="Permanent link">&para;</a></h1>
+<h1 id="week-9-web-attacks-ii-sql-injection-session-hijacking">Week 9 · Web Attacks II — SQL Injection &amp; Session Hijacking<a class="headerlink" href="#week-9-web-attacks-ii-sql-injection-session-hijacking" title="Permanent link">&para;</a></h1>
 <p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span></p>
 <div class="attck-strip">
 <span class="lbl">ATT&CK</span>
 <a class="attck-tag" href="https://attack.mitre.org/techniques/T1190/" target="_blank">T1190 Exploit Public-Facing App</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1505/" target="_blank">T1505 Server Software Component</a>
-<a class="attck-tag" href="https://attack.mitre.org/techniques/T1059/" target="_blank">T1059 Command &amp; Scripting</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1185/" target="_blank">T1185 Browser Session Hijacking</a>
+<a class="attck-tag" href="https://attack.mitre.org/techniques/T1539/" target="_blank">T1539 Steal Web Session Cookie</a>
 </div>
 
 <div class="admonition abstract">
 <p class="admonition-title">What this page covers</p>
 <ul>
-<li>The web-server and web-application attack surface</li>
-<li>The OWASP Top 10 as a shared vocabulary</li>
-<li>How web attacks lead to backend access</li>
+<li>How SQL injection works and why it's still so damaging</li>
+<li>In-band, blind, and error-based SQLi</li>
+<li><strong>Session hijacking</strong> — stealing or forging a session to become the user</li>
+<li>Defenses: parameterized queries, secure sessions, least privilege</li>
 </ul>
 </div>
-<h2 id="1-web-server-attacks">1. Web-server attacks<a class="headerlink" href="#1-web-server-attacks" title="Permanent link">&para;</a></h2>
-<p>Misconfiguration, default credentials, outdated components, and directory traversal. The server itself is a target before you ever reach the application — and a web shell here means persistent access.</p>
-<h2 id="2-web-app-attack-classes">2. Web-app attack classes<a class="headerlink" href="#2-web-app-attack-classes" title="Permanent link">&para;</a></h2>
+<h2 id="1-sql-injection-mechanics">1. SQL injection mechanics<a class="headerlink" href="#1-sql-injection-mechanics" title="Permanent link">&para;</a></h2>
+<p>Untrusted input concatenated into a database query lets an attacker change the query's <em>meaning</em> — the classic <code>' OR 1=1 --</code> that turns a login check into "always true." From there: dump entire tables, bypass authentication, read/write files, and on some databases reach OS command execution.</p>
+<h2 id="2-sqli-variants">2. SQLi variants<a class="headerlink" href="#2-sqli-variants" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <details class="note">
-<summary>🧩 Broken access control</summary>
-<p>Acting outside intended permissions — IDOR, forced browsing, privilege bypass. The #1 OWASP risk.</p>
+<summary>🔗 In-band (union / error-based)</summary>
+<p>Results come straight back in the response — appended via <code>UNION SELECT</code>, or leaked through verbose database error messages.</p>
 </details>
 <details class="note">
-<summary>💉 Injection</summary>
-<p>Untrusted input interpreted as code/query — SQLi (Week 10), command injection, LDAP injection.</p>
+<summary>🕶️ Blind (boolean / time-based)</summary>
+<p>No visible output, so you infer data one bit at a time — <code>AND 1=1</code> vs <code>AND 1=2</code> for boolean, or <code>SLEEP(5)</code> to read answers from response timing.</p>
 </details>
 <details class="note">
-<summary>🖼️ XSS &amp; CSRF</summary>
-<p>Stored/reflected cross-site scripting runs attacker JS in a victim's browser; CSRF forces authenticated actions.</p>
+<summary>🤖 Automation (sqlmap)</summary>
+<p><code>sqlmap</code> automates detection and extraction across all these variants — powerful as an attacker, and a distinctive traffic pattern for defenders to recognize.</p>
 </details>
-<h2 id="3-the-owasp-top-10">3. The OWASP Top 10<a class="headerlink" href="#3-the-owasp-top-10" title="Permanent link">&para;</a></h2>
-<p>A community-maintained list of the most critical web risks — the vocabulary you'll use to classify and communicate findings for the rest of the course.</p>
+<h2 id="3-session-hijacking">3. Session hijacking<a class="headerlink" href="#3-session-hijacking" title="Permanent link">&para;</a></h2>
+<p>A logged-in user is tracked by a <strong>session token</strong> (usually a cookie). Steal or forge that token and you <em>are</em> that user — no password needed. This is conceptually close to the human/identity attacks in Module 7 ("become the user"), but here the mechanism is technical:</p>
+<ul>
+<li><strong>Token theft</strong> — via XSS (Week 8) reading <code>document.cookie</code>, or sniffing an unencrypted session (Week 4).</li>
+<li><strong>Session fixation</strong> — force a known session ID on the victim, then ride it after they log in.</li>
+<li><strong>Man-in-the-middle</strong> — intercept the token in transit.</li>
+</ul>
+<h2 id="4-defense">4. Defense<a class="headerlink" href="#4-defense" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>SQLi:</strong> parameterized queries / prepared statements eliminate the class entirely; add input validation, least-privilege DB accounts, and a WAF as depth.</li>
+<li><strong>Session hijacking:</strong> <code>Secure</code> + <code>HttpOnly</code> + <code>SameSite</code> cookies, TLS everywhere, session regeneration on login, and short idle timeouts.</li>
+</ul>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p class="admonition-title">How this looks from the SOC seat</p>
-<p>Web attacks are visible in <strong>access logs and WAF logs</strong>: anomalous request paths, encoded payloads, unexpected POST bodies, spikes of 4xx/5xx responses, and requests to endpoints that shouldn't exist.</p>
-<p><strong>Best control:</strong> secure coding (input validation, output encoding) is the real fix; a WAF and timely patching are the layers behind it.</p>
+<p>SQLi shows as <strong>suspicious query strings</strong> in web logs (quotes, <code>UNION</code>, <code>--</code>, <code>SLEEP(</code>, encoded variants) and <strong>database error spikes</strong> from the app account. Session hijacking shows as <strong>one session used from two IPs/geographies or two devices at once</strong>, or a session that suddenly changes user-agent — exactly the kind of anomaly UEBA is built to catch.</p>
+<p><strong>Best control:</strong> parameterized queries kill SQLi at the source; for sessions, bind tokens to context and alert on impossible-travel / concurrent-session anomalies.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Real-world context</p>
+<p>The 2008 <strong>Heartland Payment Systems</strong> breach — 130M+ card numbers — began with a <strong>SQL injection</strong> flaw in a web form that led to the payment network. Fifteen years later SQLi is still a top-cause web vulnerability, which is exactly why it gets its own week.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>OWASP Top 10.</strong> <a href="https://owasp.org/www-project-top-ten/">owasp.org/www-project-top-ten</a></li>
-<li><strong>OWASP Web Security Testing Guide (WSTG).</strong> <a href="https://owasp.org/www-project-web-security-testing-guide/">owasp.org/www-project-web-security-testing-guide</a></li>
+<li><strong>OWASP — SQL Injection</strong> · <strong>SQL Injection Prevention Cheat Sheet.</strong> <a href="https://owasp.org/www-community/attacks/SQL_Injection">Attack</a> · <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">Prevention</a></li>
+<li><strong>OWASP — Session Management Cheat Sheet.</strong> <a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html">cheatsheetseries.owasp.org</a></li>
 </ul>
 
 
@@ -1563,7 +1672,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../week08/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 8 · Social Engineering">
+          <a href="../week08/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 8 · Web Attacks I — Servers &amp; Apps">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1573,20 +1682,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 8 · Social Engineering
+                Week 8 · Web Attacks I — Servers & Apps
               </div>
             </div>
           </a>
         
         
           
-          <a href="../week10/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 10 · Web Attacks II — SQLi">
+          <a href="../week10/" class="md-footer__link md-footer__link--next" aria-label="Next: Week 10 · Wireless Hacking">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 10 · Web Attacks II — SQLi
+                Week 10 · Wireless Hacking
               </div>
             </div>
             <div class="md-footer__button md-icon">
