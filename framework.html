@@ -1461,36 +1461,22 @@
 
 <h1 id="the-framework">The Framework<a class="headerlink" href="#the-framework" title="Permanent link">&para;</a></h1>
 <p><span class="kc-badge">🗺️ The map for the whole course</span></p>
-<p>Before any tools, one picture. Companies defend in <strong>layers</strong> — a castle with rings of walls, the valuable data at the core. An attacker's whole job is to <strong>crack those layers</strong> to reach the crown jewels, and once inside, to <strong>land and expand</strong> toward the center. Every week of this course is a technique for cracking a layer, or a move in the land-and-expand playbook — seen from <em>both</em> the attacker's and the defender's side.</p>
-<div style="max-width:640px;margin:24px auto;">
-<svg viewBox="0 0 640 470" role="img" aria-label="Layered security model: an attacker cracks the network, device, application, and data layers to reach the identity core, landing and expanding inward." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
-  <defs>
-    <marker id="arw" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0,0 L9,3.5 L0,7" fill="#e05252"/></marker>
-  </defs>
-  <!-- concentric layers -->
-  <circle cx="330" cy="235" r="200" fill="#1e3a5f"/>
-  <circle cx="330" cy="235" r="164" fill="#2c5580"/>
-  <circle cx="330" cy="235" r="128" fill="#3f7cae"/>
-  <circle cx="330" cy="235" r="92"  fill="#6aa9d6"/>
-  <circle cx="330" cy="235" r="56"  fill="#f59e0b"/>
-  <!-- labels -->
-  <text x="330" y="55"  text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">NETWORK</text>
-  <text x="330" y="91"  text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">DEVICE</text>
-  <text x="330" y="127" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">APPLICATION</text>
-  <text x="330" y="163" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">DATA</text>
-  <text x="330" y="231" text-anchor="middle" font-size="14" font-weight="800" fill="#1a1a1a">IDENTITY</text>
-  <text x="330" y="249" text-anchor="middle" font-size="10" fill="#5a3d00">the crown jewels</text>
-  <!-- attacker -->
-  <circle cx="70" cy="235" r="30" fill="#fff" stroke="#e05252" stroke-width="2.5"/>
-  <text x="70" y="244" text-anchor="middle" font-size="26">😈</text>
-  <text x="70" y="288" text-anchor="middle" font-size="11" font-family="'JetBrains Mono',monospace" fill="#e05252">Attacker</text>
-  <!-- land arrow -->
-  <line x1="102" y1="235" x2="126" y2="235" stroke="#e05252" stroke-width="2.5" marker-end="url(#arw)"/>
-  <text x="150" y="222" text-anchor="middle" font-size="11" font-weight="700" fill="#e05252">① LAND</text>
-  <!-- expand spiral inward -->
-  <path d="M 150,250 Q 210,320 270,270 Q 300,244 322,250" fill="none" stroke="#e05252" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arw)"/>
-  <text x="232" y="330" text-anchor="middle" font-size="11" font-weight="700" fill="#e05252">② EXPAND →</text>
+<p>Before any tools, one picture: <strong>how defenders build their walls.</strong> Companies protect what matters in <strong>layers</strong> — <em>defense in depth</em> — with the most critical assets at the center. This course then does something specific: <strong>we play the attacker</strong>, learning to crack each of these layers — and on every topic we flip to the defender's side.</p>
+<div style="max-width:560px;margin:24px auto;">
+<svg viewBox="0 0 560 480" role="img" aria-label="Defense in depth: concentric layers — Network, Device, Application, Data, and Identity at the core." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+  <circle cx="280" cy="240" r="205" fill="#2b8ca6"/>
+  <circle cx="280" cy="240" r="168" fill="#3ba0ba"/>
+  <circle cx="280" cy="240" r="131" fill="#57b8cf"/>
+  <circle cx="280" cy="240" r="94"  fill="#8ad2e3"/>
+  <circle cx="280" cy="240" r="57"  fill="#0e6b82"/>
+  <text x="280" y="60"  text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">NETWORK</text>
+  <text x="280" y="95"  text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">DEVICE</text>
+  <text x="280" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">APPLICATION</text>
+  <text x="280" y="165" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a44">DATA</text>
+  <text x="280" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">IDENTITY</text>
+  <text x="280" y="254" text-anchor="middle" font-size="9.5" fill="#cfeef6">the core</text>
 </svg>
+<p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6b7280;margin-top:4px;">Defense in depth — each layer a wall the attacker must get through</p>
 </div>
 
 <h2 id="how-companies-defend-layers">How companies defend: layers<a class="headerlink" href="#how-companies-defend-layers" title="Permanent link">&para;</a></h2>
