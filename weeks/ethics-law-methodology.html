@@ -1745,7 +1745,7 @@
 </div>
 
 <h3 id="one-attack-four-ways-to-name-it">One attack, four ways to name it<a class="headerlink" href="#one-attack-four-ways-to-name-it" title="Permanent link">&para;</a></h3>
-<p>The attacker loop can be framed as a simple <strong>land, then expand</strong> loop: recon and exploitation to get a foothold, then escalate, move, and persist to reach the prize. The course itself is organized by the <strong>CEH five phases</strong>, and two named industry models — Lockheed Martin's <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong> — describe the same sequence. Here's how all four fit together:</p>
+<p>The attacker loop is simple: <strong>reconnaissance</strong> to study the target, then <strong>land</strong> — exploitation to get a foothold — then <strong>expand</strong> — escalate, move, and persist to reach the prize. The course itself is organized by the <strong>CEH five phases</strong>, and two named industry models — Lockheed Martin's <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong> — describe the same sequence. Here's how they line up:</p>
 <div style="overflow-x:auto;margin:20px 0;">
 <svg viewBox="0 0 910 294" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:910px;height:auto;display:block;font-family:sans-serif;" role="img" aria-label="The lecture&apos;s land-and-expand attacker loop, mapped to the CEH course structure, the Lockheed Cyber Kill Chain, and MITRE ATT&amp;CK.">
 <line x1="211.0" y1="106" x2="211.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
@@ -1761,11 +1761,15 @@
 <text x="8" y="151.0" font-size="9.2" fill="#6b7280">Lockheed Martin</text>
 <text x="8" y="225.0" font-size="11" font-weight="800" fill="#7a4a0b">MITRE ATT&amp;CK</text>
 <text x="8" y="239.0" font-size="9.2" fill="#6b7280">tactics / techniques</text>
-<rect x="138" y="10" width="375.0" height="34" rx="17" fill="#2b6cb0"/>
-<rect x="525.0" y="10" width="375.0" height="34" rx="17" fill="#c0453a"/>
-<text x="326" y="31.0" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">LAND &#8212; get a foothold</text>
-<text x="712" y="31.0" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">EXPAND &#8212; escalate &amp; spread</text>
-<text x="519" y="32.0" text-anchor="middle" font-size="15" font-weight="800" fill="#8a99a8">&#8250;</text>
+<rect x="138" y="10" width="300" height="34" rx="9" fill="none" stroke="#c2ccd8" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="288" y="31.0" text-anchor="middle" font-size="10.5" font-weight="600" fill="#64748b">reconnaissance &middot; before the foothold</text>
+<rect x="446" y="10" width="146" height="34" rx="17" fill="#2b6cb0"/>
+<text x="519" y="32.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">LAND</text>
+<text x="596" y="33.0" text-anchor="middle" font-size="16" font-weight="800" fill="#9aa3af">&#8250;</text>
+<rect x="600" y="10" width="146" height="34" rx="17" fill="#c0453a"/>
+<text x="673" y="32.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">EXPAND</text>
+<rect x="754" y="10" width="146" height="34" rx="9" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="827" y="31.0" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">not in the loop</text>
 <rect x="138" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
 <text x="211.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">1 · Reconnaissance</text>
 <rect x="138" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
@@ -1777,15 +1781,16 @@
 <rect x="292" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
 <text x="365.0" y="79.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">2 · Scanning &amp;</text>
 <text x="365.0" y="95.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">Enumeration</text>
-<rect x="292" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
-<text x="365.0" y="143.5" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Delivery</text>
+<rect x="292" y="114" width="146" height="52" rx="9" fill="#f1f4f8" stroke="#d7dee8" stroke-width="1"/>
+<text x="365.0" y="143.0" text-anchor="middle" font-size="10.5" font-weight="500" fill="#9aa3af">(no direct stage)</text>
 <rect x="292" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
 <text x="365.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Active Scanning (T1595)</text>
 <rect x="446" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
 <text x="519.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">3 · Gaining Access</text>
 <rect x="446" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
-<text x="519.0" y="136.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Exploitation</text>
-<text x="519.0" y="151.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Installation</text>
+<text x="519.0" y="128.5" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Delivery</text>
+<text x="519.0" y="143.5" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Exploitation</text>
+<text x="519.0" y="158.5" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Installation</text>
 <rect x="446" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
 <text x="519.0" y="215.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Initial Access (TA0001)</text>
 <text x="519.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Execution (TA0002)</text>
@@ -1804,15 +1809,14 @@
 <text x="673.0" y="260.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Impact (TA0040)</text>
 <rect x="754" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
 <text x="827.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">5 · Covering Tracks</text>
-<rect x="754" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
-<text x="827.0" y="136.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">(within Actions</text>
-<text x="827.0" y="151.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">on Objectives)</text>
+<rect x="754" y="114" width="146" height="52" rx="9" fill="#f1f4f8" stroke="#d7dee8" stroke-width="1"/>
+<text x="827.0" y="143.0" text-anchor="middle" font-size="10.5" font-weight="500" fill="#9aa3af">(no direct stage)</text>
 <rect x="754" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
 <text x="827.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Defense Evasion (TA0005)</text>
 </svg>
 </div>
 
-<p><small>Read it top-down: the <em>land/expand</em> loop is the intuition, the <strong>CEH row is how the course is structured</strong> (one phase per week), and Lockheed and ATT&amp;CK are the industry references. The fit isn't perfectly one-to-one — Lockheed splits the <em>setup</em> into more stages, ATT&amp;CK explodes the <em>inside</em> into parallel tactics — which is exactly why we teach the simple version.</small></p>
+<p><small>In the attacker loop, <strong>recon</strong> comes first (studying the target); <strong>land</strong> is getting a foothold — CEH&rsquo;s <em>Gaining Access</em>; and <strong>expand</strong> is the whole post-exploitation loop — CEH&rsquo;s <em>Maintaining Access</em>. <em>Covering Tracks</em> isn&rsquo;t part of the loop. The <strong>CEH row is how the course is structured</strong> (one phase per week); Lockheed and ATT&amp;CK are the industry references, and the fit isn&rsquo;t perfectly one-to-one.</small></p>
 <h2 id="5-enterprise-architecture-what-were-attacking">5. Enterprise architecture — what we're attacking<a class="headerlink" href="#5-enterprise-architecture-what-were-attacking" title="Permanent link">&para;</a></h2>
 <p>So what do those attacks target? Picture a bank. Employees use <strong>client machines</strong> (laptops) to reach <strong>applications on servers</strong>, tied together by <strong>networking equipment</strong> (routers, switches). To keep the internet's "bad stuff" out, the network is walled off by <strong>security equipment</strong> — <strong>firewalls</strong>, and <strong>IDS/IPS</strong> (intrusion detection/prevention) watching for anomalies. That boundary is the <strong>network perimeter</strong>.</p>
 <p>Customers still need in, so external traffic first lands in the <strong>DMZ</strong> (demilitarized zone), where a <strong>web server</strong> takes the request (and <strong>secure web</strong> and <strong>email gateways</strong> scan incoming traffic for malware). Only valid requests pass deeper, to the <strong>application servers</strong>, and only they may reach the <strong>database servers</strong>, where the data lives — a <strong>three-tier</strong> architecture on separate subnets, separated by <strong>internal firewalls</strong> too. Think of a neighborhood: gates on the streets <em>and</em> gates on each house.</p>
