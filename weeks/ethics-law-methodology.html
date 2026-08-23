@@ -1745,7 +1745,7 @@
 </div>
 
 <h3 id="one-attack-four-ways-to-name-it">One attack, four ways to name it<a class="headerlink" href="#one-attack-four-ways-to-name-it" title="Permanent link">&para;</a></h3>
-<p>In the lecture I framed the attacker as a simple loop — <strong>land</strong>, then <strong>expand</strong>: recon and exploitation to get a foothold, then escalate, move, and persist to reach the prize. That's the intuition for this week. The <em>rest</em> of the course is organized by the <strong>CEH five phases</strong>, and the two named industry models — Lockheed Martin's <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong> — line up with them too. Here's how all four fit together:</p>
+<p>The attacker loop can be framed as a simple <strong>land, then expand</strong> loop: recon and exploitation to get a foothold, then escalate, move, and persist to reach the prize. The course itself is organized by the <strong>CEH five phases</strong>, and two named industry models — Lockheed Martin's <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong> — describe the same sequence. Here's how all four fit together:</p>
 <div style="overflow-x:auto;margin:20px 0;">
 <svg viewBox="0 0 910 294" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:910px;height:auto;display:block;font-family:sans-serif;" role="img" aria-label="The lecture&apos;s land-and-expand attacker loop, mapped to the CEH course structure, the Lockheed Cyber Kill Chain, and MITRE ATT&amp;CK.">
 <line x1="211.0" y1="106" x2="211.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
@@ -1754,7 +1754,7 @@
 <line x1="673.0" y1="106" x2="673.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
 <line x1="827.0" y1="106" x2="827.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
 <text x="8" y="24.0" font-size="11" font-weight="800" fill="#7a2f22">Attacker loop</text>
-<text x="8" y="38.0" font-size="9.2" fill="#6b7280">this lecture</text>
+<text x="8" y="38.0" font-size="9.2" fill="#6b7280">the intuition</text>
 <text x="8" y="79.0" font-size="11" font-weight="800" fill="#0e6b82">CEH</text>
 <text x="8" y="93.0" font-size="9.2" fill="#6b7280">course structure</text>
 <text x="8" y="137.0" font-size="11" font-weight="800" fill="#0C447C">Cyber Kill Chain</text>
@@ -1812,7 +1812,7 @@
 </svg>
 </div>
 
-<p><small>Read it top-down: the lecture's <em>land/expand</em> loop is the intuition, the <strong>CEH row is how the course is structured</strong> (one phase per week), and Lockheed and ATT&amp;CK are the industry references. The fit isn't perfectly one-to-one — Lockheed splits the <em>setup</em> into more stages, ATT&amp;CK explodes the <em>inside</em> into parallel tactics — which is exactly why we teach the simple version.</small></p>
+<p><small>Read it top-down: the <em>land/expand</em> loop is the intuition, the <strong>CEH row is how the course is structured</strong> (one phase per week), and Lockheed and ATT&amp;CK are the industry references. The fit isn't perfectly one-to-one — Lockheed splits the <em>setup</em> into more stages, ATT&amp;CK explodes the <em>inside</em> into parallel tactics — which is exactly why we teach the simple version.</small></p>
 <h2 id="5-enterprise-architecture-what-were-attacking">5. Enterprise architecture — what we're attacking<a class="headerlink" href="#5-enterprise-architecture-what-were-attacking" title="Permanent link">&para;</a></h2>
 <p>So what do those attacks target? Picture a bank. Employees use <strong>client machines</strong> (laptops) to reach <strong>applications on servers</strong>, tied together by <strong>networking equipment</strong> (routers, switches). To keep the internet's "bad stuff" out, the network is walled off by <strong>security equipment</strong> — <strong>firewalls</strong>, and <strong>IDS/IPS</strong> (intrusion detection/prevention) watching for anomalies. That boundary is the <strong>network perimeter</strong>.</p>
 <p>Customers still need in, so external traffic first lands in the <strong>DMZ</strong> (demilitarized zone), where a <strong>web server</strong> takes the request (and <strong>secure web</strong> and <strong>email gateways</strong> scan incoming traffic for malware). Only valid requests pass deeper, to the <strong>application servers</strong>, and only they may reach the <strong>database servers</strong>, where the data lives — a <strong>three-tier</strong> architecture on separate subnets, separated by <strong>internal firewalls</strong> too. Think of a neighborhood: gates on the streets <em>and</em> gates on each house.</p>
