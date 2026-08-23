@@ -456,10 +456,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#three-models-one-attack-a-crosswalk" class="md-nav__link">
+  <a href="#one-attack-four-ways-to-name-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three models, one attack — a crosswalk
+        One attack, four ways to name it
       
     </span>
   </a>
@@ -1483,10 +1483,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#three-models-one-attack-a-crosswalk" class="md-nav__link">
+  <a href="#one-attack-four-ways-to-name-it" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Three models, one attack — a crosswalk
+        One attack, four ways to name it
       
     </span>
   </a>
@@ -1744,24 +1744,75 @@
 </div>
 </div>
 
-<h3 id="three-models-one-attack-a-crosswalk">Three models, one attack — a crosswalk<a class="headerlink" href="#three-models-one-attack-a-crosswalk" title="Permanent link">&para;</a></h3>
-<p>You'll hear "kill chain" used for a few different models, so let's be precise. The five phases above are the <strong>CEH</strong> framing we'll use all term. It's a simplification of Lockheed Martin's original <strong>Cyber Kill Chain</strong> (seven stages, built to describe intrusions), and both map onto <strong>MITRE ATT&amp;CK</strong> — not a linear chain at all, but a <em>matrix</em> of the real tactics and techniques attackers actually use, and the common language of modern defense. Same attack, three lenses: ours is the teaching model, Lockheed's is the classic, ATT&amp;CK is the reference defenders and threat-intel teams live in.</p>
-<div style="overflow-x:auto;margin:16px 0;">
-<table>
-<thead>
-<tr><th>Our phase (CEH)</th><th>Cyber Kill Chain (Lockheed)</th><th>MITRE ATT&amp;CK tactic(s)</th><th>Stage</th></tr>
-</thead>
-<tbody>
-<tr><td><b>1 · Reconnaissance</b></td><td>Reconnaissance · Weaponization</td><td>Reconnaissance (TA0043) · Resource Development (TA0042)</td><td>🟦 Land</td></tr>
-<tr><td><b>2 · Scanning &amp; Enumeration</b></td><td>Delivery</td><td>Active Scanning (T1595, under Reconnaissance)</td><td>🟦 Land</td></tr>
-<tr><td><b>3 · Gaining Access</b></td><td>Exploitation · Installation</td><td>Initial Access (TA0001) · Execution (TA0002) · Privilege Escalation (TA0004)</td><td>🟦→🟥 Land → Expand</td></tr>
-<tr><td><b>4 · Maintaining Access</b></td><td>Command &amp; Control · Actions on Objectives</td><td>Persistence (TA0003) · Lateral Movement (TA0008) · Command &amp; Control (TA0011) · Exfiltration (TA0010) · Impact (TA0040)</td><td>🟥 Expand</td></tr>
-<tr><td><b>5 · Covering Tracks</b></td><td>(within Actions on Objectives)</td><td>Defense Evasion (TA0005)</td><td>🟥 Expand</td></tr>
-</tbody>
-</table>
+<h3 id="one-attack-four-ways-to-name-it">One attack, four ways to name it<a class="headerlink" href="#one-attack-four-ways-to-name-it" title="Permanent link">&para;</a></h3>
+<p>In the lecture I framed the attacker as a simple loop — <strong>land</strong>, then <strong>expand</strong>: recon and exploitation to get a foothold, then escalate, move, and persist to reach the prize. That's the intuition for this week. The <em>rest</em> of the course is organized by the <strong>CEH five phases</strong>, and the two named industry models — Lockheed Martin's <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong> — line up with them too. Here's how all four fit together:</p>
+<div style="overflow-x:auto;margin:20px 0;">
+<svg viewBox="0 0 910 294" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:910px;height:auto;display:block;font-family:sans-serif;" role="img" aria-label="The lecture&apos;s land-and-expand attacker loop, mapped to the CEH course structure, the Lockheed Cyber Kill Chain, and MITRE ATT&amp;CK.">
+<line x1="211.0" y1="106" x2="211.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
+<line x1="365.0" y1="106" x2="365.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
+<line x1="519.0" y1="106" x2="519.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
+<line x1="673.0" y1="106" x2="673.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
+<line x1="827.0" y1="106" x2="827.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
+<text x="8" y="24.0" font-size="11" font-weight="800" fill="#7a2f22">Attacker loop</text>
+<text x="8" y="38.0" font-size="9.2" fill="#6b7280">this lecture</text>
+<text x="8" y="79.0" font-size="11" font-weight="800" fill="#0e6b82">CEH</text>
+<text x="8" y="93.0" font-size="9.2" fill="#6b7280">course structure</text>
+<text x="8" y="137.0" font-size="11" font-weight="800" fill="#0C447C">Cyber Kill Chain</text>
+<text x="8" y="151.0" font-size="9.2" fill="#6b7280">Lockheed Martin</text>
+<text x="8" y="225.0" font-size="11" font-weight="800" fill="#7a4a0b">MITRE ATT&amp;CK</text>
+<text x="8" y="239.0" font-size="9.2" fill="#6b7280">tactics / techniques</text>
+<rect x="138" y="10" width="375.0" height="34" rx="17" fill="#2b6cb0"/>
+<rect x="525.0" y="10" width="375.0" height="34" rx="17" fill="#c0453a"/>
+<text x="326" y="31.0" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">LAND &#8212; get a foothold</text>
+<text x="712" y="31.0" text-anchor="middle" font-size="12.5" font-weight="800" fill="#ffffff" letter-spacing="0.4">EXPAND &#8212; escalate &amp; spread</text>
+<text x="519" y="32.0" text-anchor="middle" font-size="15" font-weight="800" fill="#8a99a8">&#8250;</text>
+<rect x="138" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
+<text x="211.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">1 · Reconnaissance</text>
+<rect x="138" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
+<text x="211.0" y="136.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Reconnaissance</text>
+<text x="211.0" y="151.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Weaponization</text>
+<rect x="138" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
+<text x="211.0" y="222.6" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Reconnaissance (TA0043)</text>
+<text x="211.0" y="237.6" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Resource Dev. (TA0042)</text>
+<rect x="292" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
+<text x="365.0" y="79.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">2 · Scanning &amp;</text>
+<text x="365.0" y="95.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">Enumeration</text>
+<rect x="292" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
+<text x="365.0" y="143.5" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Delivery</text>
+<rect x="292" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
+<text x="365.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Active Scanning (T1595)</text>
+<rect x="446" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
+<text x="519.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">3 · Gaining Access</text>
+<rect x="446" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
+<text x="519.0" y="136.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Exploitation</text>
+<text x="519.0" y="151.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Installation</text>
+<rect x="446" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
+<text x="519.0" y="215.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Initial Access (TA0001)</text>
+<text x="519.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Execution (TA0002)</text>
+<text x="519.0" y="245.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Priv. Escalation (TA0004)</text>
+<rect x="600" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
+<text x="673.0" y="79.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">4 · Maintaining</text>
+<text x="673.0" y="95.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">Access</text>
+<rect x="600" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
+<text x="673.0" y="136.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Command &amp; Control</text>
+<text x="673.0" y="151.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">Actions on Objectives</text>
+<rect x="600" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
+<text x="673.0" y="200.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Persistence (TA0003)</text>
+<text x="673.0" y="215.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Lateral Move. (TA0008)</text>
+<text x="673.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Command &amp; Control (TA0011)</text>
+<text x="673.0" y="245.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Exfiltration (TA0010)</text>
+<text x="673.0" y="260.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Impact (TA0040)</text>
+<rect x="754" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
+<text x="827.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">5 · Covering Tracks</text>
+<rect x="754" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
+<text x="827.0" y="136.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">(within Actions</text>
+<text x="827.0" y="151.0" text-anchor="middle" font-size="11" font-weight="600" fill="#0C447C">on Objectives)</text>
+<rect x="754" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
+<text x="827.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Defense Evasion (TA0005)</text>
+</svg>
 </div>
 
-<p><small>The mapping isn't perfectly one-to-one — that's the point. Lockheed splits the <em>setup</em> into more stages (weaponization, delivery, installation); ATT&amp;CK explodes the <em>inside</em> into many parallel tactics. Our five phases keep it simple enough to teach and still line up with both.</small></p>
+<p><small>Read it top-down: the lecture's <em>land/expand</em> loop is the intuition, the <strong>CEH row is how the course is structured</strong> (one phase per week), and Lockheed and ATT&amp;CK are the industry references. The fit isn't perfectly one-to-one — Lockheed splits the <em>setup</em> into more stages, ATT&amp;CK explodes the <em>inside</em> into parallel tactics — which is exactly why we teach the simple version.</small></p>
 <h2 id="5-enterprise-architecture-what-were-attacking">5. Enterprise architecture — what we're attacking<a class="headerlink" href="#5-enterprise-architecture-what-were-attacking" title="Permanent link">&para;</a></h2>
 <p>So what do those attacks target? Picture a bank. Employees use <strong>client machines</strong> (laptops) to reach <strong>applications on servers</strong>, tied together by <strong>networking equipment</strong> (routers, switches). To keep the internet's "bad stuff" out, the network is walled off by <strong>security equipment</strong> — <strong>firewalls</strong>, and <strong>IDS/IPS</strong> (intrusion detection/prevention) watching for anomalies. That boundary is the <strong>network perimeter</strong>.</p>
 <p>Customers still need in, so external traffic first lands in the <strong>DMZ</strong> (demilitarized zone), where a <strong>web server</strong> takes the request (and <strong>secure web</strong> and <strong>email gateways</strong> scan incoming traffic for malware). Only valid requests pass deeper, to the <strong>application servers</strong>, and only they may reach the <strong>database servers</strong>, where the data lives — a <strong>three-tier</strong> architecture on separate subnets, separated by <strong>internal firewalls</strong> too. Think of a neighborhood: gates on the streets <em>and</em> gates on each house.</p>
