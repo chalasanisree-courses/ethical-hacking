@@ -95,3 +95,24 @@
 .md-typeset .defender > .admonition-title::before, .md-typeset .defender > summary::before {
   background-color: #1E40AF; -webkit-mask-image: var(--md-admonition-icon--defender); mask-image: var(--md-admonition-icon--defender); }
 .md-typeset .defender > .admonition-title, .md-typeset .defender > summary { color: #1E40AF; }
+
+/* Interactive defense-in-depth rings */
+.dil-ring { cursor: pointer; transition: opacity .15s; }
+.dil-ring:hover { opacity: .9; }
+.dil-ring:focus-visible { outline: none; }
+.dil-ring.selected { stroke: #062f39; stroke-width: 5; }
+.dil-hint, .nist-hint { text-align: center; font-size: .8rem; margin: 10px 0 4px; color: var(--md-default-fg-color--light); }
+.dil-hint b, .nist-hint b { color: var(--ceh-accent); }
+.dil-panel, .nist-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 16px 20px; margin: 10px 0 0; background: var(--md-default-bg-color); }
+.dil-panel.active, .nist-panel.active { display: block; }
+.dil-panel h4, .nist-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.dil-panel .meta, .nist-panel .meta { font-size: .8rem; color: var(--md-default-fg-color--light); margin-top: 10px; }
+
+/* Interactive NIST CSF strip */
+.nist-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.nist-phase { flex: 1; min-width: 118px; cursor: pointer; text-align: center; border-radius: 8px;
+  padding: 14px 8px; color: #fff; font-weight: 700; transition: filter .15s, transform .1s; border: none; }
+.nist-phase:hover { filter: brightness(1.08); }
+.nist-phase.selected { box-shadow: 0 4px 12px rgba(0,0,0,.22); transform: translateY(-2px); }
+.nist-phase small { display: block; font-weight: 400; font-size: .68rem; opacity: .92; margin-top: 3px; }

@@ -452,6 +452,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. The attacker&#39;s playbook — the kill chain (land and expand)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-models-one-attack-a-crosswalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three models, one attack — a crosswalk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1462,6 +1479,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. The attacker&#39;s playbook — the kill chain (land and expand)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-models-one-attack-a-crosswalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three models, one attack — a crosswalk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1575,13 +1609,29 @@
 <li>The attacker–defender <strong>loop</strong>, and how AI accelerates it</li>
 <li><strong>Threat, vulnerability &amp; risk</strong> — the one idea everything turns on</li>
 <li>The defender's playbook: the <strong>NIST Cybersecurity Framework</strong></li>
-<li>The attacker's playbook: the <strong>kill chain</strong> — <em>land and expand</em></li>
+<li>The attacker's playbook: the <strong>kill chain</strong> — <em>land and expand</em> — and how it lines up with the <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong></li>
 <li><strong>Enterprise architecture</strong> and <strong>defense in depth</strong> — the layers we'll attack</li>
 <li><strong>Law &amp; authorization</strong> — the line that makes it <em>ethical</em></li>
 </ul>
 </div>
 <h2 id="1-the-attackerdefender-loop">1. The attacker–defender loop<a class="headerlink" href="#1-the-attackerdefender-loop" title="Permanent link">&para;</a></h2>
 <p>Security is a constant back-and-forth between two sides. On one side, the <strong>defenders</strong> — any company trying to protect its infrastructure and data (the "blue" side). On the other, the <strong>attackers</strong> — hackers trying to break in and steal that data (the "red" side). Defenders get better, so attackers get better, so defenders improve again — round and round. If you've played competitive video games, it's the same loop; in real life the stakes are millions of dollars and, increasingly, whole economies.</p>
+<div style="max-width:260px;margin:18px auto;">
+<svg viewBox="0 0 240 240" role="img" aria-label="The attacker–defender loop: defenders and attackers each keep improving against the other." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+  <defs>
+    <marker id="lpB" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="16" refX="5" refY="8" orient="auto"><path d="M2,2 L18,8 L2,14 Z" fill="#1E40AF"/></marker>
+    <marker id="lpR" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="16" refX="5" refY="8" orient="auto"><path d="M2,2 L18,8 L2,14 Z" fill="#c0392b"/></marker>
+  </defs>
+  <!-- two arcs with a gap top and bottom, arrowheads showing the cycle -->
+  <path d="M 128,44 A 76,76 0 0 1 196,148" fill="none" stroke="#1E40AF" stroke-width="11" stroke-linecap="round" marker-end="url(#lpB)"/>
+  <path d="M 112,196 A 76,76 0 0 1 44,92" fill="none" stroke="#c0392b" stroke-width="11" stroke-linecap="round" marker-end="url(#lpR)"/>
+  <text x="120" y="34" text-anchor="middle" font-size="22">🛡️</text>
+  <text x="120" y="214" text-anchor="middle" font-size="22">⚔️</text>
+  <text x="120" y="112" text-anchor="middle" font-size="12" font-weight="800" fill="#1E40AF">DEFENDERS</text>
+  <text x="120" y="140" text-anchor="middle" font-size="12" font-weight="800" fill="#c0392b">ATTACKERS</text>
+</svg>
+</div>
+
 <p>In your other courses you may have learned the <strong>blue</strong> side — how defenses are built. <strong>This course flips to the red side:</strong> we learn how attackers get through, because you cannot defend a system well until you understand exactly how it is broken.</p>
 <p>And <strong>AI is spinning this loop faster.</strong> It's like an arms dealer arming both sides: attackers use it to find and exploit weaknesses faster (and lets less-skilled people attack at all), while defenders use it to find and fix weaknesses at unprecedented speed.</p>
 <h2 id="2-threat-vulnerability-risk">2. Threat, vulnerability &amp; risk<a class="headerlink" href="#2-threat-vulnerability-risk" title="Permanent link">&para;</a></h2>
@@ -1591,26 +1641,49 @@
 <li>A <strong>threat</strong> — an actor trying to exploit that weakness. This is <em>what causes harm</em>.</li>
 </ul>
 <p><strong>Risk</strong> lives at the <em>intersection</em>. A weakness nobody attacks is harmless; an attacker with nothing to exploit gets nowhere. It's only when a threat meets a vulnerability that risk exists.</p>
+<div style="max-width:440px;margin:18px auto;">
+<svg viewBox="0 0 440 200" role="img" aria-label="Risk is the intersection of threat and vulnerability." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+  <circle cx="165" cy="100" r="92" fill="rgba(245,158,11,.14)" stroke="#f59e0b" stroke-width="3"/>
+  <circle cx="275" cy="100" r="92" fill="rgba(245,158,11,.14)" stroke="#f59e0b" stroke-width="3"/>
+  <text x="112" y="96" text-anchor="middle" font-size="14" font-weight="800" fill="#0C447C">THREAT</text>
+  <text x="112" y="114" text-anchor="middle" font-size="9.5" fill="#6b7280">causes harm</text>
+  <text x="328" y="96" text-anchor="middle" font-size="14" font-weight="800" fill="#0C447C">VULN.</text>
+  <text x="328" y="114" text-anchor="middle" font-size="9.5" fill="#6b7280">the weakness</text>
+  <text x="220" y="96" text-anchor="middle" font-size="15" font-weight="800" fill="#c0392b">RISK</text>
+  <text x="220" y="113" text-anchor="middle" font-size="9" fill="#c0392b">the overlap</text>
+</svg>
+</div>
+
 <div class="admonition example">
 <p class="admonition-title">A concrete example</p>
 <p>A company has <strong>no ransomware protection</strong> — that's the <em>vulnerability</em>. A cybercriminal emails an employee ransomware and they click it — that's the <em>threat</em>. The company's data is all encrypted and they must pay to get it back — that's the <em>risk</em> (the outcome). Remove either side and there's no incident.</p>
 </div>
 <p>For a long time it was skilled humans — "black hats" — who found and exploited these weaknesses. Now even unskilled people can use AI to do it, and AI systems are beginning to find and exploit vulnerabilities on their own. As attackers, our whole job in this course is turning vulnerabilities into risk.</p>
 <h2 id="3-the-defenders-playbook-the-nist-framework">3. The defender's playbook — the NIST framework<a class="headerlink" href="#3-the-defenders-playbook-the-nist-framework" title="Permanent link">&para;</a></h2>
-<p>Before we attack, understand how defenders think, because we'll mirror it. The industry standard is the <strong>NIST Cybersecurity Framework</strong> (National Institute of Standards and Technology) — five phases:</p>
-<p><strong>Identify → Protect → Detect → Respond → Recover.</strong></p>
-<p>The easiest way to hold it is the <strong>house analogy</strong>:</p>
-<ul>
-<li><strong>Identify</strong> — figure out what's valuable (the jewelry, the deed).</li>
-<li><strong>Protect</strong> — locks, a safe, a locked room: your firewalls, antivirus, MFA.</li>
-<li><strong>Detect</strong> — cameras for when protection fails: IDS, log monitoring, a SIEM/SOC.</li>
-<li><strong>Respond</strong> — catch a burglar and act: quarantine a machine, alert an analyst.</li>
-<li><strong>Recover</strong> — restore from backups and get back to normal.</li>
-</ul>
+<p>Before we attack, understand how defenders think, because we'll mirror it. The industry standard is the <strong>NIST Cybersecurity Framework</strong> (National Institute of Standards and Technology), built around five phases. The easiest way to hold them is the <strong>house analogy</strong> — <strong>click each phase</strong>:</p>
+<div class="nist-strip">
+<div class="nist-phase" id="nist-node-1" style="background:#2aa0e0" onclick="nistShow(1)" role="button" tabindex="0" aria-label="Identify">Identify<small>know your assets</small></div>
+<div class="nist-phase" id="nist-node-2" style="background:#f59e0b" onclick="nistShow(2)" role="button" tabindex="0" aria-label="Protect">Protect<small>build the walls</small></div>
+<div class="nist-phase" id="nist-node-3" style="background:#0C447C" onclick="nistShow(3)" role="button" tabindex="0" aria-label="Detect">Detect<small>watch for intruders</small></div>
+<div class="nist-phase" id="nist-node-4" style="background:#c0392b" onclick="nistShow(4)" role="button" tabindex="0" aria-label="Respond">Respond<small>contain &amp; act</small></div>
+<div class="nist-phase" id="nist-node-5" style="background:#2e9e5b" onclick="nistShow(5)" role="button" tabindex="0" aria-label="Recover">Recover<small>restore to normal</small></div>
+</div>
+<p class="nist-hint">↑ <b>Click a phase</b> — each maps the house analogy to real company tech</p>
+
+<div class="nist-panel" id="nist-panel-1"><h4>🔎 Identify</h4><p>Figure out what's valuable and worth protecting — you can't protect what you don't know you have.</p><p class="meta"><b>At home:</b> the jewelry, the deed. &nbsp;<b>In a company:</b> asset inventory, data classification.</p></div>
+<div class="nist-panel" id="nist-panel-2"><h4>🔒 Protect</h4><p>Put controls in place to keep attackers out.</p><p class="meta"><b>At home:</b> a safe, a locked room, locking the house. &nbsp;<b>In a company:</b> firewalls, antivirus, patching, MFA.</p></div>
+<div class="nist-panel" id="nist-panel-3"><h4>👁️ Detect</h4><p>Because protection eventually fails, watch for anything anomalous.</p><p class="meta"><b>At home:</b> cameras. &nbsp;<b>In a company:</b> IDS/IPS, log monitoring, a SIEM &amp; SOC.</p></div>
+<div class="nist-panel" id="nist-panel-4"><h4>🚨 Respond</h4><p>Act the moment something is caught — contain it and push the attacker out.</p><p class="meta"><b>At home:</b> call the security company or police. &nbsp;<b>In a company:</b> auto-quarantine a host, alert a SOC analyst, forensics.</p></div>
+<div class="nist-panel" id="nist-panel-5"><h4>♻️ Recover</h4><p>Get back to a normal operating state.</p><p class="meta"><b>At home:</b> replace what was taken. &nbsp;<b>In a company:</b> restore from backups, harden against a repeat.</p></div>
+
 <p>Most security products you'll ever hear of are really just a solution for one of these five phases.</p>
+<div class="admonition note">
+<p class="admonition-title">A sixth function in CSF 2.0</p>
+<p>The 2024 update (<strong>CSF 2.0</strong>) adds a sixth function, <strong>Govern</strong> — the policy, roles, and risk decisions that wrap the other five. We focus on the <strong>operational five</strong> above, since those are what attacks actually touch; just know that in current NIST material you'll see six.</p>
+</div>
 <h2 id="4-the-attackers-playbook-the-kill-chain-land-and-expand">4. The attacker's playbook — the kill chain (<em>land and expand</em>)<a class="headerlink" href="#4-the-attackers-playbook-the-kill-chain-land-and-expand" title="Permanent link">&para;</a></h2>
 <p>The attacker's version of that lifecycle is the <strong>kill chain</strong>, and it has a simple shape: <strong>land, then expand.</strong> First they <strong>land</strong> — reconnaissance to study the target, then exploitation to get a foothold on one machine. That first machine is rarely the goal, so they <strong>expand</strong> — escalate privileges, move laterally to the next machine, establish persistence — until they reach something of high value and exfiltrate it.</p>
-<p>We'll track this all term. Each of Weeks 2–11 lives on one of these phases. <strong>Click a phase</strong> to see what it covers.</p>
+<p>We'll track this all term. Most of Weeks 2–11 live on one of these phases (Week 5, cryptography, is the exception — it's a cross-cutting data-protection topic, not a phase). <strong>Click a phase</strong> to see what it covers.</p>
 <div class="admonition note">
 <p class="admonition-title">One track runs parallel to this</p>
 <p><strong>Module 7 (Week 12) — Social Engineering &amp; the Identity Layer</strong> is deliberately <em>off</em> this diagram. Social engineering doesn't exploit a machine; it manipulates a person so the attacker can <strong>log in, not hack in</strong>. It's a parallel track we close the course on.</p>
@@ -1652,7 +1725,7 @@
 <div class="kc-panel" id="kc-panel-2">
 <h4>2 · Scanning &amp; Enumeration <span style="font-weight:400;color:#6b7280;">— LAND</span></h4>
 <p>Actively probe the target to find live hosts, open ports, services, and versions — then enumerate those services for users, shares, and configuration.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 3 (and network sniffing, Week 4) · <b>ATT&amp;CK tactic:</b> Discovery (TA0007)</div>
+<div class="kc-weeks"><b>Covered in:</b> Week 3 (and network sniffing, Week 4) · <b>ATT&amp;CK technique:</b> Active Scanning (T1595, under Reconnaissance) — external scanning is pre-compromise; the <i>Discovery</i> tactic (TA0007) is its internal, post-foothold cousin</div>
 </div>
 <div class="kc-panel" id="kc-panel-3">
 <h4>3 · Gaining Access <span style="font-weight:400;color:#6b7280;">— LAND → EXPAND</span></h4>
@@ -1667,42 +1740,60 @@
 <div class="kc-panel" id="kc-panel-5">
 <h4>5 · Covering Tracks <span style="font-weight:400;color:#6b7280;">— EXPAND</span></h4>
 <p>Evade detection and hide the intrusion — log tampering, timestomping, and anti-forensics. For the defender, this is where good logging and a pen-test report matter most.</p>
-<div class="kc-weeks"><b>Covered in:</b> Week 11 (methodology &amp; reporting) · <b>ATT&amp;CK tactic:</b> Defense Evasion (TA0005)</div>
+<div class="kc-weeks"><b>Covered in:</b> folded into the full engagement (Week 11) rather than taught as its own week · <b>ATT&amp;CK tactic:</b> Defense Evasion (TA0005)</div>
 </div>
 </div>
 
+<h3 id="three-models-one-attack-a-crosswalk">Three models, one attack — a crosswalk<a class="headerlink" href="#three-models-one-attack-a-crosswalk" title="Permanent link">&para;</a></h3>
+<p>You'll hear "kill chain" used for a few different models, so let's be precise. The five phases above are the <strong>CEH</strong> framing we'll use all term. It's a simplification of Lockheed Martin's original <strong>Cyber Kill Chain</strong> (seven stages, built to describe intrusions), and both map onto <strong>MITRE ATT&amp;CK</strong> — not a linear chain at all, but a <em>matrix</em> of the real tactics and techniques attackers actually use, and the common language of modern defense. Same attack, three lenses: ours is the teaching model, Lockheed's is the classic, ATT&amp;CK is the reference defenders and threat-intel teams live in.</p>
+<div style="overflow-x:auto;margin:16px 0;">
+<table>
+<thead>
+<tr><th>Our phase (CEH)</th><th>Cyber Kill Chain (Lockheed)</th><th>MITRE ATT&amp;CK tactic(s)</th><th>Stage</th></tr>
+</thead>
+<tbody>
+<tr><td><b>1 · Reconnaissance</b></td><td>Reconnaissance · Weaponization</td><td>Reconnaissance (TA0043) · Resource Development (TA0042)</td><td>🟦 Land</td></tr>
+<tr><td><b>2 · Scanning &amp; Enumeration</b></td><td>Delivery</td><td>Active Scanning (T1595, under Reconnaissance)</td><td>🟦 Land</td></tr>
+<tr><td><b>3 · Gaining Access</b></td><td>Exploitation · Installation</td><td>Initial Access (TA0001) · Execution (TA0002) · Privilege Escalation (TA0004)</td><td>🟦→🟥 Land → Expand</td></tr>
+<tr><td><b>4 · Maintaining Access</b></td><td>Command &amp; Control · Actions on Objectives</td><td>Persistence (TA0003) · Lateral Movement (TA0008) · Command &amp; Control (TA0011) · Exfiltration (TA0010) · Impact (TA0040)</td><td>🟥 Expand</td></tr>
+<tr><td><b>5 · Covering Tracks</b></td><td>(within Actions on Objectives)</td><td>Defense Evasion (TA0005)</td><td>🟥 Expand</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><small>The mapping isn't perfectly one-to-one — that's the point. Lockheed splits the <em>setup</em> into more stages (weaponization, delivery, installation); ATT&amp;CK explodes the <em>inside</em> into many parallel tactics. Our five phases keep it simple enough to teach and still line up with both.</small></p>
 <h2 id="5-enterprise-architecture-what-were-attacking">5. Enterprise architecture — what we're attacking<a class="headerlink" href="#5-enterprise-architecture-what-were-attacking" title="Permanent link">&para;</a></h2>
 <p>So what do those attacks target? Picture a bank. Employees use <strong>client machines</strong> (laptops) to reach <strong>applications on servers</strong>, tied together by <strong>networking equipment</strong> (routers, switches). To keep the internet's "bad stuff" out, the network is walled off by <strong>security equipment</strong> — <strong>firewalls</strong>, and <strong>IDS/IPS</strong> (intrusion detection/prevention) watching for anomalies. That boundary is the <strong>network perimeter</strong>.</p>
 <p>Customers still need in, so external traffic first lands in the <strong>DMZ</strong> (demilitarized zone), where a <strong>web server</strong> takes the request (and <strong>secure web</strong> and <strong>email gateways</strong> scan incoming traffic for malware). Only valid requests pass deeper, to the <strong>application servers</strong>, and only they may reach the <strong>database servers</strong>, where the data lives — a <strong>three-tier</strong> architecture on separate subnets, separated by <strong>internal firewalls</strong> too. Think of a neighborhood: gates on the streets <em>and</em> gates on each house.</p>
 <div class="admonition note">
 <p class="admonition-title">The castle-and-moat — and its flaw</p>
-<p>This is the <strong>castle-and-moat</strong> model: a strong wall (firewall) and moat (VPN) separate inside from outside, protecting the crown jewels in the data center. Its weakness: <strong>once you're past the wall, you can often roam freely</strong> — internal machines trust each other. That flat internal trust is exactly what "expand" exploits.</p>
+<p>This is the <strong>castle-and-moat</strong> model: a strong wall (firewall) and a moat separate inside from outside, with a guarded drawbridge (the VPN and gateways) as the only sanctioned way across, protecting the crown jewels in the data center. Its weakness: <strong>once you're past the wall, you can often roam freely</strong> — internal machines trust each other. That flat internal trust is exactly what "expand" exploits.</p>
 </div>
 <h2 id="6-defense-in-depth-the-layers">6. Defense in depth — the layers<a class="headerlink" href="#6-defense-in-depth-the-layers" title="Permanent link">&para;</a></h2>
 <p>Because one wall is never enough, defenders build <strong>layers</strong> — <em>defense in depth</em> — with protective controls at every level:</p>
 <div style="max-width:520px;margin:20px auto;">
-<svg viewBox="0 0 560 480" role="img" aria-label="Defense in depth: concentric layers — Network, Device, Application, Data, and Identity at the core." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
-  <circle cx="280" cy="240" r="205" fill="#2b8ca6"/>
-  <circle cx="280" cy="240" r="168" fill="#3ba0ba"/>
-  <circle cx="280" cy="240" r="131" fill="#57b8cf"/>
-  <circle cx="280" cy="240" r="94"  fill="#8ad2e3"/>
-  <circle cx="280" cy="240" r="57"  fill="#0e6b82"/>
-  <text x="280" y="60"  text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">NETWORK</text>
-  <text x="280" y="95"  text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">DEVICE</text>
-  <text x="280" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">APPLICATION</text>
-  <text x="280" y="165" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a44">DATA</text>
-  <text x="280" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">IDENTITY</text>
-  <text x="280" y="254" text-anchor="middle" font-size="9.5" fill="#cfeef6">the core</text>
+<svg viewBox="0 0 560 480" role="img" aria-label="Interactive defense-in-depth layers — click a ring." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+  <circle class="dil-ring" id="dil-ring-1" cx="280" cy="240" r="205" fill="#2b8ca6" onclick="dilShow(1)" tabindex="0" role="button" aria-label="Network layer"/>
+  <circle class="dil-ring" id="dil-ring-2" cx="280" cy="240" r="168" fill="#3ba0ba" onclick="dilShow(2)" tabindex="0" role="button" aria-label="Device layer"/>
+  <circle class="dil-ring" id="dil-ring-3" cx="280" cy="240" r="131" fill="#57b8cf" onclick="dilShow(3)" tabindex="0" role="button" aria-label="Application layer"/>
+  <circle class="dil-ring" id="dil-ring-4" cx="280" cy="240" r="94"  fill="#8ad2e3" onclick="dilShow(4)" tabindex="0" role="button" aria-label="Data layer"/>
+  <circle class="dil-ring" id="dil-ring-5" cx="280" cy="240" r="57"  fill="#0e6b82" onclick="dilShow(5)" tabindex="0" role="button" aria-label="Identity layer"/>
+  <text x="280" y="60"  text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff" pointer-events="none">NETWORK</text>
+  <text x="280" y="95"  text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff" pointer-events="none">DEVICE</text>
+  <text x="280" y="130" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" pointer-events="none">APPLICATION</text>
+  <text x="280" y="165" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a44" pointer-events="none">DATA</text>
+  <text x="280" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" pointer-events="none">IDENTITY</text>
+  <text x="280" y="254" text-anchor="middle" font-size="9.5" fill="#cfeef6" pointer-events="none">the core</text>
 </svg>
+<p class="dil-hint">↑ <b>Click a layer</b> to see its controls and which weeks attack it</p>
 </div>
 
-<ul>
-<li><strong>Network</strong> — firewalls, IDS/IPS: control what's allowed onto the network.</li>
-<li><strong>Device</strong> — OS hardening, patching, antivirus/EDR, disk encryption, host firewalls.</li>
-<li><strong>Application</strong> — secure coding, proper authentication &amp; authorization, web application firewalls.</li>
-<li><strong>Data</strong> — encryption, backups, tight access control (the crown jewels).</li>
-<li><strong>Identity</strong> — at the core: <em>who</em> is allowed to log in, and <em>what</em> they can do. We return to this in depth in Module 7.</li>
-</ul>
+<div class="dil-panel" id="dil-panel-1"><h4>🌐 Network — the perimeter</h4><p>Controls what traffic is even allowed onto the network: <b>firewalls, IDS/IPS, the DMZ,</b> and network segmentation.</p><p class="meta"><b>We attack it in:</b> <a href="reconnaissance-footprinting.html">Recon (W2)</a> · <a href="scanning-enumeration.html">Scanning (W3)</a> · <a href="network-hacking-sniffing.html">Network Hacking &amp; Sniffing (W4)</a> · <a href="wireless-hacking.html">Wireless (W10)</a></p></div>
+<div class="dil-panel" id="dil-panel-2"><h4>💻 Device — the endpoints</h4><p>Hardening the machines themselves: <b>OS patching, antivirus/EDR, disk encryption,</b> and host-level firewalls.</p><p class="meta"><b>We attack it in:</b> <a href="system-attacks.html">System Attacks (W6)</a> · <a href="malware-trojans-dos.html">Malware, Trojans &amp; DoS (W7)</a></p></div>
+<div class="dil-panel" id="dil-panel-3"><h4>⚙️ Application — the software</h4><p>Writing code that isn't exploitable: <b>secure coding, authentication &amp; authorization,</b> and web application firewalls (WAF).</p><p class="meta"><b>We attack it in:</b> <a href="web-attacks-servers-apps.html">Web Attacks I (W8)</a> · <a href="web-attacks-sqli-session.html">Web Attacks II — SQLi (W9)</a></p></div>
+<div class="dil-panel" id="dil-panel-4"><h4>🗄️ Data — the information</h4><p>Protecting the data itself: <b>encryption, backups,</b> and tight access control. This is what attackers ultimately want.</p><p class="meta"><b>We attack it in:</b> <a href="cryptography.html">Cryptography (W5)</a></p></div>
+<div class="dil-panel" id="dil-panel-5"><h4>🪪 Identity — the core</h4><p><em>Who</em> is allowed to log in and <em>what</em> they can do — MFA, IAM, least privilege. Break identity and you don't hack in, you <b>log in</b>.</p><p class="meta"><b>We attack it in:</b> <a href="social-engineering-identity.html">Social Engineering &amp; the Identity Layer (W12)</a></p></div>
+
 <p>Each ring is a wall; if one fails, the next still stands.</p>
 <h2 id="7-the-whole-course-on-one-map">7. The whole course on one map<a class="headerlink" href="#7-the-whole-course-on-one-map" title="Permanent link">&para;</a></h2>
 <p>For the next twelve weeks <strong>we play the attacker</strong>, walking the kill chain against each layer — and on every technique we also flip to the <strong>Defender's view</strong>. Here's where each week lives:</p>
