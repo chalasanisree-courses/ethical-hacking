@@ -133,3 +133,23 @@
 .recon-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
 .recon-panel p { margin: 6px 0; }
 .recon-panel .meta { font-size: .82rem; color: var(--md-default-fg-color--light); border-top: 1px solid var(--md-default-fg-color--lightest); padding-top: 8px; margin-top: 12px; }
+
+/* ---- Red-team / Blue-team role banners (per-week template) ---- */
+.role-red, .role-blue { border-radius: 10px; padding: 12px 16px; margin: 16px 0; font-size: .92rem; }
+.role-red  { background: rgba(192,57,43,.07);  border-left: 5px solid #c0392b; }
+.role-blue { background: rgba(14,107,130,.09); border-left: 5px solid #0e6b82; }
+.role-red strong  { color: #b3352a; }
+.role-blue strong { color: #0b5c70; }
+.role-tag { display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.08em;
+  padding:2px 9px; border-radius:20px; margin-bottom:6px; }
+.role-tag.red  { background:#c0392b; color:#fff; }
+.role-tag.blue { background:#0e6b82; color:#fff; }
+
+/* ---- Red-team / Blue-team RAILS (vertical line marking a whole section) ---- */
+.rt-rail { border-left: 4px solid #c0392b; padding-left: 22px; margin: 10px 0 10px 2px; }
+.bt-rail { border-left: 4px solid #0e6b82; padding-left: 22px; margin: 10px 0 10px 2px; }
+.rt-rail > :first-child, .bt-rail > :first-child { margin-top: 0; }
+.rail-label { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .09em;
+  padding: 3px 11px; border-radius: 4px; color: #fff; margin: 2px 0 10px; }
+.rail-label.red  { background: #c0392b; }
+.rail-label.blue { background: #0e6b82; }
