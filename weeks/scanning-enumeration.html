@@ -637,10 +637,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-vulnerability-analysis-is-the-bridge-to-breaking-in" class="md-nav__link">
+  <a href="#4-what-youre-actually-mapping-the-target-fills-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Vulnerability analysis is the bridge to breaking in
+        4. What you're actually mapping — the target fills in
       
     </span>
   </a>
@@ -648,10 +648,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-its-real-two-cases" class="md-nav__link">
+  <a href="#5-vulnerability-analysis-is-the-bridge-to-breaking-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. It's real — two cases
+        5. Vulnerability analysis is the bridge to breaking in
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-its-real-three-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. It's real — three cases
       
     </span>
   </a>
@@ -1576,10 +1587,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-vulnerability-analysis-is-the-bridge-to-breaking-in" class="md-nav__link">
+  <a href="#4-what-youre-actually-mapping-the-target-fills-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Vulnerability analysis is the bridge to breaking in
+        4. What you're actually mapping — the target fills in
       
     </span>
   </a>
@@ -1587,10 +1598,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-its-real-two-cases" class="md-nav__link">
+  <a href="#5-vulnerability-analysis-is-the-bridge-to-breaking-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. It's real — two cases
+        5. Vulnerability analysis is the bridge to breaking in
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-its-real-three-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. It's real — three cases
       
     </span>
   </a>
@@ -1790,9 +1812,21 @@
 </ul>
 <p class="meta">⚠️ The judgment call: a scanner's findings are <b>leads, not proven holes</b> — some are patched, some are false positives, some need a specific setup. Narrowing the list to what actually works is the real skill. <em>(Exactly the Shodan lesson from Week 2 — see the Equifax case below.)</em></p>
 </div>
-<h2 id="4-vulnerability-analysis-is-the-bridge-to-breaking-in">4. Vulnerability analysis is the bridge to breaking in<a class="headerlink" href="#4-vulnerability-analysis-is-the-bridge-to-breaking-in" title="Permanent link">&para;</a></h2>
+<h2 id="4-what-youre-actually-mapping-the-target-fills-in">4. What you're actually mapping — the target fills in<a class="headerlink" href="#4-what-youre-actually-mapping-the-target-fills-in" title="Permanent link">&para;</a></h2>
+<p>The flow above narrows a <em>list</em>. Here's the flip side — what you learn about a <strong>single machine</strong>. Each step adds a layer to the picture, and the last one is the prize.</p>
+<figure>
+  <img alt="The target's device model building up one layer per scan step: host, open ports, services and versions, OS, then the vulnerable service" src="../img/scan-buildup.svg" width="900" />
+<br />
+<figcaption>A packet arrives at the device's IP address; the operating system hands it to whichever service is <b>listening</b> on that port. Scanning reveals this stack from the bottom up — host → open ports → services &amp; versions → OS — until one service (here, an old FTP server) turns out to have a known flaw: the weak lock.</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">The one idea to hold on to</p>
+<p>An <strong>open port is a door</strong>, the <strong>service</strong> behind it is what you actually attack, and its <strong>version</strong> is what tells you whether the lock is weak. That's why version detection (<code>nmap -sV</code>) matters so much — a port number on its own isn't enough.</p>
+</div>
+<hr />
+<h2 id="5-vulnerability-analysis-is-the-bridge-to-breaking-in">5. Vulnerability analysis is the bridge to breaking in<a class="headerlink" href="#5-vulnerability-analysis-is-the-bridge-to-breaking-in" title="Permanent link">&para;</a></h2>
 <p>Steps 1–5 build a picture; step 6 turns it into a <strong>target list</strong>. That list is what the exploitation phase (Module 4) acts on. But the scanner is only a <em>first draft</em> — it flags everything that <em>might</em> be vulnerable from the version number, exactly like Shodan did in Week 2. The version banner says "OpenSSH 8.9"; whether <em>this</em> server is actually exploitable still has to be confirmed. Treating scanner output as a to-do list of leads — not a list of confirmed holes — is what separates a real assessment from a scan-and-paste report.</p>
-<h2 id="5-its-real-two-cases">5. It's real — two cases<a class="headerlink" href="#5-its-real-two-cases" title="Permanent link">&para;</a></h2>
+<h2 id="6-its-real-three-cases">6. It's real — three cases<a class="headerlink" href="#6-its-real-three-cases" title="Permanent link">&para;</a></h2>
 <details class="example">
 <summary>🔓 Equifax (2017) — the scan that would have caught it</summary>
 <p>The breach that stole ~<strong>147 million people's</strong> personal data began with a single <strong>internet-facing</strong> server running an unpatched version of <strong>Apache Struts</strong> (flaw <strong>CVE-2017-5638</strong>). That's precisely the kind of finding a routine <strong>vulnerability scan</strong> flags in its top-severity list. Scanning and vuln analysis aren't only an attacker's tool — run against <em>yourself</em>, they're the exact discipline that would have prevented one of the largest breaches in history. <strong>Lesson: scan your own edge before someone else does.</strong></p>
@@ -1800,6 +1834,10 @@
 <details class="example">
 <summary>🐛 WannaCry (2017) — one open port, worldwide</summary>
 <p>WannaCry spread by scanning the internet for one thing: machines with <strong>port 445</strong> (SMB) open and an unpatched Windows flaw (<strong>EternalBlue</strong>). Any host that answered got infected and then scanned for <em>more</em> victims — over 200,000 machines in days. It's enumeration and scanning turned into an automatic weapon. <strong>Lesson: an exposed service with a known flaw is not a small risk — it's a doorway that attackers actively hunt for.</strong></p>
+</details>
+<details class="example">
+<summary>🐠 The casino fish tank (reported 2017) — the door nobody thinks of</summary>
+<p>A casino was breached through an internet-connected <strong>thermometer in its lobby fish tank</strong>. The security firm <strong>Darktrace</strong> reported that attackers used the smart aquarium sensor as a foothold, reached across the internal network to the casino's <strong>high-roller database</strong>, and pulled the data back out through that same device. When you scan a network, <em>everything that answers is a door</em> — including the forgotten internet-connected gadget nobody remembered was online. <strong>Lesson: your attack surface is every device on the network, not just the servers — and (like Target in Week 2) segment the network so a fish-tank sensor can never reach your crown jewels.</strong></p>
 </details>
 </div>
 <hr />
