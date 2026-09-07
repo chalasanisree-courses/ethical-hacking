@@ -38,7 +38,7 @@ function nistShow(n) {
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
     var t = e.target;
-    if (t.classList && (t.classList.contains('dil-ring') || t.classList.contains('nist-phase') || t.classList.contains('kc-phase') || t.classList.contains('recon-phase'))) {
+    if (t.classList && (t.classList.contains('dil-ring') || t.classList.contains('nist-phase') || t.classList.contains('kc-phase') || t.classList.contains('recon-phase') || t.classList.contains('scan-phase'))) {
       e.preventDefault();
       t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }
@@ -52,6 +52,17 @@ function reconShow(n) {
   if (panel) panel.classList.add('active');
   document.querySelectorAll('.recon-phase').forEach(function (r) { r.classList.remove('selected'); });
   var node = document.getElementById('recon-node-' + n);
+  if (node) node.classList.add('selected');
+  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Interactive Week 3 scanning-flow strip: reveal a step panel + highlight the clicked step.
+function scanShow(n) {
+  document.querySelectorAll('.scan-panel').forEach(function (p) { p.classList.remove('active'); });
+  var panel = document.getElementById('scan-panel-' + n);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.scan-phase').forEach(function (r) { r.classList.remove('selected'); });
+  var node = document.getElementById('scan-node-' + n);
   if (node) node.classList.add('selected');
   if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
