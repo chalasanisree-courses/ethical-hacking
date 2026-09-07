@@ -38,9 +38,20 @@ function nistShow(n) {
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
     var t = e.target;
-    if (t.classList && (t.classList.contains('dil-ring') || t.classList.contains('nist-phase') || t.classList.contains('kc-phase'))) {
+    if (t.classList && (t.classList.contains('dil-ring') || t.classList.contains('nist-phase') || t.classList.contains('kc-phase') || t.classList.contains('recon-phase'))) {
       e.preventDefault();
       t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }
   }
 });
+
+// Interactive Week 2 recon-flow strip: reveal a step panel + highlight the clicked step.
+function reconShow(n) {
+  document.querySelectorAll('.recon-panel').forEach(function (p) { p.classList.remove('active'); });
+  var panel = document.getElementById('recon-panel-' + n);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.recon-phase').forEach(function (r) { r.classList.remove('selected'); });
+  var node = document.getElementById('recon-node-' + n);
+  if (node) node.classList.add('selected');
+  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}

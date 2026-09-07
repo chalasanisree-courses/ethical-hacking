@@ -116,3 +116,20 @@
 .nist-phase:hover { filter: brightness(1.08); }
 .nist-phase.selected { box-shadow: 0 4px 12px rgba(0,0,0,.22); transform: translateY(-2px); }
 .nist-phase small { display: block; font-weight: 400; font-size: .68rem; opacity: .92; margin-top: 3px; }
+
+/* ---- Week 2 · interactive recon flow (mirrors .nist-strip) ---- */
+.recon-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
+.recon-phase { flex: 1; min-width: 120px; cursor: pointer; text-align: center; border-radius: 8px;
+  padding: 11px 8px; color: #fff; font-weight: 700; font-size: .92rem; transition: transform .12s, filter .12s; }
+.recon-phase:hover { filter: brightness(1.08); }
+.recon-phase.selected { box-shadow: 0 4px 12px rgba(0,0,0,.22); transform: translateY(-2px); }
+.recon-phase small { display: block; font-weight: 400; font-size: .68rem; opacity: .92; margin-top: 3px; }
+.recon-phase .num { display: block; font-weight: 700; font-size: .66rem; opacity: .85; letter-spacing: .04em; }
+.recon-hint { text-align: center; font-size: .8rem; margin: 8px 0 4px; color: var(--md-default-fg-color--light); }
+.recon-hint b { color: var(--ceh-accent, #0E6B82); }
+.recon-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 14px 18px 6px; margin: 10px 0 20px; background: var(--md-default-bg-color); }
+.recon-panel.active { display: block; }
+.recon-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.recon-panel p { margin: 6px 0; }
+.recon-panel .meta { font-size: .82rem; color: var(--md-default-fg-color--light); border-top: 1px solid var(--md-default-fg-color--lightest); padding-top: 8px; margin-top: 12px; }
