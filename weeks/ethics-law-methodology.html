@@ -1973,20 +1973,24 @@
 <h2 id="1-the-attackerdefender-loop">1. The attacker–defender loop<a class="headerlink" href="#1-the-attackerdefender-loop" title="Permanent link">&para;</a></h2>
 <p>Security is a constant back-and-forth between two sides. On one side, the <strong>defenders</strong> — any company trying to protect its infrastructure and data (the "blue" side). On the other, the <strong>attackers</strong> — hackers trying to break in and steal that data (the "red" side). Defenders get better, so attackers get better, so defenders improve again — round and round. If you've played competitive video games, it's the same loop; in real life the stakes are millions of dollars and, increasingly, whole economies.</p>
 <div style="max-width:260px;margin:18px auto;">
-<p><svg viewBox="0 0 240 240" role="img" aria-label="The attacker–defender loop: defenders and attackers each keep improving against the other." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+<div>
+<svg viewBox="0 0 240 240" role="img" aria-label="The attacker–defender loop: defenders and attackers each keep improving against the other." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
   <defs>
     <marker id="lpB" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="16" refX="5" refY="8" orient="auto"><path d="M2,2 L18,8 L2,14 Z" fill="#1E40AF"/></marker>
     <marker id="lpR" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="16" refX="5" refY="8" orient="auto"><path d="M2,2 L18,8 L2,14 Z" fill="#c0392b"/></marker>
   </defs>
-<br />
-<!-- two arcs with a gap top and bottom, arrowheads showing the cycle --></p>
-<p><path d="M 128,44 A 76,76 0 0 1 196,148" fill="none" stroke="#1E40AF" stroke-width="11" stroke-linecap="round" marker-end="url(#lpB)"/>
+  
+<!-- two arcs with a gap top and bottom, arrowheads showing the cycle -->
+
+
+  <path d="M 128,44 A 76,76 0 0 1 196,148" fill="none" stroke="#1E40AF" stroke-width="11" stroke-linecap="round" marker-end="url(#lpB)"/>
   <path d="M 112,196 A 76,76 0 0 1 44,92" fill="none" stroke="#c0392b" stroke-width="11" stroke-linecap="round" marker-end="url(#lpR)"/>
   <text x="120" y="34" text-anchor="middle" font-size="22">🛡️</text>
   <text x="120" y="214" text-anchor="middle" font-size="22">⚔️</text>
   <text x="120" y="112" text-anchor="middle" font-size="12" font-weight="800" fill="#1E40AF">DEFENDERS</text>
   <text x="120" y="140" text-anchor="middle" font-size="12" font-weight="800" fill="#c0392b">ATTACKERS</text>
-</svg></p>
+</svg>
+</div>
 </div>
 <p>In your other courses you may have learned the <strong>blue</strong> side — how defenses are built. <strong>This course flips to the red side:</strong> we learn how attackers get through, because you cannot defend a system well until you understand exactly how it is broken.</p>
 <p>And <strong>AI is spinning this loop faster.</strong> It's like an arms dealer arming both sides: attackers use it to find and exploit weaknesses faster (and lets less-skilled people attack at all), while defenders use it to find and fix weaknesses at unprecedented speed.</p>
@@ -1998,7 +2002,8 @@
 </ul>
 <p><strong>Risk</strong> lives at the <em>intersection</em>. A weakness nobody attacks is harmless; an attacker with nothing to exploit gets nowhere. It's only when a threat meets a vulnerability that risk exists.</p>
 <div style="max-width:440px;margin:18px auto;">
-<p><svg viewBox="0 0 440 200" role="img" aria-label="Risk is the intersection of threat and vulnerability." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+<div>
+<svg viewBox="0 0 440 200" role="img" aria-label="Risk is the intersection of threat and vulnerability." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
   <circle cx="165" cy="100" r="92" fill="rgba(245,158,11,.14)" stroke="#f59e0b" stroke-width="3"/>
   <circle cx="275" cy="100" r="92" fill="rgba(245,158,11,.14)" stroke="#f59e0b" stroke-width="3"/>
   <text x="112" y="96" text-anchor="middle" font-size="14" font-weight="800" fill="#0C447C">THREAT</text>
@@ -2007,7 +2012,8 @@
   <text x="328" y="114" text-anchor="middle" font-size="9.5" fill="#6b7280">the weakness</text>
   <text x="220" y="96" text-anchor="middle" font-size="15" font-weight="800" fill="#c0392b">RISK</text>
   <text x="220" y="113" text-anchor="middle" font-size="9" fill="#c0392b">the overlap</text>
-</svg></p>
+</svg>
+</div>
 </div>
 <div class="admonition example">
 <p>A concrete example</p>
@@ -2072,7 +2078,8 @@
 <p><strong>Social Engineering &amp; the Identity Layer (Week 11)</strong> is deliberately <em>off</em> this diagram. Social engineering doesn't exploit a machine; it manipulates a person so the attacker can <strong>log in, not hack in</strong>. It's a parallel track we close the course on.</p>
 </div>
 <div class="killchain">
-<p><svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;height:auto;" role="img" aria-label="Five-phase ethical hacking kill chain">
+<div>
+<svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;height:auto;" role="img" aria-label="Five-phase ethical hacking kill chain">
   <defs>
     <marker id="kc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa0a6"/>
@@ -2097,7 +2104,8 @@
   <rect class="kc-phase" id="kc-rect-5" x="682" y="35" width="150" height="80" rx="8" fill="#FCEBEB" stroke="#791F1F" stroke-width="1" onclick="khShow(5)"/>
   <text x="757" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#791F1F" pointer-events="none">5 · Covering Tracks</text>
   <text x="757" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#791F1F" pointer-events="none">Evade &amp; clean up</text>
-</svg></p>
+</svg>
+</div>
 <p>↑ <strong>Click any phase</strong> to see what it covers</p>
 <div class="kc-panel" id="kc-panel-1">
 <h4 id="1-reconnaissance-land">1 · Reconnaissance <span style="font-weight:400;color:#6b7280;">— LAND</span><a class="headerlink" href="#1-reconnaissance-land" title="Permanent link">&para;</a></h4>
@@ -2138,7 +2146,8 @@
 <h3 id="one-attack-four-ways-to-name-it">One attack, four ways to name it<a class="headerlink" href="#one-attack-four-ways-to-name-it" title="Permanent link">&para;</a></h3>
 <p>The attacker loop is simple: <strong>reconnaissance</strong> to study the target, then <strong>land</strong> — exploitation to get a foothold — then <strong>expand</strong> — escalate, move, and persist to reach the prize. The course itself is organized by the <strong>CEH five phases</strong>, and two named industry models — Lockheed Martin's <strong>Cyber Kill Chain</strong> and <strong>MITRE ATT&amp;CK</strong> — describe the same sequence. Here's how they line up:</p>
 <div style="overflow-x:auto;margin:20px 0;">
-<p><svg viewBox="0 0 910 294" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:910px;height:auto;display:block;font-family:sans-serif;" role="img" aria-label="The lecture&apos;s land-and-expand attacker loop, mapped to the CEH course structure, the Lockheed Cyber Kill Chain, and MITRE ATT&amp;CK.">
+<div>
+<svg viewBox="0 0 910 294" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:910px;height:auto;display:block;font-family:sans-serif;" role="img" aria-label="The lecture&apos;s land-and-expand attacker loop, mapped to the CEH course structure, the Lockheed Cyber Kill Chain, and MITRE ATT&amp;CK.">
 <line x1="211.0" y1="106" x2="211.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
 <line x1="365.0" y1="106" x2="365.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
 <line x1="519.0" y1="106" x2="519.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
@@ -2204,7 +2213,8 @@
 <text x="827.0" y="143.0" text-anchor="middle" font-size="10.5" font-weight="500" fill="#9aa3af">(no direct stage)</text>
 <rect x="754" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
 <text x="827.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Defense Evasion (TA0005)</text>
-</svg></p>
+</svg>
+</div>
 </div>
 <p><span class="small">In the attacker loop, <strong>recon</strong> comes first (studying the target); <strong>land</strong> is getting a foothold — CEH’s <em>Gaining Access</em>; and <strong>expand</strong> is the whole post-exploitation loop — CEH’s <em>Maintaining Access</em>. <em>Covering Tracks</em> isn’t part of the loop. The <strong>CEH row is how the course is structured</strong> (one phase per week); Lockheed and ATT&amp;CK are the industry references, and the fit isn’t perfectly one-to-one.</span></p>
 <h2 id="5-enterprise-architecture-what-were-attacking">5. Enterprise architecture — what we're attacking<a class="headerlink" href="#5-enterprise-architecture-what-were-attacking" title="Permanent link">&para;</a></h2>
@@ -2217,7 +2227,8 @@
 <h2 id="6-defense-in-depth-the-layers">6. Defense in depth — the layers<a class="headerlink" href="#6-defense-in-depth-the-layers" title="Permanent link">&para;</a></h2>
 <p>Because one wall is never enough, defenders build <strong>layers</strong> — <em>defense in depth</em> — with protective controls at every level:</p>
 <div style="max-width:520px;margin:20px auto;">
-<p><svg viewBox="0 0 560 480" role="img" aria-label="Interactive defense-in-depth layers — click a ring." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
+<div>
+<svg viewBox="0 0 560 480" role="img" aria-label="Interactive defense-in-depth layers — click a ring." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
   <circle class="dil-ring" id="dil-ring-1" cx="280" cy="240" r="205" fill="#2b8ca6" onclick="dilShow(1)" tabindex="0" role="button" aria-label="Network layer"/>
   <circle class="dil-ring" id="dil-ring-2" cx="280" cy="240" r="168" fill="#3ba0ba" onclick="dilShow(2)" tabindex="0" role="button" aria-label="Device layer"/>
   <circle class="dil-ring" id="dil-ring-3" cx="280" cy="240" r="131" fill="#57b8cf" onclick="dilShow(3)" tabindex="0" role="button" aria-label="Application layer"/>
@@ -2229,7 +2240,8 @@
   <text x="280" y="165" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a3a44" pointer-events="none">DATA</text>
   <text x="280" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" pointer-events="none">IDENTITY</text>
   <text x="280" y="254" text-anchor="middle" font-size="9.5" fill="#cfeef6" pointer-events="none">the core</text>
-</svg></p>
+</svg>
+</div>
 <p>↑ <strong>Click a layer</strong> to see its controls and which weeks attack it</p>
 </div>
 <div class="dil-panel" id="dil-panel-1">

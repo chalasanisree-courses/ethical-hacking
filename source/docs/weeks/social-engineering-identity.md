@@ -63,7 +63,7 @@ Human judgment isn't reliable, so you defend with things AI can't fake:
 
 </div>
 
-## <span class="twemoji"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.4 6H20v10h-7l-.4-2H7v7H5V4h9zm-.4 8h2v-2h2v-2h-2V8h-2v2l-1-2V6h-2v2H9V6H7v2h2v2H7v2h2v-2h2v2h2v-2l1 2zm-3-4V8h2v2zm3 0h2v2h-2z"/></svg> </span> Final Project — the MGM breach
+## <span class="twemoji">![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE0LjQgNkgyMHYxMGgtN2wtLjQtMkg3djdINVY0aDl6bS0uNCA4aDJ2LTJoMnYtMmgtMlY4aC0ydjJsLTEtMlY2aC0ydjJIOVY2SDd2MmgydjJIN3YyaDJ2LTJoMnYyaDJ2LTJsMSAyem0tMy00VjhoMnYyem0zIDBoMnYyaC0yeiI+PC9wYXRoPjwvc3ZnPg==)</span> Final Project — the MGM breach
 
 Your capstone applies the **Week 12 reporting methodology** to a real identity-layer attack: the **September 2023 MGM Resorts breach** (Scattered Spider). Attackers looked up an employee on LinkedIn, called the IT help desk, claimed a lost phone, got MFA reset, escalated Okta → Azure admin, and deployed ransomware — a **10-minute phone call, zero malware, ~\$100M** in damage.
 

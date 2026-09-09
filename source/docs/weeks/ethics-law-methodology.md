@@ -23,6 +23,7 @@ Security is a constant back-and-forth between two sides. On one side, the **defe
 
 <div style="max-width:260px;margin:18px auto;" markdown="1">
 
+<div markdown="0">
 <svg viewBox="0 0 240 240" role="img" aria-label="The attacker–defender loop: defenders and attackers each keep improving against the other." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
   <defs>
     <marker id="lpB" markerUnits="userSpaceOnUse" markerWidth="20" markerHeight="16" refX="5" refY="8" orient="auto"><path d="M2,2 L18,8 L2,14 Z" fill="#1E40AF"/></marker>
@@ -36,6 +37,7 @@ Security is a constant back-and-forth between two sides. On one side, the **defe
   <text x="120" y="112" text-anchor="middle" font-size="12" font-weight="800" fill="#1E40AF">DEFENDERS</text>
   <text x="120" y="140" text-anchor="middle" font-size="12" font-weight="800" fill="#c0392b">ATTACKERS</text>
 </svg>
+</div>
 
 </div>
 
@@ -54,6 +56,7 @@ For an attack to actually cause harm, **two things must line up**:
 
 <div style="max-width:440px;margin:18px auto;" markdown="1">
 
+<div markdown="0">
 <svg viewBox="0 0 440 200" role="img" aria-label="Risk is the intersection of threat and vulnerability." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
   <circle cx="165" cy="100" r="92" fill="rgba(245,158,11,.14)" stroke="#f59e0b" stroke-width="3"/>
   <circle cx="275" cy="100" r="92" fill="rgba(245,158,11,.14)" stroke="#f59e0b" stroke-width="3"/>
@@ -64,6 +67,7 @@ For an attack to actually cause harm, **two things must line up**:
   <text x="220" y="96" text-anchor="middle" font-size="15" font-weight="800" fill="#c0392b">RISK</text>
   <text x="220" y="113" text-anchor="middle" font-size="9" fill="#c0392b">the overlap</text>
 </svg>
+</div>
 
 </div>
 
@@ -193,6 +197,7 @@ One track runs parallel to this
 
 <div class="killchain" markdown="1">
 
+<div markdown="0">
 <svg viewBox="0 0 860 150" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:860px;height:auto;" role="img" aria-label="Five-phase ethical hacking kill chain">
   <defs>
     <marker id="kc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
@@ -219,6 +224,7 @@ One track runs parallel to this
   <text x="757" y="70" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="#791F1F" pointer-events="none">5 · Covering Tracks</text>
   <text x="757" y="90" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#791F1F" pointer-events="none">Evade &amp; clean up</text>
 </svg>
+</div>
 
 ↑ **Click any phase** to see what it covers
 
@@ -300,6 +306,7 @@ The attacker loop is simple: **reconnaissance** to study the target, then **land
 
 <div style="overflow-x:auto;margin:20px 0;" markdown="1">
 
+<div markdown="0">
 <svg viewBox="0 0 910 294" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:910px;height:auto;display:block;font-family:sans-serif;" role="img" aria-label="The lecture&apos;s land-and-expand attacker loop, mapped to the CEH course structure, the Lockheed Cyber Kill Chain, and MITRE ATT&amp;CK.">
 <line x1="211.0" y1="106" x2="211.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
 <line x1="365.0" y1="106" x2="365.0" y2="286" stroke="#d9dee5" stroke-width="1"/>
@@ -367,6 +374,7 @@ The attacker loop is simple: **reconnaissance** to study the target, then **land
 <rect x="754" y="174" width="146" height="108" rx="9" fill="#fdf1df" stroke="#e6c99a" stroke-width="1"/>
 <text x="827.0" y="230.1" text-anchor="middle" font-size="9.6" font-weight="500" fill="#7a4a0b">Defense Evasion (TA0005)</text>
 </svg>
+</div>
 
 </div>
 
@@ -392,6 +400,7 @@ Because one wall is never enough, defenders build **layers** — *defense in dep
 
 <div style="max-width:520px;margin:20px auto;" markdown="1">
 
+<div markdown="0">
 <svg viewBox="0 0 560 480" role="img" aria-label="Interactive defense-in-depth layers — click a ring." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Syne',system-ui,sans-serif;">
   <circle class="dil-ring" id="dil-ring-1" cx="280" cy="240" r="205" fill="#2b8ca6" onclick="dilShow(1)" tabindex="0" role="button" aria-label="Network layer"/>
   <circle class="dil-ring" id="dil-ring-2" cx="280" cy="240" r="168" fill="#3ba0ba" onclick="dilShow(2)" tabindex="0" role="button" aria-label="Device layer"/>
@@ -405,6 +414,7 @@ Because one wall is never enough, defenders build **layers** — *defense in dep
   <text x="280" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" pointer-events="none">IDENTITY</text>
   <text x="280" y="254" text-anchor="middle" font-size="9.5" fill="#cfeef6" pointer-events="none">the core</text>
 </svg>
+</div>
 
 ↑ **Click a layer** to see its controls and which weeks attack it
 
