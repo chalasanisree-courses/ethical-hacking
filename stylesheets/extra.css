@@ -176,7 +176,7 @@
 [data-md-color-scheme="slate"] .md-nav--primary .md-nav__item--section > .md-nav__link { color: #9fa8da; }
 .md-nav--primary .md-nav__item--section:first-of-type > .md-nav__link { margin-top: .3rem; }
 .md-nav--primary .md-nav__item--section .md-nav__list .md-nav__link { font-size: .74rem; line-height: 1.3; color: var(--md-default-fg-color--light); }
-.md-nav--primary .md-nav__item--section .md-nav__list .md-nav__link--active { color: var(--md-typeset-a-color); font-weight: 600; }
+.md-nav--primary .md-nav__item--section .md-nav__list .md-nav__link--active { color: var(--md-accent-fg-color); font-weight: 600; }
 .md-typeset table.sched { width: 100%; border-collapse: collapse; margin: 8px 0 4px; font-size: .82rem; display: table; }
 .md-typeset table.sched th { text-align: left; font-weight: 600; padding: 9px 12px; border-bottom: 2px solid var(--md-default-fg-color--lighter); }
 .md-typeset table.sched td { padding: 10px 12px; border-top: 1px solid var(--md-default-fg-color--lightest); vertical-align: top; }
