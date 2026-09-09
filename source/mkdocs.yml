@@ -1,0 +1,68 @@
+site_name: Ethical Hacking
+site_url: https://chalasanisree-courses.github.io/ethical-hacking/
+use_directory_urls: false
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - toc.follow
+    - search.highlight
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+nav:
+  - Home: index.md
+  - Getting Oriented:
+      - "Week 1 · Framework, Law & Ethics": weeks/ethics-law-methodology.md
+  - Stalking the Target:
+      - "Week 2 · Reconnaissance & Footprinting": weeks/reconnaissance-footprinting.md
+      - "Week 3 · Scanning, Enumeration & Vuln Analysis": weeks/scanning-enumeration.md
+  - Storming the Perimeter:
+      - "Week 4 · Network Hacking & Sniffing": weeks/network-hacking-sniffing.md
+      - "Week 5 · Wireless Hacking": weeks/wireless-hacking.md
+  - Owning the Machine:
+      - "Week 6 · System Attacks": weeks/system-attacks.md
+      - "Week 7 · Malware, Trojans & DoS": weeks/malware-trojans-dos.md
+  - Breaking the Application:
+      - "Week 8 · Web Attacks I — Servers & Apps": weeks/web-attacks-servers-apps.md
+      - "Week 9 · Web Attacks II — SQLi & Session Hijacking": weeks/web-attacks-sqli-session.md
+  - Cracking the Vault:
+      - "Week 10 · Cryptography": weeks/cryptography.md
+  - Hacking the Human:
+      - "Week 11 · Social Engineering & the Identity Layer": weeks/social-engineering-identity.md
+  - The Full Engagement:
+      - "Week 12 · Penetration Testing — Methodology & Reporting": weeks/penetration-testing.md
+  - Reference:
+      - "CEH Map": reference/ceh-map.md
+      - "Tools": reference/tools.md
+      - "Free Resource Library": reference/resources.md
+  - Syllabus: syllabus/index.md

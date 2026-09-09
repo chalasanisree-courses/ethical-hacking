@@ -1,0 +1,172 @@
+/* Ethical Hacking course site — light custom styling on top of Material */
+
+:root {
+  --ceh-accent: #3949ab;
+}
+
+/* Week hero banner */
+.week-hero {
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, rgba(57,73,171,.14), rgba(0,150,136,.10));
+  border: 1px solid rgba(57,73,171,.25);
+}
+.week-hero .eyebrow {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .75;
+  margin: 0 0 4px;
+}
+.week-hero h2, .week-hero h1 { margin: 0; border: none; }
+
+/* Meta chip row */
+.meta-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+.chip {
+  display: inline-block;
+  font-size: .78rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(57,73,171,.12);
+  border: 1px solid rgba(57,73,171,.25);
+  white-space: nowrap;
+}
+
+/* Uniform, full-width content tables (weekly schedule + reference) */
+.md-typeset .md-typeset__table { display: block; }   /* wrapper: let it span full width */
+.md-typeset__table > table:not([class]) { width: 100%; display: table; }
+.md-typeset table:not([class]) th { font-weight: 600; }
+.md-typeset table:not([class]) td:first-child { white-space: nowrap; width: 6.5rem; }
+
+/* Cards grid on the homepage */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 16px; margin: 20px 0; }
+.card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  padding: 16px 20px;
+  background: var(--md-default-bg-color);
+  display: flex;
+  flex-direction: column;
+}
+.card h3 { margin: 0 0 10px; font-size: 1.05rem; }
+.card ul { margin: 0; padding: 0; list-style: none; }
+.card li { padding: 8px 0; border-top: 1px solid var(--md-default-fg-color--lightest); font-size: .9rem; }
+.card li:first-child { border-top: none; }
+.card li em { color: var(--md-default-fg-color--light); font-style: normal; font-size: .8rem; }
+
+/* ─────────────────────────────────────────────────────────────
+   Interactive notes: kill-chain diagram, ATT&CK tags, defender view
+   ───────────────────────────────────────────────────────────── */
+
+/* Kill-chain interactive diagram */
+.killchain { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 18px 14px; margin: 20px 0 0; overflow-x: auto; background: var(--md-default-bg-color); }
+.kc-phase { cursor: pointer; transition: filter .15s; }
+.kc-phase:hover { filter: brightness(.95); }
+.kc-phase.selected { filter: drop-shadow(0 3px 10px rgba(0,0,0,.18)); }
+.kc-hint { text-align: center; font-size: .8rem; margin: 12px 0 0; color: var(--md-default-fg-color--light); }
+.kc-hint b { color: var(--ceh-accent); }
+.kc-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 16px 22px; margin: 14px 0 0; background: var(--md-default-bg-color); }
+.kc-panel.active { display: block; }
+.kc-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.kc-panel .kc-weeks { font-size: .8rem; color: var(--md-default-fg-color--light); margin-top: 10px;
+  padding-top: 10px; border-top: 1px solid var(--md-default-fg-color--lightest); }
+
+/* ATT&CK technique tag strip */
+.attck-strip { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0 20px; }
+.attck-strip .lbl { font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--md-default-fg-color--light); margin-right: 2px; }
+.attck-tag { font-family: var(--md-code-font, monospace); font-size: .72rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 4px; background: var(--md-code-bg-color); color: var(--md-default-fg-color);
+  text-decoration: none; border: 1px solid var(--md-default-fg-color--lightest); white-space: nowrap; }
+.attck-tag:hover { background: #FEE2E2; color: #B91C1C; border-color: #FCA5A5; }
+
+/* Kill-chain position badge (per week) */
+.kc-badge { display: inline-flex; align-items: center; gap: 7px; font-size: .78rem; font-weight: 600;
+  background: rgba(57,73,171,.10); border: 1px solid rgba(57,73,171,.25); color: var(--ceh-accent);
+  padding: 4px 12px; border-radius: 999px; margin: 2px 0 4px; }
+
+/* Custom "Defender's view" admonition (blue, shield) */
+:root { --md-admonition-icon--defender: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>'); }
+.md-typeset .admonition.defender, .md-typeset details.defender { border-color: #1E40AF; }
+.md-typeset .defender > .admonition-title, .md-typeset .defender > summary { background-color: rgba(30,64,175,.10); }
+.md-typeset .defender > .admonition-title::before, .md-typeset .defender > summary::before {
+  background-color: #1E40AF; -webkit-mask-image: var(--md-admonition-icon--defender); mask-image: var(--md-admonition-icon--defender); }
+.md-typeset .defender > .admonition-title, .md-typeset .defender > summary { color: #1E40AF; }
+
+/* Interactive defense-in-depth rings */
+.dil-ring { cursor: pointer; transition: opacity .15s; }
+.dil-ring:hover { opacity: .9; }
+.dil-ring:focus-visible { outline: none; }
+.dil-ring.selected { stroke: #062f39; stroke-width: 5; }
+.dil-hint, .nist-hint { text-align: center; font-size: .8rem; margin: 10px 0 4px; color: var(--md-default-fg-color--light); }
+.dil-hint b, .nist-hint b { color: var(--ceh-accent); }
+.dil-panel, .nist-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 16px 20px; margin: 10px 0 0; background: var(--md-default-bg-color); }
+.dil-panel.active, .nist-panel.active { display: block; }
+.dil-panel h4, .nist-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.dil-panel .meta, .nist-panel .meta { font-size: .8rem; color: var(--md-default-fg-color--light); margin-top: 10px; }
+
+/* Interactive NIST CSF strip */
+.nist-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.nist-phase { flex: 1; min-width: 118px; cursor: pointer; text-align: center; border-radius: 8px;
+  padding: 14px 8px; color: #fff; font-weight: 700; transition: filter .15s, transform .1s; border: none; }
+.nist-phase:hover { filter: brightness(1.08); }
+.nist-phase.selected { box-shadow: 0 4px 12px rgba(0,0,0,.22); transform: translateY(-2px); }
+.nist-phase small { display: block; font-weight: 400; font-size: .68rem; opacity: .92; margin-top: 3px; }
+
+/* ---- Week 2 · interactive recon flow (mirrors .nist-strip) ---- */
+.recon-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
+.recon-phase { flex: 1; min-width: 120px; cursor: pointer; text-align: center; border-radius: 8px;
+  padding: 11px 8px; color: #fff; font-weight: 700; font-size: .92rem; transition: transform .12s, filter .12s; }
+.recon-phase:hover { filter: brightness(1.08); }
+.recon-phase.selected { box-shadow: 0 4px 12px rgba(0,0,0,.22); transform: translateY(-2px); }
+.recon-phase small { display: block; font-weight: 400; font-size: .68rem; opacity: .92; margin-top: 3px; }
+.recon-phase .num { display: block; font-weight: 700; font-size: .66rem; opacity: .85; letter-spacing: .04em; }
+.recon-hint { text-align: center; font-size: .8rem; margin: 8px 0 4px; color: var(--md-default-fg-color--light); }
+.recon-hint b { color: var(--ceh-accent, #0E6B82); }
+.recon-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 14px 18px 6px; margin: 10px 0 20px; background: var(--md-default-bg-color); }
+.recon-panel.active { display: block; }
+.recon-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.recon-panel p { margin: 6px 0; }
+.recon-panel .meta { font-size: .82rem; color: var(--md-default-fg-color--light); border-top: 1px solid var(--md-default-fg-color--lightest); padding-top: 8px; margin-top: 12px; }
+
+/* ---- Red-team / Blue-team role banners (per-week template) ---- */
+.role-red, .role-blue { border-radius: 10px; padding: 12px 16px; margin: 16px 0; font-size: .92rem; }
+.role-red  { background: rgba(192,57,43,.07);  border-left: 5px solid #c0392b; }
+.role-blue { background: rgba(14,107,130,.09); border-left: 5px solid #0e6b82; }
+.role-red strong  { color: #b3352a; }
+.role-blue strong { color: #0b5c70; }
+.role-tag { display:inline-block; font-size:.7rem; font-weight:800; letter-spacing:.08em;
+  padding:2px 9px; border-radius:20px; margin-bottom:6px; }
+.role-tag.red  { background:#c0392b; color:#fff; }
+.role-tag.blue { background:#0e6b82; color:#fff; }
+
+/* ---- Red-team / Blue-team RAILS (vertical line marking a whole section) ---- */
+.rt-rail { border-left: 4px solid #c0392b; padding-left: 22px; margin: 10px 0 10px 2px; }
+.bt-rail { border-left: 4px solid #0e6b82; padding-left: 22px; margin: 10px 0 10px 2px; }
+.rt-rail > :first-child, .bt-rail > :first-child { margin-top: 0; }
+.rail-label { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .09em;
+  padding: 3px 11px; border-radius: 4px; color: #fff; margin: 2px 0 10px; }
+.rail-label.red  { background: #c0392b; }
+.rail-label.blue { background: #0e6b82; }
+
+/* ---- Week 3 · interactive scanning flow (mirrors .recon-strip) ---- */
+.scan-strip { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 6px; }
+.scan-phase { flex: 1; min-width: 120px; cursor: pointer; text-align: center; border-radius: 8px;
+  padding: 11px 8px; color: #fff; font-weight: 700; font-size: .92rem; transition: transform .12s, filter .12s; }
+.scan-phase:hover { filter: brightness(1.08); }
+.scan-phase.selected { box-shadow: 0 4px 12px rgba(0,0,0,.22); transform: translateY(-2px); }
+.scan-phase small { display: block; font-weight: 400; font-size: .68rem; opacity: .92; margin-top: 3px; }
+.scan-phase .num { display: block; font-weight: 700; font-size: .66rem; opacity: .85; letter-spacing: .04em; }
+.scan-hint { text-align: center; font-size: .8rem; margin: 8px 0 4px; color: var(--md-default-fg-color--light); }
+.scan-hint b { color: var(--ceh-accent, #0E6B82); }
+.scan-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 14px 18px 6px; margin: 10px 0 20px; background: var(--md-default-bg-color); }
+.scan-panel.active { display: block; }
+.scan-panel h4 { margin: 0 0 8px; font-size: 1.05rem; }
+.scan-panel p { margin: 6px 0; }
+.scan-panel .meta { font-size: .82rem; color: var(--md-default-fg-color--light); border-top: 1px solid var(--md-default-fg-color--lightest); padding-top: 8px; margin-top: 12px; }

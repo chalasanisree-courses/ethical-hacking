@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" font-family="'Segoe UI',Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="A footprint map: the target in the center, with system pins on the left and people pins on the right.">
+  <defs>
+    <style>
+      .title { font-weight: 800; }
+      .pin   { font-size: 13px; }
+      .sub   { font-size: 11px; fill: #6b7280; }
+      .col   { font-size: 13px; font-weight: 800; letter-spacing: .04em; }
+    </style>
+    <marker id="dot" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5">
+      <circle cx="3.5" cy="3.5" r="2.6" fill="#9aa4b2"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="840" height="470" fill="#fbfbfd" rx="14"/>
+
+  <!-- column headers -->
+  <text x="150" y="40" text-anchor="middle" class="col" fill="#0E6B82">🖥  SYSTEMS</text>
+  <text x="150" y="58" text-anchor="middle" class="sub">domains · servers · cloud · SaaS</text>
+  <text x="690" y="40" text-anchor="middle" class="col" fill="#B45309">👥  PEOPLE</text>
+  <text x="690" y="58" text-anchor="middle" class="sub">employees · roles · partners</text>
+
+  <!-- center target -->
+  <circle cx="420" cy="235" r="60" fill="#26324F"/>
+  <circle cx="420" cy="235" r="60" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="5 5"/>
+  <text x="420" y="228" text-anchor="middle" fill="#fff" class="title" font-size="15">🎯 TARGET</text>
+  <text x="420" y="250" text-anchor="middle" fill="#cbd5e1" font-size="12">coca-cola.com</text>
+
+  <!-- connector lines from target to each pin -->
+  <g stroke="#c9ced6" stroke-width="1.5" marker-end="url(#dot)">
+    <line x1="368" y1="215" x2="300" y2="112"/>
+    <line x1="362" y1="230" x2="300" y2="175"/>
+    <line x1="360" y1="242" x2="300" y2="238"/>
+    <line x1="362" y1="255" x2="300" y2="301"/>
+    <line x1="368" y1="268" x2="300" y2="364"/>
+    <line x1="472" y1="215" x2="540" y2="130"/>
+    <line x1="478" y1="235" x2="540" y2="215"/>
+    <line x1="478" y1="248" x2="540" y2="290"/>
+    <line x1="472" y1="262" x2="540" y2="360"/>
+  </g>
+
+  <!-- SYSTEM pins (left) -->
+  <g>
+    <g transform="translate(40,92)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#0E6B82" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#0E6B82">🌐 Web server</text>
+      <text x="14" y="33" class="sub">A record → AWS · seen on Shodan</text>
+    </g>
+    <g transform="translate(40,155)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#0E6B82" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#0E6B82">✉️ Mail gateway</text>
+      <text x="14" y="33" class="sub">MX record → Proofpoint</text>
+    </g>
+    <g transform="translate(40,218)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#0E6B82" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#0E6B82">🚪 dev / staging / SSO hosts</text>
+      <text x="14" y="33" class="sub">from crt.sh certificate logs</text>
+    </g>
+    <g transform="translate(40,281)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#0E6B82" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#0E6B82">☁️ SaaS &amp; cloud stack</text>
+      <text x="14" y="33" class="sub">TXT records → M365, Salesforce…</text>
+    </g>
+    <g transform="translate(40,344)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#0E6B82" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#0E6B82">📇 Owner &amp; registrar</text>
+      <text x="14" y="33" class="sub">WHOIS → MarkMonitor</text>
+    </g>
+  </g>
+
+  <!-- PEOPLE pins (right) -->
+  <g>
+    <g transform="translate(540,110)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#B45309" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#B45309">👔 Executives &amp; IT staff</text>
+      <text x="14" y="33" class="sub">LinkedIn → names &amp; org chart</text>
+    </g>
+    <g transform="translate(540,195)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#B45309" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#B45309">🤝 Partners &amp; vendors</text>
+      <text x="14" y="33" class="sub">PDF metadata → Ascensus</text>
+    </g>
+    <g transform="translate(540,270)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#B45309" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#B45309">📧 Email &amp; naming pattern</text>
+      <text x="14" y="33" class="sub">how addresses are formed</text>
+    </g>
+    <g transform="translate(540,340)">
+      <rect width="260" height="40" rx="8" fill="#fff" stroke="#B45309" stroke-width="1.5"/>
+      <text x="14" y="18" class="pin" fill="#B45309">🗣️ Routines &amp; habits</text>
+      <text x="14" y="33" class="sub">news, social posts, job ads</text>
+    </g>
+  </g>
+
+  <!-- footer legend -->
+  <text x="420" y="440" text-anchor="middle" class="sub" font-size="12">
+    Each box is a <tspan font-weight="700" fill="#374151">pin</tspan> — a way in. The whole map is the target's <tspan font-weight="700" fill="#c0392b">footprint</tspan> (its attack surface).
+  </text>
+</svg>

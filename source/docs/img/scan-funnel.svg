@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 340" font-family="'Segoe UI',Roboto,Helvetica,Arial,sans-serif" role="img" aria-label="The scanning funnel: a broad target range is narrowed step by step down to a short list of exploitable flaws.">
+  <rect x="0" y="0" width="860" height="340" fill="#fbfbfd" rx="14"/>
+
+  <text x="430" y="34" text-anchor="middle" font-size="15" font-weight="800" fill="#26324f">The scanning funnel — from a broad range to a short hit-list</text>
+  <text x="430" y="54" text-anchor="middle" font-size="12" fill="#6b7280">Each step sends probes at the target and narrows the list. Everything here is <tspan font-weight="700" fill="#c0392b">active</tspan> — you can be logged.</text>
+
+  <!-- stage bars: width narrows left→right, color teal→red -->
+  <!-- Stage 1 -->
+  <g transform="translate(40,80)">
+    <rect width="150" height="210" rx="10" fill="#0E6B82"/>
+    <text x="75" y="95" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">Targets in scope</text>
+    <text x="75" y="118" text-anchor="middle" fill="#cfe6ec" font-size="11">from recon</text>
+    <text x="75" y="140" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">IP ranges</text>
+  </g>
+  <text x="115" y="308" text-anchor="middle" font-size="10.5" fill="#0E6B82" font-weight="700">(Week 2 output)</text>
+
+  <!-- Stage 2 -->
+  <g transform="translate(210,100)">
+    <rect width="140" height="170" rx="10" fill="#157f8f"/>
+    <text x="70" y="80" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">Live hosts</text>
+    <text x="70" y="103" text-anchor="middle" fill="#d3eaef" font-size="11">host discovery</text>
+    <text x="70" y="128" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">which are up</text>
+  </g>
+  <text x="280" y="290" text-anchor="middle" font-size="10.5" fill="#157f8f" font-weight="700">nmap -sn</text>
+
+  <!-- Stage 3 -->
+  <g transform="translate(370,118)">
+    <rect width="130" height="134" rx="10" fill="#2B6CB0"/>
+    <text x="65" y="66" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="700">Open ports</text>
+    <text x="65" y="89" text-anchor="middle" fill="#d6e4f5" font-size="11">port scan</text>
+    <text x="65" y="113" text-anchor="middle" fill="#fff" font-size="15" font-weight="800">open doors</text>
+  </g>
+  <text x="435" y="272" text-anchor="middle" font-size="10.5" fill="#2B6CB0" font-weight="700">nmap -sS</text>
+
+  <!-- Stage 4 -->
+  <g transform="translate(520,133)">
+    <rect width="126" height="104" rx="10" fill="#B45309"/>
+    <text x="63" y="52" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Services &amp;</text>
+    <text x="63" y="69" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">versions</text>
+    <text x="63" y="90" text-anchor="middle" fill="#f4e3cf" font-size="10.5">-sV + enumeration</text>
+  </g>
+  <text x="583" y="258" text-anchor="middle" font-size="10.5" fill="#B45309" font-weight="700">nmap -sV</text>
+
+  <!-- Stage 5 -->
+  <g transform="translate(666,148)">
+    <rect width="154" height="74" rx="10" fill="#C0392B"/>
+    <text x="77" y="34" text-anchor="middle" fill="#fff" font-size="12.5" font-weight="800">Exploitable flaws</text>
+    <text x="77" y="54" text-anchor="middle" fill="#f7d9d5" font-size="10.5">vuln analysis (CVEs)</text>
+  </g>
+  <text x="743" y="242" text-anchor="middle" font-size="10.5" fill="#C0392B" font-weight="700">OpenVAS / searchsploit</text>
+
+  <!-- arrows between stages -->
+  <g fill="#9aa4b2">
+    <polygon points="192,185 210,185 210,178 224,190 210,202 210,195 192,195"/>
+    <polygon points="352,185 370,185 370,178 384,190 370,202 370,195 352,195"/>
+    <polygon points="502,185 520,185 520,178 534,190 520,202 520,195 502,195"/>
+    <polygon points="648,185 666,185 666,178 680,190 666,202 666,195 648,195"/>
+  </g>
+
+  <!-- hand-off arrow to exploitation -->
+  <text x="743" y="300" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="800">→ feeds exploitation (Module 4)</text>
+</svg>
