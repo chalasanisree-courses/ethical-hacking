@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 9 · Web Attacks II — SQL Injection & Session Hijacking

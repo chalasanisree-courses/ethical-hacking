@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 4 · Network Hacking & Sniffing

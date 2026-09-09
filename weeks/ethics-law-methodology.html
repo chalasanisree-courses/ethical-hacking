@@ -209,7 +209,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1606,6 +1608,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1953,6 +1957,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
 
@@ -2024,19 +2030,19 @@
 <p>Before we attack, understand how defenders think, because we'll mirror it. The industry standard is the <strong>NIST Cybersecurity Framework</strong> (National Institute of Standards and Technology), built around five phases. The easiest way to hold them is the <strong>house analogy</strong> — <strong>click each phase</strong>:</p>
 <div class="nist-strip">
 <div aria-label="Identify" class="nist-phase" id="nist-node-1" onclick="nistShow(1)" role="button" style="background:#2aa0e0" tabindex="0">
-<p>Identify<span class="small">know your assets</span></p>
+<p>Identify<small>know your assets</small></p>
 </div>
 <div aria-label="Protect" class="nist-phase" id="nist-node-2" onclick="nistShow(2)" role="button" style="background:#f59e0b" tabindex="0">
-<p>Protect<span class="small">build the walls</span></p>
+<p>Protect<small>build the walls</small></p>
 </div>
 <div aria-label="Detect" class="nist-phase" id="nist-node-3" onclick="nistShow(3)" role="button" style="background:#0C447C" tabindex="0">
-<p>Detect<span class="small">watch for intruders</span></p>
+<p>Detect<small>watch for intruders</small></p>
 </div>
 <div aria-label="Respond" class="nist-phase" id="nist-node-4" onclick="nistShow(4)" role="button" style="background:#c0392b" tabindex="0">
-<p>Respond<span class="small">contain &amp; act</span></p>
+<p>Respond<small>contain &amp; act</small></p>
 </div>
 <div aria-label="Recover" class="nist-phase" id="nist-node-5" onclick="nistShow(5)" role="button" style="background:#2e9e5b" tabindex="0">
-<p>Recover<span class="small">restore to normal</span></p>
+<p>Recover<small>restore to normal</small></p>
 </div>
 </div>
 <p>↑ <strong>Click a phase</strong> — each maps the house analogy to real company tech</p>
@@ -2216,7 +2222,7 @@
 </svg>
 </div>
 </div>
-<p><span class="small">In the attacker loop, <strong>recon</strong> comes first (studying the target); <strong>land</strong> is getting a foothold — CEH’s <em>Gaining Access</em>; and <strong>expand</strong> is the whole post-exploitation loop — CEH’s <em>Maintaining Access</em>. <em>Covering Tracks</em> isn’t part of the loop. The <strong>CEH row is how the course is structured</strong> (one phase per week); Lockheed and ATT&amp;CK are the industry references, and the fit isn’t perfectly one-to-one.</span></p>
+<p><small>In the attacker loop, <strong>recon</strong> comes first (studying the target); <strong>land</strong> is getting a foothold — CEH’s <em>Gaining Access</em>; and <strong>expand</strong> is the whole post-exploitation loop — CEH’s <em>Maintaining Access</em>. <em>Covering Tracks</em> isn’t part of the loop. The <strong>CEH row is how the course is structured</strong> (one phase per week); Lockheed and ATT&amp;CK are the industry references, and the fit isn’t perfectly one-to-one.</small></p>
 <h2 id="5-enterprise-architecture-what-were-attacking">5. Enterprise architecture — what we're attacking<a class="headerlink" href="#5-enterprise-architecture-what-were-attacking" title="Permanent link">&para;</a></h2>
 <p>So what do those attacks target? Picture a bank. Employees use <strong>client machines</strong> (laptops) to reach <strong>applications on servers</strong>, tied together by <strong>networking equipment</strong> (routers, switches). To keep the internet's "bad stuff" out, the network is walled off by <strong>security equipment</strong> — <strong>firewalls</strong>, and <strong>IDS/IPS</strong> (intrusion detection/prevention) watching for anomalies. That boundary is the <strong>network perimeter</strong>.</p>
 <p>Customers still need in, so external traffic first lands in the <strong>DMZ</strong> (demilitarized zone), where a <strong>web server</strong> takes the request (and <strong>secure web</strong> and <strong>email gateways</strong> scan incoming traffic for malware). Only valid requests pass deeper, to the <strong>application servers</strong>, and only they may reach the <strong>database servers</strong>, where the data lives — a <strong>three-tier</strong> architecture on separate subnets, separated by <strong>internal firewalls</strong> too. Think of a neighborhood: gates on the streets <em>and</em> gates on each house.</p>
@@ -2346,8 +2352,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -2370,6 +2381,8 @@
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         

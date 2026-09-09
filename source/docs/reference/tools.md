@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Tools Reference
 
 The core tools you'll meet in this course, and where they first appear. Most run on Kali Linux, the standard offensive-security distribution.

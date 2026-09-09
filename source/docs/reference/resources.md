@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Free Resource Library
 
 Every reading in this course is free and open-access. No textbook required. Bookmark this page.

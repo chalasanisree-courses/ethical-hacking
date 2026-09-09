@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 11 · Social Engineering & the Identity Layer

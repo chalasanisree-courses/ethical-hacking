@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 3 · Scanning, Enumeration & Vulnerability Analysis
@@ -33,7 +38,7 @@ Week 2 recon was **passive**: you read public records and never touched Coca-Col
 
 ## 1. From a map to open doors
 
-In Week 2 you built a **map** of the target — a footprint of every system and person. But a map only tells you a door *exists*. **Scanning walks up and checks which doors are actually unlocked, and what's behind them.** It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.
+In Week 2 you built a **map** of the target — a footprint of every system and person. But a map only tells you a door *exists*. **Scanning walks up and checks which doors are actually unlocked, and what's behind them.** Picture each machine as a **house**: the steps below find which houses are occupied, try every door, and look in the rooms behind the ones that open. It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.
 
 <figure>
 <img src="../img/scan-funnel.svg" width="840" alt="The scanning funnel: a broad target range narrowed to a short list of exploitable flaws" /><br />
@@ -61,37 +66,37 @@ Six steps take you from a bare IP range to a list of exploitable flaws. **Click 
 
 <div id="scan-node-1" class="scan-phase" aria-label="Host discovery" onclick="scanShow(1)" role="button" style="background:#0E6B82" tabindex="0" markdown="1">
 
-<span class="num">STEP 1</span>Host discovery<span class="small">who's alive</span>
+<span class="num">STEP 1</span>Host discovery<small>who's home</small>
 
 </div>
 
 <div id="scan-node-2" class="scan-phase" aria-label="Port scan" onclick="scanShow(2)" role="button" style="background:#157f8f" tabindex="0" markdown="1">
 
-<span class="num">STEP 2</span>Port scan<span class="small">which doors open</span>
+<span class="num">STEP 2</span>Port scan<small>which doors are open</small>
 
 </div>
 
 <div id="scan-node-3" class="scan-phase" aria-label="Service and version" onclick="scanShow(3)" role="button" style="background:#2B6CB0" tabindex="0" markdown="1">
 
-<span class="num">STEP 3</span>Service & version<span class="small">what's running</span>
+<span class="num">STEP 3</span>Service & version<small>what's in the room</small>
 
 </div>
 
 <div id="scan-node-4" class="scan-phase" aria-label="OS fingerprint" onclick="scanShow(4)" role="button" style="background:#6b46c1" tabindex="0" markdown="1">
 
-<span class="num">STEP 4</span>OS fingerprint<span class="small">which system</span>
+<span class="num">STEP 4</span>OS fingerprint<small>what it's built on</small>
 
 </div>
 
 <div id="scan-node-5" class="scan-phase" aria-label="Enumeration" onclick="scanShow(5)" role="button" style="background:#B45309" tabindex="0" markdown="1">
 
-<span class="num">STEP 5</span>Enumeration<span class="small">read the nameplate</span>
+<span class="num">STEP 5</span>Enumeration<small>read the nameplate</small>
 
 </div>
 
 <div id="scan-node-6" class="scan-phase" aria-label="Vulnerability analysis" onclick="scanShow(6)" role="button" style="background:#C0392B" tabindex="0" markdown="1">
 
-<span class="num">STEP 6</span>Vuln analysis<span class="small">find the flaws</span>
+<span class="num">STEP 6</span>Vuln analysis<small>which locks are weak</small>
 
 </div>
 

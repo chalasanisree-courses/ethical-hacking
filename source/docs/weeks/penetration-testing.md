@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 12 · Penetration Testing — Methodology & Reporting

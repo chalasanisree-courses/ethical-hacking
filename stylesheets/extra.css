@@ -186,3 +186,9 @@
 .pill { display: inline-block; font-size: .68rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; white-space: nowrap; }
 .pill-net{background:#e5f0f3;color:#0e6b82} .pill-dev{background:#f8ede2;color:#b4611f} .pill-app{background:#e8eef8;color:#2f5fb0}
 .pill-data{background:#efe7f6;color:#7a4bb0} .pill-idty{background:#f9e8ef;color:#b23a6b} .pill-found{background:#eceff3;color:#5c6675}
+
+/* pandoc rewrites <b> as <strong>; keep hint accent working for both */
+.dil-hint strong, .kc-hint strong, .nist-hint strong, .recon-hint strong, .scan-hint strong { color: var(--ceh-accent); }
+
+/* left nav hidden site-wide (front matter) — give content a bit more width for diagrams */
+.md-grid { max-width: 68rem; }

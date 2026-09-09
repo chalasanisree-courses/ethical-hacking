@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 1 · Framework, Law & Ethics
@@ -89,31 +94,31 @@ Before we attack, understand how defenders think, because we'll mirror it. The i
 
 <div id="nist-node-1" class="nist-phase" style="background:#2aa0e0" onclick="nistShow(1)" role="button" tabindex="0" aria-label="Identify" markdown="1">
 
-Identify<span class="small">know your assets</span>
+Identify<small>know your assets</small>
 
 </div>
 
 <div id="nist-node-2" class="nist-phase" style="background:#f59e0b" onclick="nistShow(2)" role="button" tabindex="0" aria-label="Protect" markdown="1">
 
-Protect<span class="small">build the walls</span>
+Protect<small>build the walls</small>
 
 </div>
 
 <div id="nist-node-3" class="nist-phase" style="background:#0C447C" onclick="nistShow(3)" role="button" tabindex="0" aria-label="Detect" markdown="1">
 
-Detect<span class="small">watch for intruders</span>
+Detect<small>watch for intruders</small>
 
 </div>
 
 <div id="nist-node-4" class="nist-phase" style="background:#c0392b" onclick="nistShow(4)" role="button" tabindex="0" aria-label="Respond" markdown="1">
 
-Respond<span class="small">contain & act</span>
+Respond<small>contain & act</small>
 
 </div>
 
 <div id="nist-node-5" class="nist-phase" style="background:#2e9e5b" onclick="nistShow(5)" role="button" tabindex="0" aria-label="Recover" markdown="1">
 
-Recover<span class="small">restore to normal</span>
+Recover<small>restore to normal</small>
 
 </div>
 
@@ -378,7 +383,7 @@ The attacker loop is simple: **reconnaissance** to study the target, then **land
 
 </div>
 
-<span class="small">In the attacker loop, **recon** comes first (studying the target); **land** is getting a foothold — CEH’s *Gaining Access*; and **expand** is the whole post-exploitation loop — CEH’s *Maintaining Access*. *Covering Tracks* isn’t part of the loop. The **CEH row is how the course is structured** (one phase per week); Lockheed and ATT&CK are the industry references, and the fit isn’t perfectly one-to-one.</span>
+<small>In the attacker loop, **recon** comes first (studying the target); **land** is getting a foothold — CEH’s *Gaining Access*; and **expand** is the whole post-exploitation loop — CEH’s *Maintaining Access*. *Covering Tracks* isn’t part of the loop. The **CEH row is how the course is structured** (one phase per week); Lockheed and ATT&CK are the industry references, and the fit isn’t perfectly one-to-one.</small>
 
 ## 5. Enterprise architecture — what we're attacking
 

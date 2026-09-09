@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 [← Course home](../index.html) · Ethical Hacking
 
 # Week 2 · Reconnaissance & Footprinting
@@ -64,37 +69,37 @@ Six moves take you from a bare domain name to a full footprint. **Click each ste
 
 <div id="recon-node-1" class="recon-phase" aria-label="WHOIS" onclick="reconShow(1)" role="button" style="background:#0E6B82" tabindex="0" markdown="1">
 
-<span class="num">STEP 1</span>WHOIS<span class="small">who owns it</span>
+<span class="num">STEP 1</span>WHOIS<small>who owns it</small>
 
 </div>
 
 <div id="recon-node-2" class="recon-phase" aria-label="DNS" onclick="reconShow(2)" role="button" style="background:#157f8f" tabindex="0" markdown="1">
 
-<span class="num">STEP 2</span>DNS<span class="small">the addresses</span>
+<span class="num">STEP 2</span>DNS<small>the addresses</small>
 
 </div>
 
 <div id="recon-node-3" class="recon-phase" aria-label="crt.sh" onclick="reconShow(3)" role="button" style="background:#2B6CB0" tabindex="0" markdown="1">
 
-<span class="num">STEP 3</span>crt.sh<span class="small">side doors</span>
+<span class="num">STEP 3</span>crt.sh<small>side doors</small>
 
 </div>
 
 <div id="recon-node-4" class="recon-phase" aria-label="Zone transfer" onclick="reconShow(4)" role="button" style="background:#C0392B" tabindex="0" markdown="1">
 
-<span class="num">STEP 4 · ACTIVE</span>Zone transfer<span class="small">ask for everything</span>
+<span class="num">STEP 4 · ACTIVE</span>Zone transfer<small>ask for everything</small>
 
 </div>
 
 <div id="recon-node-5" class="recon-phase" aria-label="Shodan" onclick="reconShow(5)" role="button" style="background:#B45309" tabindex="0" markdown="1">
 
-<span class="num">STEP 5</span>Shodan<span class="small">the front door</span>
+<span class="num">STEP 5</span>Shodan<small>the front door</small>
 
 </div>
 
 <div id="recon-node-6" class="recon-phase" aria-label="OSINT and people" onclick="reconShow(6)" role="button" style="background:#26324F" tabindex="0" markdown="1">
 
-<span class="num">STEP 6</span>OSINT & People<span class="small">the wider net</span>
+<span class="num">STEP 6</span>OSINT & People<small>the wider net</small>
 
 </div>
 

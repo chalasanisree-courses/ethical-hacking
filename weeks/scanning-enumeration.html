@@ -209,7 +209,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1473,6 +1475,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -1687,6 +1691,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
 
@@ -1712,7 +1718,7 @@
 <p>Week 2 recon was <strong>passive</strong>: you read public records and never touched Coca-Cola, so it was legal to run against them. <strong>Scanning is different.</strong> From here on you send packets <em>straight at</em> the target's machines — and doing that to a system you don't own or aren't authorized to test can be a <strong>crime</strong>. So the commands below use an <strong>authorized practice target</strong>, <code>scanme.nmap.org</code> (a host Nmap runs specifically for people to practice on), or your lab network. We'll still <em>talk about</em> Coca-Cola to keep the story going — but we never point an active scanner at them.</p>
 </div>
 <h2 id="1-from-a-map-to-open-doors">1. From a map to open doors<a class="headerlink" href="#1-from-a-map-to-open-doors" title="Permanent link">&para;</a></h2>
-<p>In Week 2 you built a <strong>map</strong> of the target — a footprint of every system and person. But a map only tells you a door <em>exists</em>. <strong>Scanning walks up and checks which doors are actually unlocked, and what's behind them.</strong> It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.</p>
+<p>In Week 2 you built a <strong>map</strong> of the target — a footprint of every system and person. But a map only tells you a door <em>exists</em>. <strong>Scanning walks up and checks which doors are actually unlocked, and what's behind them.</strong> Picture each machine as a <strong>house</strong>: the steps below find which houses are occupied, try every door, and look in the rooms behind the ones that open. It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.</p>
 <figure>
 <img src="../img/scan-funnel.svg" width="840" alt="The scanning funnel: a broad target range narrowed to a short list of exploitable flaws" /><br />
 
@@ -1751,22 +1757,22 @@
 <p>Six steps take you from a bare IP range to a list of exploitable flaws. <strong>Click each step</strong> to see the tool, the command, and what it reveals. Unlike recon, <strong>every step here is active</strong> — you're touching the target the whole way.</p>
 <div class="scan-strip">
 <div aria-label="Host discovery" class="scan-phase" id="scan-node-1" onclick="scanShow(1)" role="button" style="background:#0E6B82" tabindex="0">
-<p><span class="num">STEP 1</span>Host discovery<span class="small">who's alive</span></p>
+<p><span class="num">STEP 1</span>Host discovery<small>who's home</small></p>
 </div>
 <div aria-label="Port scan" class="scan-phase" id="scan-node-2" onclick="scanShow(2)" role="button" style="background:#157f8f" tabindex="0">
-<p><span class="num">STEP 2</span>Port scan<span class="small">which doors open</span></p>
+<p><span class="num">STEP 2</span>Port scan<small>which doors are open</small></p>
 </div>
 <div aria-label="Service and version" class="scan-phase" id="scan-node-3" onclick="scanShow(3)" role="button" style="background:#2B6CB0" tabindex="0">
-<p><span class="num">STEP 3</span>Service &amp; version<span class="small">what's running</span></p>
+<p><span class="num">STEP 3</span>Service &amp; version<small>what's in the room</small></p>
 </div>
 <div aria-label="OS fingerprint" class="scan-phase" id="scan-node-4" onclick="scanShow(4)" role="button" style="background:#6b46c1" tabindex="0">
-<p><span class="num">STEP 4</span>OS fingerprint<span class="small">which system</span></p>
+<p><span class="num">STEP 4</span>OS fingerprint<small>what it's built on</small></p>
 </div>
 <div aria-label="Enumeration" class="scan-phase" id="scan-node-5" onclick="scanShow(5)" role="button" style="background:#B45309" tabindex="0">
-<p><span class="num">STEP 5</span>Enumeration<span class="small">read the nameplate</span></p>
+<p><span class="num">STEP 5</span>Enumeration<small>read the nameplate</small></p>
 </div>
 <div aria-label="Vulnerability analysis" class="scan-phase" id="scan-node-6" onclick="scanShow(6)" role="button" style="background:#C0392B" tabindex="0">
-<p><span class="num">STEP 6</span>Vuln analysis<span class="small">find the flaws</span></p>
+<p><span class="num">STEP 6</span>Vuln analysis<small>which locks are weak</small></p>
 </div>
 </div>
 <p>↑ <strong>Click a step</strong> — each shows the tool, the command, and what it reveals</p>
@@ -1903,8 +1909,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1927,6 +1938,8 @@
         <footer class="md-footer">
   
     
+      
+        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         

@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Ethical Hacking
 
 <div class="week-hero" markdown="1">
@@ -128,7 +133,7 @@ Run the whole cycle across every layer, then write the professional report a cli
 </tbody>
 </table>
 
-<span class="small">*Videos and graded work live in Canvas. Week numbers are a guide — pages are named by topic, so the schedule can shift without breaking links.*</span>
+<small>*Videos and graded work live in Canvas. Week numbers are a guide — pages are named by topic, so the schedule can shift without breaking links.*</small>
 
 ## What you'll be able to do
 
