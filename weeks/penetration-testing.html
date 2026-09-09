@@ -1438,80 +1438,45 @@
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-12-penetration-testing-methodology-reporting">Week 12 · Penetration Testing — Methodology &amp; Reporting<a class="headerlink" href="#week-12-penetration-testing-methodology-reporting" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 5 — Covering Tracks &amp;
-Reporting</span></p>
+<p><span class="kc-badge">🧭 Kill chain · Phase 5 — Covering Tracks &amp; Reporting</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span>
-<a href="https://attack.mitre.org/techniques/T1070/" class="attck-tag"
-target="_blank">T1070 Indicator Removal</a>
-<a href="https://attack.mitre.org/tactics/TA0005/" class="attck-tag"
-target="_blank">TA0005 Defense Evasion</a>
-<a href="https://attack.mitre.org/" class="attck-tag"
-target="_blank">Full ATT&amp;CK matrix</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1070/" class="attck-tag" target="_blank">T1070 Indicator Removal</a> <a href="https://attack.mitre.org/tactics/TA0005/" class="attck-tag" target="_blank">TA0005 Defense Evasion</a> <a href="https://attack.mitre.org/" class="attck-tag" target="_blank">Full ATT&amp;CK matrix</a></p>
 </div>
 <div class="admonition abstract">
 <p>What this page covers</p>
 <ul>
 <li>The full penetration-testing methodology, end to end</li>
 <li>Covering tracks — and why it's the defender's problem too</li>
-<li>Scoping an engagement and writing the report <em>(the skill you'll apply
-  in the final capstone project)</em></li>
+<li>Scoping an engagement and writing the report <em>(the skill you'll apply in the final capstone project)</em></li>
 </ul>
 </div>
 <h2 id="1-the-methodology-end-to-end">1. The methodology, end to end<a class="headerlink" href="#1-the-methodology-end-to-end" title="Permanent link">&para;</a></h2>
-<p>Every technical week of this course was one link in a chain. A real
-engagement runs the whole thing in order:</p>
-<p><strong>Pre-engagement</strong> (scope, rules of engagement, authorization) →
-<strong>Reconnaissance</strong> → <strong>Scanning &amp; vuln analysis</strong> → <strong>Exploitation</strong> →
-<strong>Post-exploitation</strong> (privilege escalation, pivoting) → <strong>Reporting</strong>.
-Revisit the <a href="ethics-law-methodology.html">Week 1 kill chain</a> — this is
-that diagram, run for real against a live scope.</p>
+<p>Every technical week of this course was one link in a chain. A real engagement runs the whole thing in order:</p>
+<p><strong>Pre-engagement</strong> (scope, rules of engagement, authorization) → <strong>Reconnaissance</strong> → <strong>Scanning &amp; vuln analysis</strong> → <strong>Exploitation</strong> → <strong>Post-exploitation</strong> (privilege escalation, pivoting) → <strong>Reporting</strong>. Revisit the <a href="ethics-law-methodology.html">Week 1 kill chain</a> — this is that diagram, run for real against a live scope.</p>
 <h2 id="2-covering-tracks">2. Covering tracks<a class="headerlink" href="#2-covering-tracks" title="Permanent link">&para;</a></h2>
-<p>The final <em>attacker</em> phase is hiding the intrusion: clearing logs,
-timestomping files, and disabling security tooling. For a <strong>pentester</strong>
-this is documented rather than hidden — but understanding it is exactly
-what lets a defender detect and reconstruct an attack after the fact.</p>
+<p>The final <em>attacker</em> phase is hiding the intrusion: clearing logs, timestomping files, and disabling security tooling. For a <strong>pentester</strong> this is documented rather than hidden — but understanding it is exactly what lets a defender detect and reconstruct an attack after the fact.</p>
 <h2 id="3-frameworks-the-report">3. Frameworks &amp; the report<a class="headerlink" href="#3-frameworks-the-report" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <p>📐 Frameworks</p>
-<p><strong>NIST SP 800-115</strong>, <strong>PTES</strong> (Penetration Testing Execution Standard),
-and <strong>OSSTMM</strong> each formalize the process so results are repeatable and
-comparable. A named methodology is what separates a professional test
-from random hacking.</p>
+<p><strong>NIST SP 800-115</strong>, <strong>PTES</strong> (Penetration Testing Execution Standard), and <strong>OSSTMM</strong> each formalize the process so results are repeatable and comparable. A named methodology is what separates a professional test from random hacking.</p>
 <p>📝 The report — the actual product</p>
-<p>Clients don't pay for shells; they pay for the <strong>report</strong>: an executive
-summary, a technical findings section with severity (CVSS) and evidence,
-and prioritized, actionable remediation. Communicating clearly to a
-non-technical stakeholder is a graded, career-critical skill.</p>
+<p>Clients don't pay for shells; they pay for the <strong>report</strong>: an executive summary, a technical findings section with severity (CVSS) and evidence, and prioritized, actionable remediation. Communicating clearly to a non-technical stakeholder is a graded, career-critical skill.</p>
 <p>🤝 Professionalism</p>
-<p>Retesting after fixes, responsible disclosure, and careful client
-communication close the loop and are part of the ethics you set up in
-Week 1.</p>
+<p>Retesting after fixes, responsible disclosure, and careful client communication close the loop and are part of the ethics you set up in Week 1.</p>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p>How this looks from the SOC seat</p>
-<p>Covering-tracks activity targets <em>your</em> evidence: cleared Windows event
-logs (<strong>Event ID 1102</strong>), truncated <code>/var/log</code>, stopped auditd, or files
-with impossible timestamps. If logs live only on the compromised host,
-the attacker can erase the story.</p>
-<p><strong>Best control:</strong> forward logs to a <strong>remote, tamper-evident SIEM in
-real time</strong>, and use file-integrity monitoring — so clearing local logs
-no longer erases the trail. The pentest report's value to the <em>defender</em>
-is a prioritized list of exactly what to fix first.</p>
+<p>Covering-tracks activity targets <em>your</em> evidence: cleared Windows event logs (<strong>Event ID 1102</strong>), truncated <code>/var/log</code>, stopped auditd, or files with impossible timestamps. If logs live only on the compromised host, the attacker can erase the story.</p>
+<p><strong>Best control:</strong> forward logs to a <strong>remote, tamper-evident SIEM in real time</strong>, and use file-integrity monitoring — so clearing local logs no longer erases the trail. The pentest report's value to the <em>defender</em> is a prioritized list of exactly what to fix first.</p>
 </div>
 <div class="admonition note">
 <p>Looking ahead — the final project</p>
-<p>You'll apply everything on this page in the <strong>final capstone project</strong>:
-taking the MGM identity-layer attack and writing it up as a professional
-incident/pen-test report — timeline, ATT&amp;CK mapping, findings, and
-layered remediation.</p>
+<p>You'll apply everything on this page in the <strong>final capstone project</strong>: taking the MGM identity-layer attack and writing it up as a professional incident/pen-test report — timeline, ATT&amp;CK mapping, findings, and layered remediation.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>NIST SP 800-115</strong> §5–8 (analysis, reporting, remediation). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free
-  PDF</a></li>
-<li><strong>Penetration Testing Execution Standard (PTES) — Reporting.</strong>
-  <a href="http://www.pentest-standard.org/index.php/Main_Page">pentest-standard.org</a></li>
+<li><strong>NIST SP 800-115</strong> §5–8 (analysis, reporting, remediation). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
+<li><strong>Penetration Testing Execution Standard (PTES) — Reporting.</strong> <a href="http://www.pentest-standard.org/index.php/Main_Page">pentest-standard.org</a></li>
 </ul>
 
 

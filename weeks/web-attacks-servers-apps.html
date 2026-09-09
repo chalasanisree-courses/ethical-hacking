@@ -1460,16 +1460,9 @@
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-8-web-attacks-i-servers-apps">Week 8 · Web Attacks I — Servers &amp; Apps<a class="headerlink" href="#week-8-web-attacks-i-servers-apps" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access
-(web)</span></p>
+<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span>
-<a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag"
-target="_blank">T1190 Exploit Public-Facing App</a>
-<a href="https://attack.mitre.org/techniques/T1505/" class="attck-tag"
-target="_blank">T1505 Server Software Component</a>
-<a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag"
-target="_blank">T1059 Command &amp; Scripting</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1505/" class="attck-tag" target="_blank">T1505 Server Software Component</a> <a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag" target="_blank">T1059 Command &amp; Scripting</a></p>
 </div>
 <div class="admonition abstract">
 <p>What this page covers</p>
@@ -1480,75 +1473,42 @@ target="_blank">T1059 Command &amp; Scripting</a></p>
 </ul>
 </div>
 <h2 id="1-why-the-web-is-the-biggest-target">1. Why the web is the biggest target<a class="headerlink" href="#1-why-the-web-is-the-biggest-target" title="Permanent link">&para;</a></h2>
-<p>Almost every organization exposes web applications to the entire
-internet by design — which makes the web tier the single largest,
-most-probed attack surface most companies have. Unlike an internal
-service behind a firewall, a web app is reachable by anyone, so a single
-flaw is directly exploitable from anywhere.</p>
+<p>Almost every organization exposes web applications to the entire internet by design — which makes the web tier the single largest, most-probed attack surface most companies have. Unlike an internal service behind a firewall, a web app is reachable by anyone, so a single flaw is directly exploitable from anywhere.</p>
 <h2 id="2-web-server-attacks">2. Web-server attacks<a class="headerlink" href="#2-web-server-attacks" title="Permanent link">&para;</a></h2>
 <p>Before the application, the <strong>server</strong> itself is a target:</p>
 <ul>
-<li>Misconfiguration (directory listing, exposed <code>.git</code>, default admin
-  panels)</li>
+<li>Misconfiguration (directory listing, exposed <code>.git</code>, default admin panels)</li>
 <li>Default or weak credentials on management interfaces</li>
 <li>Outdated components with known CVEs</li>
-<li>Directory traversal / path traversal to read files outside the web
-  root</li>
-<li><strong>Web shells</strong> — uploading a script that gives command execution and
-  <em>persistent</em> access</li>
+<li>Directory traversal / path traversal to read files outside the web root</li>
+<li><strong>Web shells</strong> — uploading a script that gives command execution and <em>persistent</em> access</li>
 </ul>
 <h2 id="3-web-app-attack-classes">3. Web-app attack classes<a class="headerlink" href="#3-web-app-attack-classes" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <p>🧩 Broken access control</p>
-<p>Acting outside intended permissions — IDOR (changing an <code>id=123</code> to
-<code>id=124</code>), forced browsing to admin URLs, privilege bypass. The <strong>#1</strong>
-risk on the OWASP Top 10.</p>
+<p>Acting outside intended permissions — IDOR (changing an <code>id=123</code> to <code>id=124</code>), forced browsing to admin URLs, privilege bypass. The <strong>#1</strong> risk on the OWASP Top 10.</p>
 <p>💉 Injection</p>
-<p>Untrusted input interpreted as code or a query — SQL injection (Week 9),
-command injection, LDAP/NoSQL injection. The app treats attacker data as
-instructions.</p>
+<p>Untrusted input interpreted as code or a query — SQL injection (Week 9), command injection, LDAP/NoSQL injection. The app treats attacker data as instructions.</p>
 <p>🖼️ XSS &amp; CSRF</p>
-<p>Stored/reflected <strong>cross-site scripting</strong> runs attacker JavaScript in a
-victim's browser (session theft, keylogging). <strong>CSRF</strong> tricks an
-authenticated browser into performing actions the user didn't intend.</p>
+<p>Stored/reflected <strong>cross-site scripting</strong> runs attacker JavaScript in a victim's browser (session theft, keylogging). <strong>CSRF</strong> tricks an authenticated browser into performing actions the user didn't intend.</p>
 <p>🔀 SSRF</p>
-<p>Server-Side Request Forgery makes the server fetch a URL the attacker
-controls — often used to reach internal-only systems and cloud metadata
-endpoints.</p>
+<p>Server-Side Request Forgery makes the server fetch a URL the attacker controls — often used to reach internal-only systems and cloud metadata endpoints.</p>
 <h2 id="4-the-owasp-top-10-methodology">4. The OWASP Top 10 &amp; methodology<a class="headerlink" href="#4-the-owasp-top-10-methodology" title="Permanent link">&para;</a></h2>
-<p>The <strong>OWASP Top 10</strong> is the industry's shared list of the most critical
-web risks — the vocabulary you'll use to classify and report every
-finding. The testing method is consistent: <strong>map</strong> the app (spidering,
-content discovery) → <strong>discover</strong> inputs and endpoints → <strong>exploit</strong> →
-<strong>document</strong>. Burp Suite is the standard tool for intercepting and
-manipulating requests along the way.</p>
+<p>The <strong>OWASP Top 10</strong> is the industry's shared list of the most critical web risks — the vocabulary you'll use to classify and report every finding. The testing method is consistent: <strong>map</strong> the app (spidering, content discovery) → <strong>discover</strong> inputs and endpoints → <strong>exploit</strong> → <strong>document</strong>. Burp Suite is the standard tool for intercepting and manipulating requests along the way.</p>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p>How this looks from the SOC seat</p>
-<p>Web attacks are visible in <strong>access logs and WAF logs</strong>: encoded
-payloads in URLs, path-traversal sequences (<code>../</code>, <code>%2e%2e</code>), unexpected
-POST bodies, spikes of 4xx/5xx responses, and requests to endpoints that
-shouldn't exist. A sudden new file appearing in a web directory is a
-classic <strong>web-shell</strong> indicator.</p>
-<p><strong>Best control:</strong> secure coding (input validation, output encoding,
-parameterized queries) is the real fix; a <strong>WAF</strong> and timely patching
-are the layers behind it; file-integrity monitoring on the web root
-catches web shells.</p>
+<p>Web attacks are visible in <strong>access logs and WAF logs</strong>: encoded payloads in URLs, path-traversal sequences (<code>../</code>, <code>%2e%2e</code>), unexpected POST bodies, spikes of 4xx/5xx responses, and requests to endpoints that shouldn't exist. A sudden new file appearing in a web directory is a classic <strong>web-shell</strong> indicator.</p>
+<p><strong>Best control:</strong> secure coding (input validation, output encoding, parameterized queries) is the real fix; a <strong>WAF</strong> and timely patching are the layers behind it; file-integrity monitoring on the web root catches web shells.</p>
 </div>
 <div class="admonition note">
 <p>Real-world context</p>
-<p>The 2011 <strong>Sony Pictures / PlayStation-era</strong> breaches and countless
-others started with basic web flaws (SQLi, weak input handling). More
-recently, the <strong>MOVEit</strong> (2023) mass-exploitation used a single web-app
-SQL-injection flaw to breach thousands of organizations at once — a
-reminder that one web vulnerability can scale to a global incident.</p>
+<p>The 2011 <strong>Sony Pictures / PlayStation-era</strong> breaches and countless others started with basic web flaws (SQLi, weak input handling). More recently, the <strong>MOVEit</strong> (2023) mass-exploitation used a single web-app SQL-injection flaw to breach thousands of organizations at once — a reminder that one web vulnerability can scale to a global incident.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>OWASP Top 10.</strong>
-  <a href="https://owasp.org/www-project-top-ten/">owasp.org/www-project-top-ten</a></li>
-<li><strong>OWASP Web Security Testing Guide (WSTG).</strong>
-  <a href="https://owasp.org/www-project-web-security-testing-guide/">owasp.org/www-project-web-security-testing-guide</a></li>
+<li><strong>OWASP Top 10.</strong> <a href="https://owasp.org/www-project-top-ten/">owasp.org/www-project-top-ten</a></li>
+<li><strong>OWASP Web Security Testing Guide (WSTG).</strong> <a href="https://owasp.org/www-project-web-security-testing-guide/">owasp.org/www-project-web-security-testing-guide</a></li>
 </ul>
 
 

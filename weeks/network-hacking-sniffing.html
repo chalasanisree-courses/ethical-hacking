@@ -1460,16 +1460,9 @@
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phases 2–3 — Sniffing &amp;
-Evasion</span></p>
+<p><span class="kc-badge">🧭 Kill chain · Phases 2–3 — Sniffing &amp; Evasion</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span>
-<a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag"
-target="_blank">T1040 Network Sniffing</a>
-<a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag"
-target="_blank">T1557 Adversary-in-the-Middle</a>
-<a href="https://attack.mitre.org/tactics/TA0005/" class="attck-tag"
-target="_blank">TA0005 Defense Evasion</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/tactics/TA0005/" class="attck-tag" target="_blank">TA0005 Defense Evasion</a></p>
 </div>
 <div class="admonition abstract">
 <p>What this page covers</p>
@@ -1480,77 +1473,34 @@ target="_blank">TA0005 Defense Evasion</a></p>
 </ul>
 </div>
 <h2 id="1-sniffing-reading-the-wire">1. Sniffing — reading the wire<a class="headerlink" href="#1-sniffing-reading-the-wire" title="Permanent link">&para;</a></h2>
-<p>A <strong>sniffer</strong> (Wireshark, tcpdump) captures packets as they cross the
-network. On old hub-based networks every packet reached every port, so
-sniffing was trivial. Modern <strong>switches</strong> send each frame only to its
-destination port — so to see traffic that isn't yours, you have to
-actively insert yourself into the path. That's the difference between
-<strong>passive</strong> sniffing (just listening to what reaches you) and <strong>active</strong>
-sniffing (manipulating the network so more traffic reaches you).</p>
-<p>The payoff is enormous: any protocol that sends data in <strong>cleartext</strong> —
-HTTP, FTP, Telnet, unencrypted SMTP, old database connections — leaks
-its credentials and content directly to anyone on the path. This single
-fact is the reason the entire web moved to HTTPS.</p>
+<p>A <strong>sniffer</strong> (Wireshark, tcpdump) captures packets as they cross the network. On old hub-based networks every packet reached every port, so sniffing was trivial. Modern <strong>switches</strong> send each frame only to its destination port — so to see traffic that isn't yours, you have to actively insert yourself into the path. That's the difference between <strong>passive</strong> sniffing (just listening to what reaches you) and <strong>active</strong> sniffing (manipulating the network so more traffic reaches you).</p>
+<p>The payoff is enormous: any protocol that sends data in <strong>cleartext</strong> — HTTP, FTP, Telnet, unencrypted SMTP, old database connections — leaks its credentials and content directly to anyone on the path. This single fact is the reason the entire web moved to HTTPS.</p>
 <h2 id="2-man-in-the-middle-via-arp-spoofing">2. Man-in-the-middle via ARP spoofing<a class="headerlink" href="#2-man-in-the-middle-via-arp-spoofing" title="Permanent link">&para;</a></h2>
-<p>On a local network, hosts find each other by MAC address using <strong>ARP</strong>,
-a trusting protocol with no authentication. <strong>ARP spoofing</strong> abuses
-that: the attacker sends forged ARP replies telling the victim "<em>I</em> am
-the gateway" and telling the gateway "<em>I</em> am the victim." Now all of the
-victim's traffic flows <em>through</em> the attacker — a <strong>man-in-the-middle</strong>
-position from which they can read, capture credentials, or modify
-traffic in transit.</p>
+<p>On a local network, hosts find each other by MAC address using <strong>ARP</strong>, a trusting protocol with no authentication. <strong>ARP spoofing</strong> abuses that: the attacker sends forged ARP replies telling the victim "<em>I</em> am the gateway" and telling the gateway "<em>I</em> am the victim." Now all of the victim's traffic flows <em>through</em> the attacker — a <strong>man-in-the-middle</strong> position from which they can read, capture credentials, or modify traffic in transit.</p>
 <h2 id="3-network-defenses-evasion">3. Network defenses &amp; evasion<a class="headerlink" href="#3-network-defenses-evasion" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <p>🛡️ IDS / IPS</p>
-<p>Intrusion detection/prevention systems (Snort, Suricata) inspect traffic
-for known-bad <strong>signatures</strong> and statistical <strong>anomalies</strong>. Attackers
-evade them with encryption, packet <strong>fragmentation</strong>, timing changes,
-and by hiding inside protocols the IDS doesn't fully parse.</p>
+<p>Intrusion detection/prevention systems (Snort, Suricata) inspect traffic for known-bad <strong>signatures</strong> and statistical <strong>anomalies</strong>. Attackers evade them with encryption, packet <strong>fragmentation</strong>, timing changes, and by hiding inside protocols the IDS doesn't fully parse.</p>
 <p>🧱 Firewalls</p>
-<p>Firewalls enforce which connections are allowed. Attackers evade them by
-<strong>tunneling</strong> — smuggling their traffic inside an allowed protocol (data
-exfiltration over HTTPS or DNS, which almost every firewall permits
-outbound).</p>
+<p>Firewalls enforce which connections are allowed. Attackers evade them by <strong>tunneling</strong> — smuggling their traffic inside an allowed protocol (data exfiltration over HTTPS or DNS, which almost every firewall permits outbound).</p>
 <p>🍯 Honeypots</p>
-<p>Decoy systems designed to be attacked, so defenders can study intruders
-and generate high-confidence alerts. For the attacker, an unexpectedly
-easy target that logs everything is a red flag to recognize and avoid.</p>
+<p>Decoy systems designed to be attacked, so defenders can study intruders and generate high-confidence alerts. For the attacker, an unexpectedly easy target that logs everything is a red flag to recognize and avoid.</p>
 <h2 id="4-evasion-in-one-line">4. Evasion in one line<a class="headerlink" href="#4-evasion-in-one-line" title="Permanent link">&para;</a></h2>
-<p>The theme of this week's offensive side is that <strong>defenses inspect what
-they can see</strong>. Encrypt it, fragment it, or tunnel it inside allowed
-traffic, and much of the inspection stops working — which is exactly why
-exfiltrating data over an encrypted channel is so hard to catch.</p>
+<p>The theme of this week's offensive side is that <strong>defenses inspect what they can see</strong>. Encrypt it, fragment it, or tunnel it inside allowed traffic, and much of the inspection stops working — which is exactly why exfiltrating data over an encrypted channel is so hard to catch.</p>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p>How this looks from the SOC seat</p>
-<p>Passive sniffing produces <strong>no traffic at all</strong> — it's undetectable on
-the wire. What <em>is</em> detectable is the <strong>ARP poisoning</strong> that enables
-active MITM: sudden changes to ARP tables, a MAC address suddenly
-claiming to be the gateway, or duplicate-IP warnings. Tunneled
-exfiltration shows up as anomalies — oddly large or oddly regular
-DNS/HTTPS flows to an unfamiliar host.</p>
-<p><strong>Best control:</strong> <strong>encrypt everything in transit</strong> so captured traffic
-is useless; enable <strong>Dynamic ARP Inspection</strong> and port security on
-switches to block spoofing; and <strong>segment</strong> sensitive networks so a
-foothold in one place can't sniff everything.</p>
+<p>Passive sniffing produces <strong>no traffic at all</strong> — it's undetectable on the wire. What <em>is</em> detectable is the <strong>ARP poisoning</strong> that enables active MITM: sudden changes to ARP tables, a MAC address suddenly claiming to be the gateway, or duplicate-IP warnings. Tunneled exfiltration shows up as anomalies — oddly large or oddly regular DNS/HTTPS flows to an unfamiliar host.</p>
+<p><strong>Best control:</strong> <strong>encrypt everything in transit</strong> so captured traffic is useless; enable <strong>Dynamic ARP Inspection</strong> and port security on switches to block spoofing; and <strong>segment</strong> sensitive networks so a foothold in one place can't sniff everything.</p>
 </div>
 <div class="admonition note">
 <p>Real-world context — Firesheep</p>
-<p>In 2010 a developer released <strong>Firesheep</strong>, a one-click Firefox
-extension that sniffed unencrypted session cookies on open Wi-Fi and let
-anyone instantly log in as other people on Facebook, Twitter, and more.
-It wasn't new — it just made cleartext sniffing <em>trivially</em> visible to
-the public. The backlash is a big reason the entire web shifted to
-<strong>HTTPS-everywhere</strong>. It's the perfect illustration of why "the network
-is an attack surface."</p>
+<p>In 2010 a developer released <strong>Firesheep</strong>, a one-click Firefox extension that sniffed unencrypted session cookies on open Wi-Fi and let anyone instantly log in as other people on Facebook, Twitter, and more. It wasn't new — it just made cleartext sniffing <em>trivially</em> visible to the public. The backlash is a big reason the entire web shifted to <strong>HTTPS-everywhere</strong>. It's the perfect illustration of why "the network is an attack surface."</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Wireshark User's Guide.</strong>
-  <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>
-<li><strong>MITRE ATT&amp;CK — Network Sniffing (T1040)</strong> · <strong>Defense Evasion
-  (TA0005).</strong> <a href="https://attack.mitre.org/techniques/T1040/">T1040</a> ·
-  <a href="https://attack.mitre.org/tactics/TA0005/">TA0005</a></li>
+<li><strong>Wireshark User's Guide.</strong> <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>
+<li><strong>MITRE ATT&amp;CK — Network Sniffing (T1040)</strong> · <strong>Defense Evasion (TA0005).</strong> <a href="https://attack.mitre.org/techniques/T1040/">T1040</a> · <a href="https://attack.mitre.org/tactics/TA0005/">TA0005</a></li>
 </ul>
 
 

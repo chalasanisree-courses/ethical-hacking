@@ -1462,13 +1462,7 @@
 <h1 id="week-6-system-attacks">Week 6 · System Attacks<a class="headerlink" href="#week-6-system-attacks" title="Permanent link">&para;</a></h1>
 <p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span>
-<a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag"
-target="_blank">T1190 Exploit Public-Facing App</a>
-<a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag"
-target="_blank">T1059 Command &amp; Scripting</a>
-<a href="https://attack.mitre.org/techniques/T1068/" class="attck-tag"
-target="_blank">T1068 Exploit for PrivEsc</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag" target="_blank">T1059 Command &amp; Scripting</a> <a href="https://attack.mitre.org/techniques/T1068/" class="attck-tag" target="_blank">T1068 Exploit for PrivEsc</a></p>
 </div>
 <div class="admonition abstract">
 <p>What this page covers</p>
@@ -1480,87 +1474,42 @@ target="_blank">T1068 Exploit for PrivEsc</a></p>
 </ul>
 </div>
 <h2 id="1-from-vulnerability-to-shell">1. From vulnerability to shell<a class="headerlink" href="#1-from-vulnerability-to-shell" title="Permanent link">&para;</a></h2>
-<p>This is the phase everything before it was building toward. You take a
-vulnerability found in Week 3's analysis, match it to an <strong>exploit</strong>,
-and deliver a <strong>payload</strong> that gives you code execution on the target.
-The key reality: exploitation almost always lands you as a
-<strong>low-privileged user</strong> — the account the vulnerable service runs as
-(<code>www-data</code>, a service account) — <em>not</em> as administrator. Getting in is
-step one; becoming root/SYSTEM is a separate fight (§3).</p>
-<p>Payloads range from a simple <strong>reverse shell</strong> (the target connects back
-to you, which sails through outbound-only firewalls) to a full
-<strong>Meterpreter</strong> session with file access, screenshotting, and pivoting
-built in.</p>
+<p>This is the phase everything before it was building toward. You take a vulnerability found in Week 3's analysis, match it to an <strong>exploit</strong>, and deliver a <strong>payload</strong> that gives you code execution on the target. The key reality: exploitation almost always lands you as a <strong>low-privileged user</strong> — the account the vulnerable service runs as (<code>www-data</code>, a service account) — <em>not</em> as administrator. Getting in is step one; becoming root/SYSTEM is a separate fight (§3).</p>
+<p>Payloads range from a simple <strong>reverse shell</strong> (the target connects back to you, which sails through outbound-only firewalls) to a full <strong>Meterpreter</strong> session with file access, screenshotting, and pivoting built in.</p>
 <h2 id="2-metasploit-the-exploitation-framework">2. Metasploit — the exploitation framework<a class="headerlink" href="#2-metasploit-the-exploitation-framework" title="Permanent link">&para;</a></h2>
-<p>Metasploit standardizes the whole process so you're not hand-writing
-exploits:</p>
+<p>Metasploit standardizes the whole process so you're not hand-writing exploits:</p>
 <ul>
 <li><strong>Modules</strong> — thousands of pre-built exploits and auxiliary tools.</li>
-<li><strong><code>msfconsole</code></strong> — pick an exploit, set the target (<code>RHOSTS</code>) and your
-  payload (<code>LHOST</code>/<code>LPORT</code>), and fire.</li>
-<li><strong>Meterpreter</strong> — a powerful in-memory payload for everything after
-  the shell: <code>getsystem</code>, <code>hashdump</code>, <code>migrate</code>, pivoting to other
-  hosts.</li>
+<li><strong><code>msfconsole</code></strong> — pick an exploit, set the target (<code>RHOSTS</code>) and your payload (<code>LHOST</code>/<code>LPORT</code>), and fire.</li>
+<li><strong>Meterpreter</strong> — a powerful in-memory payload for everything after the shell: <code>getsystem</code>, <code>hashdump</code>, <code>migrate</code>, pivoting to other hosts.</li>
 <li><strong><code>msfvenom</code></strong> — generate and encode standalone payloads for delivery.</li>
 </ul>
-<p>Understanding this workflow is also what lets a defender recognize its
-very recognizable footprints.</p>
+<p>Understanding this workflow is also what lets a defender recognize its very recognizable footprints.</p>
 <h2 id="3-privilege-escalation">3. Privilege escalation<a class="headerlink" href="#3-privilege-escalation" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <p>🪟 Windows privesc</p>
-<p>Unquoted service paths, weak service permissions,
-always-install-elevated policies, and token-impersonation ("Potato")
-attacks. Tools like <strong>WinPEAS</strong> enumerate the options automatically.</p>
+<p>Unquoted service paths, weak service permissions, always-install-elevated policies, and token-impersonation ("Potato") attacks. Tools like <strong>WinPEAS</strong> enumerate the options automatically.</p>
 <p>🐧 Linux privesc</p>
-<p>Misconfigured <strong>SUID</strong> binaries, permissive <strong>sudo</strong> rules (check
-<code>sudo -l</code>), writable cron jobs, and outdated kernels. <strong>LinPEAS</strong> and
-the <strong>GTFOBins</strong> catalog map the paths.</p>
+<p>Misconfigured <strong>SUID</strong> binaries, permissive <strong>sudo</strong> rules (check <code>sudo -l</code>), writable cron jobs, and outdated kernels. <strong>LinPEAS</strong> and the <strong>GTFOBins</strong> catalog map the paths.</p>
 <p>🔑 Credential reuse</p>
-<p>The fastest escalation is often no exploit at all — passwords reused
-across accounts, or credentials sitting in config files and scripts on
-the compromised host.</p>
+<p>The fastest escalation is often no exploit at all — passwords reused across accounts, or credentials sitting in config files and scripts on the compromised host.</p>
 <h2 id="4-post-exploitation">4. Post-exploitation<a class="headerlink" href="#4-post-exploitation" title="Permanent link">&para;</a></h2>
-<p>Once you have privileged access, the objectives are <strong>persistence</strong>
-(surviving a reboot), <strong>pivoting</strong> (using this host to reach others —
-Week 4's techniques), and <strong>collection</strong> (the data the engagement was
-scoped to demonstrate access to). Every one of these actions leaves
-artifacts — new services, new scheduled tasks, unusual process trees —
-which is precisely what the defender hunts for.</p>
+<p>Once you have privileged access, the objectives are <strong>persistence</strong> (surviving a reboot), <strong>pivoting</strong> (using this host to reach others — Week 4's techniques), and <strong>collection</strong> (the data the engagement was scoped to demonstrate access to). Every one of these actions leaves artifacts — new services, new scheduled tasks, unusual process trees — which is precisely what the defender hunts for.</p>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p>How this looks from the SOC seat</p>
-<p>Exploitation is the <strong>highest-signal</strong> phase of the whole chain: a
-request to a vulnerable endpoint carrying an anomalous payload,
-immediately followed by an unexpected <strong>outbound</strong> connection (the
-reverse shell) and a service account suddenly spawning a shell or
-PowerShell. Privilege escalation is quieter and depends on host
-telemetry — <strong>Sysmon</strong> (Windows) or <strong>auditd</strong> (Linux) — being
-configured <em>before</em> the attack, watching for SUID/sudo abuse and token
-manipulation.</p>
-<p><strong>Best control:</strong> the single most effective remediation is <strong>patching</strong>
-so the exploit fails outright — backed by <strong>least-privilege</strong> service
-accounts, application allowlisting, and EDR to catch the
-post-exploitation behavior.</p>
+<p>Exploitation is the <strong>highest-signal</strong> phase of the whole chain: a request to a vulnerable endpoint carrying an anomalous payload, immediately followed by an unexpected <strong>outbound</strong> connection (the reverse shell) and a service account suddenly spawning a shell or PowerShell. Privilege escalation is quieter and depends on host telemetry — <strong>Sysmon</strong> (Windows) or <strong>auditd</strong> (Linux) — being configured <em>before</em> the attack, watching for SUID/sudo abuse and token manipulation.</p>
+<p><strong>Best control:</strong> the single most effective remediation is <strong>patching</strong> so the exploit fails outright — backed by <strong>least-privilege</strong> service accounts, application allowlisting, and EDR to catch the post-exploitation behavior.</p>
 </div>
 <div class="admonition note">
 <p>Real-world context — EternalBlue &amp; WannaCry</p>
-<p>In 2017 the <strong>WannaCry</strong> ransomware used <strong>EternalBlue</strong> (MS17-010), an
-exploit for a flaw in Windows SMB, to get SYSTEM-level code execution on
-unpatched machines — then wormed itself across networks automatically,
-hitting hospitals, telecoms, and factories in over 150 countries within
-days. Microsoft had released the patch <strong>two months earlier</strong>. It's the
-definitive case for why "gaining access" plus "unpatched systems" is a
-catastrophe, and why patch management is the highest-value defense on
-this page.</p>
+<p>In 2017 the <strong>WannaCry</strong> ransomware used <strong>EternalBlue</strong> (MS17-010), an exploit for a flaw in Windows SMB, to get SYSTEM-level code execution on unpatched machines — then wormed itself across networks automatically, hitting hospitals, telecoms, and factories in over 150 countries within days. Microsoft had released the patch <strong>two months earlier</strong>. It's the definitive case for why "gaining access" plus "unpatched systems" is a catastrophe, and why patch management is the highest-value defense on this page.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Metasploit Unleashed</strong> (OffSec, free).
-  <a href="https://www.offsec.com/metasploit-unleashed/">offsec.com/metasploit-unleashed</a></li>
-<li><strong>Kali Linux Revealed</strong> (official, free). <a href="https://www.kali.org/download-kali-linux-revealed-book/">kali.org
-  book</a></li>
-<li><strong>GTFOBins</strong> (Linux privesc reference).
-  <a href="https://gtfobins.github.io/">gtfobins.github.io</a></li>
+<li><strong>Metasploit Unleashed</strong> (OffSec, free). <a href="https://www.offsec.com/metasploit-unleashed/">offsec.com/metasploit-unleashed</a></li>
+<li><strong>Kali Linux Revealed</strong> (official, free). <a href="https://www.kali.org/download-kali-linux-revealed-book/">kali.org book</a></li>
+<li><strong>GTFOBins</strong> (Linux privesc reference). <a href="https://gtfobins.github.io/">gtfobins.github.io</a></li>
 </ul>
 
 

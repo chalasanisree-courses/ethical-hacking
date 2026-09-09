@@ -6,15 +6,11 @@ Interactive notes · CEH-aligned
 
 ## Attack it. Defend it. Report it.
 
-A CEH-aligned introduction to ethical hacking — learn to scan, test,
-exploit, and secure systems, and to see every attack from both the
-attacker's and the defender's side.
+A CEH-aligned introduction to ethical hacking — learn to scan, test, exploit, and secure systems, and to see every attack from both the attacker's and the defender's side.
 
 <div class="meta-row" markdown="1">
 
-<span class="chip">12 weeks · 8 stages</span> <span class="chip">CEH
-exam-aligned</span> <span class="chip">Interactive notes + video</span>
-<span class="chip">Open-access readings — \$0</span>
+<span class="chip">12 weeks · 8 stages</span> <span class="chip">CEH exam-aligned</span> <span class="chip">Interactive notes + video</span> <span class="chip">Open-access readings — \$0</span>
 
 </div>
 
@@ -22,25 +18,15 @@ exam-aligned</span> <span class="chip">Interactive notes + video</span>
 
 <div class="admonition tip" markdown="1">
 
-New here? Start with **[Week 1 · Framework, Law &
-Ethics](weeks/ethics-law-methodology.html)**
+New here? Start with **[Week 1 · Framework, Law & Ethics](weeks/ethics-law-methodology.html)**
 
-One map ties the whole course together: the attacker–defender loop,
-threat vs. risk, the NIST framework, the kill chain, and the **layers**
-of defense — plus the law and authorization that make it *ethical*.
-Every week hangs off that picture.
+One map ties the whole course together: the attacker–defender loop, threat vs. risk, the NIST framework, the kill chain, and the **layers** of defense — plus the law and authorization that make it *ethical*. Every week hangs off that picture.
 
 </div>
 
 ## About this course
 
-Students scan, test, hack, and secure systems, implement perimeter
-defenses, and attack and defend virtual networks. Coverage includes
-intrusion detection, social engineering, footprinting, DoS attacks,
-buffer overflows, SQL injection, privilege escalation, trojans,
-backdoors, and wireless hacking, with emphasis on legal and ethical
-guidelines. The course prepares students for the **Certified Ethical
-Hacker (CEH)** exam.
+Students scan, test, hack, and secure systems, implement perimeter defenses, and attack and defend virtual networks. Coverage includes intrusion detection, social engineering, footprinting, DoS attacks, buffer overflows, SQL injection, privilege escalation, trojans, backdoors, and wireless hacking, with emphasis on legal and ethical guidelines. The course prepares students for the **Certified Ethical Hacker (CEH)** exam.
 
 ## How the course flows
 
@@ -146,16 +132,12 @@ Run the whole cycle across every layer, then write the professional report a cli
 
 ## What you'll be able to do
 
-By the end of the course you will be able to **demonstrate the ability
-to attack and defend a network** — the core learning outcome — and
-you'll be prepared for the **Certified Ethical Hacker (CEH)** exam.
-Concretely, you'll be able to:
+By the end of the course you will be able to **demonstrate the ability to attack and defend a network** — the core learning outcome — and you'll be prepared for the **Certified Ethical Hacker (CEH)** exam. Concretely, you'll be able to:
 
 - Conduct reconnaissance and map a target's attack surface.
 - Scan and enumerate hosts, services, and vulnerabilities.
 - Exploit systems and web applications safely and legally.
-- Recognize and reason about malware, DoS, and social-engineering
-  attacks.
+- Recognize and reason about malware, DoS, and social-engineering attacks.
 - Apply cryptographic concepts and evade basic network defenses.
 - Plan a penetration test and communicate findings clearly.
 
@@ -165,32 +147,22 @@ Concretely, you'll be able to:
 
 Interactive lecture notes
 
-These pages are the **interactive notes** that accompany the course
-videos — concept explanations, the kill-chain framing, ATT&CK tags, and
-a *Defender's view* on every topic. Everything else for the course —
-videos, schedule, and graded work — lives in **Canvas**.
+These pages are the **interactive notes** that accompany the course videos — concept explanations, the kill-chain framing, ATT&CK tags, and a *Defender's view* on every topic. Everything else for the course — videos, schedule, and graded work — lives in **Canvas**.
 
 </div>
 
-- **Readings** are all free and open-access — NIST, OWASP, the official
-  Nmap book, Crypto 101, Metasploit Unleashed, and more. See the [Free
-  Resource Library](reference/resources.html).
-- **Ethics and law** run through the whole course, anchored by Alana
-  Maurushat's open-access *Ethical Hacking*.
+- **Readings** are all free and open-access — NIST, OWASP, the official Nmap book, Crypto 101, Metasploit Unleashed, and more. See the [Free Resource Library](reference/resources.html).
+- **Ethics and law** run through the whole course, anchored by Alana Maurushat's open-access *Ethical Hacking*.
 
 ## Start here
 
-- New to the toolset? Skim **[Kali Linux
-  Revealed](reference/resources.html)** before Week 2.
-- Jump to **[Week 1 · Framework, Law &
-  Ethics](weeks/ethics-law-methodology.html)**.
+- New to the toolset? Skim **[Kali Linux Revealed](reference/resources.html)** before Week 2.
+- Jump to **[Week 1 · Framework, Law & Ethics](weeks/ethics-law-methodology.html)**.
 
 <div class="admonition warning" markdown="1">
 
 Authorization first
 
-Everything in this course is practiced **only** on systems you have
-**explicit written permission** to test. Unauthorized access to computer
-systems is a crime — the legal boundaries are covered in Week 1.
+Everything in this course is practiced **only** on systems you have **explicit written permission** to test. Unauthorized access to computer systems is a crime — the legal boundaries are covered in Week 1.
 
 </div>

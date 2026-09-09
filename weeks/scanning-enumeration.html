@@ -1693,61 +1693,33 @@
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-3-scanning-enumeration-vulnerability-analysis">Week 3 · Scanning, Enumeration &amp; Vulnerability Analysis<a class="headerlink" href="#week-3-scanning-enumeration-vulnerability-analysis" title="Permanent link">&para;</a></h1>
 <p><span class="kc-badge">🧭 Kill chain · Phase 2 — Scanning</span></p>
-<p>The <span style="color:#c0392b;font-weight:700;">red line</span> down
-the left marks the <strong>attacker's</strong> view (most of this page). The
-<span style="color:#0e6b82;font-weight:700;">blue line</span> near the
-end marks the <strong>defender's</strong> view.</p>
+<p>The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the <strong>attacker's</strong> view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the <strong>defender's</strong> view.</p>
 <div class="rt-rail">
 <p><span class="rail-label red">🔴 RED TEAM · attacker's view</span></p>
 <div class="admonition abstract">
 <p>What you'll learn</p>
 <ul>
-<li>Why scanning is the moment recon turns into <strong>action</strong> — and why that
-  needs <strong>authorization</strong></li>
-<li>The <strong>scan flow</strong>: live hosts → open ports → services → operating
-  system → enumeration → vulnerabilities</li>
-<li><strong>Nmap</strong>, the one tool that does most of this, and the commands that
-  matter</li>
-<li><strong>Enumeration</strong> — squeezing real detail (users, shares, versions) out
-  of an open port</li>
-<li><strong>Vulnerability analysis</strong> — turning "a service is running" into
-  "here's an exploitable flaw"</li>
-<li>Why, unlike recon, scanning is <strong>noisy and catchable</strong> — and what
-  defenders do about it</li>
+<li>Why scanning is the moment recon turns into <strong>action</strong> — and why that needs <strong>authorization</strong></li>
+<li>The <strong>scan flow</strong>: live hosts → open ports → services → operating system → enumeration → vulnerabilities</li>
+<li><strong>Nmap</strong>, the one tool that does most of this, and the commands that matter</li>
+<li><strong>Enumeration</strong> — squeezing real detail (users, shares, versions) out of an open port</li>
+<li><strong>Vulnerability analysis</strong> — turning "a service is running" into "here's an exploitable flaw"</li>
+<li>Why, unlike recon, scanning is <strong>noisy and catchable</strong> — and what defenders do about it</li>
 </ul>
 </div>
 <div class="admonition warning">
 <p>⚖️ The authorization line — read this first</p>
-<p>Week 2 recon was <strong>passive</strong>: you read public records and never touched
-Coca-Cola, so it was legal to run against them. <strong>Scanning is
-different.</strong> From here on you send packets <em>straight at</em> the target's
-machines — and doing that to a system you don't own or aren't authorized
-to test can be a <strong>crime</strong>. So the commands below use an <strong>authorized
-practice target</strong>, <code>scanme.nmap.org</code> (a host Nmap runs specifically for
-people to practice on), or your lab network. We'll still <em>talk about</em>
-Coca-Cola to keep the story going — but we never point an active scanner
-at them.</p>
+<p>Week 2 recon was <strong>passive</strong>: you read public records and never touched Coca-Cola, so it was legal to run against them. <strong>Scanning is different.</strong> From here on you send packets <em>straight at</em> the target's machines — and doing that to a system you don't own or aren't authorized to test can be a <strong>crime</strong>. So the commands below use an <strong>authorized practice target</strong>, <code>scanme.nmap.org</code> (a host Nmap runs specifically for people to practice on), or your lab network. We'll still <em>talk about</em> Coca-Cola to keep the story going — but we never point an active scanner at them.</p>
 </div>
 <h2 id="1-from-a-map-to-open-doors">1. From a map to open doors<a class="headerlink" href="#1-from-a-map-to-open-doors" title="Permanent link">&para;</a></h2>
-<p>In Week 2 you built a <strong>map</strong> of the target — a footprint of every
-system and person. But a map only tells you a door <em>exists</em>. <strong>Scanning
-walks up and checks which doors are actually unlocked, and what's behind
-them.</strong> It takes the broad list from recon and narrows it, step by step,
-to a short hit-list of things you could actually break into.</p>
+<p>In Week 2 you built a <strong>map</strong> of the target — a footprint of every system and person. But a map only tells you a door <em>exists</em>. <strong>Scanning walks up and checks which doors are actually unlocked, and what's behind them.</strong> It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.</p>
 <figure>
-<img src="../img/scan-funnel.svg" width="840"
-alt="The scanning funnel: a broad target range narrowed to a short list of exploitable flaws" /><br />
+<img src="../img/scan-funnel.svg" width="840" alt="The scanning funnel: a broad target range narrowed to a short list of exploitable flaws" /><br />
 
-<figcaption>Scanning is a funnel. Each step probes the target and
-narrows the list — from "all the IP addresses recon found" down to "the
-handful of services with a known, exploitable flaw." That short red list
-is what feeds the exploitation phase.</figcaption>
+<figcaption>Scanning is a funnel. Each step probes the target and narrows the list — from "all the IP addresses recon found" down to "the handful of services with a known, exploitable flaw." That short red list is what feeds the exploitation phase.</figcaption>
 </figure>
 <h2 id="2-the-big-shift-now-youre-active">2. The big shift: now you're <em>active</em><a class="headerlink" href="#2-the-big-shift-now-youre-active" title="Permanent link">&para;</a></h2>
-<p>A company's internal network is hidden, but recon found its
-<strong>public-facing edge</strong> — the web and mail servers. Scanning is walking
-up to that edge and <strong>knocking on every door</strong> to see which open. The
-catch: knocking is something the target can <em>hear</em>.</p>
+<p>A company's internal network is hidden, but recon found its <strong>public-facing edge</strong> — the web and mail servers. Scanning is walking up to that edge and <strong>knocking on every door</strong> to see which open. The catch: knocking is something the target can <em>hear</em>.</p>
 <table>
 <thead>
 <tr>
@@ -1774,225 +1746,126 @@ catch: knocking is something the target can <em>hear</em>.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>OSINT</strong> = Open-Source Intelligence (the public-record gathering from
-Week 2). The one-line rule: <em>recon tells you what exists; scanning tells
-you what's reachable — and it can get you logged.</em></p>
+<p><strong>OSINT</strong> = Open-Source Intelligence (the public-record gathering from Week 2). The one-line rule: <em>recon tells you what exists; scanning tells you what's reachable — and it can get you logged.</em></p>
 <h2 id="3-the-scan-flow-click-through-it">3. The scan flow — click through it<a class="headerlink" href="#3-the-scan-flow-click-through-it" title="Permanent link">&para;</a></h2>
-<p>Six steps take you from a bare IP range to a list of exploitable flaws.
-<strong>Click each step</strong> to see the tool, the command, and what it reveals.
-Unlike recon, <strong>every step here is active</strong> — you're touching the target
-the whole way.</p>
+<p>Six steps take you from a bare IP range to a list of exploitable flaws. <strong>Click each step</strong> to see the tool, the command, and what it reveals. Unlike recon, <strong>every step here is active</strong> — you're touching the target the whole way.</p>
 <div class="scan-strip">
 <div aria-label="Host discovery" class="scan-phase" id="scan-node-1" onclick="scanShow(1)" role="button" style="background:#0E6B82" tabindex="0">
-<p><span class="num">STEP 1</span>Host discovery<span class="small">who's
-alive</span></p>
+<p><span class="num">STEP 1</span>Host discovery<span class="small">who's alive</span></p>
 </div>
 <div aria-label="Port scan" class="scan-phase" id="scan-node-2" onclick="scanShow(2)" role="button" style="background:#157f8f" tabindex="0">
-<p><span class="num">STEP 2</span>Port scan<span class="small">which doors
-open</span></p>
+<p><span class="num">STEP 2</span>Port scan<span class="small">which doors open</span></p>
 </div>
 <div aria-label="Service and version" class="scan-phase" id="scan-node-3" onclick="scanShow(3)" role="button" style="background:#2B6CB0" tabindex="0">
-<p><span class="num">STEP 3</span>Service &amp;
-version<span class="small">what's running</span></p>
+<p><span class="num">STEP 3</span>Service &amp; version<span class="small">what's running</span></p>
 </div>
 <div aria-label="OS fingerprint" class="scan-phase" id="scan-node-4" onclick="scanShow(4)" role="button" style="background:#6b46c1" tabindex="0">
-<p><span class="num">STEP 4</span>OS fingerprint<span class="small">which
-system</span></p>
+<p><span class="num">STEP 4</span>OS fingerprint<span class="small">which system</span></p>
 </div>
 <div aria-label="Enumeration" class="scan-phase" id="scan-node-5" onclick="scanShow(5)" role="button" style="background:#B45309" tabindex="0">
-<p><span class="num">STEP 5</span>Enumeration<span class="small">read the
-nameplate</span></p>
+<p><span class="num">STEP 5</span>Enumeration<span class="small">read the nameplate</span></p>
 </div>
 <div aria-label="Vulnerability analysis" class="scan-phase" id="scan-node-6" onclick="scanShow(6)" role="button" style="background:#C0392B" tabindex="0">
-<p><span class="num">STEP 6</span>Vuln analysis<span class="small">find the
-flaws</span></p>
+<p><span class="num">STEP 6</span>Vuln analysis<span class="small">find the flaws</span></p>
 </div>
 </div>
-<p>↑ <strong>Click a step</strong> — each shows the tool, the command, and what it
-reveals</p>
+<p>↑ <strong>Click a step</strong> — each shows the tool, the command, and what it reveals</p>
 <div class="scan-panel" id="scan-panel-1">
 <h4 id="host-discovery-whos-alive">📍 Host discovery — who's alive?<a class="headerlink" href="#host-discovery-whos-alive" title="Permanent link">&para;</a></h4>
-<p>Before scanning ports, find out which addresses actually answer. No
-point port-scanning empty space.</p>
-<p><code>nmap -sn 192.168.1.0/24</code>  — a <strong>ping sweep</strong> across a whole range
-(<code>-sn</code> = "no port scan, just find live hosts").</p>
-<p>🚪 Result: the list of machines that are actually up — your real
-targets.</p>
+<p>Before scanning ports, find out which addresses actually answer. No point port-scanning empty space.</p>
+<p><code>nmap -sn 192.168.1.0/24</code>  — a <strong>ping sweep</strong> across a whole range (<code>-sn</code> = "no port scan, just find live hosts").</p>
+<p>🚪 Result: the list of machines that are actually up — your real targets.</p>
 </div>
 <div class="scan-panel" id="scan-panel-2">
 <h4 id="port-scan-which-doors-are-open">🚪 Port scan — which doors are open?<a class="headerlink" href="#port-scan-which-doors-are-open" title="Permanent link">&para;</a></h4>
-<p>A <strong>port</strong> is a numbered door on a machine; each open one is a service
-you might reach. Ports come back in three states:</p>
+<p>A <strong>port</strong> is a numbered door on a machine; each open one is a service you might reach. Ports come back in three states:</p>
 <ul>
 <li><strong>open</strong> — a service is listening (a way in)</li>
 <li><strong>closed</strong> — nothing listening, but the host replied</li>
-<li><strong>filtered</strong> — a <strong>firewall</strong> silently dropped your probe (itself a
-  clue about their defenses)</li>
+<li><strong>filtered</strong> — a <strong>firewall</strong> silently dropped your probe (itself a clue about their defenses)</li>
 </ul>
-<p>Two main styles (<strong>TCP</strong> = Transmission Control Protocol, <strong>SYN</strong> = the
-first packet of a TCP handshake):</p>
+<p>Two main styles (<strong>TCP</strong> = Transmission Control Protocol, <strong>SYN</strong> = the first packet of a TCP handshake):</p>
 <ul>
-<li><code>nmap -sS scanme.nmap.org</code> — <strong>SYN "half-open" scan</strong>: starts the
-  handshake, never finishes it. Fast and quieter — the default.</li>
-<li><code>nmap -sT scanme.nmap.org</code> — <strong>full connect scan</strong>: completes every
-  handshake. Reliable but <strong>loud</strong> (the target logs each one).</li>
-<li><code>nmap -sU scanme.nmap.org</code> — <strong>UDP scan</strong> for connectionless services
-  (DNS, SNMP). Slow, but many important services live here.</li>
+<li><code>nmap -sS scanme.nmap.org</code> — <strong>SYN "half-open" scan</strong>: starts the handshake, never finishes it. Fast and quieter — the default.</li>
+<li><code>nmap -sT scanme.nmap.org</code> — <strong>full connect scan</strong>: completes every handshake. Reliable but <strong>loud</strong> (the target logs each one).</li>
+<li><code>nmap -sU scanme.nmap.org</code> — <strong>UDP scan</strong> for connectionless services (DNS, SNMP). Slow, but many important services live here.</li>
 </ul>
 <p>🚪 Result: the list of open doors on each live host.</p>
 </div>
 <div class="scan-panel" id="scan-panel-3">
 <h4 id="service-version-detection-whats-running">🔖 Service &amp; version detection — what's running?<a class="headerlink" href="#service-version-detection-whats-running" title="Permanent link">&para;</a></h4>
-<p>An open port isn't enough; you need the exact software and version
-behind it — that's what makes vulnerability-matching possible later.</p>
-<p><code>nmap -sV scanme.nmap.org</code>  — turns <code>port 22 open</code> into <code>OpenSSH 8.9p1</code>,
-the precise build.</p>
-<p>🚪 Result: an inventory of services and their exact versions. <em>(This is
-the same idea as Shodan from Week 2 — but now you're reading it live,
-not from a public index.)</em></p>
+<p>An open port isn't enough; you need the exact software and version behind it — that's what makes vulnerability-matching possible later.</p>
+<p><code>nmap -sV scanme.nmap.org</code>  — turns <code>port 22 open</code> into <code>OpenSSH 8.9p1</code>, the precise build.</p>
+<p>🚪 Result: an inventory of services and their exact versions. <em>(This is the same idea as Shodan from Week 2 — but now you're reading it live, not from a public index.)</em></p>
 </div>
 <div class="scan-panel" id="scan-panel-4">
 <h4 id="os-fingerprint-which-operating-system">🖥️ OS fingerprint — which operating system?<a class="headerlink" href="#os-fingerprint-which-operating-system" title="Permanent link">&para;</a></h4>
-<p>Knowing it's Windows vs. Linux (and which version) narrows which attacks
-are even possible.</p>
-<p><code>nmap -O scanme.nmap.org</code> — guesses the <strong>operating system</strong> from subtle
-differences in how it replies.<br />
-<code>nmap -sC scanme.nmap.org</code> — runs the safe default set of <strong>NSE</strong>
-scripts (Nmap Scripting Engine — hundreds of small add-on checks, from
-listing shares to testing for a specific flaw).</p>
+<p>Knowing it's Windows vs. Linux (and which version) narrows which attacks are even possible.</p>
+<p><code>nmap -O scanme.nmap.org</code> — guesses the <strong>operating system</strong> from subtle differences in how it replies.<br />
+<code>nmap -sC scanme.nmap.org</code> — runs the safe default set of <strong>NSE</strong> scripts (Nmap Scripting Engine — hundreds of small add-on checks, from listing shares to testing for a specific flaw).</p>
 <p>🚪 Result: the OS and a first pass of automated checks.</p>
 </div>
 <div class="scan-panel" id="scan-panel-5">
 <h4 id="enumeration-read-the-nameplate">🔍 Enumeration — read the nameplate<a class="headerlink" href="#enumeration-read-the-nameplate" title="Permanent link">&para;</a></h4>
-<p>Scanning finds the door; <strong>enumeration</strong> reads the nameplate on it. Once
-a service is identified, you interrogate it for detail you can act on —
-usernames, shared folders, group memberships. Each protocol leaks
-different things:</p>
+<p>Scanning finds the door; <strong>enumeration</strong> reads the nameplate on it. Once a service is identified, you interrogate it for detail you can act on — usernames, shared folders, group memberships. Each protocol leaks different things:</p>
 <ul>
-<li><strong>SMB</strong> (Server Message Block — Windows file sharing): shares, users,
-  domain info — tools <code>enum4linux</code>, <code>smbclient</code></li>
-<li><strong>SNMP</strong> (Simple Network Management Protocol): device configs, routing
-  tables — and watch for the default <code>public</code> password, a classic
-  finding</li>
+<li><strong>SMB</strong> (Server Message Block — Windows file sharing): shares, users, domain info — tools <code>enum4linux</code>, <code>smbclient</code></li>
+<li><strong>SNMP</strong> (Simple Network Management Protocol): device configs, routing tables — and watch for the default <code>public</code> password, a classic finding</li>
 <li><strong>LDAP</strong> (directory service): the org's user and group tree</li>
 <li><strong>SMTP</strong> (email): valid usernames, which feed password attacks later</li>
 </ul>
-<p>🚪 Result: "port 445 is open" becomes "here are three usernames and an
-unprotected share." <em>(This is the heart of enumeration — turning a bare
-open port into specific, actionable detail.)</em></p>
+<p>🚪 Result: "port 445 is open" becomes "here are three usernames and an unprotected share." <em>(This is the heart of enumeration — turning a bare open port into specific, actionable detail.)</em></p>
 </div>
 <div class="scan-panel" id="scan-panel-6">
 <h4 id="vulnerability-analysis-find-the-exploitable-flaws">🎯 Vulnerability analysis — find the exploitable flaws<a class="headerlink" href="#vulnerability-analysis-find-the-exploitable-flaws" title="Permanent link">&para;</a></h4>
-<p>The payoff: turn your service inventory into a ranked list of
-<strong>weaknesses</strong>. A <strong>vulnerability scanner</strong> cross-references every
-detected version against a database of known flaws.</p>
+<p>The payoff: turn your service inventory into a ranked list of <strong>weaknesses</strong>. A <strong>vulnerability scanner</strong> cross-references every detected version against a database of known flaws.</p>
 <ul>
-<li><strong>OpenVAS</strong> / <strong>Nessus</strong> — scan every service and produce a report
-  ranked by <strong>CVSS</strong> score (Common Vulnerability Scoring System, 0–10
-  severity)</li>
-<li><code>searchsploit openssh 8.9</code> — check the local exploit database by hand;
-  the <strong>NVD</strong> (National Vulnerability Database,
-  <a href="https://nvd.nist.gov" target="_blank">nvd.nist.gov</a>) has
-  full <strong>CVE</strong> detail (Common Vulnerabilities and Exposures — a public
-  ID for each known flaw)</li>
+<li><strong>OpenVAS</strong> / <strong>Nessus</strong> — scan every service and produce a report ranked by <strong>CVSS</strong> score (Common Vulnerability Scoring System, 0–10 severity)</li>
+<li><code>searchsploit openssh 8.9</code> — check the local exploit database by hand; the <strong>NVD</strong> (National Vulnerability Database, <a href="https://nvd.nist.gov" target="_blank">nvd.nist.gov</a>) has full <strong>CVE</strong> detail (Common Vulnerabilities and Exposures — a public ID for each known flaw)</li>
 </ul>
-<p>⚠️ The judgment call: a scanner's findings are <strong>leads, not proven
-holes</strong> — some are patched, some are false positives, some need a
-specific setup. Narrowing the list to what actually works is the real
-skill. <em>(Exactly the Shodan lesson from Week 2 — see the Equifax case
-below.)</em></p>
+<p>⚠️ The judgment call: a scanner's findings are <strong>leads, not proven holes</strong> — some are patched, some are false positives, some need a specific setup. Narrowing the list to what actually works is the real skill. <em>(Exactly the Shodan lesson from Week 2 — see the Equifax case below.)</em></p>
 </div>
 <h2 id="4-what-youre-actually-mapping-the-target-fills-in">4. What you're actually mapping — the target fills in<a class="headerlink" href="#4-what-youre-actually-mapping-the-target-fills-in" title="Permanent link">&para;</a></h2>
-<p>The flow above narrows a <em>list</em>. Here's the flip side — what you learn
-about a <strong>single machine</strong>. Each step adds a layer to the picture, and
-the last one is the prize.</p>
+<p>The flow above narrows a <em>list</em>. Here's the flip side — what you learn about a <strong>single machine</strong>. Each step adds a layer to the picture, and the last one is the prize.</p>
 <figure>
-<img src="../img/scan-buildup.svg" width="900"
-alt="The target&#39;s device model building up one layer per scan step: host, open ports, services and versions, OS, then the vulnerable service" /><br />
+<img src="../img/scan-buildup.svg" width="900" alt="The target&#39;s device model building up one layer per scan step: host, open ports, services and versions, OS, then the vulnerable service" /><br />
 
-<figcaption>A packet arrives at the device's IP address; the operating
-system hands it to whichever service is <strong>listening</strong> on
-that port. Scanning reveals this stack from the bottom up — host → open
-ports → services &amp; versions → OS — until one service (here, an old
-FTP server) turns out to have a known flaw: the weak lock.</figcaption>
+<figcaption>A packet arrives at the device's IP address; the operating system hands it to whichever service is <strong>listening</strong> on that port. Scanning reveals this stack from the bottom up — host → open ports → services &amp; versions → OS — until one service (here, an old FTP server) turns out to have a known flaw: the weak lock.</figcaption>
 </figure>
 <div class="admonition note">
 <p>The one idea to hold on to</p>
-<p>An <strong>open port is a door</strong>, the <strong>service</strong> behind it is what you
-actually attack, and its <strong>version</strong> is what tells you whether the lock
-is weak. That's why version detection (<code>nmap -sV</code>) matters so much — a
-port number on its own isn't enough.</p>
+<p>An <strong>open port is a door</strong>, the <strong>service</strong> behind it is what you actually attack, and its <strong>version</strong> is what tells you whether the lock is weak. That's why version detection (<code>nmap -sV</code>) matters so much — a port number on its own isn't enough.</p>
 </div>
 <hr />
 <h2 id="5-vulnerability-analysis-is-the-bridge-to-breaking-in">5. Vulnerability analysis is the bridge to breaking in<a class="headerlink" href="#5-vulnerability-analysis-is-the-bridge-to-breaking-in" title="Permanent link">&para;</a></h2>
-<p>Steps 1–5 build a picture; step 6 turns it into a <strong>target list</strong>. That
-list is what the exploitation phase (Module 4) acts on. But the scanner
-is only a <em>first draft</em> — it flags everything that <em>might</em> be vulnerable
-from the version number, exactly like Shodan did in Week 2. The version
-banner says "OpenSSH 8.9"; whether <em>this</em> server is actually exploitable
-still has to be confirmed. Treating scanner output as a to-do list of
-leads — not a list of confirmed holes — is what separates a real
-assessment from a scan-and-paste report.</p>
+<p>Steps 1–5 build a picture; step 6 turns it into a <strong>target list</strong>. That list is what the exploitation phase (Module 4) acts on. But the scanner is only a <em>first draft</em> — it flags everything that <em>might</em> be vulnerable from the version number, exactly like Shodan did in Week 2. The version banner says "OpenSSH 8.9"; whether <em>this</em> server is actually exploitable still has to be confirmed. Treating scanner output as a to-do list of leads — not a list of confirmed holes — is what separates a real assessment from a scan-and-paste report.</p>
 <h2 id="6-its-real-three-cases">6. It's real — three cases<a class="headerlink" href="#6-its-real-three-cases" title="Permanent link">&para;</a></h2>
 <p>🔓 Equifax (2017) — the scan that would have caught it</p>
-<p>The breach that stole ~<strong>147 million people's</strong> personal data began with
-a single <strong>internet-facing</strong> server running an unpatched version of
-<strong>Apache Struts</strong> (flaw <strong>CVE-2017-5638</strong>). That's precisely the kind of
-finding a routine <strong>vulnerability scan</strong> flags in its top-severity list.
-Scanning and vuln analysis aren't only an attacker's tool — run against
-<em>yourself</em>, they're the exact discipline that would have prevented one
-of the largest breaches in history. <strong>Lesson: scan your own edge before
-someone else does.</strong></p>
+<p>The breach that stole ~<strong>147 million people's</strong> personal data began with a single <strong>internet-facing</strong> server running an unpatched version of <strong>Apache Struts</strong> (flaw <strong>CVE-2017-5638</strong>). That's precisely the kind of finding a routine <strong>vulnerability scan</strong> flags in its top-severity list. Scanning and vuln analysis aren't only an attacker's tool — run against <em>yourself</em>, they're the exact discipline that would have prevented one of the largest breaches in history. <strong>Lesson: scan your own edge before someone else does.</strong></p>
 <p>🐛 WannaCry (2017) — one open port, worldwide</p>
-<p>WannaCry spread by scanning the internet for one thing: machines with
-<strong>port 445</strong> (SMB) open and an unpatched Windows flaw (<strong>EternalBlue</strong>).
-Any host that answered got infected and then scanned for <em>more</em> victims
-— over 200,000 machines in days. It's enumeration and scanning turned
-into an automatic weapon. <strong>Lesson: an exposed service with a known flaw
-is not a small risk — it's a doorway that attackers actively hunt for.</strong></p>
+<p>WannaCry spread by scanning the internet for one thing: machines with <strong>port 445</strong> (SMB) open and an unpatched Windows flaw (<strong>EternalBlue</strong>). Any host that answered got infected and then scanned for <em>more</em> victims — over 200,000 machines in days. It's enumeration and scanning turned into an automatic weapon. <strong>Lesson: an exposed service with a known flaw is not a small risk — it's a doorway that attackers actively hunt for.</strong></p>
 <p>🐠 The casino fish tank (reported 2017) — the door nobody thinks of</p>
-<p>A casino was breached through an internet-connected <strong>thermometer in its
-lobby fish tank</strong>. The security firm <strong>Darktrace</strong> reported that
-attackers used the smart aquarium sensor as a foothold, reached across
-the internal network to the casino's <strong>high-roller database</strong>, and
-pulled the data back out through that same device. When you scan a
-network, <em>everything that answers is a door</em> — including the forgotten
-internet-connected gadget nobody remembered was online. <strong>Lesson: your
-attack surface is every device on the network, not just the servers —
-and (like Target in Week 2) segment the network so a fish-tank sensor
-can never reach your crown jewels.</strong></p>
+<p>A casino was breached through an internet-connected <strong>thermometer in its lobby fish tank</strong>. The security firm <strong>Darktrace</strong> reported that attackers used the smart aquarium sensor as a foothold, reached across the internal network to the casino's <strong>high-roller database</strong>, and pulled the data back out through that same device. When you scan a network, <em>everything that answers is a door</em> — including the forgotten internet-connected gadget nobody remembered was online. <strong>Lesson: your attack surface is every device on the network, not just the servers — and (like Target in Week 2) segment the network so a fish-tank sensor can never reach your crown jewels.</strong></p>
 </div>
 <hr />
 <div class="bt-rail">
 <p><span class="rail-label blue">🔵 BLUE TEAM · defender's view</span></p>
 <h2 id="blue-team-how-defenders-counter-scanning">Blue Team — how defenders counter scanning<a class="headerlink" href="#blue-team-how-defenders-counter-scanning" title="Permanent link">&para;</a></h2>
-<p>Here's the big difference from Week 2: <strong>passive recon was invisible,
-but scanning is loud.</strong> Because the attacker now sends packets at your
-systems, you can actually <em>see</em> it. The defender sits in the <strong>SOC</strong>
-(Security Operations Center — the team that watches for attacks).</p>
+<p>Here's the big difference from Week 2: <strong>passive recon was invisible, but scanning is loud.</strong> Because the attacker now sends packets at your systems, you can actually <em>see</em> it. The defender sits in the <strong>SOC</strong> (Security Operations Center — the team that watches for attacks).</p>
 <div class="admonition defender">
 <p>You can detect it — and you can shrink what it finds</p>
-<p>A ping sweep plus a full port scan makes <strong>hundreds of connection
-attempts in seconds</strong>. That's a detectable pattern: <strong>one source
-touching many ports or many hosts in a short window</strong>. Vulnerability
-scanners are louder still, and often leave a scanner name in the web
-logs:</p>
+<p>A ping sweep plus a full port scan makes <strong>hundreds of connection attempts in seconds</strong>. That's a detectable pattern: <strong>one source touching many ports or many hosts in a short window</strong>. Vulnerability scanners are louder still, and often leave a scanner name in the web logs:</p>
 <div class="highlight">
 <pre><code>index=web_logs status=404 (useragent="*nmap*" OR useragent="*nessus*" OR useragent="*gobuster*")
 | stats count by clientip | where count &gt; 50
 </code></pre>
 </div>
-<p>But you can't <em>stop</em> someone from scanning your public edge — so the
-real defense is to <strong>shrink the attack surface</strong> so scans come back
-nearly empty:</p>
+<p>But you can't <em>stop</em> someone from scanning your public edge — so the real defense is to <strong>shrink the attack surface</strong> so scans come back nearly empty:</p>
 <ul>
 <li><strong>Close unused ports</strong> and turn off services you don't need.</li>
-<li><strong>Put management services</strong> (SSH, RDP, admin panels) <strong>behind a VPN</strong>
-  (Virtual Private Network), not the open internet.</li>
-<li><strong>Rate-limit</strong> probes at the firewall so mass scans are slowed and
-  flagged.</li>
-<li><strong>Scan yourself first</strong> and <strong>patch what you find</strong> — so the
-  attacker's scan turns up nothing you haven't already fixed.</li>
+<li><strong>Put management services</strong> (SSH, RDP, admin panels) <strong>behind a VPN</strong> (Virtual Private Network), not the open internet.</li>
+<li><strong>Rate-limit</strong> probes at the firewall so mass scans are slowed and flagged.</li>
+<li><strong>Scan yourself first</strong> and <strong>patch what you find</strong> — so the attacker's scan turns up nothing you haven't already fixed.</li>
 </ul>
 <p>The less that answers when someone knocks, the safer you are.</p>
 </div>
@@ -2001,49 +1874,27 @@ nearly empty:</p>
 <h2 id="a-note-on-mitre-attck">A note on MITRE ATT&amp;CK<a class="headerlink" href="#a-note-on-mitre-attck" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p>What is MITRE ATT&amp;CK?</p>
-<p><strong>MITRE ATT&amp;CK</strong> is a free, public catalog — maintained by the nonprofit
-<strong>MITRE</strong> — of the real techniques attackers use, each with an ID. This
-week's work maps to its <em>Discovery</em> and <em>Reconnaissance</em> sections: for
-example <strong>T1046</strong> (Network <strong>Service</strong> Discovery — the port and service
-scanning) and <strong>T1018</strong> (Remote <strong>System</strong> Discovery — host discovery).
-It's a shared dictionary so defenders and attackers can name techniques
-precisely. Browse it at
-<a href="https://attack.mitre.org/tactics/TA0007/">attack.mitre.org</a>.</p>
+<p><strong>MITRE ATT&amp;CK</strong> is a free, public catalog — maintained by the nonprofit <strong>MITRE</strong> — of the real techniques attackers use, each with an ID. This week's work maps to its <em>Discovery</em> and <em>Reconnaissance</em> sections: for example <strong>T1046</strong> (Network <strong>Service</strong> Discovery — the port and service scanning) and <strong>T1018</strong> (Remote <strong>System</strong> Discovery — host discovery). It's a shared dictionary so defenders and attackers can name techniques precisely. Browse it at <a href="https://attack.mitre.org/tactics/TA0007/">attack.mitre.org</a>.</p>
 </div>
 <hr />
 <h2 id="try-it-yourself">Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p>Practice — only on a target you own or are authorized to test</p>
-<p>Every tool here is free. Against Nmap's authorized practice host
-<code>scanme.nmap.org</code> (or your own lab network), walk the whole flow:
-<code>nmap -sn</code> a range to find live hosts, <code>nmap -sS</code> and <code>nmap -sV</code> for
-open ports and versions, <code>nmap -O</code> for the operating system, then look
-up a version with <code>searchsploit</code> or the NVD. Keep asking one question:
-<em>how would I have made this harder to find?</em></p>
-<p><strong>Next week →</strong> we stop <em>finding</em> weaknesses and start <em>using</em> the
-network against itself — <strong>Network Hacking &amp; Sniffing.</strong></p>
+<p>Every tool here is free. Against Nmap's authorized practice host <code>scanme.nmap.org</code> (or your own lab network), walk the whole flow: <code>nmap -sn</code> a range to find live hosts, <code>nmap -sS</code> and <code>nmap -sV</code> for open ports and versions, <code>nmap -O</code> for the operating system, then look up a version with <code>searchsploit</code> or the NVD. Keep asking one question: <em>how would I have made this harder to find?</em></p>
+<p><strong>Next week →</strong> we stop <em>finding</em> weaknesses and start <em>using</em> the network against itself — <strong>Network Hacking &amp; Sniffing.</strong></p>
 </div>
 <div class="admonition quote">
 <p>Remember</p>
-<p>Scanning = <strong>turn recon's map into a hit-list.</strong> Find live hosts, open
-ports, services, and versions; enumerate the detail; then narrow it to
-the flaws that actually work. It's <strong>active</strong> — authorized targets only
-— and unlike recon, defenders can see you coming.</p>
+<p>Scanning = <strong>turn recon's map into a hit-list.</strong> Find live hosts, open ports, services, and versions; enumerate the detail; then narrow it to the flaws that actually work. It's <strong>active</strong> — authorized targets only — and unlike recon, defenders can see you coming.</p>
 </div>
 <hr />
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Nmap Network Scanning</strong> (official book) — Host Discovery &amp; Port
-  Scanning. <a href="https://nmap.org/book/toc.html">nmap.org/book</a></li>
-<li><strong>NIST SP 800-115</strong> §4.2 (network scanning), §4.3 (vulnerability
-  scanning). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free
-  PDF</a></li>
-<li><strong>MITRE ATT&amp;CK — Discovery (TA0007).</strong>
-  <a href="https://attack.mitre.org/tactics/TA0007/">attack.mitre.org</a></li>
-<li><strong>Equifax breach — U.S. GAO.</strong>
-  <a href="https://www.gao.gov/products/gao-18-559">GAO-18-559</a></li>
-<li><strong>Scan legally:</strong> <a href="http://scanme.nmap.org">scanme.nmap.org</a> — Nmap's
-  authorized practice host.</li>
+<li><strong>Nmap Network Scanning</strong> (official book) — Host Discovery &amp; Port Scanning. <a href="https://nmap.org/book/toc.html">nmap.org/book</a></li>
+<li><strong>NIST SP 800-115</strong> §4.2 (network scanning), §4.3 (vulnerability scanning). <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
+<li><strong>MITRE ATT&amp;CK — Discovery (TA0007).</strong> <a href="https://attack.mitre.org/tactics/TA0007/">attack.mitre.org</a></li>
+<li><strong>Equifax breach — U.S. GAO.</strong> <a href="https://www.gao.gov/products/gao-18-559">GAO-18-559</a></li>
+<li><strong>Scan legally:</strong> <a href="http://scanme.nmap.org">scanme.nmap.org</a> — Nmap's authorized practice host.</li>
 </ul>
 
 

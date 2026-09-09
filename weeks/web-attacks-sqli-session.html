@@ -1460,92 +1460,55 @@
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-9-web-attacks-ii-sql-injection-session-hijacking">Week 9 · Web Attacks II — SQL Injection &amp; Session Hijacking<a class="headerlink" href="#week-9-web-attacks-ii-sql-injection-session-hijacking" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access
-(web)</span></p>
+<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span>
-<a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag"
-target="_blank">T1190 Exploit Public-Facing App</a>
-<a href="https://attack.mitre.org/techniques/T1185/" class="attck-tag"
-target="_blank">T1185 Browser Session Hijacking</a>
-<a href="https://attack.mitre.org/techniques/T1539/" class="attck-tag"
-target="_blank">T1539 Steal Web Session Cookie</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1185/" class="attck-tag" target="_blank">T1185 Browser Session Hijacking</a> <a href="https://attack.mitre.org/techniques/T1539/" class="attck-tag" target="_blank">T1539 Steal Web Session Cookie</a></p>
 </div>
 <div class="admonition abstract">
 <p>What this page covers</p>
 <ul>
 <li>How SQL injection works and why it's still so damaging</li>
 <li>In-band, blind, and error-based SQLi</li>
-<li><strong>Session hijacking</strong> — stealing or forging a session to become the
-  user</li>
+<li><strong>Session hijacking</strong> — stealing or forging a session to become the user</li>
 <li>Defenses: parameterized queries, secure sessions, least privilege</li>
 </ul>
 </div>
 <h2 id="1-sql-injection-mechanics">1. SQL injection mechanics<a class="headerlink" href="#1-sql-injection-mechanics" title="Permanent link">&para;</a></h2>
-<p>Untrusted input concatenated into a database query lets an attacker
-change the query's <em>meaning</em> — the classic <code>' OR 1=1 --</code> that turns a
-login check into "always true." From there: dump entire tables, bypass
-authentication, read/write files, and on some databases reach OS command
-execution.</p>
+<p>Untrusted input concatenated into a database query lets an attacker change the query's <em>meaning</em> — the classic <code>' OR 1=1 --</code> that turns a login check into "always true." From there: dump entire tables, bypass authentication, read/write files, and on some databases reach OS command execution.</p>
 <h2 id="2-sqli-variants">2. SQLi variants<a class="headerlink" href="#2-sqli-variants" title="Permanent link">&para;</a></h2>
 <p>Click each to expand.</p>
 <p>🔗 In-band (union / error-based)</p>
-<p>Results come straight back in the response — appended via
-<code>UNION SELECT</code>, or leaked through verbose database error messages.</p>
+<p>Results come straight back in the response — appended via <code>UNION SELECT</code>, or leaked through verbose database error messages.</p>
 <p>🕶️ Blind (boolean / time-based)</p>
-<p>No visible output, so you infer data one bit at a time — <code>AND 1=1</code> vs
-<code>AND 1=2</code> for boolean, or <code>SLEEP(5)</code> to read answers from response
-timing.</p>
+<p>No visible output, so you infer data one bit at a time — <code>AND 1=1</code> vs <code>AND 1=2</code> for boolean, or <code>SLEEP(5)</code> to read answers from response timing.</p>
 <p>🤖 Automation (sqlmap)</p>
-<p><code>sqlmap</code> automates detection and extraction across all these variants —
-powerful as an attacker, and a distinctive traffic pattern for defenders
-to recognize.</p>
+<p><code>sqlmap</code> automates detection and extraction across all these variants — powerful as an attacker, and a distinctive traffic pattern for defenders to recognize.</p>
 <h2 id="3-session-hijacking">3. Session hijacking<a class="headerlink" href="#3-session-hijacking" title="Permanent link">&para;</a></h2>
-<p>A logged-in user is tracked by a <strong>session token</strong> (usually a cookie).
-Steal or forge that token and you <em>are</em> that user — no password needed.
-This is conceptually close to the human/identity attacks in Module 7
-("become the user"), but here the mechanism is technical:</p>
+<p>A logged-in user is tracked by a <strong>session token</strong> (usually a cookie). Steal or forge that token and you <em>are</em> that user — no password needed. This is conceptually close to the human/identity attacks in Module 7 ("become the user"), but here the mechanism is technical:</p>
 <ul>
-<li><strong>Token theft</strong> — via XSS (Week 8) reading <code>document.cookie</code>, or
-  sniffing an unencrypted session (Week 4).</li>
-<li><strong>Session fixation</strong> — force a known session ID on the victim, then
-  ride it after they log in.</li>
+<li><strong>Token theft</strong> — via XSS (Week 8) reading <code>document.cookie</code>, or sniffing an unencrypted session (Week 4).</li>
+<li><strong>Session fixation</strong> — force a known session ID on the victim, then ride it after they log in.</li>
 <li><strong>Man-in-the-middle</strong> — intercept the token in transit.</li>
 </ul>
 <h2 id="4-defense">4. Defense<a class="headerlink" href="#4-defense" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>SQLi:</strong> parameterized queries / prepared statements eliminate the
-  class entirely; add input validation, least-privilege DB accounts, and
-  a WAF as depth.</li>
-<li><strong>Session hijacking:</strong> <code>Secure</code> + <code>HttpOnly</code> + <code>SameSite</code> cookies, TLS
-  everywhere, session regeneration on login, and short idle timeouts.</li>
+<li><strong>SQLi:</strong> parameterized queries / prepared statements eliminate the class entirely; add input validation, least-privilege DB accounts, and a WAF as depth.</li>
+<li><strong>Session hijacking:</strong> <code>Secure</code> + <code>HttpOnly</code> + <code>SameSite</code> cookies, TLS everywhere, session regeneration on login, and short idle timeouts.</li>
 </ul>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p>How this looks from the SOC seat</p>
-<p>SQLi shows as <strong>suspicious query strings</strong> in web logs (quotes, <code>UNION</code>,
-<code>--</code>, <code>SLEEP(</code>, encoded variants) and <strong>database error spikes</strong> from the
-app account. Session hijacking shows as <strong>one session used from two
-IPs/geographies or two devices at once</strong>, or a session that suddenly
-changes user-agent — exactly the kind of anomaly UEBA is built to catch.</p>
-<p><strong>Best control:</strong> parameterized queries kill SQLi at the source; for
-sessions, bind tokens to context and alert on impossible-travel /
-concurrent-session anomalies.</p>
+<p>SQLi shows as <strong>suspicious query strings</strong> in web logs (quotes, <code>UNION</code>, <code>--</code>, <code>SLEEP(</code>, encoded variants) and <strong>database error spikes</strong> from the app account. Session hijacking shows as <strong>one session used from two IPs/geographies or two devices at once</strong>, or a session that suddenly changes user-agent — exactly the kind of anomaly UEBA is built to catch.</p>
+<p><strong>Best control:</strong> parameterized queries kill SQLi at the source; for sessions, bind tokens to context and alert on impossible-travel / concurrent-session anomalies.</p>
 </div>
 <div class="admonition note">
 <p>Real-world context</p>
-<p>The 2008 <strong>Heartland Payment Systems</strong> breach — 130M+ card numbers —
-began with a <strong>SQL injection</strong> flaw in a web form that led to the
-payment network. Fifteen years later SQLi is still a top-cause web
-vulnerability, which is exactly why it gets its own week.</p>
+<p>The 2008 <strong>Heartland Payment Systems</strong> breach — 130M+ card numbers — began with a <strong>SQL injection</strong> flaw in a web form that led to the payment network. Fifteen years later SQLi is still a top-cause web vulnerability, which is exactly why it gets its own week.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>OWASP — SQL Injection</strong> · <strong>SQL Injection Prevention Cheat Sheet.</strong>
-  <a href="https://owasp.org/www-community/attacks/SQL_Injection">Attack</a> ·
-  <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">Prevention</a></li>
-<li><strong>OWASP — Session Management Cheat Sheet.</strong>
-  <a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html">cheatsheetseries.owasp.org</a></li>
+<li><strong>OWASP — SQL Injection</strong> · <strong>SQL Injection Prevention Cheat Sheet.</strong> <a href="https://owasp.org/www-community/attacks/SQL_Injection">Attack</a> · <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">Prevention</a></li>
+<li><strong>OWASP — Session Management Cheat Sheet.</strong> <a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html">cheatsheetseries.owasp.org</a></li>
 </ul>
 
 

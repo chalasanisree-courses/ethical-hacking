@@ -1,7 +1,6 @@
 # CEH Domain → Week Map
 
-How this course's modules and weeks line up with CEH topic areas. Use
-this for curriculum mapping and CEH exam prep.
+How this course's modules and weeks line up with CEH topic areas. Use this for curriculum mapping and CEH exam prep.
 
 | Topic unit                                         | Module · Week | CEH topic area                                         |
 |----------------------------------------------------|---------------|--------------------------------------------------------|
@@ -24,10 +23,7 @@ this for curriculum mapping and CEH exam prep.
 
 Hands-on techniques
 
-Reconnaissance, scanning/enumeration/vuln analysis, sniffing, system
-exploitation, malware/DoS, web attacks, SQL injection, session
-hijacking, cryptography, and Wi-Fi are all hands-on, technique-focused
-topics.
+Reconnaissance, scanning/enumeration/vuln analysis, sniffing, system exploitation, malware/DoS, web attacks, SQL injection, session hijacking, cryptography, and Wi-Fi are all hands-on, technique-focused topics.
 
 </div>
 
@@ -35,14 +31,10 @@ topics.
 
 Concept, discussion & project topics
 
-- **Ethics & law (Unit 1)** — lecture and the Maurushat reading (Week
-  1).
-- **Pentest methodology & reporting (Unit 11)** — lecture (Week 11);
-  applied in the Week 12 final project.
-- **Social engineering (Unit 7)** — the Module 7 human/identity track;
-  assessed via the **MGM final project**.
-- **Bluetooth, honeypots/IDS specifics, physical security** — lecture
-  sub-topics.
+- **Ethics & law (Unit 1)** — lecture and the Maurushat reading (Week 1).
+- **Pentest methodology & reporting (Unit 11)** — lecture (Week 11); applied in the Week 12 final project.
+- **Social engineering (Unit 7)** — the Module 7 human/identity track; assessed via the **MGM final project**.
+- **Bluetooth, honeypots/IDS specifics, physical security** — lecture sub-topics.
 
 </div>
 
@@ -50,7 +42,6 @@ Concept, discussion & project topics
 
 Optional enrichment (in CEH, beyond this course's core units)
 
-**IoT/OT** and **Cloud Computing** — covered by CEH but outside this
-course's core unit list; add if time allows.
+**IoT/OT** and **Cloud Computing** — covered by CEH but outside this course's core unit list; add if time allows.
 
 </div>

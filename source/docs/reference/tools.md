@@ -1,7 +1,6 @@
 # Tools Reference
 
-The core tools you'll meet in this course, and where they first appear.
-Most run on Kali Linux, the standard offensive-security distribution.
+The core tools you'll meet in this course, and where they first appear. Most run on Kali Linux, the standard offensive-security distribution.
 
 | Tool                                            | Used for                                                              | First appears |
 |-------------------------------------------------|-----------------------------------------------------------------------|---------------|
@@ -18,7 +17,4 @@ Most run on Kali Linux, the standard offensive-security distribution.
 
 ## Getting comfortable with Kali
 
-You don't need to install anything to follow the notes, but if you want
-to explore the toolset behind the techniques, **Kali Linux Revealed** is
-the free official guide:
-[kali.org/download-kali-linux-revealed-book](https://www.kali.org/download-kali-linux-revealed-book/).
+You don't need to install anything to follow the notes, but if you want to explore the toolset behind the techniques, **Kali Linux Revealed** is the free official guide: [kali.org/download-kali-linux-revealed-book](https://www.kali.org/download-kali-linux-revealed-book/).

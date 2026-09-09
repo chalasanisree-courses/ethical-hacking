@@ -1693,287 +1693,165 @@
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-2-reconnaissance-footprinting">Week 2 · Reconnaissance &amp; Footprinting<a class="headerlink" href="#week-2-reconnaissance-footprinting" title="Permanent link">&para;</a></h1>
 <p><span class="kc-badge">🧭 Kill chain · Phase 1 — Reconnaissance</span></p>
-<p>The <span style="color:#c0392b;font-weight:700;">red line</span> down
-the left marks the <strong>attacker's</strong> view (most of this page). The
-<span style="color:#0e6b82;font-weight:700;">blue line</span> near the
-end marks the <strong>defender's</strong> view.</p>
+<p>The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the <strong>attacker's</strong> view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the <strong>defender's</strong> view.</p>
 <div class="rt-rail">
 <p><span class="rail-label red">🔴 RED TEAM · attacker's view</span></p>
 <div class="admonition abstract">
 <p>What you'll learn</p>
 <ul>
-<li><strong>Reconnaissance (recon)</strong> = quietly building a <em>map</em> of a target
-  before touching it</li>
+<li><strong>Reconnaissance (recon)</strong> = quietly building a <em>map</em> of a target before touching it</li>
 <li>The two things you put on the map: <strong>systems</strong> and <strong>people</strong></li>
-<li>The six moves: <strong>WHOIS → DNS → crt.sh → zone transfer → Shodan →
-  OSINT</strong></li>
+<li>The six moves: <strong>WHOIS → DNS → crt.sh → zone transfer → Shodan → OSINT</strong></li>
 <li><strong>Passive vs. active</strong> recon — and why you always start passive</li>
-<li>How the map (the <strong>footprint</strong>) feeds every later phase — and how
-  defenders shrink it</li>
+<li>How the map (the <strong>footprint</strong>) feeds every later phase — and how defenders shrink it</li>
 </ul>
 </div>
 <div class="admonition example">
 <p>🥤 Running example — coca-cola.com</p>
-<p>Every move below is shown on <strong>one real target, <code>coca-cola.com</code></strong>, using
-public sources only. Follow the flow and watch a global company's
-footprint come together from its name alone.</p>
+<p>Every move below is shown on <strong>one real target, <code>coca-cola.com</code></strong>, using public sources only. Follow the flow and watch a global company's footprint come together from its name alone.</p>
 </div>
 <hr />
 <h2 id="1-recon-is-building-a-map">1. Recon is building a map<a class="headerlink" href="#1-recon-is-building-a-map" title="Permanent link">&para;</a></h2>
-<p>Like the crew in <em>Ocean's Eleven</em> studying the casino before the heist,
-an attacker studies a target <strong>before touching it</strong>. The goal is to
-build a <strong>map</strong> of everything that could be a way in. Every item you
-find is a <strong>pin</strong> on that map. There are two kinds of pins — <strong>systems</strong>
-(servers, websites, cloud services) and <strong>people</strong> (employees, partners)
-— and the finished map is called the <strong>footprint</strong>: the target's whole
-<em>attack surface</em>.</p>
+<p>Like the crew in <em>Ocean's Eleven</em> studying the casino before the heist, an attacker studies a target <strong>before touching it</strong>. The goal is to build a <strong>map</strong> of everything that could be a way in. Every item you find is a <strong>pin</strong> on that map. There are two kinds of pins — <strong>systems</strong> (servers, websites, cloud services) and <strong>people</strong> (employees, partners) — and the finished map is called the <strong>footprint</strong>: the target's whole <em>attack surface</em>.</p>
 <figure>
-<img src="../img/footprint-map.svg" width="820"
-alt="A footprint map: the target in the center, system pins on the left, people pins on the right" /><br />
+<img src="../img/footprint-map.svg" width="820" alt="A footprint map: the target in the center, system pins on the left, people pins on the right" /><br />
 
-<figcaption>Recon fills in this map. Left = systems, right = people.
-Each box is a pin (a possible way in); together they are the target's
-footprint. The rest of this page is how you find each one.</figcaption>
+<figcaption>Recon fills in this map. Left = systems, right = people. Each box is a pin (a possible way in); together they are the target's footprint. The rest of this page is how you find each one.</figcaption>
 </figure>
 <hr />
 <h2 id="2-the-goal-find-a-way-in">2. The goal: find a way in<a class="headerlink" href="#2-the-goal-find-a-way-in" title="Permanent link">&para;</a></h2>
-<p>A company keeps its internal network hidden — from the outside it's a
-<strong>black box</strong>. But a few systems <em>face the world</em> on purpose: the public
-<strong>web server</strong> and <strong>mail server</strong>. These live in the <strong>DMZ</strong>
-(<em>demilitarized zone</em> — the small, exposed slice of a network that's
-meant to be reachable from the internet). Those are the front doors.
-Recon is casing the building: <em>which doors face the street, which are
-guarded, and who comes and goes</em> — almost entirely from public
-information.</p>
+<p>A company keeps its internal network hidden — from the outside it's a <strong>black box</strong>. But a few systems <em>face the world</em> on purpose: the public <strong>web server</strong> and <strong>mail server</strong>. These live in the <strong>DMZ</strong> (<em>demilitarized zone</em> — the small, exposed slice of a network that's meant to be reachable from the internet). Those are the front doors. Recon is casing the building: <em>which doors face the street, which are guarded, and who comes and goes</em> — almost entirely from public information.</p>
 <figure>
-<img src="../img/enterprise-architecture.png" width="760"
-alt="Enterprise architecture: internet-facing DMZ vs. guarded internals" /><br />
+<img src="../img/enterprise-architecture.png" width="760" alt="Enterprise architecture: internet-facing DMZ vs. guarded internals" /><br />
 
-<figcaption>The DMZ (web + mail) faces the world; the internal network
-stays hidden. Recon maps that outside edge — plus the partners and
-people around it.</figcaption>
+<figcaption>The DMZ (web + mail) faces the world; the internal network stays hidden. Recon maps that outside edge — plus the partners and people around it.</figcaption>
 </figure>
 <hr />
 <h2 id="3-the-recon-flow-click-through-it">3. The recon flow — click through it<a class="headerlink" href="#3-the-recon-flow-click-through-it" title="Permanent link">&para;</a></h2>
-<p>Six moves take you from a bare domain name to a full footprint. <strong>Click
-each step</strong> to see the tool, the command, and what it reveals about
-Coca-Cola. They escalate: the first steps are <em>passive</em> (the target
-never knows), and step 4 is the one that crosses into <em>active</em> (the
-target could notice).</p>
+<p>Six moves take you from a bare domain name to a full footprint. <strong>Click each step</strong> to see the tool, the command, and what it reveals about Coca-Cola. They escalate: the first steps are <em>passive</em> (the target never knows), and step 4 is the one that crosses into <em>active</em> (the target could notice).</p>
 <div class="recon-strip">
 <div aria-label="WHOIS" class="recon-phase" id="recon-node-1" onclick="reconShow(1)" role="button" style="background:#0E6B82" tabindex="0">
-<p><span class="num">STEP 1</span>WHOIS<span class="small">who owns
-it</span></p>
+<p><span class="num">STEP 1</span>WHOIS<span class="small">who owns it</span></p>
 </div>
 <div aria-label="DNS" class="recon-phase" id="recon-node-2" onclick="reconShow(2)" role="button" style="background:#157f8f" tabindex="0">
-<p><span class="num">STEP 2</span>DNS<span class="small">the
-addresses</span></p>
+<p><span class="num">STEP 2</span>DNS<span class="small">the addresses</span></p>
 </div>
 <div aria-label="crt.sh" class="recon-phase" id="recon-node-3" onclick="reconShow(3)" role="button" style="background:#2B6CB0" tabindex="0">
-<p><span class="num">STEP 3</span>crt.sh<span class="small">side
-doors</span></p>
+<p><span class="num">STEP 3</span>crt.sh<span class="small">side doors</span></p>
 </div>
 <div aria-label="Zone transfer" class="recon-phase" id="recon-node-4" onclick="reconShow(4)" role="button" style="background:#C0392B" tabindex="0">
-<p><span class="num">STEP 4 · ACTIVE</span>Zone
-transfer<span class="small">ask for everything</span></p>
+<p><span class="num">STEP 4 · ACTIVE</span>Zone transfer<span class="small">ask for everything</span></p>
 </div>
 <div aria-label="Shodan" class="recon-phase" id="recon-node-5" onclick="reconShow(5)" role="button" style="background:#B45309" tabindex="0">
-<p><span class="num">STEP 5</span>Shodan<span class="small">the front
-door</span></p>
+<p><span class="num">STEP 5</span>Shodan<span class="small">the front door</span></p>
 </div>
 <div aria-label="OSINT and people" class="recon-phase" id="recon-node-6" onclick="reconShow(6)" role="button" style="background:#26324F" tabindex="0">
-<p><span class="num">STEP 6</span>OSINT &amp; People<span class="small">the
-wider net</span></p>
+<p><span class="num">STEP 6</span>OSINT &amp; People<span class="small">the wider net</span></p>
 </div>
 </div>
-<p>↑ <strong>Click a step</strong> — each shows the tool, the command, and what it
-reveals about Coca-Cola</p>
+<p>↑ <strong>Click a step</strong> — each shows the tool, the command, and what it reveals about Coca-Cola</p>
 <div class="recon-panel" id="recon-panel-1">
 <h4 id="whois-the-deed">🪪 WHOIS — the "deed"<a class="headerlink" href="#whois-the-deed" title="Permanent link">&para;</a></h4>
-<p><strong>WHOIS</strong> is a public registration record for a domain — like a property
-deed. You look it up; you never touch the target to read it.</p>
-<p><strong>Coca-Cola:</strong> the domain is owned by <strong>The Coca-Cola Company</strong> through
-the registrar <strong>MarkMonitor</strong> — a corporate registrar big brands use,
-with the personal contact details locked down. (A small cake shop's
-domain would often leak a real name and email right here.)</p>
+<p><strong>WHOIS</strong> is a public registration record for a domain — like a property deed. You look it up; you never touch the target to read it.</p>
+<p><strong>Coca-Cola:</strong> the domain is owned by <strong>The Coca-Cola Company</strong> through the registrar <strong>MarkMonitor</strong> — a corporate registrar big brands use, with the personal contact details locked down. (A small cake shop's domain would often leak a real name and email right here.)</p>
 <p><code>whois coca-cola.com</code></p>
 <p>🚪 Doors so far: none — but you now know <em>who</em> you're up against.</p>
 </div>
 <div class="recon-panel" id="recon-panel-2">
 <h4 id="dns-the-address-book">🧭 DNS — the address book<a class="headerlink" href="#dns-the-address-book" title="Permanent link">&para;</a></h4>
-<p><strong>DNS</strong> (<em>Domain Name System</em> — the internet's address book) turns a
-name like <code>coca-cola.com</code> into the actual servers behind it. Reading its
-records maps the public-facing infrastructure. The record types:</p>
+<p><strong>DNS</strong> (<em>Domain Name System</em> — the internet's address book) turns a name like <code>coca-cola.com</code> into the actual servers behind it. Reading its records maps the public-facing infrastructure. The record types:</p>
 <ul>
 <li><code>A</code> record → the <strong>web server's</strong> IP address (the front door)</li>
-<li><code>MX</code> record → the <strong>mail</strong> gateway — Coca-Cola's is <strong>Proofpoint</strong>
-  (<code>…pphosted.com</code>)</li>
-<li><code>NS</code> record → the <strong>name servers</strong> (the machines that answer DNS
-  questions) — Coca-Cola's run on <strong>Microsoft Azure</strong></li>
-<li><code>TXT</code> record → text notes that quietly reveal the <strong>SaaS stack</strong>:
-  Microsoft 365, Salesforce, Atlassian, DocuSign, KnowBe4</li>
+<li><code>MX</code> record → the <strong>mail</strong> gateway — Coca-Cola's is <strong>Proofpoint</strong> (<code>…pphosted.com</code>)</li>
+<li><code>NS</code> record → the <strong>name servers</strong> (the machines that answer DNS questions) — Coca-Cola's run on <strong>Microsoft Azure</strong></li>
+<li><code>TXT</code> record → text notes that quietly reveal the <strong>SaaS stack</strong>: Microsoft 365, Salesforce, Atlassian, DocuSign, KnowBe4</li>
 </ul>
 <p><code>nslookup -type=MX coca-cola.com</code>  ·  <code>dig +short TXT coca-cola.com</code></p>
-<p>🚪 Doors: the <strong>web + mail servers</strong> in the DMZ. <em>(See exactly how a
-name gets resolved, and who hosts each piece, in §4 below.)</em></p>
+<p>🚪 Doors: the <strong>web + mail servers</strong> in the DMZ. <em>(See exactly how a name gets resolved, and who hosts each piece, in §4 below.)</em></p>
 </div>
 <div class="recon-panel" id="recon-panel-3">
 <h4 id="crtsh-the-side-doors">🔎 crt.sh — the side doors<a class="headerlink" href="#crtsh-the-side-doors" title="Permanent link">&para;</a></h4>
-<p>Every website with a padlock uses a <strong>TLS certificate</strong> (<em>Transport
-Layer Security</em> — the technology behind the 🔒 in your browser). You
-can't get one of these certificates without the hostname being written
-into a public log. So <strong>certificate names <em>are</em> hostnames.</strong></p>
-<p>The site <strong>crt.sh</strong> lists every certificate ever issued for a domain —
-which surfaces the forgotten <code>dev</code>, <code>staging</code>, and <code>sso</code> hosts that are
-often the softest way in. Each one is a new <strong>pin</strong>.</p>
+<p>Every website with a padlock uses a <strong>TLS certificate</strong> (<em>Transport Layer Security</em> — the technology behind the 🔒 in your browser). You can't get one of these certificates without the hostname being written into a public log. So <strong>certificate names <em>are</em> hostnames.</strong></p>
+<p>The site <strong>crt.sh</strong> lists every certificate ever issued for a domain — which surfaces the forgotten <code>dev</code>, <code>staging</code>, and <code>sso</code> hosts that are often the softest way in. Each one is a new <strong>pin</strong>.</p>
 <p><code>crt.sh/?q=%.coca-cola.com</code></p>
-<p>⚠️ One net, not the only net: a wildcard certificate (<code>*.coca-cola.com</code>)
-hides the specific names behind it.</p>
+<p>⚠️ One net, not the only net: a wildcard certificate (<code>*.coca-cola.com</code>) hides the specific names behind it.</p>
 </div>
 <div class="recon-panel" id="recon-panel-4">
 <h4 id="zone-transfer-asking-for-everything-the-one-active-step">⚠️ Zone transfer — asking for everything <span style="color:#C0392B">(the one ACTIVE step)</span><a class="headerlink" href="#zone-transfer-asking-for-everything-the-one-active-step" title="Permanent link">&para;</a></h4>
-<p>A <strong>zone transfer</strong> is a request that asks a name server to hand over
-its <em>entire</em> list of DNS records at once (the technical name is
-<strong>AXFR</strong>). Name servers are supposed to share that full list only with
-their own backup servers — so a properly configured one <strong>refuses</strong> a
-stranger. A <strong>misconfigured</strong> one dumps the whole zone, including
-internal hostnames it never meant to expose.</p>
-<p><code>dig AXFR coca-cola.com @ns1-09.azure-dns.com</code> → <strong>Transfer failed</strong> ✔
-(correct, secure)<br />
-<code>dig AXFR zonetransfer.me @nsztm1.digi.ninja</code> → <strong>dumps the whole zone</strong>
-(a safe practice domain built to allow this)</p>
-<p>🚦 This is where recon crosses from <strong>passive</strong> to <strong>active</strong> — you
-asked <em>their</em> server to do something, and it can log your request. (It's
-still not <em>scanning</em> — that's probing the machines directly, which is
-next week.)</p>
+<p>A <strong>zone transfer</strong> is a request that asks a name server to hand over its <em>entire</em> list of DNS records at once (the technical name is <strong>AXFR</strong>). Name servers are supposed to share that full list only with their own backup servers — so a properly configured one <strong>refuses</strong> a stranger. A <strong>misconfigured</strong> one dumps the whole zone, including internal hostnames it never meant to expose.</p>
+<p><code>dig AXFR coca-cola.com @ns1-09.azure-dns.com</code> → <strong>Transfer failed</strong> ✔ (correct, secure)<br />
+<code>dig AXFR zonetransfer.me @nsztm1.digi.ninja</code> → <strong>dumps the whole zone</strong> (a safe practice domain built to allow this)</p>
+<p>🚦 This is where recon crosses from <strong>passive</strong> to <strong>active</strong> — you asked <em>their</em> server to do something, and it can log your request. (It's still not <em>scanning</em> — that's probing the machines directly, which is next week.)</p>
 </div>
 <div class="recon-panel" id="recon-panel-5">
 <h4 id="shodan-the-front-door-up-close">📡 Shodan — the front door up close<a class="headerlink" href="#shodan-the-front-door-up-close" title="Permanent link">&para;</a></h4>
-<p><strong>Shodan</strong> is a search engine for internet-connected <em>devices</em> (instead
-of web pages). Look up the web server's IP address and you learn a lot
-about that front door.</p>
-<p><strong>Coca-Cola:</strong> ports <strong>80</strong> (nginx) and <strong>443</strong> (Apache) running on
-<strong>Amazon Web Services (AWS)</strong>, plus a list of <strong>CVEs</strong> for those
-software versions — including a critical one rated <strong>9.8</strong>. A <strong>CVE</strong>
-(<em>Common Vulnerabilities and Exposures</em>) is a public ID number for a
-known software flaw.</p>
-<p>⚠️ Shodan only <strong>guesses</strong> at flaws from the version number in the
-server's banner — it hasn't actually tested anything, and the server may
-already be patched. These are <em>leads to confirm by scanning</em>, not proven
-holes. <em>(See the Equifax case below.)</em></p>
+<p><strong>Shodan</strong> is a search engine for internet-connected <em>devices</em> (instead of web pages). Look up the web server's IP address and you learn a lot about that front door.</p>
+<p><strong>Coca-Cola:</strong> ports <strong>80</strong> (nginx) and <strong>443</strong> (Apache) running on <strong>Amazon Web Services (AWS)</strong>, plus a list of <strong>CVEs</strong> for those software versions — including a critical one rated <strong>9.8</strong>. A <strong>CVE</strong> (<em>Common Vulnerabilities and Exposures</em>) is a public ID number for a known software flaw.</p>
+<p>⚠️ Shodan only <strong>guesses</strong> at flaws from the version number in the server's banner — it hasn't actually tested anything, and the server may already be patched. These are <em>leads to confirm by scanning</em>, not proven holes. <em>(See the Equifax case below.)</em></p>
 </div>
 <div class="recon-panel" id="recon-panel-6">
 <h4 id="osint-people-the-wider-net">👥 OSINT &amp; people — the wider net<a class="headerlink" href="#osint-people-the-wider-net" title="Permanent link">&para;</a></h4>
-<p><strong>OSINT</strong> (<em>Open-Source Intelligence</em> — information gathered from
-publicly available sources) is how you map the <em>people</em>. <strong>Google
-dorking</strong> (using advanced search-engine operators to surface files a
-site never meant to expose) turns up leaked documents; the <strong>metadata</strong>
-hidden inside those documents names vendors and staff; <strong>LinkedIn</strong> maps
-the org chart.</p>
-<p><strong>Coca-Cola:</strong> <code>site:coca-cola.com filetype:pdf</code> → a PDF whose hidden
-metadata names <strong>Ascensus</strong> (their retirement-plan provider — a
-<em>partner</em> pin). LinkedIn → the CIO and the IT team.</p>
+<p><strong>OSINT</strong> (<em>Open-Source Intelligence</em> — information gathered from publicly available sources) is how you map the <em>people</em>. <strong>Google dorking</strong> (using advanced search-engine operators to surface files a site never meant to expose) turns up leaked documents; the <strong>metadata</strong> hidden inside those documents names vendors and staff; <strong>LinkedIn</strong> maps the org chart.</p>
+<p><strong>Coca-Cola:</strong> <code>site:coca-cola.com filetype:pdf</code> → a PDF whose hidden metadata names <strong>Ascensus</strong> (their retirement-plan provider — a <em>partner</em> pin). LinkedIn → the CIO and the IT team.</p>
 <p>🚪 People are pins too. <em>(See the Target and bank-job cases below.)</em></p>
 </div>
 <hr />
 <h2 id="4-how-dns-resolves-and-who-hosts-each-piece">4. How DNS resolves — and who hosts each piece<a class="headerlink" href="#4-how-dns-resolves-and-who-hosts-each-piece" title="Permanent link">&para;</a></h2>
-<p>When your browser needs <code>coca-cola.com</code>, a <strong>resolver</strong> walks a chain
-(root → <code>.com</code> → the target's <strong>authoritative name server</strong>) to get back
-the IP address; then your browser connects to the web server. The twist
-worth noticing: the <strong>name lookup</strong> and the <strong>web hosting</strong> are usually
-run by <em>different providers</em>.</p>
+<p>When your browser needs <code>coca-cola.com</code>, a <strong>resolver</strong> walks a chain (root → <code>.com</code> → the target's <strong>authoritative name server</strong>) to get back the IP address; then your browser connects to the web server. The twist worth noticing: the <strong>name lookup</strong> and the <strong>web hosting</strong> are usually run by <em>different providers</em>.</p>
 <figure>
-<img src="../img/dns-resolution.svg" width="820"
-alt="How coca-cola.com resolves, and who hosts each piece" /><br />
+<img src="../img/dns-resolution.svg" width="820" alt="How coca-cola.com resolves, and who hosts each piece" /><br />
 
-<figcaption>Microsoft Azure answers the name lookup; Amazon AWS hosts
-the web server. Two providers, two jobs — normal, not a
-contradiction.</figcaption>
+<figcaption>Microsoft Azure answers the name lookup; Amazon AWS hosts the web server. Two providers, two jobs — normal, not a contradiction.</figcaption>
 </figure>
 <hr />
 <h2 id="5-passive-vs-active-the-framework">5. Passive vs. active — the framework<a class="headerlink" href="#5-passive-vs-active-the-framework" title="Permanent link">&para;</a></h2>
-<p>Every pin you collect answers two questions — <strong>how</strong> you got it and
-<strong>what</strong> it's about. Almost everything above is <em>passive</em> (you read
-public sources and the target never knows). The single <em>active</em> move was
-the zone transfer, where you contacted their server directly.</p>
+<p>Every pin you collect answers two questions — <strong>how</strong> you got it and <strong>what</strong> it's about. Almost everything above is <em>passive</em> (you read public sources and the target never knows). The single <em>active</em> move was the zone transfer, where you contacted their server directly.</p>
 <table>
 <thead>
 <tr>
 <th></th>
-<th><span class="twemoji"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQgMWgxNmExIDEgMCAwIDEgMSAxdjRhMSAxIDAgMCAxLTEgMUg0YTEgMSAwIDAgMS0xLTFWMmExIDEgMCAwIDEgMS0xbTAgOGgxNmExIDEgMCAwIDEgMSAxdjRhMSAxIDAgMCAxLTEgMUg0YTEgMSAwIDAgMS0xLTF2LTRhMSAxIDAgMCAxIDEtMW0wIDhoMTZhMSAxIDAgMCAxIDEgMXY0YTEgMSAwIDAgMS0xIDFINGExIDEgMCAwIDEtMS0xdi00YTEgMSAwIDAgMSAxLTFNOSA1aDFWM0g5em0wIDhoMXYtMkg5em0wIDhoMXYtMkg5ek01IDN2MmgyVjN6bTAgOHYyaDJ2LTJ6bTAgOHYyaDJ2LTJ6Ij48L3BhdGg+PC9zdmc+" /></span> <strong>Systems</strong></th>
-<th><span class="twemoji"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDRhNCA0IDAgMCAxIDQgNCA0IDQgMCAwIDEtNCA0IDQgNCAwIDAgMS00LTQgNCA0IDAgMCAxIDQtNG0wIDEwYzQuNDIgMCA4IDEuNzkgOCA0djJINHYtMmMwLTIuMjEgMy41OC00IDgtNCI+PC9wYXRoPjwvc3ZnPg==" /></span> <strong>People</strong></th>
+<th><span class="twemoji"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9zm0 8h1v-2H9zm0 8h1v-2H9zM5 3v2h2V3zm0 8v2h2v-2zm0 8v2h2v-2z"/></svg> </span> <strong>Systems</strong></th>
+<th><span class="twemoji"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4"/></svg> </span> <strong>People</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span class="twemoji"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTExLjgzIDkgMTUgMTIuMTZWMTJhMyAzIDAgMCAwLTMtM3ptLTQuMy44IDEuNTUgMS41NWMtLjA1LjIxLS4wOC40Mi0uMDguNjVhMyAzIDAgMCAwIDMgM2MuMjIgMCAuNDQtLjAzLjY1LS4wOGwxLjU1IDEuNTVjLS42Ny4zMy0xLjQxLjUzLTIuMi41M2E1IDUgMCAwIDEtNS01YzAtLjc5LjItMS41My41My0yLjJNMiA0LjI3bDIuMjggMi4yOC40NS40NUMzLjA4IDguMyAxLjc4IDEwIDEgMTJjMS43MyA0LjM5IDYgNy41IDExIDcuNSAxLjU1IDAgMy4wMy0uMyA0LjM4LS44NGwuNDMuNDJMMTkuNzMgMjIgMjEgMjAuNzMgMy4yNyAzTTEyIDdhNSA1IDAgMCAxIDUgNWMwIC42NC0uMTMgMS4yNi0uMzYgMS44MmwyLjkzIDIuOTNjMS41LTEuMjUgMi43LTIuODkgMy40My00Ljc1LTEuNzMtNC4zOS02LTcuNS0xMS03LjUtMS40IDAtMi43NC4yNS00IC43bDIuMTcgMi4xNUMxMC43NCA3LjEzIDExLjM1IDcgMTIgNyI+PC9wYXRoPjwvc3ZnPg==" /></span> <strong>Passive</strong> — never touch the target</td>
+<td><span class="twemoji"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.83 9 15 12.16V12a3 3 0 0 0-3-3zm-4.3.8 1.55 1.55c-.05.21-.08.42-.08.65a3 3 0 0 0 3 3c.22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53a5 5 0 0 1-5-5c0-.79.2-1.53.53-2.2M2 4.27l2.28 2.28.45.45C3.08 8.3 1.78 10 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.43.42L19.73 22 21 20.73 3.27 3M12 7a5 5 0 0 1 5 5c0 .64-.13 1.26-.36 1.82l2.93 2.93c1.5-1.25 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.17 2.15C10.74 7.13 11.35 7 12 7"/></svg> </span> <strong>Passive</strong> — never touch the target</td>
 <td>WHOIS · DNS · crt.sh · Shodan · dorking</td>
 <td>LinkedIn · job posts · a leaked PDF</td>
 </tr>
 <tr>
-<td><span class="twemoji"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0ibTE5LjA3IDQuOTMtMS40MSAxLjQxQTguMDEgOC4wMSAwIDAgMSAyMCAxMmE4IDggMCAwIDEtOCA4IDggOCAwIDAgMS04LThjMC00LjA4IDMuMDUtNy40NCA3LTcuOTN2Mi4wMkM4LjE2IDYuNTcgNiA5LjAzIDYgMTJhNiA2IDAgMCAwIDYgNiA2IDYgMCAwIDAgNi02YzAtMS42Ni0uNjctMy4xNi0xLjc2LTQuMjRsLTEuNDEgMS40MUMxNS41NSA5LjkgMTYgMTAuOSAxNiAxMmE0IDQgMCAwIDEtNCA0IDQgNCAwIDAgMS00LTRjMC0xLjg2IDEuMjgtMy40MSAzLTMuODZ2Mi4xNGMtLjYuMzUtMSAuOTgtMSAxLjcyYTIgMiAwIDAgMCAyIDIgMiAyIDAgMCAwIDItMmMwLS43NC0uNC0xLjM4LTEtMS43MlYyaC0xQTEwIDEwIDAgMCAwIDIgMTJhMTAgMTAgMCAwIDAgMTAgMTAgMTAgMTAgMCAwIDAgMTAtMTBjMC0yLjc2LTEuMTItNS4yNi0yLjkzLTcuMDciPjwvcGF0aD48L3N2Zz4=" /></span> <strong>Active</strong> — the target can log you</td>
+<td><span class="twemoji"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19.07 4.93-1.41 1.41A8.01 8.01 0 0 1 20 12a8 8 0 0 1-8 8 8 8 0 0 1-8-8c0-4.08 3.05-7.44 7-7.93v2.02C8.16 6.57 6 9.03 6 12a6 6 0 0 0 6 6 6 6 0 0 0 6-6c0-1.66-.67-3.16-1.76-4.24l-1.41 1.41C15.55 9.9 16 10.9 16 12a4 4 0 0 1-4 4 4 4 0 0 1-4-4c0-1.86 1.28-3.41 3-3.86v2.14c-.6.35-1 .98-1 1.72a2 2 0 0 0 2 2 2 2 0 0 0 2-2c0-.74-.4-1.38-1-1.72V2h-1A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-2.76-1.12-5.26-2.93-7.07"/></svg> </span> <strong>Active</strong> — the target can log you</td>
 <td><strong>zone transfer</strong> · ping · banner grab</td>
 <td>eavesdropping · a pretext phone call</td>
 </tr>
 </tbody>
 </table>
-<p><strong>The rule:</strong> start in the top-left, squeeze passive recon dry, and go
-active only when you have to — passive recon is essentially untraceable.</p>
+<p><strong>The rule:</strong> start in the top-left, squeeze passive recon dry, and go active only when you have to — passive recon is essentially untraceable.</p>
 <hr />
 <h2 id="6-its-real-three-cases">6. It's real — three cases<a class="headerlink" href="#6-its-real-three-cases" title="Permanent link">&para;</a></h2>
 <p>🔓 Equifax (2017) — one unpatched version</p>
-<p>Coca-Cola's server is probably patched — but <em>don't assume</em>, because one
-unpatched flaw is exactly how <strong>Equifax</strong> was breached. Equifax — a
-<strong>credit bureau</strong> (a credit-reporting agency like Experian and
-TransUnion) — failed to patch a known flaw in <strong>Apache Struts</strong>, a
-web-application <em>framework</em> (a different Apache project from the web
-server you saw on Shodan). The result: the personal data of about <strong>147
-million people</strong> — names, Social Security numbers, dates of birth — was
-stolen. <strong>Lesson: patch your internet-facing systems.</strong></p>
+<p>Coca-Cola's server is probably patched — but <em>don't assume</em>, because one unpatched flaw is exactly how <strong>Equifax</strong> was breached. Equifax — a <strong>credit bureau</strong> (a credit-reporting agency like Experian and TransUnion) — failed to patch a known flaw in <strong>Apache Struts</strong>, a web-application <em>framework</em> (a different Apache project from the web server you saw on Shodan). The result: the personal data of about <strong>147 million people</strong> — names, Social Security numbers, dates of birth — was stolen. <strong>Lesson: patch your internet-facing systems.</strong></p>
 <p>🏭 Target (2013) — the weak partner</p>
-<p>Coca-Cola may be locked down, but a <strong>partner</strong> may not be — exactly how
-<strong>Target</strong> was breached. Attackers phished <strong>Fazio Mechanical</strong>, an
-air-conditioning (HVAC) vendor with weak security, stole its login, and
-— because Target let the vendor in and hadn't <strong>segmented</strong> (walled off)
-its network — pivoted from Fazio into Target, planted malware on the
-<strong>checkout terminals</strong>, and scraped about <strong>40 million payment-card
-numbers</strong>. <strong>Lesson: your weakest link can be a company you don't
-control.</strong></p>
+<p>Coca-Cola may be locked down, but a <strong>partner</strong> may not be — exactly how <strong>Target</strong> was breached. Attackers phished <strong>Fazio Mechanical</strong>, an air-conditioning (HVAC) vendor with weak security, stole its login, and — because Target let the vendor in and hadn't <strong>segmented</strong> (walled off) its network — pivoted from Fazio into Target, planted malware on the <strong>checkout terminals</strong>, and scraped about <strong>40 million payment-card numbers</strong>. <strong>Lesson: your weakest link can be a company you don't control.</strong></p>
 <p>🥷 The bank job — people are the softest target</p>
-<p>Red-teamer <strong>Jayson Street</strong> is hired by banks to break in. He pulls
-staff off <strong>LinkedIn</strong>, copies their <strong>badges</strong> from profile photos, and
-overhears a complaint at the staff pub about a VP furious over a botched
-update. The next morning he walks in with a <strong>box of donuts</strong> so someone
-holds the door, hands a teller a <strong>fake memo</strong> from that VP and a
-<em>"patch"</em> on a <strong>USB stick</strong> — and out of fear of the VP, they plug it
-in. Full remote access. Recon told him <em>who to be</em> and gave him a
-<em>believable story</em>. That's <strong>social engineering</strong> (Week 11). <strong>Lesson:
-the map includes people, and people are the softest way in.</strong></p>
+<p>Red-teamer <strong>Jayson Street</strong> is hired by banks to break in. He pulls staff off <strong>LinkedIn</strong>, copies their <strong>badges</strong> from profile photos, and overhears a complaint at the staff pub about a VP furious over a botched update. The next morning he walks in with a <strong>box of donuts</strong> so someone holds the door, hands a teller a <strong>fake memo</strong> from that VP and a <em>"patch"</em> on a <strong>USB stick</strong> — and out of fear of the VP, they plug it in. Full remote access. Recon told him <em>who to be</em> and gave him a <em>believable story</em>. That's <strong>social engineering</strong> (Week 11). <strong>Lesson: the map includes people, and people are the softest way in.</strong></p>
 </div>
 <hr />
 <div class="bt-rail">
 <p><span class="rail-label blue">🔵 BLUE TEAM · defender's view</span></p>
 <h2 id="blue-team-how-defenders-counter-recon">Blue Team — how defenders counter recon<a class="headerlink" href="#blue-team-how-defenders-counter-recon" title="Permanent link">&para;</a></h2>
-<p>Everything above was the attacker mapping you. Here's the flip side —
-what a defender does about it. The defender sits in the <strong>SOC</strong>
-(<em>Security Operations Center</em> — the team that monitors for attacks).</p>
+<p>Everything above was the attacker mapping you. Here's the flip side — what a defender does about it. The defender sits in the <strong>SOC</strong> (<em>Security Operations Center</em> — the team that monitors for attacks).</p>
 <div class="admonition defender">
 <p>The hard truth, and what to do about it</p>
-<p><strong>Passive recon is essentially undetectable.</strong> It happens on
-infrastructure you don't control — search engines, WHOIS records,
-certificate logs, LinkedIn — so you'll never get an alert that someone
-looked you up.</p>
-<p>Since you can't <em>catch</em> passive recon, you <strong>shrink the footprint</strong> so
-there's less to find:</p>
+<p><strong>Passive recon is essentially undetectable.</strong> It happens on infrastructure you don't control — search engines, WHOIS records, certificate logs, LinkedIn — so you'll never get an alert that someone looked you up.</p>
+<p>Since you can't <em>catch</em> passive recon, you <strong>shrink the footprint</strong> so there's less to find:</p>
 <ul>
-<li><strong>Disable zone transfers</strong> to strangers (only your backup name servers
-  should be allowed).</li>
+<li><strong>Disable zone transfers</strong> to strangers (only your backup name servers should be allowed).</li>
 <li><strong>Strip metadata</strong> from documents before publishing them.</li>
 <li><strong>Keep <code>dev</code> / <code>staging</code> / test systems off the public internet.</strong></li>
-<li><strong>Watch your own certificate-transparency logs</strong> — know every hostname
-  <em>before</em> an attacker does.</li>
-<li><strong>Run recon against yourself</strong> regularly, and train staff so a "donuts
-  and a USB stick" story doesn't work.</li>
+<li><strong>Watch your own certificate-transparency logs</strong> — know every hostname <em>before</em> an attacker does.</li>
+<li><strong>Run recon against yourself</strong> regularly, and train staff so a "donuts and a USB stick" story doesn't work.</li>
 </ul>
 <p>The less there is to find, the safer you are.</p>
 </div>
@@ -1982,47 +1860,26 @@ there's less to find:</p>
 <h2 id="a-note-on-mitre-attck">A note on MITRE ATT&amp;CK<a class="headerlink" href="#a-note-on-mitre-attck" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p>What is MITRE ATT&amp;CK?</p>
-<p>You'll see <strong>MITRE ATT&amp;CK</strong> referenced across this course. It's a free,
-public catalog — maintained by the nonprofit <strong>MITRE</strong> — of the real
-techniques attackers use, each with an ID. The recon on this page maps
-to the <em>Reconnaissance</em> section of that catalog: for example <strong>T1590</strong>
-(gathering victim <strong>network</strong> info — the DNS and Shodan work) and
-<strong>T1589</strong> (gathering victim <strong>identity</strong> info — the LinkedIn and OSINT
-work). Think of it as a shared dictionary so defenders and attackers can
-name techniques precisely. Browse it at
-<a href="https://attack.mitre.org/tactics/TA0043/">attack.mitre.org</a>.</p>
+<p>You'll see <strong>MITRE ATT&amp;CK</strong> referenced across this course. It's a free, public catalog — maintained by the nonprofit <strong>MITRE</strong> — of the real techniques attackers use, each with an ID. The recon on this page maps to the <em>Reconnaissance</em> section of that catalog: for example <strong>T1590</strong> (gathering victim <strong>network</strong> info — the DNS and Shodan work) and <strong>T1589</strong> (gathering victim <strong>identity</strong> info — the LinkedIn and OSINT work). Think of it as a shared dictionary so defenders and attackers can name techniques precisely. Browse it at <a href="https://attack.mitre.org/tactics/TA0043/">attack.mitre.org</a>.</p>
 </div>
 <hr />
 <h2 id="try-it-yourself">Try it yourself<a class="headerlink" href="#try-it-yourself" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p>Practice — only on a target you own or are authorized to test</p>
-<p>Every tool on this page is free and public. On your own domain (or a
-practice target you're allowed to test), walk the same six moves:
-<code>whois yourdomain.com</code>, <code>crt.sh/?q=%.yourdomain.com</code>, <code>dig</code>/<code>nslookup</code>
-for the <code>A</code> / <code>MX</code> / <code>NS</code> / <code>TXT</code> records, and a Shodan lookup of the
-resulting IP. Keep asking one question: <em>how would I have made this
-harder to find?</em></p>
+<p>Every tool on this page is free and public. On your own domain (or a practice target you're allowed to test), walk the same six moves: <code>whois yourdomain.com</code>, <code>crt.sh/?q=%.yourdomain.com</code>, <code>dig</code>/<code>nslookup</code> for the <code>A</code> / <code>MX</code> / <code>NS</code> / <code>TXT</code> records, and a Shodan lookup of the resulting IP. Keep asking one question: <em>how would I have made this harder to find?</em></p>
 </div>
 <div class="admonition quote">
 <p>Remember</p>
-<p>Reconnaissance = <strong>build a map from public sources.</strong> Add pins (systems
-<strong>and</strong> people), fill each one in, and start <strong>passive</strong>. The footprint
-you build here drives your scanning, your exploits, and your social
-engineering — everything later is built on it.</p>
+<p>Reconnaissance = <strong>build a map from public sources.</strong> Add pins (systems <strong>and</strong> people), fill each one in, and start <strong>passive</strong>. The footprint you build here drives your scanning, your exploits, and your social engineering — everything later is built on it.</p>
 </div>
 <hr />
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>NIST SP 800-115</strong> §4. <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free
-  PDF</a></li>
+<li><strong>NIST SP 800-115</strong> §4. <a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">Free PDF</a></li>
 <li><strong>OSINT Framework.</strong> <a href="https://osintframework.com/">osintframework.com</a></li>
-<li><strong>MITRE ATT&amp;CK — Reconnaissance (TA0043).</strong>
-  <a href="https://attack.mitre.org/tactics/TA0043/">attack.mitre.org</a></li>
-<li><strong>Target breach — Krebs on Security.</strong> <a href="https://krebsonsecurity.com/2014/02/target-hackers-broke-in-via-hvac-company/">Target Hackers Broke In Via
-  HVAC
-  Company</a></li>
-<li><strong>Equifax breach — U.S. GAO.</strong>
-  <a href="https://www.gao.gov/products/gao-18-559">GAO-18-559</a></li>
+<li><strong>MITRE ATT&amp;CK — Reconnaissance (TA0043).</strong> <a href="https://attack.mitre.org/tactics/TA0043/">attack.mitre.org</a></li>
+<li><strong>Target breach — Krebs on Security.</strong> <a href="https://krebsonsecurity.com/2014/02/target-hackers-broke-in-via-hvac-company/">Target Hackers Broke In Via HVAC Company</a></li>
+<li><strong>Equifax breach — U.S. GAO.</strong> <a href="https://www.gao.gov/products/gao-18-559">GAO-18-559</a></li>
 </ul>
 
 
