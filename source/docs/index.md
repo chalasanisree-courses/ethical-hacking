@@ -116,28 +116,31 @@ Run the whole cycle across every layer, then write the professional report a cli
 
 ### 🗓️ Full schedule at a glance
 
-| Wk | Kill-chain phase | Topic | Primary reading (free / open-access) |
-|----|------------------|-------|--------------------------------------|
-| 🧭 Getting Oriented | | | |
-| 1 | Foundation | [Framework, Law & Ethics](weeks/ethics-law-methodology.html) | [Maurushat, *Ethical Hacking* — Ch. 1](https://library.oapen.org/bitstream/id/ab438eb4-5f5d-4509-8c0b-f6c57f271e84/9780776627922.pdf) |
-| 🔎 Stalking the Target | | | |
-| 2 | Reconnaissance | [Reconnaissance & Footprinting](weeks/reconnaissance-footprinting.html) | [NIST SP 800-115 §4](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf) |
-| 3 | Scanning & enumeration | [Scanning, Enumeration & Vuln Analysis](weeks/scanning-enumeration.html) | [Nmap Network Scanning (book)](https://nmap.org/book/toc.html) |
-| 📡 Storming the Perimeter | | | |
-| 4 | Sniffing & evasion | [Network Hacking & Sniffing](weeks/network-hacking-sniffing.html) | [Wireshark User's Guide](https://www.wireshark.org/docs/wsug_html_chunked/) |
-| 5 | Wireless access | [Wireless Hacking](weeks/wireless-hacking.html) | [Aircrack-ng documentation](https://www.aircrack-ng.org/documentation.html) |
-| 🖥️ Owning the Machine | | | |
-| 6 | Gaining access | [System Attacks](weeks/system-attacks.html) | [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/) |
-| 7 | Malware & command-and-control | [Malware, Trojans & DoS](weeks/malware-trojans-dos.html) | [MITRE ATT&CK — C2 (TA0011)](https://attack.mitre.org/tactics/TA0011/) |
-| 🌐 Breaking the Application | | | |
-| 8 | Web — gaining access | [Web Attacks I — Servers & Apps](weeks/web-attacks-servers-apps.html) | [OWASP Top 10](https://owasp.org/www-project-top-ten/) |
-| 9 | Web — SQLi & session | [Web Attacks II — SQLi & Session Hijacking](weeks/web-attacks-sqli-session.html) | [OWASP SQLi Prevention](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html) |
-| 🔐 Cracking the Vault | | | |
-| 10 | Cryptography (cross-cutting) | [Cryptography](weeks/cryptography.html) | [Crypto 101 — Ch. 1–7](https://www.crypto101.io/) |
-| 🎭 Hacking the Human | | | |
-| 11 | Identity layer | [Social Engineering & the Identity Layer](weeks/social-engineering-identity.html) | [Identity Under Attack (interactive lesson)](human-layer/identity-under-attack.html) |
-| 🎯 The Full Engagement | | | |
-| 12 | Full engagement | [Penetration Testing — Methodology & Reporting](weeks/penetration-testing.html) | [NIST SP 800-115 §5–8](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf) |
+<table class="sched">
+<thead><tr><th>Wk</th><th>Layer</th><th>Topic</th><th>Primary reading (free / open-access)</th></tr></thead>
+<tbody>
+<tr class="sched-group"><td colspan="4">🧭 Getting Oriented</td></tr>
+<tr><td class="wk">1</td><td><span class="pill pill-found">Foundation</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td><a href="https://library.oapen.org/bitstream/id/ab438eb4-5f5d-4509-8c0b-f6c57f271e84/9780776627922.pdf">Maurushat, <em>Ethical Hacking</em> — Ch. 1</a></td></tr>
+<tr class="sched-group"><td colspan="4">🔎 Stalking the Target</td></tr>
+<tr><td class="wk">2</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/reconnaissance-footprinting.html">Reconnaissance &amp; Footprinting</a></td><td><a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">NIST SP 800-115 §4</a></td></tr>
+<tr><td class="wk">3</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/scanning-enumeration.html">Scanning, Enumeration &amp; Vuln Analysis</a></td><td><a href="https://nmap.org/book/toc.html">Nmap Network Scanning (book)</a></td></tr>
+<tr class="sched-group"><td colspan="4">📡 Storming the Perimeter</td></tr>
+<tr><td class="wk">4</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/network-hacking-sniffing.html">Network Hacking &amp; Sniffing</a></td><td><a href="https://www.wireshark.org/docs/wsug_html_chunked/">Wireshark User's Guide</a></td></tr>
+<tr><td class="wk">5</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/wireless-hacking.html">Wireless Hacking</a></td><td><a href="https://www.aircrack-ng.org/documentation.html">Aircrack-ng documentation</a></td></tr>
+<tr class="sched-group"><td colspan="4">🖥️ Owning the Machine</td></tr>
+<tr><td class="wk">6</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/system-attacks.html">System Attacks</a></td><td><a href="https://www.offsec.com/metasploit-unleashed/">Metasploit Unleashed</a></td></tr>
+<tr><td class="wk">7</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/malware-trojans-dos.html">Malware, Trojans &amp; DoS</a></td><td><a href="https://attack.mitre.org/tactics/TA0011/">MITRE ATT&amp;CK — C2 (TA0011)</a></td></tr>
+<tr class="sched-group"><td colspan="4">🌐 Breaking the Application</td></tr>
+<tr><td class="wk">8</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-servers-apps.html">Web Attacks I — Servers &amp; Apps</a></td><td><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a></td></tr>
+<tr><td class="wk">9</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-sqli-session.html">Web Attacks II — SQLi &amp; Session Hijacking</a></td><td><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP SQLi Prevention</a></td></tr>
+<tr class="sched-group"><td colspan="4">🔐 Cracking the Vault</td></tr>
+<tr><td class="wk">10</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td><a href="https://www.crypto101.io/">Crypto 101 — Ch. 1–7</a></td></tr>
+<tr class="sched-group"><td colspan="4">🎭 Hacking the Human</td></tr>
+<tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering &amp; the Identity Layer</a></td><td><a href="human-layer/identity-under-attack.html">Identity Under Attack (interactive lesson)</a></td></tr>
+<tr class="sched-group"><td colspan="4">🎯 The Full Engagement</td></tr>
+<tr><td class="wk">12</td><td><span class="pill pill-found">All layers</span></td><td><a href="weeks/penetration-testing.html">Penetration Testing — Methodology &amp; Reporting</a></td><td><a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">NIST SP 800-115 §5–8</a></td></tr>
+</tbody>
+</table>
 
 <span class="small">*Videos and graded work live in Canvas. Week numbers are a guide — pages are named by topic, so the schedule can shift without breaking links.*</span>
 
