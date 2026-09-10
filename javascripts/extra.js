@@ -34,11 +34,22 @@ function nistShow(n) {
   if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+// Interactive Week 1 "role of AI" cards: reveal a role panel + highlight the clicked card.
+function aiShow(n) {
+  document.querySelectorAll('.ai-panel').forEach(function (p) { p.classList.remove('active'); });
+  var panel = document.getElementById('ai-panel-' + n);
+  if (panel) panel.classList.add('active');
+  document.querySelectorAll('.ai-card').forEach(function (r) { r.classList.remove('selected'); });
+  var card = document.getElementById('ai-card-' + n);
+  if (card) card.classList.add('selected');
+  if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 // Keyboard activation (Enter/Space) for clickable SVG rings & phase chips
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
     var t = e.target;
-    if (t.classList && (t.classList.contains('dil-ring') || t.classList.contains('nist-phase') || t.classList.contains('kc-phase') || t.classList.contains('recon-phase') || t.classList.contains('scan-phase'))) {
+    if (t.classList && (t.classList.contains('dil-ring') || t.classList.contains('nist-phase') || t.classList.contains('kc-phase') || t.classList.contains('recon-phase') || t.classList.contains('scan-phase') || t.classList.contains('ai-card'))) {
       e.preventDefault();
       t.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     }
