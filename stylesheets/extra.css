@@ -254,3 +254,19 @@
   .md-header__button.md-icon[for="__drawer"] { display: none !important; }
   .md-overlay { display: none !important; }
 }
+/* Left nav: expand sections in place (accordion) instead of the drawer
+   drill-down that replaces the whole menu, in the same medium-width range. */
+@media screen and (min-width: 60em) and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__item--nested > .md-nav {
+    position: static !important;
+    transform: none !important;
+    display: none !important;
+    width: auto !important;
+  }
+  .md-nav--primary .md-nav__item--nested > .md-nav__toggle:checked ~ .md-nav {
+    display: block !important;
+  }
+  .md-nav--primary .md-nav__item--nested > .md-nav > .md-nav__title {
+    display: none !important;
+  }
+}
