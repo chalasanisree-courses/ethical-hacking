@@ -1,8 +1,3 @@
----
-hide:
-  - navigation
----
-
 # Syllabus
 
 ## Course description

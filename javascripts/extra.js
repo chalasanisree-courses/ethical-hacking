@@ -77,3 +77,26 @@ function scanShow(n) {
   if (node) node.classList.add('selected');
   if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
+/* Make the header site title ("Ethical Hacking") link back to the home page.
+   Depth-safe: reads Material's base ("." on home, ".." on week pages). */
+document.addEventListener("DOMContentLoaded", function () {
+  var title = document.querySelector(".md-header__title");
+  if (!title || title.dataset.ehHomeLinked) return;
+  var base = ".";
+  try {
+    var cfg = document.getElementById("__config");
+    if (cfg) { base = (JSON.parse(cfg.textContent).base) || "."; }
+  } catch (e) {}
+  var home = base.replace(/\/+$/, "") + "/index.html";
+  title.style.cursor = "pointer";
+  title.setAttribute("role", "link");
+  title.setAttribute("tabindex", "0");
+  title.setAttribute("title", "Back to course home");
+  function go() { window.location.href = home; }
+  title.addEventListener("click", go);
+  title.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+  });
+  title.dataset.ehHomeLinked = "1";
+});

@@ -1,8 +1,3 @@
----
-hide:
-  - navigation
----
-
 # CEH Domain → Week Map
 
 How this course's modules and weeks line up with CEH topic areas. Use this for curriculum mapping and CEH exam prep.

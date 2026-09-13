@@ -32,13 +32,13 @@ What you'll learn
 
 ⚖️ The authorization line — read this first
 
-Week 2 recon was **passive**: you read public records and never touched Coca-Cola, so it was legal to run against them. **Scanning is different.** From here on you send packets *straight at* the target's machines — and doing that to a system you don't own or aren't authorized to test can be a **crime**. So the commands below use an **authorized practice target**, `scanme.nmap.org` (a host Nmap runs specifically for people to practice on), or your lab network. We'll still *talk about* Coca-Cola to keep the story going — but we never point an active scanner at them.
+Last week's recon was **passive**: you read public records and never touched Coca-Cola, so it was legal to run against them. **Scanning is different.** From here on you send packets *straight at* the target's machines — and doing that to a system you don't own or aren't authorized to test can be a **crime**. So the commands below use an **authorized practice target**, `scanme.nmap.org` (a host Nmap runs specifically for people to practice on), or your lab network. We'll still *talk about* Coca-Cola to keep the story going — but we never point an active scanner at them.
 
 </div>
 
 ## 1. From a map to open doors
 
-In Week 2 you built a **map** of the target — a footprint of every system and person. But a map only tells you a door *exists*. **Scanning walks up and checks which doors are actually unlocked, and what's behind them.** Picture each machine as a **house**: the steps below find which houses are occupied, try every door, and look in the rooms behind the ones that open. It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.
+Last week you built a **map** of the target — a footprint of every system and person. But a map only tells you a door *exists*. **Scanning walks up and checks which doors are actually unlocked, and what's behind them.** Picture each machine as a **house**: the steps below find which houses are occupied, try every door, and look in the rooms behind the ones that open. It takes the broad list from recon and narrows it, step by step, to a short hit-list of things you could actually break into.
 
 <figure>
 <img src="../img/scan-funnel.svg" width="840" alt="The scanning funnel: a broad target range narrowed to a short list of exploitable flaws" /><br />
@@ -50,13 +50,13 @@ In Week 2 you built a **map** of the target — a footprint of every system and 
 
 A company's internal network is hidden, but recon found its **public-facing edge** — the web and mail servers. Scanning is walking up to that edge and **knocking on every door** to see which open. The catch: knocking is something the target can *hear*.
 
-|                | Passive recon (Week 2)          | Active scanning (this week)             |
+|                | Passive recon (last week)       | Active scanning (this week)             |
 |----------------|---------------------------------|-----------------------------------------|
 | 🕵️ **Contact** | Never touches the target        | Sends probes **straight at** the target |
 | 📊 **Source**  | Public data — WHOIS, DNS, OSINT | Live host, port & service probing       |
 | 🚨 **Risk**    | Stealthy, low legal risk        | **Noisy — authorization required**      |
 
-**OSINT** = Open-Source Intelligence (the public-record gathering from Week 2). The one-line rule: *recon tells you what exists; scanning tells you what's reachable — and it can get you logged.*
+**OSINT** = Open-Source Intelligence (the public-record gathering from recon). The one-line rule: *recon tells you what exists; scanning tells you what's reachable — and it can get you logged.*
 
 ## 3. The scan flow — click through it
 
@@ -144,7 +144,7 @@ An open port isn't enough; you need the exact software and version behind it —
 
 `nmap -sV scanme.nmap.org`  — turns `port 22 open` into `OpenSSH 8.9p1`, the precise build.
 
-🚪 Result: an inventory of services and their exact versions. *(This is the same idea as Shodan from Week 2 — but now you're reading it live, not from a public index.)*
+🚪 Result: an inventory of services and their exact versions. *(This is the same idea as Shodan in recon — but now you're reading it live, not from a public index.)*
 
 </div>
 
@@ -185,7 +185,7 @@ The payoff: turn your service inventory into a ranked list of **weaknesses**. A 
 - **OpenVAS** / **Nessus** — scan every service and produce a report ranked by **CVSS** score (Common Vulnerability Scoring System, 0–10 severity)
 - `searchsploit openssh 8.9` — check the local exploit database by hand; the **NVD** (National Vulnerability Database, <a href="https://nvd.nist.gov" target="_blank">nvd.nist.gov</a>) has full **CVE** detail (Common Vulnerabilities and Exposures — a public ID for each known flaw)
 
-⚠️ The judgment call: a scanner's findings are **leads, not proven holes** — some are patched, some are false positives, some need a specific setup. Narrowing the list to what actually works is the real skill. *(Exactly the Shodan lesson from Week 2 — see the Equifax case below.)*
+⚠️ The judgment call: a scanner's findings are **leads, not proven holes** — some are patched, some are false positives, some need a specific setup. Narrowing the list to what actually works is the real skill. *(Exactly the Shodan lesson from recon — see the Equifax case below.)*
 
 </div>
 
@@ -211,7 +211,7 @@ An **open port is a door**, the **service** behind it is what you actually attac
 
 ## 5. Vulnerability analysis is the bridge to breaking in
 
-Steps 1–5 build a picture; step 6 turns it into a **target list**. That list is what the exploitation phase (Module 4) acts on. But the scanner is only a *first draft* — it flags everything that *might* be vulnerable from the version number, exactly like Shodan did in Week 2. The version banner says "OpenSSH 8.9"; whether *this* server is actually exploitable still has to be confirmed. Treating scanner output as a to-do list of leads — not a list of confirmed holes — is what separates a real assessment from a scan-and-paste report.
+Steps 1–5 build a picture; step 6 turns it into a **target list**. That list is what the **exploitation phase** acts on — where we stop *finding* weaknesses and start *using* them, beginning with *Storming the Perimeter*. But the scanner is only a *first draft* — it flags everything that *might* be vulnerable from the version number, exactly like Shodan did in recon. The version banner says "OpenSSH 8.9"; whether *this* server is actually exploitable still has to be confirmed. Treating scanner output as a to-do list of leads — not a list of confirmed holes — is what separates a real assessment from a scan-and-paste report.
 
 ## 6. It's real — three cases
 
@@ -225,7 +225,7 @@ WannaCry spread by scanning the internet for one thing: machines with **port 445
 
 🐠 The casino fish tank (reported 2017) — the door nobody thinks of
 
-A casino was breached through an internet-connected **thermometer in its lobby fish tank**. The security firm **Darktrace** reported that attackers used the smart aquarium sensor as a foothold, reached across the internal network to the casino's **high-roller database**, and pulled the data back out through that same device. When you scan a network, *everything that answers is a door* — including the forgotten internet-connected gadget nobody remembered was online. **Lesson: your attack surface is every device on the network, not just the servers — and (like Target in Week 2) segment the network so a fish-tank sensor can never reach your crown jewels.**
+A casino was breached through an internet-connected **thermometer in its lobby fish tank**. The security firm **Darktrace** reported that attackers used the smart aquarium sensor as a foothold, reached across the internal network to the casino's **high-roller database**, and pulled the data back out through that same device. When you scan a network, *everything that answers is a door* — including the forgotten internet-connected gadget nobody remembered was online. **Lesson: your attack surface is every device on the network, not just the servers — and (like Target last week) segment the network so a fish-tank sensor can never reach your crown jewels.**
 
 </div>
 
@@ -237,7 +237,7 @@ A casino was breached through an internet-connected **thermometer in its lobby f
 
 ## Blue Team — how defenders counter scanning
 
-Here's the big difference from Week 2: **passive recon was invisible, but scanning is loud.** Because the attacker now sends packets at your systems, you can actually *see* it. The defender sits in the **SOC** (Security Operations Center — the team that watches for attacks).
+Here's the big difference from last week: **passive recon was invisible, but scanning is loud.** Because the attacker now sends packets at your systems, you can actually *see* it. The defender sits in the **SOC** (Security Operations Center — the team that watches for attacks).
 
 <div class="admonition defender" markdown="1">
 

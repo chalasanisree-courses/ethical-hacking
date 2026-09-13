@@ -192,3 +192,34 @@
 
 /* left nav hidden site-wide (front matter) — give content a bit more width for diagrams */
 .md-grid { max-width: 68rem; }
+
+/* ---- Week 1 · interactive "role of AI" cards ---- */
+.ai-strip { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 6px; }
+.ai-card { flex: 1; min-width: 220px; cursor: pointer; border-radius: 12px; padding: 16px 14px 14px;
+  text-align: center; border: 1.5px solid transparent; transition: transform .12s, box-shadow .12s, filter .12s; }
+.ai-card p { margin: 0; }
+.ai-card:hover { filter: brightness(1.02); transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.12); }
+.ai-card:focus-visible { outline: 2px solid var(--md-accent-fg-color); outline-offset: 2px; }
+.ai-card.selected { box-shadow: 0 6px 16px rgba(0,0,0,.18); transform: translateY(-2px); }
+.ai-card .ai-emoji { font-size: 1.7rem; line-height: 1; }
+.ai-card .ai-title { display: block; font-weight: 800; font-size: 1rem; margin-top: 6px; letter-spacing: .02em; }
+.ai-card .ai-sub { display: block; font-size: .78rem; margin-top: 5px; opacity: .85; }
+.ai-weapon { background: #FCEBEB; border-color: #e3b7b1; }
+.ai-weapon .ai-title { color: #791F1F; } .ai-weapon .ai-sub { color: #7a2f22; }
+.ai-weapon.selected { border-color: #c0392b; }
+.ai-target { background: #E6F1FB; border-color: #b6cfe8; }
+.ai-target .ai-title { color: #0C447C; } .ai-target .ai-sub { color: #0e4a86; }
+.ai-target.selected { border-color: #0C447C; }
+[data-md-color-scheme="slate"] .ai-weapon { background: rgba(192,57,43,.16); }
+[data-md-color-scheme="slate"] .ai-target { background: rgba(43,108,176,.18); }
+[data-md-color-scheme="slate"] .ai-weapon .ai-title, [data-md-color-scheme="slate"] .ai-weapon .ai-sub { color: #f0b6ae; }
+[data-md-color-scheme="slate"] .ai-target .ai-title, [data-md-color-scheme="slate"] .ai-target .ai-sub { color: #a9cbef; }
+
+.ai-panel { display: none; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 10px;
+  padding: 14px 20px 18px; margin: 12px 0; background: var(--md-code-bg-color); }
+.ai-panel.active { display: block; }
+.ai-panel h4 { margin: 4px 0 10px; font-size: 1.08rem; }
+.ai-point { margin: 14px 0; }
+.ai-point p { margin: 0 0 4px; }
+.ai-eg { display: block; font-size: .85rem; color: var(--md-default-fg-color--light);
+  border-left: 3px solid var(--md-accent-fg-color); padding: 4px 0 4px 12px; margin-top: 4px; }

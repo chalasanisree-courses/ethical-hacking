@@ -107,6 +107,14 @@ Six moves take you from a bare domain name to a full footprint. **Click each ste
 
 ↑ **Click a step** — each shows the tool, the command, and what it reveals about Coca-Cola
 
+<div class="admonition tip" markdown="1">
+
+🤖 The AI shortcut
+
+Every move below is a terminal command. AI assistants like **ShellGPT** and **Kali GPT** can write and run these for you from a plain-English request — *"look up the DNS records for coca-cola.com"* — so you don't have to remember the exact syntax. (This is the "closes the skills gap" idea from [Week 1's *Role of AI*](ethics-law-methodology.html#2-the-role-of-ai-in-ethical-hacking).) You'll put them to work in **this week's footprinting-with-AI lab** — try each move by hand first, then let the AI drive, and compare what you learned.
+
+</div>
+
 <div id="recon-panel-1" class="recon-panel" markdown="1">
 
 #### 🪪 WHOIS — the "deed"
@@ -228,7 +236,7 @@ Coca-Cola may be locked down, but a **partner** may not be — exactly how **Tar
 
 🥷 The bank job — people are the softest target
 
-Red-teamer **Jayson Street** is hired by banks to break in. He pulls staff off **LinkedIn**, copies their **badges** from profile photos, and overhears a complaint at the staff pub about a VP furious over a botched update. The next morning he walks in with a **box of donuts** so someone holds the door, hands a teller a **fake memo** from that VP and a *"patch"* on a **USB stick** — and out of fear of the VP, they plug it in. Full remote access. Recon told him *who to be* and gave him a *believable story*. That's **social engineering** (Week 11). **Lesson: the map includes people, and people are the softest way in.**
+Red-teamer **Jayson Street** is hired by banks to break in. He pulls staff off **LinkedIn**, copies their **badges** from profile photos, and overhears a complaint at the staff pub about a VP furious over a botched update. The next morning he walks in with a **box of donuts** so someone holds the door, hands a teller a **fake memo** from that VP and a *"patch"* on a **USB stick** — and out of fear of the VP, they plug it in. Full remote access. Recon told him *who to be* and gave him a *believable story*. That's **social engineering** (the *Hacking the Human* stage, later in the course). **Lesson: the map includes people, and people are the softest way in.**
 
 </div>
 
