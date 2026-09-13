@@ -223,3 +223,34 @@
 .ai-point p { margin: 0 0 4px; }
 .ai-eg { display: block; font-size: .85rem; color: var(--md-default-fg-color--light);
   border-left: 3px solid var(--md-accent-fg-color); padding: 4px 0 4px 12px; margin-top: 4px; }
+/* Keep the left navigation visible on medium-width screens (960px-1220px)
+   instead of collapsing it into the hamburger menu. Below 960px it still
+   uses the hamburger drawer (correct for phones/small tablets). */
+@media screen and (min-width: 60em) and (max-width: 76.1875em) {
+  .md-sidebar--primary {
+    position: sticky !important;
+    top: 2.4rem !important;
+    left: 0 !important;
+    right: auto !important;
+    width: 12.1rem !important;
+    flex: 0 0 12.1rem !important;
+    height: calc(100vh - 2.4rem) !important;
+    padding: 1.2rem 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+    z-index: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    position: static !important;
+    height: 100% !important;
+    width: auto !important;
+    margin: 0 .2rem !important;
+    overflow-y: auto !important;
+    inset: auto !important;
+  }
+  label.md-nav__title[for="__drawer"],
+  .md-header__button.md-icon[for="__drawer"] { display: none !important; }
+  .md-overlay { display: none !important; }
+}
