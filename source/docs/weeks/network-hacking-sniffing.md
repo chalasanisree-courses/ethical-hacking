@@ -25,36 +25,68 @@ The <span style="color:#c0392b;font-weight:700;">red line</span> down the left m
 
 What you'll learn
 
-- Where we are in the CEH kill chain — **Phase 3, gaining access** — and why this week is the *quiet* way in
-- What the attacker is actually breaching — the **enterprise perimeter**, and the **layers** behind it
-- How **cleartext** hands over credentials from the outside — and why HTTPS limits that
-- Why, once you're **inside** a flat network, listening is so powerful — and how **switches** change the game
-- **ARP spoofing** — forcing a switched network to route a victim's traffic through you (man-in-the-middle)
-- The three network defenses — **IDS/IPS, firewalls, honeypots** — how attackers slip past, and what the **blue team** can (and can't) see
+- Where we are in the attacker's life cycle — **gaining access**, the *quiet* way in
+- How a password gets **read straight off the wire** when traffic isn't encrypted
+- Why getting **inside** a flat network makes listening so powerful — and how **switches** change the game
+- **ARP spoofing** — how the attacker becomes the **man in the middle**
+- How attackers **slip past** the network's defenses — and what the **blue team** does about all of it
 
 </div>
 
-## 1. Where we are — Phase 3, gaining access
+## 1. Where we are: gaining access
 
-We've been walking the **CEH kill chain**, the attacker's life cycle. Week 2 was **reconnaissance** (build the map), Week 3 was **scanning** (walk up and try the doors). Now we're at **Phase 3 — gaining access**: actually getting *in*.
+We've been walking the attacker's life cycle — the **CEH kill chain**. We built the map (**recon**, Week 2), we tried the doors (**scanning**, Week 3), and now we're at **Phase 3 — gaining access**: actually getting in.
 
-There are two ways to get in, and this week is the **quiet** one — *sniff* the network and let it hand you the credentials, rather than forcing a door (that's Week 6). But before we pick a lock, it's worth being clear about **what** we're breaking into.
+<figure>
+<svg viewBox="0 0 860 132" role="img" aria-label="The five CEH phases: Reconnaissance and Scanning are done, Gaining Access is where we are now, Maintaining Access and Covering Tracks come later." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
+  <!-- connectors -->
+  <g fill="#c3cad6"><polygon points="160,60 177,60 177,54 189,62 177,70 177,64 160,64"/><polygon points="337,60 354,60 354,54 366,62 354,70 354,64 337,64"/><polygon points="515,60 532,60 532,54 544,62 532,70 532,64 515,64"/><polygon points="692,60 709,60 709,54 721,62 709,70 709,64 692,64"/></g>
+  <!-- 1 -->
+  <rect x="0" y="14" width="150" height="96" rx="9" fill="#E6F1FB" stroke="#b6cfe8"/>
+  <text x="75" y="40" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#0C447C">PHASE 1</text>
+  <text x="75" y="64" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0C447C">Reconnaissance</text>
+  <text x="75" y="88" text-anchor="middle" font-size="11" fill="#3b6ea5">Week 2 ✓</text>
+  <!-- 2 -->
+  <rect x="177" y="14" width="150" height="96" rx="9" fill="#E6F1FB" stroke="#b6cfe8"/>
+  <text x="252" y="40" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#0C447C">PHASE 2</text>
+  <text x="252" y="64" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0C447C">Scanning</text>
+  <text x="252" y="88" text-anchor="middle" font-size="11" fill="#3b6ea5">Week 3 ✓</text>
+  <!-- 3 current -->
+  <rect x="354" y="8" width="150" height="108" rx="9" fill="#C0392B"/>
+  <text x="429" y="36" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#f7d9d5">PHASE 3</text>
+  <text x="429" y="62" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">Gaining Access</text>
+  <text x="429" y="88" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="0.04em" fill="#ffffff">◀ YOU ARE HERE</text>
+  <!-- 4 -->
+  <rect x="532" y="14" width="150" height="96" rx="9" fill="#F1F4F9" stroke="#dde3ec"/>
+  <text x="607" y="40" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#8a93a3">PHASE 4</text>
+  <text x="607" y="60" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6b7480">Maintaining</text>
+  <text x="607" y="76" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6b7480">Access</text>
+  <text x="607" y="98" text-anchor="middle" font-size="10.5" fill="#9aa3b2">later</text>
+  <!-- 5 -->
+  <rect x="710" y="14" width="150" height="96" rx="9" fill="#F1F4F9" stroke="#dde3ec"/>
+  <text x="785" y="40" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#8a93a3">PHASE 5</text>
+  <text x="785" y="60" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6b7480">Covering</text>
+  <text x="785" y="76" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6b7480">Tracks</text>
+  <text x="785" y="98" text-anchor="middle" font-size="10.5" fill="#9aa3b2">later</text>
+</svg>
+<figcaption>The attacker's five phases. We've done recon and scanning; this week is <strong>gaining access</strong> — and there are two ways to do it: the quiet way (sniff for a key, this week) or the loud way (exploit a service, Week 6). We start quiet.</figcaption>
+</figure>
 
-## 2. The fortress you're breaching — enterprise architecture
+## 2. What the attacker is breaking into
 
-Companies wrap their internal network in a strong **perimeter** that separates the inside from the open internet. Everything valuable — customer data, credentials, secrets — lives behind it.
+Before picking a lock, be clear on **what** we're breaking into. Companies wrap their internal network in a strong **perimeter** that separates the inside from the open internet — and everything valuable lives behind it.
 
 <figure>
 <div style="display:flex;gap:18px;flex-wrap:wrap;justify-content:center;align-items:center;margin:6px 0;">
 <img src="../img/ea-network.png" alt="A real enterprise network: the internet reaches a firewall, then IDS/IPS, then a router, with workstations and servers behind the network perimeter, each with endpoint protection." style="width:47%;min-width:280px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;" />
 <img src="../img/ea-castle.png" alt="The same enterprise drawn as a castle: the internet is the moat, the network and firewall are the outer walls, the VPN is the drawbridge, and the data center is the keep." style="width:45%;min-width:260px;" />
 </div>
-<figcaption>Left: a real enterprise network — internet → firewall → IDS/IPS → router → workstations and servers, all inside the network perimeter. Right: the same thing as a <strong>castle</strong> — the internet is the moat, the network and firewall are the outer walls, the VPN is the drawbridge, and the data center is the keep. The attacker has to cross the wall, one layer at a time.</figcaption>
+<figcaption>Left: a real enterprise network — internet → firewall → IDS/IPS → router → workstations and servers, inside the network perimeter. Right: the same thing as a <strong>castle</strong> — the internet is the moat, the network and firewall are the outer walls, the VPN is the drawbridge, and the data center is the keep with the crown jewels.</figcaption>
 </figure>
 
-## 3. The other map — defense in depth
+## 3. The layers of defense — and where this week fits
 
-There's a second map that organises the whole course. Defenders never rely on one wall — they build **layers**, like an onion. The outermost is the **network** (the perimeter); inside are the device, application, data, and — at the core — identity. This module, *Storming the Perimeter*, lives at that **outermost ring**: everything this week attacks the **network** layer.
+Defenders never rely on one wall. They build **layers** — the outermost is the **network** (the perimeter); inside are the device, the applications, the data, and at the very core, identity. The whole course walks these layers from the outside in. This module, *Storming the Perimeter*, is the **outermost ring** — everything this week attacks the **network** layer.
 
 <div style="max-width:520px;margin:20px auto;" markdown="1">
 
@@ -131,13 +163,13 @@ Protecting the data itself: **encryption, backups,** tight access control — wh
 
 <div class="admonition warning" markdown="1">
 
-⚖️ Read this first — the authorization line
+⚖️ Read this first — is sniffing even legal?
 
 Last week's recon was passive and legal; scanning was active and needed authorization. **Sniffing is more subtle.** Even if you send *not a single packet* and "just listen," capturing traffic that isn't yours can be **wiretapping** — a crime. Reading public records about a house is fine; tapping the phone line to listen in is not. And **ARP spoofing**, later on, is fully active — you inject forged packets. So everything here runs only on **your own lab, your own VMs, your own traffic**.
 
 </div>
 
-## 4. Two ways in — find the key vs. kick the door
+## 4. Two ways in — find a key, or kick the door
 
 | | 🔑 Find the key *(this week)* | 🚪 Kick the door *(Week 6)* |
 |---|---|---|
@@ -147,9 +179,9 @@ Last week's recon was passive and legal; scanning was active and needed authoriz
 
 A real attacker tries to **find a key before kicking any doors** — quiet before loud. So we start with the key.
 
-## 5. The easiest key — cleartext on the wire
+## 5. Grabbing a password off the wire
 
-Any protocol that sends its data **unencrypted** — HTTP, FTP, Telnet, old SMTP, legacy database links — hands its username, password, and content to anyone on the path. Picture the attacker on the same coffee-shop Wi-Fi as you: you log into a plain **HTTP** site, and your password crosses the wire in plain text. No exploit, nothing broken — they read the key off the wire and log in as you. **This single fact is the reason the entire web moved to HTTPS.**
+Any protocol that sends its data **unencrypted** — HTTP, FTP, Telnet, old SMTP, legacy database links — hands its username, password, and content to anyone on the path. Picture the attacker on the same coffee-shop Wi-Fi as you: you log into a plain **HTTP** site, and your password crosses the wire in plain text. No exploit, nothing broken — they read the key off the wire and log in as you. **This is the reason the entire web moved to HTTPS.**
 
 <div class="admonition example" markdown="1">
 
@@ -159,9 +191,9 @@ Live demo — see a password in the clear (authorized target)
 
 </div>
 
-<div class="admonition note" markdown="1">
+<div class="admonition quote" markdown="1">
 
-🐑 It's real — Firesheep (2010)
+🌐 Real-world case — Firesheep (2010)
 
 A developer released **Firesheep**, a one-click Firefox add-on that sniffed **unencrypted session cookies** on open Wi-Fi and let anyone log in as other people on Facebook, Twitter, and more. Sites had moved *login* to HTTPS — but were still sending the **session cookie** back in the clear, so it could be grabbed and replayed. It wasn't new tech; it just made cleartext sniffing so public it pushed the whole web to **HTTPS-everywhere**.
 
@@ -169,13 +201,13 @@ A developer released **Firesheep**, a one-click Firefox add-on that sniffed **un
 
 <div class="admonition note" markdown="1">
 
-The honest caveat — why the outside isn't enough
+But from outside, this only goes so far
 
-From the pure outside, almost everything is **HTTPS** today, so you usually can't just grab a login off the open internet — forcing a login from outside is **brute force**, which we save for Week 6. The scary scenario is the attacker who's already **inside** the network. So let's go there.
+Almost everything is **HTTPS** today, so you usually can't just grab a login off the open internet — forcing a login from outside is **brute force**, which we save for Week 6. The real danger is the attacker who's already **inside** the network. So let's go there.
 
 </div>
 
-## 6. Inside the perimeter — now you listen
+## 6. Getting inside, then listening to the network
 
 How does an attacker get *inside*? The perimeter only has to fail **once**: a phishing click that turns a laptop into a foothold, a rogue device on a jack, stolen VPN credentials, guest Wi-Fi, or an exposed service. Once in, most enterprises are **castle-and-moat** — a hard shell but a soft inside — so the attacker roams with **free movement** across the internal network (exactly the castle's weakness from the picture above).
 
@@ -187,9 +219,9 @@ So the attacker **listens** — that's sniffing. A **sniffer** (Wireshark, tcpdu
 | **What you do** | Just plug in and listen | Manipulate the network so traffic comes to you |
 | **Noise** | **Silent** — no traffic, invisible on the wire | Injects packets — leaves fingerprints |
 
-On a hub, sniffing is free. On a switch — what you'll actually find — you can't just listen; you have to **actively insert yourself** into the path. The classic way is ARP spoofing.
+On a hub, sniffing is free. On a switch — what you'll actually find — you can't just listen; you have to **actively insert yourself** into the path. The classic way to do that is ARP spoofing.
 
-## 7. ARP spoofing → man-in-the-middle
+## 7. Becoming the man in the middle — ARP spoofing
 
 On a local network, machines find each other by **MAC address** using **ARP** (Address Resolution Protocol) — a trusting protocol with **no authentication**. Whoever answers "who has this IP?" first is believed and cached. ARP spoofing abuses exactly that: the attacker sends **forged replies** telling the victim *"I'm the gateway"* and telling the gateway *"I'm the victim."* Now every packet flows **through** the attacker — a man-in-the-middle who can read it, capture credentials, or change it in transit.
 
@@ -288,39 +320,47 @@ The attacker receives the victim's traffic, reads it (grabbing any cleartext cre
 
 </div>
 
-<div class="admonition note" markdown="1">
+<div class="admonition quote" markdown="1">
 
-📢 It's real — Superfish (2015)
+📢 Real-world case — Superfish (2015)
 
-Lenovo shipped laptops with adware that installed its **own root certificate** to break HTTPS and inject ads — a factory-installed man-in-the-middle. Because the browser trusts a certificate authority to prove a site is who it claims, Superfish forged that trust locally so it could sit in the middle of *encrypted* sessions. Worse, it was so poorly secured that **third parties** could ride it to intercept users' banking traffic. Millions in fines followed. Listening, and **impersonating** — the network isn't just something you cross; it's a place you can sit and intercept.
-
-</div>
-
-## 8. Network defenses & evasion
-
-The network isn't defenceless — three systems watch it, and the attacker's job is knowing how each is slipped past.
-
-<div class="admonition info" markdown="1">
-
-🧱 Firewalls — connection control
-
-Firewalls decide which connections are allowed in and out (you saw them in Week 2 as `filtered` ports). *Evaded by:* **tunneling** — smuggling traffic inside something already allowed, like **HTTPS** or **DNS**, which almost every firewall lets out.
+Lenovo shipped laptops with adware that installed its **own root certificate** to break HTTPS and inject ads — a factory-installed man-in-the-middle. Because a browser trusts a certificate authority to prove a site is who it claims, Superfish forged that trust locally so it could sit in the middle of *encrypted* sessions. Worse, it was so poorly secured that **third parties** could ride it to intercept banking traffic. Millions in fines followed.
 
 </div>
 
+<div class="admonition quote" markdown="1">
+
+🔏 Real-world case — DigiNotar (2011)
+
+Attackers breached a **certificate authority** and forged Google certificates, then used them to man-in-the-middle **Gmail for ~300,000 people in Iran**. Same idea as Superfish — break the trust that HTTPS relies on — but at internet scale. Listening, and **impersonating**: the network isn't just something you cross; it's a place you can sit and intercept.
+
+</div>
+
+## 8. Slipping past the network's defenses
+
+The network isn't defenceless — three systems sit between the attacker and the data, and the attacker's whole job here is getting past them without being seen (this is the *Defense Evasion* tactic).
+
 <div class="admonition info" markdown="1">
 
-🛡️ IDS / IPS — signature &amp; anomaly detection
+🧱 Firewalls — and how you slip past
 
-Intrusion detection/prevention systems (**Snort**, **Suricata**) match traffic against known-bad **signatures** and statistical **anomalies** — the "Duplicate IP address" from the ARP demo is exactly the kind of anomaly they flag. *Evaded by:* encryption, packet **fragmentation**, timing changes, and hiding inside protocols the sensor doesn't fully parse.
+Firewalls decide which connections are allowed in and out (you saw them in Week 2 as `filtered` ports). *Get past by* **tunneling** — hiding your traffic inside something already allowed, like **HTTPS** or **DNS**, which almost every firewall lets out.
 
 </div>
 
 <div class="admonition info" markdown="1">
 
-🍯 Honeypots — decoys
+🛡️ IDS / IPS — and how you slip past
 
-Fake systems planted to be attacked, so defenders get high-confidence alerts. *Evaded by:* recognising the tell — a target that's **suspiciously easy** and seems to log everything is a trap; a careful attacker backs away.
+Intrusion detection/prevention (**Snort**, **Suricata**) match traffic against known-bad **signatures** and **anomalies** — the "Duplicate IP address" from the ARP demo is exactly the kind of anomaly they flag. *Get past by* encryption, packet **fragmentation**, timing changes, and hiding inside protocols the sensor doesn't fully parse.
+
+</div>
+
+<div class="admonition info" markdown="1">
+
+🍯 Honeypots — and how you spot them
+
+Fake systems planted to be attacked, so defenders get high-confidence alerts. *Spot them by* the tell — a target that's **suspiciously easy** and seems to log everything is a trap; a careful attacker backs away.
 
 </div>
 
@@ -334,23 +374,18 @@ Fake systems planted to be attacked, so defenders get high-confidence alerts. *E
 
 <span class="rail-label blue">🔵 BLUE TEAM · defender's view</span>
 
-## Blue Team — you can't hear a listener
+## 9. How defenders stop this
 
 <div class="admonition defender" markdown="1">
 
-What the SOC can and can't see
+You can't hear a listener — so make what they hear worthless
 
-The hard part: **passive sniffing is invisible** — a listener generates no traffic, so there's nothing on the wire to catch. But the **active** moves leave fingerprints:
-
-- **ARP poisoning** shows up as a MAC suddenly claiming to be the gateway, **duplicate-IP warnings**, and ARP tables changing.
-- **Tunneled exfiltration** shows up as anomalies — oddly large or oddly regular DNS/HTTPS flows to an unfamiliar host.
-
-**So the defense is protection + detection:**
+The hard part for the blue team: **passive sniffing is invisible** — a listener generates no traffic, so there's nothing on the wire to catch. But the **active** moves leave fingerprints. So the defense is *protection* plus *detection*:
 
 - **Encrypt everything in transit** — the great equalizer. If captured traffic is encrypted, a listener gets useless bytes. *(This is the wall from the demo.)*
-- **Dynamic ARP Inspection + port security** on switches — block the spoofing that enables active MITM.
+- **Dynamic ARP Inspection + port security** on switches — block the ARP spoofing that enables active MITM.
 - **Segment the network** — so a foothold in one corner (remember the soft castle interior, and the Target breach) can't sniff everything.
-- **Watch for the fingerprints** — sudden ARP-table changes and unexplained outbound volume are your exfiltration alarms.
+- **Watch for the fingerprints** — a MAC suddenly claiming to be the gateway, **duplicate-IP** warnings, ARP tables changing, or oddly large/regular outbound flows are your MITM and exfiltration alarms.
 
 You can't hear a listener — so you make sure whatever they hear is **worthless**.
 
