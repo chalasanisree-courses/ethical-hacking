@@ -259,7 +259,7 @@ So what do they do first? They **listen**. And here's the key idea: listening to
 
 An old **hub** is a loudspeaker: every packet it receives is copied out to **every** port. So the attacker just plugs in, puts their card in *promiscuous mode*, and quietly hears everyone's traffic. Nothing is injected, nothing is sent — it's completely **silent**, with no way to detect it on the wire. If a network still runs on hubs, sniffing is basically free.
 
-<figure><img src="../img/sniff-hub.svg" width="520" alt="A hub copies every packet to every port, so the attacker receives a copy of everyone's traffic just by listening." /></figure>
+<figure><img src="../img/sniff-hub-real.png" width="470" alt="On a hub, the attacker (a passive eavesdropper) receives a copy of every device's traffic just by listening." /></figure>
 
 </div>
 
@@ -269,7 +269,7 @@ An old **hub** is a loudspeaker: every packet it receives is copied out to **eve
 
 A modern **switch** is smarter: it learns which device is on which port and sends each frame **only** to its destination. So the attacker plugs in and hears almost nothing — just their own traffic and broadcasts. To grab anyone else's traffic they can't stay passive; they have to **actively insert themselves** into the path — and that starts injecting packets, which leaves fingerprints. The classic way to do it is **ARP spoofing** — the next section.
 
-<figure><img src="../img/sniff-switch.svg" width="520" alt="A switch sends each frame only to its destination port, so the attacker must ARP-spoof to sit in the middle of the traffic." /></figure>
+<figure><img src="../img/sniff-switch-real.png" width="470" alt="On a switch, the attacker uses ARP spoofing to sit as a man-in-the-middle, forcing traffic to detour through them." /></figure>
 
 </div>
 

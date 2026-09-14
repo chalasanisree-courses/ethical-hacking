@@ -2058,12 +2058,12 @@
 <div class="ai-panel" id="ai-panel-1">
 <h4 id="passive-sniffing-on-a-hub">👂 Passive sniffing — on a hub<a class="headerlink" href="#passive-sniffing-on-a-hub" title="Permanent link">&para;</a></h4>
 <p>An old <strong>hub</strong> is a loudspeaker: every packet it receives is copied out to <strong>every</strong> port. So the attacker just plugs in, puts their card in <em>promiscuous mode</em>, and quietly hears everyone's traffic. Nothing is injected, nothing is sent — it's completely <strong>silent</strong>, with no way to detect it on the wire. If a network still runs on hubs, sniffing is basically free.</p>
-<figure><img src="../img/sniff-hub.svg" width="520" alt="A hub copies every packet to every port, so the attacker receives a copy of everyone's traffic just by listening." /></figure>
+<figure><img src="../img/sniff-hub-real.png" width="470" alt="On a hub, the attacker (a passive eavesdropper) receives a copy of every device's traffic just by listening." /></figure>
 </div>
 <div class="ai-panel" id="ai-panel-2">
 <h4 id="active-sniffing-on-a-switch">🎯 Active sniffing — on a switch<a class="headerlink" href="#active-sniffing-on-a-switch" title="Permanent link">&para;</a></h4>
 <p>A modern <strong>switch</strong> is smarter: it learns which device is on which port and sends each frame <strong>only</strong> to its destination. So the attacker plugs in and hears almost nothing — just their own traffic and broadcasts. To grab anyone else's traffic they can't stay passive; they have to <strong>actively insert themselves</strong> into the path — and that starts injecting packets, which leaves fingerprints. The classic way to do it is <strong>ARP spoofing</strong> — the next section.</p>
-<figure><img src="../img/sniff-switch.svg" width="520" alt="A switch sends each frame only to its destination port, so the attacker must ARP-spoof to sit in the middle of the traffic." /></figure>
+<figure><img src="../img/sniff-switch-real.png" width="470" alt="On a switch, the attacker uses ARP spoofing to sit as a man-in-the-middle, forcing traffic to detour through them." /></figure>
 </div>
 <h2 id="8-becoming-the-man-in-the-middle-arp-spoofing">8. Becoming the man in the middle — ARP spoofing<a class="headerlink" href="#8-becoming-the-man-in-the-middle-arp-spoofing" title="Permanent link">&para;</a></h2>
 <p>On a local network, machines find each other by <strong>MAC address</strong> using <strong>ARP</strong> (Address Resolution Protocol) — a trusting protocol with <strong>no authentication</strong>. Whoever answers "who has this IP?" first is believed and cached. ARP spoofing abuses exactly that: the attacker sends <strong>forged replies</strong> telling the victim <em>"I'm the gateway"</em> and telling the gateway <em>"I'm the victim."</em> Now every packet flows <strong>through</strong> the attacker — a man-in-the-middle who can read it, capture credentials, or change it in transit.</p>
