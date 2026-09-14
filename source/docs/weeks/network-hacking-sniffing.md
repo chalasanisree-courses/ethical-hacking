@@ -209,17 +209,57 @@ Almost everything is **HTTPS** today, so you usually can't just grab a login off
 
 ## 6. Getting inside, then listening to the network
 
-How does an attacker get *inside*? The perimeter only has to fail **once**: a phishing click that turns a laptop into a foothold, a rogue device on a jack, stolen VPN credentials, guest Wi-Fi, or an exposed service. Once in, most enterprises are **castle-and-moat** — a hard shell but a soft inside — so the attacker roams with **free movement** across the internal network (exactly the castle's weakness from the picture above).
+How does an attacker get *inside*? The perimeter only has to fail **once**: a phishing click that turns a laptop into a foothold, a rogue device on a jack, stolen VPN credentials, guest Wi-Fi, or an exposed service.
 
-So the attacker **listens** — that's sniffing. A **sniffer** (Wireshark, tcpdump) captures packets crossing the network. Whether that's easy depends on the **network gear**:
+<div class="admonition defender" markdown="1">
 
-| | 🕳️ Passive sniffing | 🎯 Active sniffing |
-|---|---|---|
-| **Gear** | Old **hubs** — broadcast every packet to every port | Modern **switches** — send each frame only to its port |
-| **What you do** | Just plug in and listen | Manipulate the network so traffic comes to you |
-| **Noise** | **Silent** — no traffic, invisible on the wire | Injects packets — leaves fingerprints |
+🔵 Blue team, part 1 — prevention: the firewall blocks entry
 
-On a hub, sniffing is free. On a switch — what you'll actually find — you can't just listen; you have to **actively insert yourself** into the path. The classic way to do that is ARP spoofing.
+The **firewall** is the gate at the perimeter: it blocks connections that aren't allowed in (you met it in Week 2 as `filtered` ports). Attackers get past it by **tunneling** — hiding their traffic inside something it already allows, like **HTTPS** or **DNS** — or by the human routes above (a phishing click, a rogue device) that simply walk in the front door. *(The blue team's second job — catching the attacker once they're inside — comes at the end of the page.)*
+
+</div>
+
+Once inside, most enterprises are **castle-and-moat** — a hard shell but a soft inside — so the attacker roams with **free movement** across the internal network (exactly the castle's weakness from the picture above).
+
+So the attacker **listens** — that's sniffing. A **sniffer** (Wireshark, tcpdump) captures packets crossing the network. How easy that is comes down to the **network gear** — click each to see it:
+
+<div class="ai-strip" markdown="1">
+
+<div id="ai-card-1" class="ai-card ai-target" onclick="aiShow(1)" role="button" tabindex="0" aria-label="Passive sniffing" markdown="1">
+
+<span class="ai-emoji">👂</span><span class="ai-title">PASSIVE — just listen</span><span class="ai-sub">on a hub · silent · invisible on the wire</span>
+
+</div>
+
+<div id="ai-card-2" class="ai-card ai-weapon" onclick="aiShow(2)" role="button" tabindex="0" aria-label="Active sniffing" markdown="1">
+
+<span class="ai-emoji">🎯</span><span class="ai-title">ACTIVE — force it to you</span><span class="ai-sub">on a switch · you inject packets</span>
+
+</div>
+
+</div>
+
+↑ **Click each** — the network gear decides the game
+
+<div id="ai-panel-1" class="ai-panel" markdown="1">
+
+#### 👂 Passive sniffing — on a hub
+
+An old **hub** is a loudspeaker: every packet it receives is copied out to **every** port. So the attacker just plugs in, puts their card in *promiscuous mode*, and quietly hears everyone's traffic. Nothing is injected, nothing is sent — it's completely **silent**, with no way to detect it on the wire. If a network still runs on hubs, sniffing is basically free.
+
+<figure><img src="../img/sniff-hub.svg" width="520" alt="A hub copies every packet to every port, so the attacker receives a copy of everyone's traffic just by listening." /></figure>
+
+</div>
+
+<div id="ai-panel-2" class="ai-panel" markdown="1">
+
+#### 🎯 Active sniffing — on a switch
+
+A modern **switch** is smarter: it learns which device is on which port and sends each frame **only** to its destination. So the attacker plugs in and hears almost nothing — just their own traffic and broadcasts. To grab anyone else's traffic they can't stay passive; they have to **actively insert themselves** into the path — and that starts injecting packets, which leaves fingerprints. The classic way to do it is **ARP spoofing** — the next section.
+
+<figure><img src="../img/sniff-switch.svg" width="520" alt="A switch sends each frame only to its destination port, so the attacker gets nothing and must ARP-spoof to force traffic through them." /></figure>
+
+</div>
 
 ## 7. Becoming the man in the middle — ARP spoofing
 
@@ -336,35 +376,15 @@ Attackers breached a **certificate authority** and forged Google certificates, t
 
 </div>
 
-## 8. Slipping past the network's defenses
+## 8. Staying hidden — the evasion rule
 
-The network isn't defenceless — three systems sit between the attacker and the data, and the attacker's whole job here is getting past them without being seen (this is the *Defense Evasion* tactic).
+<div class="admonition note" markdown="1">
 
-<div class="admonition info" markdown="1">
+The attacker's rule of evasion
 
-🧱 Firewalls — and how you slip past
-
-Firewalls decide which connections are allowed in and out (you saw them in Week 2 as `filtered` ports). *Get past by* **tunneling** — hiding your traffic inside something already allowed, like **HTTPS** or **DNS**, which almost every firewall lets out.
+Whatever the move, evasion comes down to one idea: **defenses only inspect what they can see.** Encrypt it, fragment it, or tunnel it inside allowed traffic (HTTPS, DNS), and the IDS/IPS and firewalls watching the wire lose the thread — which is exactly why sneaking stolen data back *out* over an encrypted channel is so hard to catch. That's the problem the blue team now has to solve ↓
 
 </div>
-
-<div class="admonition info" markdown="1">
-
-🛡️ IDS / IPS — and how you slip past
-
-Intrusion detection/prevention (**Snort**, **Suricata**) match traffic against known-bad **signatures** and **anomalies** — the "Duplicate IP address" from the ARP demo is exactly the kind of anomaly they flag. *Get past by* encryption, packet **fragmentation**, timing changes, and hiding inside protocols the sensor doesn't fully parse.
-
-</div>
-
-<div class="admonition info" markdown="1">
-
-🍯 Honeypots — and how you spot them
-
-Fake systems planted to be attacked, so defenders get high-confidence alerts. *Spot them by* the tell — a target that's **suspiciously easy** and seems to log everything is a trap; a careful attacker backs away.
-
-</div>
-
-> **Evasion in one line:** defenses can only inspect what they can **see**. Encrypt it, fragment it, or tunnel it inside allowed traffic, and much of the inspection stops working — which is exactly why exfiltrating data over an encrypted channel is so hard to catch.
 
 </div>
 
@@ -374,20 +394,29 @@ Fake systems planted to be attacked, so defenders get high-confidence alerts. *S
 
 <span class="rail-label blue">🔵 BLUE TEAM · defender's view</span>
 
-## 9. How defenders stop this
+## 9. Blue team, part 2 — catch the intruder who got in
+
+Prevention (the firewall) tries to keep them out — but assume they got in. Now the blue team has to **catch the active moves and make the capture worthless.** The hard part: **passive sniffing is invisible** — a pure listener sends nothing, so there's nothing on the wire to detect. So the defender leans on detecting the *active* moves and shrinking what's worth stealing.
 
 <div class="admonition defender" markdown="1">
 
-You can't hear a listener — so make what they hear worthless
+Detect the intruder
 
-The hard part for the blue team: **passive sniffing is invisible** — a listener generates no traffic, so there's nothing on the wire to catch. But the **active** moves leave fingerprints. So the defense is *protection* plus *detection*:
+- **IDS / IPS** (Snort, Suricata) watch for **anomalies** — a machine suddenly claiming to be the gateway, the **"Duplicate IP address"** from ARP poisoning, or traffic that just looks wrong.
+- **Honeypots** — decoy systems planted on the network; the moment an intruder touches one it fires a high-confidence alert, because a real user never would.
+- **Watch the fingerprints** — sudden ARP-table changes, duplicate-IP warnings, and oddly large or oddly regular outbound flows are your MITM and **exfiltration** alarms.
+
+</div>
+
+<div class="admonition defender" markdown="1">
+
+Shrink what's worth capturing — and contain it
 
 - **Encrypt everything in transit** — the great equalizer. If captured traffic is encrypted, a listener gets useless bytes. *(This is the wall from the demo.)*
-- **Dynamic ARP Inspection + port security** on switches — block the ARP spoofing that enables active MITM.
-- **Segment the network** — so a foothold in one corner (remember the soft castle interior, and the Target breach) can't sniff everything.
-- **Watch for the fingerprints** — a MAC suddenly claiming to be the gateway, **duplicate-IP** warnings, ARP tables changing, or oddly large/regular outbound flows are your MITM and exfiltration alarms.
+- **Dynamic ARP Inspection + port security** on switches — block the ARP spoofing that makes active MITM possible in the first place.
+- **Segment the network** — so a foothold in one corner (the soft castle interior, and the Target breach) can't sniff or reach everything.
 
-You can't hear a listener — so you make sure whatever they hear is **worthless**.
+You can't hear a listener — so you make sure whatever they hear is **worthless**, and you watch for the moment they get loud.
 
 </div>
 

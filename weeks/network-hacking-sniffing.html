@@ -705,6 +705,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6. Getting inside, then listening to the network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passive-sniffing-on-a-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👂 Passive sniffing — on a hub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-sniffing-on-a-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Active sniffing — on a switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -797,10 +825,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-slipping-past-the-networks-defenses" class="md-nav__link">
+  <a href="#8-staying-hidden-the-evasion-rule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Slipping past the network's defenses
+        8. Staying hidden — the evasion rule
       
     </span>
   </a>
@@ -808,10 +836,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-how-defenders-stop-this" class="md-nav__link">
+  <a href="#9-blue-team-part-2-catch-the-intruder-who-got-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. How defenders stop this
+        9. Blue team, part 2 — catch the intruder who got in
       
     </span>
   </a>
@@ -1687,6 +1715,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6. Getting inside, then listening to the network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passive-sniffing-on-a-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👂 Passive sniffing — on a hub
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#active-sniffing-on-a-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Active sniffing — on a switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1779,10 +1835,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#8-slipping-past-the-networks-defenses" class="md-nav__link">
+  <a href="#8-staying-hidden-the-evasion-rule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. Slipping past the network's defenses
+        8. Staying hidden — the evasion rule
       
     </span>
   </a>
@@ -1790,10 +1846,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-how-defenders-stop-this" class="md-nav__link">
+  <a href="#9-blue-team-part-2-catch-the-intruder-who-got-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. How defenders stop this
+        9. Blue team, part 2 — catch the intruder who got in
       
     </span>
   </a>
@@ -2005,35 +2061,32 @@
 <p>Almost everything is <strong>HTTPS</strong> today, so you usually can't just grab a login off the open internet — forcing a login from outside is <strong>brute force</strong>, which we save for Week 6. The real danger is the attacker who's already <strong>inside</strong> the network. So let's go there.</p>
 </div>
 <h2 id="6-getting-inside-then-listening-to-the-network">6. Getting inside, then listening to the network<a class="headerlink" href="#6-getting-inside-then-listening-to-the-network" title="Permanent link">&para;</a></h2>
-<p>How does an attacker get <em>inside</em>? The perimeter only has to fail <strong>once</strong>: a phishing click that turns a laptop into a foothold, a rogue device on a jack, stolen VPN credentials, guest Wi-Fi, or an exposed service. Once in, most enterprises are <strong>castle-and-moat</strong> — a hard shell but a soft inside — so the attacker roams with <strong>free movement</strong> across the internal network (exactly the castle's weakness from the picture above).</p>
-<p>So the attacker <strong>listens</strong> — that's sniffing. A <strong>sniffer</strong> (Wireshark, tcpdump) captures packets crossing the network. Whether that's easy depends on the <strong>network gear</strong>:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>🕳️ Passive sniffing</th>
-<th>🎯 Active sniffing</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Gear</strong></td>
-<td>Old <strong>hubs</strong> — broadcast every packet to every port</td>
-<td>Modern <strong>switches</strong> — send each frame only to its port</td>
-</tr>
-<tr>
-<td><strong>What you do</strong></td>
-<td>Just plug in and listen</td>
-<td>Manipulate the network so traffic comes to you</td>
-</tr>
-<tr>
-<td><strong>Noise</strong></td>
-<td><strong>Silent</strong> — no traffic, invisible on the wire</td>
-<td>Injects packets — leaves fingerprints</td>
-</tr>
-</tbody>
-</table>
-<p>On a hub, sniffing is free. On a switch — what you'll actually find — you can't just listen; you have to <strong>actively insert yourself</strong> into the path. The classic way to do that is ARP spoofing.</p>
+<p>How does an attacker get <em>inside</em>? The perimeter only has to fail <strong>once</strong>: a phishing click that turns a laptop into a foothold, a rogue device on a jack, stolen VPN credentials, guest Wi-Fi, or an exposed service.</p>
+<div class="admonition defender">
+<p>🔵 Blue team, part 1 — prevention: the firewall blocks entry</p>
+<p>The <strong>firewall</strong> is the gate at the perimeter: it blocks connections that aren't allowed in (you met it in Week 2 as <code>filtered</code> ports). Attackers get past it by <strong>tunneling</strong> — hiding their traffic inside something it already allows, like <strong>HTTPS</strong> or <strong>DNS</strong> — or by the human routes above (a phishing click, a rogue device) that simply walk in the front door. <em>(The blue team's second job — catching the attacker once they're inside — comes at the end of the page.)</em></p>
+</div>
+<p>Once inside, most enterprises are <strong>castle-and-moat</strong> — a hard shell but a soft inside — so the attacker roams with <strong>free movement</strong> across the internal network (exactly the castle's weakness from the picture above).</p>
+<p>So the attacker <strong>listens</strong> — that's sniffing. A <strong>sniffer</strong> (Wireshark, tcpdump) captures packets crossing the network. How easy that is comes down to the <strong>network gear</strong> — click each to see it:</p>
+<div class="ai-strip">
+<div aria-label="Passive sniffing" class="ai-card ai-target" id="ai-card-1" onclick="aiShow(1)" role="button" tabindex="0">
+<p><span class="ai-emoji">👂</span><span class="ai-title">PASSIVE — just listen</span><span class="ai-sub">on a hub · silent · invisible on the wire</span></p>
+</div>
+<div aria-label="Active sniffing" class="ai-card ai-weapon" id="ai-card-2" onclick="aiShow(2)" role="button" tabindex="0">
+<p><span class="ai-emoji">🎯</span><span class="ai-title">ACTIVE — force it to you</span><span class="ai-sub">on a switch · you inject packets</span></p>
+</div>
+</div>
+<p>↑ <strong>Click each</strong> — the network gear decides the game</p>
+<div class="ai-panel" id="ai-panel-1">
+<h4 id="passive-sniffing-on-a-hub">👂 Passive sniffing — on a hub<a class="headerlink" href="#passive-sniffing-on-a-hub" title="Permanent link">&para;</a></h4>
+<p>An old <strong>hub</strong> is a loudspeaker: every packet it receives is copied out to <strong>every</strong> port. So the attacker just plugs in, puts their card in <em>promiscuous mode</em>, and quietly hears everyone's traffic. Nothing is injected, nothing is sent — it's completely <strong>silent</strong>, with no way to detect it on the wire. If a network still runs on hubs, sniffing is basically free.</p>
+<figure><img src="../img/sniff-hub.svg" width="520" alt="A hub copies every packet to every port, so the attacker receives a copy of everyone's traffic just by listening." /></figure>
+</div>
+<div class="ai-panel" id="ai-panel-2">
+<h4 id="active-sniffing-on-a-switch">🎯 Active sniffing — on a switch<a class="headerlink" href="#active-sniffing-on-a-switch" title="Permanent link">&para;</a></h4>
+<p>A modern <strong>switch</strong> is smarter: it learns which device is on which port and sends each frame <strong>only</strong> to its destination. So the attacker plugs in and hears almost nothing — just their own traffic and broadcasts. To grab anyone else's traffic they can't stay passive; they have to <strong>actively insert themselves</strong> into the path — and that starts injecting packets, which leaves fingerprints. The classic way to do it is <strong>ARP spoofing</strong> — the next section.</p>
+<figure><img src="../img/sniff-switch.svg" width="520" alt="A switch sends each frame only to its destination port, so the attacker gets nothing and must ARP-spoof to force traffic through them." /></figure>
+</div>
 <h2 id="7-becoming-the-man-in-the-middle-arp-spoofing">7. Becoming the man in the middle — ARP spoofing<a class="headerlink" href="#7-becoming-the-man-in-the-middle-arp-spoofing" title="Permanent link">&para;</a></h2>
 <p>On a local network, machines find each other by <strong>MAC address</strong> using <strong>ARP</strong> (Address Resolution Protocol) — a trusting protocol with <strong>no authentication</strong>. Whoever answers "who has this IP?" first is believed and cached. ARP spoofing abuses exactly that: the attacker sends <strong>forged replies</strong> telling the victim <em>"I'm the gateway"</em> and telling the gateway <em>"I'm the victim."</em> Now every packet flows <strong>through</strong> the attacker — a man-in-the-middle who can read it, capture credentials, or change it in transit.</p>
 <figure>
@@ -2093,38 +2146,33 @@
 <p>🔏 Real-world case — DigiNotar (2011)</p>
 <p>Attackers breached a <strong>certificate authority</strong> and forged Google certificates, then used them to man-in-the-middle <strong>Gmail for ~300,000 people in Iran</strong>. Same idea as Superfish — break the trust that HTTPS relies on — but at internet scale. Listening, and <strong>impersonating</strong>: the network isn't just something you cross; it's a place you can sit and intercept.</p>
 </div>
-<h2 id="8-slipping-past-the-networks-defenses">8. Slipping past the network's defenses<a class="headerlink" href="#8-slipping-past-the-networks-defenses" title="Permanent link">&para;</a></h2>
-<p>The network isn't defenceless — three systems sit between the attacker and the data, and the attacker's whole job here is getting past them without being seen (this is the <em>Defense Evasion</em> tactic).</p>
-<div class="admonition info">
-<p>🧱 Firewalls — and how you slip past</p>
-<p>Firewalls decide which connections are allowed in and out (you saw them in Week 2 as <code>filtered</code> ports). <em>Get past by</em> <strong>tunneling</strong> — hiding your traffic inside something already allowed, like <strong>HTTPS</strong> or <strong>DNS</strong>, which almost every firewall lets out.</p>
+<h2 id="8-staying-hidden-the-evasion-rule">8. Staying hidden — the evasion rule<a class="headerlink" href="#8-staying-hidden-the-evasion-rule" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p>The attacker's rule of evasion</p>
+<p>Whatever the move, evasion comes down to one idea: <strong>defenses only inspect what they can see.</strong> Encrypt it, fragment it, or tunnel it inside allowed traffic (HTTPS, DNS), and the IDS/IPS and firewalls watching the wire lose the thread — which is exactly why sneaking stolen data back <em>out</em> over an encrypted channel is so hard to catch. That's the problem the blue team now has to solve ↓</p>
 </div>
-<div class="admonition info">
-<p>🛡️ IDS / IPS — and how you slip past</p>
-<p>Intrusion detection/prevention (<strong>Snort</strong>, <strong>Suricata</strong>) match traffic against known-bad <strong>signatures</strong> and <strong>anomalies</strong> — the "Duplicate IP address" from the ARP demo is exactly the kind of anomaly they flag. <em>Get past by</em> encryption, packet <strong>fragmentation</strong>, timing changes, and hiding inside protocols the sensor doesn't fully parse.</p>
-</div>
-<div class="admonition info">
-<p>🍯 Honeypots — and how you spot them</p>
-<p>Fake systems planted to be attacked, so defenders get high-confidence alerts. <em>Spot them by</em> the tell — a target that's <strong>suspiciously easy</strong> and seems to log everything is a trap; a careful attacker backs away.</p>
-</div>
-<blockquote>
-<p><strong>Evasion in one line:</strong> defenses can only inspect what they can <strong>see</strong>. Encrypt it, fragment it, or tunnel it inside allowed traffic, and much of the inspection stops working — which is exactly why exfiltrating data over an encrypted channel is so hard to catch.</p>
-</blockquote>
 </div>
 <hr />
 <div class="bt-rail">
 <p><span class="rail-label blue">🔵 BLUE TEAM · defender's view</span></p>
-<h2 id="9-how-defenders-stop-this">9. How defenders stop this<a class="headerlink" href="#9-how-defenders-stop-this" title="Permanent link">&para;</a></h2>
+<h2 id="9-blue-team-part-2-catch-the-intruder-who-got-in">9. Blue team, part 2 — catch the intruder who got in<a class="headerlink" href="#9-blue-team-part-2-catch-the-intruder-who-got-in" title="Permanent link">&para;</a></h2>
+<p>Prevention (the firewall) tries to keep them out — but assume they got in. Now the blue team has to <strong>catch the active moves and make the capture worthless.</strong> The hard part: <strong>passive sniffing is invisible</strong> — a pure listener sends nothing, so there's nothing on the wire to detect. So the defender leans on detecting the <em>active</em> moves and shrinking what's worth stealing.</p>
 <div class="admonition defender">
-<p>You can't hear a listener — so make what they hear worthless</p>
-<p>The hard part for the blue team: <strong>passive sniffing is invisible</strong> — a listener generates no traffic, so there's nothing on the wire to catch. But the <strong>active</strong> moves leave fingerprints. So the defense is <em>protection</em> plus <em>detection</em>:</p>
+<p>Detect the intruder</p>
+<ul>
+<li><strong>IDS / IPS</strong> (Snort, Suricata) watch for <strong>anomalies</strong> — a machine suddenly claiming to be the gateway, the <strong>"Duplicate IP address"</strong> from ARP poisoning, or traffic that just looks wrong.</li>
+<li><strong>Honeypots</strong> — decoy systems planted on the network; the moment an intruder touches one it fires a high-confidence alert, because a real user never would.</li>
+<li><strong>Watch the fingerprints</strong> — sudden ARP-table changes, duplicate-IP warnings, and oddly large or oddly regular outbound flows are your MITM and <strong>exfiltration</strong> alarms.</li>
+</ul>
+</div>
+<div class="admonition defender">
+<p>Shrink what's worth capturing — and contain it</p>
 <ul>
 <li><strong>Encrypt everything in transit</strong> — the great equalizer. If captured traffic is encrypted, a listener gets useless bytes. <em>(This is the wall from the demo.)</em></li>
-<li><strong>Dynamic ARP Inspection + port security</strong> on switches — block the ARP spoofing that enables active MITM.</li>
-<li><strong>Segment the network</strong> — so a foothold in one corner (remember the soft castle interior, and the Target breach) can't sniff everything.</li>
-<li><strong>Watch for the fingerprints</strong> — a MAC suddenly claiming to be the gateway, <strong>duplicate-IP</strong> warnings, ARP tables changing, or oddly large/regular outbound flows are your MITM and exfiltration alarms.</li>
+<li><strong>Dynamic ARP Inspection + port security</strong> on switches — block the ARP spoofing that makes active MITM possible in the first place.</li>
+<li><strong>Segment the network</strong> — so a foothold in one corner (the soft castle interior, and the Target breach) can't sniff or reach everything.</li>
 </ul>
-<p>You can't hear a listener — so you make sure whatever they hear is <strong>worthless</strong>.</p>
+<p>You can't hear a listener — so you make sure whatever they hear is <strong>worthless</strong>, and you watch for the moment they get loud.</p>
 </div>
 </div>
 <hr />
