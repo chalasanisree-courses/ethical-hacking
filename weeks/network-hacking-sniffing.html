@@ -748,18 +748,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#walk-the-attack-step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Walk the attack, step by step
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Walk the attack, step by step">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#step-1-learn-the-next-hops-mac" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -811,11 +799,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1758,18 +1741,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#walk-the-attack-step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Walk the attack, step by step
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Walk the attack, step by step">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#step-1-learn-the-next-hops-mac" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1821,11 +1792,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1887,6 +1853,12 @@
 
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
+<style>
+.md-typeset .scan-panel h4,
+.md-typeset .ai-panel h4,
+.md-typeset .dil-panel h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0; margin-bottom: 6px; }
+</style>
+
 <h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
 <p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (the quiet way)</span></p>
 <div class="attck-strip">
@@ -2093,8 +2065,7 @@
 <img src="../img/sniff-mitm.svg" width="820" alt="Before ARP poisoning the victim's traffic goes straight to the real gateway; after, forged ARP replies route every packet through the attacker, who relays it on to the gateway." /><br />
 <figcaption>Before: the victim's traffic goes straight to the real gateway. After forged ARP replies, every packet detours <strong>through the attacker</strong> — who quietly relays it on, so nothing looks broken.</figcaption>
 </figure>
-<h3 id="walk-the-attack-step-by-step">Walk the attack, step by step<a class="headerlink" href="#walk-the-attack-step-by-step" title="Permanent link">&para;</a></h3>
-<p><strong>Click each step</strong> to see what happens on the wire — with the exact packets you'd point to in a Wireshark capture.</p>
+<p><strong>Walk the attack, step by step.</strong> Click each step to see what happens on the wire — with the exact packets you'd point to in a Wireshark capture.</p>
 <div class="scan-strip">
 <div aria-label="Learn the next hop" class="scan-phase" id="scan-node-1" onclick="scanShow(1)" role="button" style="background:#0E6B82" tabindex="0">
 <p><span class="num">STEP 1</span>Learn the next hop<small>who is the gateway</small></p>

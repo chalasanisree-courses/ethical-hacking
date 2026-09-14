@@ -5,6 +5,12 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
+<style>
+.md-typeset .scan-panel h4,
+.md-typeset .ai-panel h4,
+.md-typeset .dil-panel h4 { font-size: 0.85rem; font-weight: 700; letter-spacing: 0; margin-bottom: 6px; }
+</style>
+
 # Week 4 · Network Hacking & Sniffing
 
 <span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (the quiet way)</span>
@@ -270,9 +276,7 @@ On a local network, machines find each other by **MAC address** using **ARP** (A
 <figcaption>Before: the victim's traffic goes straight to the real gateway. After forged ARP replies, every packet detours <strong>through the attacker</strong> — who quietly relays it on, so nothing looks broken.</figcaption>
 </figure>
 
-### Walk the attack, step by step
-
-**Click each step** to see what happens on the wire — with the exact packets you'd point to in a Wireshark capture.
+**Walk the attack, step by step.** Click each step to see what happens on the wire — with the exact packets you'd point to in a Wireshark capture.
 
 <div class="scan-strip" markdown="1">
 
