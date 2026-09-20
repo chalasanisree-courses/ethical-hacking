@@ -54,7 +54,7 @@ Profile the target, then find what is reachable — footprinting, OSINT, Nmap, e
 
 ### 📡 Storming the Perimeter
 
-Break in at the network edge — sniff the wire, slip past IDS and firewalls, and crack the wireless door.
+Break in at the network edge — sniff the wire, break the encryption that shields it, slip past IDS and firewalls, and crack the wireless door.
 
 </div>
 
@@ -71,14 +71,6 @@ Take Windows and Linux hosts, escalate to admin, and hold control with malware, 
 ### 🌐 Breaking the Application
 
 The biggest attack surface — web servers, web applications, SQL injection, and session hijacking.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🔐 Cracking the Vault
-
-The cryptography that guards data everywhere — how it works, and how it fails. It lands right after *Breaking the Application*, where you steal the password database.
 
 </div>
 
@@ -112,15 +104,14 @@ Run the whole cycle across every layer, then write the professional report a cli
 <tr><td class="wk">3</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/scanning-enumeration.html">Scanning, Enumeration &amp; Vuln Analysis</a></td><td><a href="https://nmap.org/book/toc.html">Nmap Network Scanning (book)</a></td></tr>
 <tr class="sched-group"><td colspan="4">📡 Storming the Perimeter</td></tr>
 <tr><td class="wk">4</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/network-hacking-sniffing.html">Network Hacking &amp; Sniffing</a></td><td><a href="https://www.wireshark.org/docs/wsug_html_chunked/">Wireshark User's Guide</a></td></tr>
-<tr><td class="wk">5</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/wireless-hacking.html">Wireless Hacking</a></td><td><a href="https://www.aircrack-ng.org/documentation.html">Aircrack-ng documentation</a></td></tr>
+<tr><td class="wk">5</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td><a href="https://www.crypto101.io/">Crypto 101 — Ch. 1–7</a></td></tr>
+<tr><td class="wk">6</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/wireless-hacking.html">Wireless Hacking</a></td><td><a href="https://www.aircrack-ng.org/documentation.html">Aircrack-ng documentation</a></td></tr>
 <tr class="sched-group"><td colspan="4">🖥️ Owning the Machine</td></tr>
-<tr><td class="wk">6</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/system-attacks.html">System Attacks</a></td><td><a href="https://www.offsec.com/metasploit-unleashed/">Metasploit Unleashed</a></td></tr>
-<tr><td class="wk">7</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/malware-trojans-dos.html">Malware, Trojans &amp; DoS</a></td><td><a href="https://attack.mitre.org/tactics/TA0011/">MITRE ATT&amp;CK — C2 (TA0011)</a></td></tr>
+<tr><td class="wk">7</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/system-attacks.html">System Attacks</a></td><td><a href="https://www.offsec.com/metasploit-unleashed/">Metasploit Unleashed</a></td></tr>
+<tr><td class="wk">8</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/malware-trojans-dos.html">Malware, Trojans &amp; DoS</a></td><td><a href="https://attack.mitre.org/tactics/TA0011/">MITRE ATT&amp;CK — C2 (TA0011)</a></td></tr>
 <tr class="sched-group"><td colspan="4">🌐 Breaking the Application</td></tr>
-<tr><td class="wk">8</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-servers-apps.html">Web Attacks I — Servers &amp; Apps</a></td><td><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a></td></tr>
-<tr><td class="wk">9</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-sqli-session.html">Web Attacks II — SQLi &amp; Session Hijacking</a></td><td><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP SQLi Prevention</a></td></tr>
-<tr class="sched-group"><td colspan="4">🔐 Cracking the Vault</td></tr>
-<tr><td class="wk">10</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td><a href="https://www.crypto101.io/">Crypto 101 — Ch. 1–7</a></td></tr>
+<tr><td class="wk">9</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-servers-apps.html">Web Attacks I — Servers &amp; Apps</a></td><td><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a></td></tr>
+<tr><td class="wk">10</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-sqli-session.html">Web Attacks II — SQLi &amp; Session Hijacking</a></td><td><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP SQLi Prevention</a></td></tr>
 <tr class="sched-group"><td colspan="4">🎭 Hacking the Human</td></tr>
 <tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering &amp; the Identity Layer</a></td><td><a href="https://chalasanisree-courses.github.io/aws-security-course/concepts/AI-in-SocialEngineeringAttacks.html">Identity Under Attack (interactive lesson)</a></td></tr>
 <tr class="sched-group"><td colspan="4">🎯 The Full Engagement</td></tr>
