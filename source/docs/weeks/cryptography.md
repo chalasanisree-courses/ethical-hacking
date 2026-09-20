@@ -301,15 +301,13 @@ Three jobs — **Confidentiality** (encryption), **Integrity** (hashing + signat
     - **Monitor certificates** — expiry, mismatches, Certificate Transparency logs for look-alike domains.
     - Treat **"roll your own crypto"** as a finding — the algorithms are solid; the danger is how they're used.
 
-??? tip "🧪 Try it yourself — labs (click to expand)"
+??? tip "🧪 Try it yourself (click to expand)"
 
     Only on your own machines and accounts.
 
     1. **Inspect a certificate.** Click the padlock on any HTTPS site → *Certificate*. Read the **issuer** (CA), **valid-from/to**, and **subject** (domain) — the Trust job in action.
     2. **See salting work.** Hash `password123` with SHA-256, then hash it with a random salt prepended. Same password, completely different fingerprint.
     3. **Crack a weak hash.** Take an unsalted MD5/SHA-1 of a common word and run `hashcat`/`john` against a wordlist — watch a weak password fall in seconds, a long random one never.
-
-    **This week's labs:** Encryption · Hashing · Digital Certificates.
 
 ??? info "🗺️ MITRE ATT&CK mapping (click to expand)"
 
