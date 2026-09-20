@@ -1470,6 +1470,8 @@
 .md-typeset .recon-panel h4, .md-typeset .scan-panel h4 { font-size:.95rem; font-weight:700; letter-spacing:0; margin-bottom:6px; }
 .jobwrap .rail-label { margin-top: 4px; }
 .jobwrap hr { margin: 22px 0; }
+.md-sidebar--secondary { display: none !important; }
+@media screen and (min-width: 76.25em){ .md-content { max-width: 50rem; margin-left: auto; margin-right: auto; } }
 </style>
 
 <h1 id="week-5-cryptography">Week 5 · Cryptography<a class="headerlink" href="#week-5-cryptography" title="Permanent link">&para;</a></h1>
@@ -1663,8 +1665,8 @@ function jobTab(n){
 <li>Treat <strong>"roll your own crypto"</strong> as a finding — the algorithms are solid; the danger is how they're used.</li>
 </ul>
 </details>
-<details class="tip">
-<summary>🧪 Try it yourself (click to expand)</summary>
+<details class="tip" open="open">
+<summary>🧪 Try it yourself — 5 quick browser exercises</summary>
 <p>All of these run in a browser, on your own accounts — no special software.</p>
 <ol>
 <li><strong>Encrypt &amp; decrypt a message.</strong> At <a href="https://encode-decode.com/encryption-functions/">encode-decode.com/encryption-functions</a>, pick <strong>AES-256</strong>, type a message, set a secret key, and Encrypt. Copy the ciphertext, then Decrypt it with the same key — and confirm it's gibberish to anyone without the key. <em>(Confidentiality)</em></li>

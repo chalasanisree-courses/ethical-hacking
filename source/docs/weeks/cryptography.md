@@ -13,6 +13,8 @@ hide:
 .md-typeset .recon-panel h4, .md-typeset .scan-panel h4 { font-size:.95rem; font-weight:700; letter-spacing:0; margin-bottom:6px; }
 .jobwrap .rail-label { margin-top: 4px; }
 .jobwrap hr { margin: 22px 0; }
+.md-sidebar--secondary { display: none !important; }
+@media screen and (min-width: 76.25em){ .md-content { max-width: 50rem; margin-left: auto; margin-right: auto; } }
 </style>
 
 # Week 5 · Cryptography
@@ -301,7 +303,7 @@ Three jobs — **Confidentiality** (encryption), **Integrity** (hashing + signat
     - **Monitor certificates** — expiry, mismatches, Certificate Transparency logs for look-alike domains.
     - Treat **"roll your own crypto"** as a finding — the algorithms are solid; the danger is how they're used.
 
-??? tip "🧪 Try it yourself (click to expand)"
+???+ tip "🧪 Try it yourself — 5 quick browser exercises"
 
     All of these run in a browser, on your own accounts — no special software.
 
