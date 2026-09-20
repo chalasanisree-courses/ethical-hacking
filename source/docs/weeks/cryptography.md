@@ -44,7 +44,7 @@ Here's the precise version of what HTTPS does, which is itself the first crypto 
 
 ## The three jobs of cryptography
 
-Everything this week is one of **three jobs** — really the **CIA triad** in plain words. **Pick a job below** to open its walkthrough: how we *build* the tool, then how an attacker *breaks* it.
+Everything this week is one of **three jobs**: **Confidentiality**, **Integrity**, and **Trust**. The first two are the classic **CIA triad**; for the third we use **Trust** (authenticity) — what cryptography actually delivers — in place of the triad's *Availability*. **Pick a job below** to open its walkthrough: how we *build* the tool, then how an attacker *breaks* it.
 
 <div class="ai-strip" markdown="1">
 
