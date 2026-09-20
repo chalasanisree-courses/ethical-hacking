@@ -13,8 +13,6 @@ hide:
 .md-typeset .recon-panel h4, .md-typeset .scan-panel h4 { font-size:.95rem; font-weight:700; letter-spacing:0; margin-bottom:6px; }
 .jobwrap .rail-label { margin-top: 4px; }
 .jobwrap hr { margin: 22px 0; }
-.md-sidebar--secondary { display: none !important; }
-@media screen and (min-width: 76.25em){ .md-content { max-width: 50rem; margin-left: auto; margin-right: auto; } }
 </style>
 
 # Week 5 · Cryptography
@@ -44,7 +42,7 @@ Here's the precise version of what HTTPS does, which is itself the first crypto 
 
 ## The three jobs of cryptography
 
-Everything this week is one of **three jobs**: **Confidentiality**, **Integrity**, and **Trust**. The first two are the classic **CIA triad**; for the third we use **Trust** (authenticity) — what cryptography actually delivers — in place of the triad's *Availability*. **Pick a job below** to open its walkthrough: how we *build* the tool, then how an attacker *breaks* it.
+Everything this week is one of **three jobs** cryptography does: **Confidentiality**, **Integrity**, and **Trust**. **Pick a job below** to open its walkthrough: how we *build* the tool, then how an attacker *breaks* it.
 
 <div class="ai-strip" markdown="1">
 
@@ -111,7 +109,7 @@ Neither wins alone, so the real world uses **both** — that combination is **TL
 
 <div id="recon-panel-1" class="recon-panel" markdown="1">
 
-#### 🪪 Step 1 — get the bank's public key
+**🪪 Step 1 — get the bank's public key**
 
 Your browser asks the bank for its identity. The bank sends its **certificate**, which contains its **public key**. (Whether you can *trust* it is the Trust job.)
 
@@ -119,7 +117,7 @@ Your browser asks the bank for its identity. The bank sends its **certificate**,
 
 <div id="recon-panel-2" class="recon-panel" markdown="1">
 
-#### 🤝 Step 2 — agree a session key (asymmetric, once)
+**🤝 Step 2 — agree a session key (asymmetric, once)**
 
 Your browser makes up a fresh, fast **symmetric session key** and sends it — locked with the bank's **public** key, so only the bank's private key can open it. Slow crypto is used exactly once, to hand over a secret safely.
 
@@ -127,7 +125,7 @@ Your browser makes up a fresh, fast **symmetric session key** and sends it — l
 
 <div id="recon-panel-3" class="recon-panel" markdown="1">
 
-#### 🔒 Step 3 — encrypt everything (fast symmetric)
+**🔒 Step 3 — encrypt everything (fast symmetric)**
 
 Both sides now share that session key; every message afterward rides fast **symmetric** encryption. Asymmetric did the risky introduction once; symmetric carries the conversation. **That's HTTPS.**
 
@@ -193,7 +191,7 @@ A hash can't be reversed — so the attacker doesn't reverse it. They **capture*
 
 <div id="scan-panel-1" class="scan-panel" markdown="1">
 
-#### 📥 Step 1 — capture the fingerprint
+**📥 Step 1 — capture the fingerprint**
 
 Grab the hash the moment it's exposed — a stolen password-hash database, or a captured Wi-Fi handshake. It doesn't *contain* the password; it's just the fingerprint.
 
@@ -201,7 +199,7 @@ Grab the hash the moment it's exposed — a stolen password-hash database, or a 
 
 <div id="scan-panel-2" class="scan-panel" markdown="1">
 
-#### 💻 Step 2 — guess offline
+**💻 Step 2 — guess offline**
 
 On your own machine, hash guess after guess — a **wordlist** of common passwords, then brute force — millions per second, no contact with the target. Tools: **hashcat**, **John the Ripper**.
 
@@ -209,7 +207,7 @@ On your own machine, hash guess after guess — a **wordlist** of common passwor
 
 <div id="scan-panel-3" class="scan-panel" markdown="1">
 
-#### 🔓 Step 3 — match
+**🔓 Step 3 — match**
 
 When a guess produces the **same fingerprint**, you've found the password. Weak → **seconds**; long and random → **hopeless**. A password's strength is just *how expensive you make the guessing.*
 
@@ -237,6 +235,8 @@ Adobe didn't hash at all — it **encrypted** passwords (3DES in **ECB mode**, r
 <div class="jobwrap" id="job-3" markdown="1">
 
 <span class="rail-label blue">🔧 BUILD · Trust — make sure it's really them</span>
+
+*Trust is really **integrity applied to identity** — Integrity proves the **message** wasn't changed; Trust proves the **sender** is who they claim.*
 
 A public key alone doesn't tell you *whose* it is. **Public Key Infrastructure (PKI)** fixes that with **digital certificates**. The bank goes to a **Certificate Authority (CA)** — a small set everyone agrees to trust (DigiCert, Google…) — which verifies the bank and **signs** its certificate with the CA's own private key.
 
@@ -284,6 +284,16 @@ function jobTab(n){
 
 ---
 
+## 🧪 Try it yourself
+
+All of these run in a browser, on your own accounts — no special software.
+
+1. **Encrypt & decrypt a message.** At [encode-decode.com/encryption-functions](https://encode-decode.com/encryption-functions/), pick **AES-256**, type a message, set a secret key, and Encrypt. Copy the ciphertext, then Decrypt it with the same key — and confirm it's gibberish to anyone without the key. *(Confidentiality)*
+2. **Hash it, and watch the avalanche.** At [encode-decode.com/sha256-generator-online](https://encode-decode.com/sha256-generator-online/), hash a phrase, then change **one character** and hash again — the whole fingerprint changes. That's why any tampering is caught. *(Integrity)*
+3. **See why salt matters.** Hash the same word twice — you get the *same* fingerprint both times. Now picture a stolen database: every user who chose that password has an identical hash. A unique **salt** per user breaks that, so identical passwords no longer look alike.
+4. **Crack a weak hash.** Hash a *common password* (like `password`) at the SHA-256 tool above, then paste that hash into [crackstation.net](https://crackstation.net/) — you may need a quick "I'm not a robot" check — and watch it fall **instantly** from a lookup. Then try a long, random string and watch it survive. That's offline cracking, and why password strength is everything.
+5. **Inspect a real certificate.** Click the padlock on any HTTPS site → *Certificate*. Read the **issuer** (the CA), the **valid-from/to** dates, and the **subject** (the domain) — the Trust job, live. *(Trust)*
+
 ## Wrap-up
 
 <div class="admonition quote" markdown="1">
@@ -302,16 +312,6 @@ Three jobs — **Confidentiality** (encryption), **Integrity** (hashing + signat
     - **Store passwords only with slow, salted hashes** (bcrypt/argon2) — never SHA/MD5, never encryption.
     - **Monitor certificates** — expiry, mismatches, Certificate Transparency logs for look-alike domains.
     - Treat **"roll your own crypto"** as a finding — the algorithms are solid; the danger is how they're used.
-
-???+ tip "🧪 Try it yourself — 5 quick browser exercises"
-
-    All of these run in a browser, on your own accounts — no special software.
-
-    1. **Encrypt & decrypt a message.** At [encode-decode.com/encryption-functions](https://encode-decode.com/encryption-functions/), pick **AES-256**, type a message, set a secret key, and Encrypt. Copy the ciphertext, then Decrypt it with the same key — and confirm it's gibberish to anyone without the key. *(Confidentiality)*
-    2. **Hash it, and watch the avalanche.** At [encode-decode.com/sha256-generator-online](https://encode-decode.com/sha256-generator-online/), hash a phrase, then change **one character** and hash again — the whole fingerprint changes. That's why any tampering is caught. *(Integrity)*
-    3. **See why salt matters.** Hash the same word twice — you get the *same* fingerprint both times. Now picture a stolen database: every user who chose that password has an identical hash. A unique **salt** per user breaks that, so identical passwords no longer look alike.
-    4. **Crack a weak hash.** Hash a *common password* (like `password`) at the SHA-256 tool above, then paste that hash into [crackstation.net](https://crackstation.net/) — you may need a quick "I'm not a robot" check — and watch it fall **instantly** from a lookup. Then try a long, random string and watch it survive. That's offline cracking, and why password strength is everything.
-    5. **Inspect a real certificate.** Click the padlock on any HTTPS site → *Certificate*. Read the **issuer** (the CA), the **valid-from/to** dates, and the **subject** (the domain) — the Trust job, live. *(Trust)*
 
 ??? info "🗺️ MITRE ATT&CK mapping (click to expand)"
 
