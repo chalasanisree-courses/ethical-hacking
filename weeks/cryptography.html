@@ -1665,11 +1665,13 @@ function jobTab(n){
 </details>
 <details class="tip">
 <summary>🧪 Try it yourself (click to expand)</summary>
-<p>Only on your own machines and accounts.</p>
+<p>All of these run in a browser, on your own accounts — no special software.</p>
 <ol>
-<li><strong>Inspect a certificate.</strong> Click the padlock on any HTTPS site → <em>Certificate</em>. Read the <strong>issuer</strong> (CA), <strong>valid-from/to</strong>, and <strong>subject</strong> (domain) — the Trust job in action.</li>
-<li><strong>See salting work.</strong> Hash <code>password123</code> with SHA-256, then hash it with a random salt prepended. Same password, completely different fingerprint.</li>
-<li><strong>Crack a weak hash.</strong> Take an unsalted MD5/SHA-1 of a common word and run <code>hashcat</code>/<code>john</code> against a wordlist — watch a weak password fall in seconds, a long random one never.</li>
+<li><strong>Encrypt &amp; decrypt a message.</strong> At <a href="https://encode-decode.com/encryption-functions/">encode-decode.com/encryption-functions</a>, pick <strong>AES-256</strong>, type a message, set a secret key, and Encrypt. Copy the ciphertext, then Decrypt it with the same key — and confirm it's gibberish to anyone without the key. <em>(Confidentiality)</em></li>
+<li><strong>Hash it, and watch the avalanche.</strong> At <a href="https://encode-decode.com/sha256-generator-online/">encode-decode.com/sha256-generator-online</a>, hash a phrase, then change <strong>one character</strong> and hash again — the whole fingerprint changes. That's why any tampering is caught. <em>(Integrity)</em></li>
+<li><strong>See why salt matters.</strong> Hash the same word twice — you get the <em>same</em> fingerprint both times. Now picture a stolen database: every user who chose that password has an identical hash. A unique <strong>salt</strong> per user breaks that, so identical passwords no longer look alike.</li>
+<li><strong>Crack a weak hash.</strong> Hash a <em>common password</em> (like <code>password</code>) at the SHA-256 tool above, then paste that hash into <a href="https://crackstation.net/">crackstation.net</a> — you may need a quick "I'm not a robot" check — and watch it fall <strong>instantly</strong> from a lookup. Then try a long, random string and watch it survive. That's offline cracking, and why password strength is everything.</li>
+<li><strong>Inspect a real certificate.</strong> Click the padlock on any HTTPS site → <em>Certificate</em>. Read the <strong>issuer</strong> (the CA), the <strong>valid-from/to</strong> dates, and the <strong>subject</strong> (the domain) — the Trust job, live. <em>(Trust)</em></li>
 </ol>
 </details>
 <details class="info">

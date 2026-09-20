@@ -303,11 +303,13 @@ Three jobs — **Confidentiality** (encryption), **Integrity** (hashing + signat
 
 ??? tip "🧪 Try it yourself (click to expand)"
 
-    Only on your own machines and accounts.
+    All of these run in a browser, on your own accounts — no special software.
 
-    1. **Inspect a certificate.** Click the padlock on any HTTPS site → *Certificate*. Read the **issuer** (CA), **valid-from/to**, and **subject** (domain) — the Trust job in action.
-    2. **See salting work.** Hash `password123` with SHA-256, then hash it with a random salt prepended. Same password, completely different fingerprint.
-    3. **Crack a weak hash.** Take an unsalted MD5/SHA-1 of a common word and run `hashcat`/`john` against a wordlist — watch a weak password fall in seconds, a long random one never.
+    1. **Encrypt & decrypt a message.** At [encode-decode.com/encryption-functions](https://encode-decode.com/encryption-functions/), pick **AES-256**, type a message, set a secret key, and Encrypt. Copy the ciphertext, then Decrypt it with the same key — and confirm it's gibberish to anyone without the key. *(Confidentiality)*
+    2. **Hash it, and watch the avalanche.** At [encode-decode.com/sha256-generator-online](https://encode-decode.com/sha256-generator-online/), hash a phrase, then change **one character** and hash again — the whole fingerprint changes. That's why any tampering is caught. *(Integrity)*
+    3. **See why salt matters.** Hash the same word twice — you get the *same* fingerprint both times. Now picture a stolen database: every user who chose that password has an identical hash. A unique **salt** per user breaks that, so identical passwords no longer look alike.
+    4. **Crack a weak hash.** Hash a *common password* (like `password`) at the SHA-256 tool above, then paste that hash into [crackstation.net](https://crackstation.net/) — you may need a quick "I'm not a robot" check — and watch it fall **instantly** from a lookup. Then try a long, random string and watch it survive. That's offline cracking, and why password strength is everything.
+    5. **Inspect a real certificate.** Click the padlock on any HTTPS site → *Certificate*. Read the **issuer** (the CA), the **valid-from/to** dates, and the **subject** (the domain) — the Trust job, live. *(Trust)*
 
 ??? info "🗺️ MITRE ATT&CK mapping (click to expand)"
 
