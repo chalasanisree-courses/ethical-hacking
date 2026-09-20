@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 8 · Web Attacks I — Servers & Apps
+# Week 9 · Web Attacks I — Servers & Apps
 
 <span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span>
 
@@ -49,7 +49,7 @@ Acting outside intended permissions — IDOR (changing an `id=123` to `id=124`),
 
 💉 Injection
 
-Untrusted input interpreted as code or a query — SQL injection (Week 9), command injection, LDAP/NoSQL injection. The app treats attacker data as instructions.
+Untrusted input interpreted as code or a query — SQL injection (Week 10), command injection, LDAP/NoSQL injection. The app treats attacker data as instructions.
 
 🖼️ XSS & CSRF
 

@@ -68,7 +68,7 @@ We've been walking the attacker's life cycle — the **CEH kill chain**. We buil
   <text x="785" y="76" text-anchor="middle" font-size="12.5" font-weight="700" fill="#6b7480">Tracks</text>
   <text x="785" y="98" text-anchor="middle" font-size="10.5" fill="#9aa3b2">later</text>
 </svg>
-<figcaption>The attacker's five phases. We've done recon and scanning; this week is <strong>gaining access</strong> — and there are two ways to do it: the quiet way (sniff for a key, this week) or the loud way (exploit a service, Week 6). We start quiet.</figcaption>
+<figcaption>The attacker's five phases. We've done recon and scanning; this week is <strong>gaining access</strong> — and there are two ways to do it: the quiet way (sniff for a key, this week) or the loud way (exploit a service, Week 7). We start quiet.</figcaption>
 </figure>
 
 ## 2. What the attacker is breaking into
@@ -170,7 +170,7 @@ Last week's recon was passive and legal; scanning was active and needed authoriz
 
 ## 4. Two ways in — find a key, or kick the door
 
-| | 🔑 Find the key *(this week)* | 🚪 Kick the door *(Week 6)* |
+| | 🔑 Find the key *(this week)* | 🚪 Kick the door *(Week 7)* |
 |---|---|---|
 | **Method** | Sniff the network; grab credentials off the wire | Exploit a weak service and force entry |
 | **Noise** | Quiet — often nothing is "broken" | Loud — crashes, alarms, logs |
@@ -427,7 +427,7 @@ Try it yourself — only on your own lab and your own traffic
 2. **Read ARP:** open any capture, filter `arp`, find a **who-has** request paired with its **is-at** reply, and ask *who verified that reply?* (Nobody — that's the hole.)
 3. **Spot poisoning:** in a capture with ARP spoofing, `Analyze → Expert Information` flags **"Duplicate IP address configured."** Add **Hardware Source/Dest Address** (`eth.src` / `eth.dst`) columns and watch the same IP hop onto a new MAC.
 
-**Next week →** the same idea off the wire and into the air — **Wireless Hacking**, where the keys are left out over the radio. Then in Week 6 we finally *kick the door in* — exploiting a weak service instead of finding a key.
+**Next week →** we open the hood on the shield itself — **Cryptography**: how encryption actually protects the wire, and how attackers break it. Then **Wireless Hacking** (Week 6) takes the same idea into the air, and in Week 7 we finally *kick the door in* — exploiting a weak service instead of finding a key.
 
 </div>
 

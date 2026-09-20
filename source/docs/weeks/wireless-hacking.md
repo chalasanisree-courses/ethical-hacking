@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 5 · Wireless Hacking
+# Week 6 · Wireless Hacking
 
 <span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (wireless)</span>
 

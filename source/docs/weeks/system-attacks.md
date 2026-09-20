@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 6 · System Attacks
+# Week 7 · System Attacks
 
 <span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access</span>
 

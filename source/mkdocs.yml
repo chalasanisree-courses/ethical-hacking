@@ -48,15 +48,14 @@ nav:
       - "Week 3 · Scanning, Enumeration & Vuln Analysis": weeks/scanning-enumeration.md
   - Storming the Perimeter:
       - "Week 4 · Network Hacking & Sniffing": weeks/network-hacking-sniffing.md
-      - "Week 5 · Wireless Hacking": weeks/wireless-hacking.md
+      - "Week 5 · Cryptography": weeks/cryptography.md
+      - "Week 6 · Wireless Hacking": weeks/wireless-hacking.md
   - Owning the Machine:
-      - "Week 6 · System Attacks": weeks/system-attacks.md
-      - "Week 7 · Malware, Trojans & DoS": weeks/malware-trojans-dos.md
+      - "Week 7 · System Attacks": weeks/system-attacks.md
+      - "Week 8 · Malware, Trojans & DoS": weeks/malware-trojans-dos.md
   - Breaking the Application:
-      - "Week 8 · Web Attacks I — Servers & Apps": weeks/web-attacks-servers-apps.md
-      - "Week 9 · Web Attacks II — SQLi & Session Hijacking": weeks/web-attacks-sqli-session.md
-  - Cracking the Vault:
-      - "Week 10 · Cryptography": weeks/cryptography.md
+      - "Week 9 · Web Attacks I — Servers & Apps": weeks/web-attacks-servers-apps.md
+      - "Week 10 · Web Attacks II — SQLi & Session Hijacking": weeks/web-attacks-sqli-session.md
   - Hacking the Human:
       - "Week 11 · Social Engineering & the Identity Layer": weeks/social-engineering-identity.md
   - The Full Engagement:

@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 9 · Web Attacks II — SQL Injection & Session Hijacking
+# Week 10 · Web Attacks II — SQL Injection & Session Hijacking
 
 <span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span>
 
@@ -50,7 +50,7 @@ No visible output, so you infer data one bit at a time — `AND 1=1` vs `AND 1=2
 
 A logged-in user is tracked by a **session token** (usually a cookie). Steal or forge that token and you *are* that user — no password needed. This is conceptually close to the human/identity attacks in Module 7 ("become the user"), but here the mechanism is technical:
 
-- **Token theft** — via XSS (Week 8) reading `document.cookie`, or sniffing an unencrypted session (Week 4).
+- **Token theft** — via XSS (Week 9) reading `document.cookie`, or sniffing an unencrypted session (Week 4).
 - **Session fixation** — force a known session ID on the victim, then ride it after they log in.
 - **Man-in-the-middle** — intercept the token in transit.
 
