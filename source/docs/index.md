@@ -98,7 +98,7 @@ Run the whole cycle across every layer, then write the professional report a cli
 <thead><tr><th>Wk</th><th>Layer</th><th>Topic</th><th>Primary reading (free / open-access)</th></tr></thead>
 <tbody>
 <tr class="sched-group"><td colspan="4">🧭 Getting Oriented</td></tr>
-<tr><td class="wk">1</td><td><span class="pill pill-found">Foundation</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td><a href="https://library.oapen.org/bitstream/id/ab438eb4-5f5d-4509-8c0b-f6c57f271e84/9780776627922.pdf">Maurushat, <em>Ethical Hacking</em> — Ch. 1</a></td></tr>
+<tr><td class="wk">1</td><td><span class="pill pill-found">Foundation</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td><a href="https://library.oapen.org/handle/20.500.12657/87998">Maurushat, <em>Ethical Hacking</em> — Ch. 1</a></td></tr>
 <tr class="sched-group"><td colspan="4">🔎 Stalking the Target</td></tr>
 <tr><td class="wk">2</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/reconnaissance-footprinting.html">Reconnaissance &amp; Footprinting</a></td><td><a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">NIST SP 800-115 §4</a></td></tr>
 <tr><td class="wk">3</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/scanning-enumeration.html">Scanning, Enumeration &amp; Vuln Analysis</a></td><td><a href="https://nmap.org/book/toc.html">Nmap Network Scanning (book)</a></td></tr>

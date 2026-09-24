@@ -82,6 +82,6 @@ Your capstone applies the **Week 12 reporting methodology** to a real identity-l
 ## References
 
 - **Identity Under Attack** — the interactive lesson for this module. [Open →](../human-layer/identity-under-attack.html)
-- **Maurushat, *Ethical Hacking*** — ethics of deception & consent. [PDF](https://library.oapen.org/bitstream/id/ab438eb4-5f5d-4509-8c0b-f6c57f271e84/9780776627922.pdf)
+- **Maurushat, *Ethical Hacking*** — ethics of deception & consent. [PDF](https://library.oapen.org/handle/20.500.12657/87998)
 - **MITRE ATT&CK — Phishing (T1566).** [attack.mitre.org](https://attack.mitre.org/techniques/T1566/)
 - **CISA — Avoiding Social Engineering & Phishing.** [cisa.gov](https://www.cisa.gov/news-events/news/avoiding-social-engineering-and-phishing-attacks)
