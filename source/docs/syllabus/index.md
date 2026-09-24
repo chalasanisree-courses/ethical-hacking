@@ -42,7 +42,7 @@ Do these in the first week
 
 1.  Get your institutional email set up (needed for any external sign-ups).
 2.  Log in to the **ACI Skill Labs** portal and confirm you can launch a lab VM (the **Start** button) — run the Week-2 recon lab's intro to test it.
-3.  Bookmark the **[Free Resource Library](../reference/resources/)**.
+3.  Bookmark the **[Free Resource Library](../reference/resources.html)**.
 4.  Read and sign the **Acceptable-Use / Authorization Agreement**.
 5.  Skim Maurushat, *Ethical Hacking*, Introduction (open-access — see Week 1).
 
