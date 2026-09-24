@@ -4,7 +4,7 @@ Every reading in this course is free and open-access. No textbook required. Book
 
 ## Ethics, law & methodology
 
-- **Alana Maurushat, *Ethical Hacking*** (University of Ottawa Press, 2019) — open access. [Publisher](https://press.uottawa.ca/en/9780776627946/ethical-hacking/) · [Full PDF (OAPEN)](https://library.oapen.org/handle/20.500.12657/87998)
+- **Alana Maurushat, *Ethical Hacking*** (University of Ottawa Press, 2019) — open access. [Publisher](https://press.uottawa.ca/en/9780776627946/ethical-hacking/) · [Full PDF (open access)](https://archive.org/details/oapen-20.500.12657-87998)
 - **NIST SP 800-115** — *Technical Guide to Information Security Testing and Assessment.* [PDF](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf) · [CSRC page](https://csrc.nist.gov/pubs/sp/800/115/final)
 - **Penetration Testing Execution Standard (PTES).** [pentest-standard.org](http://www.pentest-standard.org/index.php/Main_Page)
 - **OSSTMM** — Open Source Security Testing Methodology Manual. [isecom.org](https://www.isecom.org/OSSTMM.3.pdf)

@@ -646,7 +646,7 @@ Reconnaissance is noisy but easy to dismiss as background internet traffic. A de
 
 ## References
 
-- **Maurushat, *Ethical Hacking*** (uOttawa, open access) — Introduction + Ch. 1. [Publisher](https://press.uottawa.ca/en/9780776627946/ethical-hacking/) · [PDF](https://library.oapen.org/handle/20.500.12657/87998)
+- **Maurushat, *Ethical Hacking*** (uOttawa, open access) — Introduction + Ch. 1. [Publisher](https://press.uottawa.ca/en/9780776627946/ethical-hacking/) · [PDF](https://archive.org/details/oapen-20.500.12657-87998)
 - **NIST SP 800-115** §1–2 (security testing overview). [Free PDF](https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf)
 - **NIST Cybersecurity Framework (CSF)** — Identify · Protect · Detect · Respond · Recover. [nist.gov/cyberframework](https://www.nist.gov/cyberframework)
 - **MITRE ATT&CK** — the framework we'll use all term. [attack.mitre.org](https://attack.mitre.org/)
