@@ -1657,7 +1657,7 @@
 <p>What you read off the beacon — the <strong>encryption type</strong> — tells you which attack applies. Click each to expand.</p>
 <details class="danger">
 <summary>💥 WEP — broken by design</summary>
-<p>WEP's short <strong>initialization vector (IV)</strong> is sent in the clear and the key is derived from it too simply, so <strong>every packet leaks a little key material.</strong> Capture enough traffic and the key falls in minutes — <em>you extract it, you don't guess it</em> — no matter how long the password is. WEP should never appear in production, but it lingers on legacy gear.</p>
+<p>WEP's short <strong>24-bit initialization vector (IV)</strong> is sent in the clear and reused, and a weakness in <strong>RC4's key scheduling</strong> turns those repeats into leaked key bytes — so <strong>every packet gives up a little key material.</strong> Capture enough traffic and the key falls in minutes — <em>you extract it, you don't guess it</em> — no matter how long the password is. WEP should never appear in production, but it lingers on legacy gear.</p>
 </details>
 <details class="note">
 <summary>🤝 WPA2 — capture, then crack offline</summary>

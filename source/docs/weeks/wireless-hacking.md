@@ -111,7 +111,7 @@ What you read off the beacon — the **encryption type** — tells you which att
 
 ??? danger "💥 WEP — broken by design"
 
-    WEP's short **initialization vector (IV)** is sent in the clear and the key is derived from it too simply, so **every packet leaks a little key material.** Capture enough traffic and the key falls in minutes — *you extract it, you don't guess it* — no matter how long the password is. WEP should never appear in production, but it lingers on legacy gear.
+    WEP's short **24-bit initialization vector (IV)** is sent in the clear and reused, and a weakness in **RC4's key scheduling** turns those repeats into leaked key bytes — so **every packet gives up a little key material.** Capture enough traffic and the key falls in minutes — *you extract it, you don't guess it* — no matter how long the password is. WEP should never appear in production, but it lingers on legacy gear.
 
 ??? note "🤝 WPA2 — capture, then crack offline"
 
