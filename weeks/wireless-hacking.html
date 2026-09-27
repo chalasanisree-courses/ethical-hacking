@@ -1669,7 +1669,7 @@
 </details>
 <details class="info">
 <summary>🪪 Enterprise — certificates instead of a shared password</summary>
-<p>A shared Wi-Fi password is a liability (people who leave still know it). Enterprise Wi-Fi (<strong>802.1X</strong>) has the AP prove its identity with a <strong>certificate</strong> the client verifies — the same idea as an HTTPS web server — so there's no shared secret to leak.</p>
+<p>A shared Wi-Fi password is a liability — everyone knows it, and people who leave still do. Enterprise Wi-Fi (<strong>802.1X</strong>) instead gives <strong>each user their own credential</strong> — a personal login or <strong>certificate</strong> — so there's no shared password to leak, and one person's access can be revoked without changing everyone else's.</p>
 </details>
 <p><strong>The attacker's toolkit</strong> — the aircrack-ng workflow. Click a step:</p>
 <div class="recon-strip">
@@ -1753,7 +1753,7 @@
 </details>
 <details class="danger">
 <summary>🔑 Pairing &amp; keys — Just Works &amp; KNOB</summary>
-<p><strong>"Just Works"</strong> has no code to confirm the peer, so a <strong>man-in-the-middle</strong> can slip into the pairing. <strong>KNOB (2019)</strong> attacks the key <em>negotiation</em> — forcing the encryption key down to as little as <strong>one byte</strong>, then brute-forcing it — even when a code was used. <strong>Defense:</strong> numeric-comparison pairing / LE Secure Connections.</p>
+<p><strong>"Just Works"</strong> has no code to confirm the peer, so a <strong>man-in-the-middle</strong> can slip into the pairing. <strong>KNOB (2019)</strong> attacks the key <em>negotiation</em> — forcing the encryption key down to as little as <strong>one byte</strong>, then brute-forcing it — even when a code was used. <strong>Defenses (two different fixes):</strong> numeric-comparison pairing (LE Secure Connections) stops the man-in-the-middle; a <strong>minimum key-length floor</strong> — enforced in patched firmware, where the Bluetooth standard now requires at least 7 bytes — blocks the KNOB downgrade.</p>
 </details>
 <details class="danger">
 <summary>🧬 The stack itself — BlueBorne</summary>

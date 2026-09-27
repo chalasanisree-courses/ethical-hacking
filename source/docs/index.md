@@ -10,7 +10,7 @@ A CEH-aligned introduction to ethical hacking — learn to scan, test, exploit, 
 
 <div class="meta-row" markdown="1">
 
-<span class="chip">12 weeks · 8 stages</span> <span class="chip">CEH exam-aligned</span> <span class="chip">Interactive notes + video</span> <span class="chip">Open-access readings — $0</span>
+<span class="chip">12 weeks · 7 stages</span> <span class="chip">CEH exam-aligned</span> <span class="chip">Interactive notes + video</span> <span class="chip">Open-access readings — $0</span>
 
 </div>
 

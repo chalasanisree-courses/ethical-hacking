@@ -123,7 +123,7 @@ What you read off the beacon — the **encryption type** — tells you which att
 
 ??? info "🪪 Enterprise — certificates instead of a shared password"
 
-    A shared Wi-Fi password is a liability (people who leave still know it). Enterprise Wi-Fi (**802.1X**) has the AP prove its identity with a **certificate** the client verifies — the same idea as an HTTPS web server — so there's no shared secret to leak.
+    A shared Wi-Fi password is a liability — everyone knows it, and people who leave still do. Enterprise Wi-Fi (**802.1X**) instead gives **each user their own credential** — a personal login or **certificate** — so there's no shared password to leak, and one person's access can be revoked without changing everyone else's.
 
 **The attacker's toolkit** — the aircrack-ng workflow. Click a step:
 
@@ -270,7 +270,7 @@ Every link is built in three steps — and each step is where an attack lives. C
 
 ??? danger "🔑 Pairing & keys — Just Works & KNOB"
 
-    **"Just Works"** has no code to confirm the peer, so a **man-in-the-middle** can slip into the pairing. **KNOB (2019)** attacks the key *negotiation* — forcing the encryption key down to as little as **one byte**, then brute-forcing it — even when a code was used. **Defense:** numeric-comparison pairing / LE Secure Connections.
+    **"Just Works"** has no code to confirm the peer, so a **man-in-the-middle** can slip into the pairing. **KNOB (2019)** attacks the key *negotiation* — forcing the encryption key down to as little as **one byte**, then brute-forcing it — even when a code was used. **Defenses (two different fixes):** numeric-comparison pairing (LE Secure Connections) stops the man-in-the-middle; a **minimum key-length floor** — enforced in patched firmware, where the Bluetooth standard now requires at least 7 bytes — blocks the KNOB downgrade.
 
 ??? danger "🧬 The stack itself — BlueBorne"
 
