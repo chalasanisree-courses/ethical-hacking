@@ -72,5 +72,7 @@ The 2000s **TJX / TJ Maxx** breach — ~94M cards — traced back to attackers c
 
 ## References
 
-- **Aircrack-ng documentation & tutorials.** [aircrack-ng.org/documentation](https://www.aircrack-ng.org/documentation.html)
-- **MITRE ATT&CK** (adversary-in-the-middle / wireless-relevant techniques). [attack.mitre.org](https://attack.mitre.org/)
+- **Aircrack-ng documentation & tutorials** — the WEP/WPA cracking toolset (`airmon-ng` · `airodump-ng` · `aireplay-ng` · `aircrack-ng`). [aircrack-ng.org/documentation](https://www.aircrack-ng.org/documentation.html)
+- **Wireshark User's Guide** — capturing and reading 802.11 beacons, probe requests, and management frames. [wireshark.org/docs](https://www.wireshark.org/docs/wsug_html_chunked/)
+- **MITRE ATT&CK** — Network Sniffing (T1040) · Adversary-in-the-Middle (T1557) · Brute Force (T1110). [T1040](https://attack.mitre.org/techniques/T1040/) · [T1557](https://attack.mitre.org/techniques/T1557/) · [T1110](https://attack.mitre.org/techniques/T1110/)
+- **Wi-Fi Alliance — Wi-Fi security & WPA3.** [wi-fi.org/discover-wi-fi/security](https://www.wi-fi.org/discover-wi-fi/security)

@@ -32,90 +32,30 @@ Students scan, test, hack, and secure systems, implement perimeter defenses, and
 
 The course runs as one attack, from the outside in. You **get oriented**, **stalk the target**, then break through each layer of its defenses — network, host, application, and the data at its core — before turning to the softest wall of all, people, and finally running the whole thing as a real engagement. Every week is an interactive notes page tied to its place in the attack.
 
-<div class="cards" markdown="1">
-
-<div class="card" markdown="1">
-
-### 🧭 Getting Oriented
-
-The whole framework in one week — the attacker/defender loop, threat vs. risk, NIST, the kill chain, and the layers of defense — plus the law and ethics that authorize it all.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🔎 Stalking the Target
-
-Profile the target, then find what is reachable — footprinting, OSINT, Nmap, enumeration, and vulnerability analysis.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 📡 Storming the Perimeter
-
-Break in at the network edge — sniff the wire, break the encryption that shields it, slip past IDS and firewalls, and crack the wireless door.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🖥️ Owning the Machine
-
-Take Windows and Linux hosts, escalate to admin, and hold control with malware, trojans, and command-and-control — plus denial-of-service.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🌐 Breaking the Application
-
-The biggest attack surface — web servers, web applications, SQL injection, and session hijacking.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🎭 Hacking the Human
-
-The wall with no patch — manipulate people, not machines. *Log in, not hack in.*
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🎯 The Full Engagement
-
-Run the whole cycle across every layer, then write the professional report a client pays for.
-
-</div>
-
-</div>
-
 ### 🗓️ Full schedule at a glance
 
 <table class="sched">
-<thead><tr><th>Wk</th><th>Layer</th><th>Topic</th><th>Primary reading (free / open-access)</th></tr></thead>
+<thead><tr><th>Wk</th><th>Layer</th><th>Topic</th><th>What it covers</th></tr></thead>
 <tbody>
 <tr class="sched-group"><td colspan="4">🧭 Getting Oriented</td></tr>
-<tr><td class="wk">1</td><td><span class="pill pill-found">Foundation</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td><a href="https://archive.org/details/oapen-20.500.12657-87998">Maurushat, <em>Ethical Hacking</em> — Ch. 1</a></td></tr>
+<tr><td class="wk">1</td><td><span class="pill pill-found">Foundation</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td>The whole framework in one week — the attacker/defender loop, threat vs. risk, NIST, the kill chain, and the law and ethics that authorize it all.</td></tr>
 <tr class="sched-group"><td colspan="4">🔎 Stalking the Target</td></tr>
-<tr><td class="wk">2</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/reconnaissance-footprinting.html">Reconnaissance &amp; Footprinting</a></td><td><a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">NIST SP 800-115 §4</a></td></tr>
-<tr><td class="wk">3</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/scanning-enumeration.html">Scanning, Enumeration &amp; Vuln Analysis</a></td><td><a href="https://nmap.org/book/toc.html">Nmap Network Scanning (book)</a></td></tr>
+<tr><td class="wk">2</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/reconnaissance-footprinting.html">Reconnaissance &amp; Footprinting</a></td><td>Profile the target from the outside — footprinting, OSINT, and mapping the attack surface before you touch it.</td></tr>
+<tr><td class="wk">3</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/scanning-enumeration.html">Scanning, Enumeration &amp; Vuln Analysis</a></td><td>Find what's reachable and what's weak — Nmap host discovery, port scanning, enumeration, and vulnerability analysis.</td></tr>
 <tr class="sched-group"><td colspan="4">📡 Storming the Perimeter</td></tr>
-<tr><td class="wk">4</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/network-hacking-sniffing.html">Network Hacking &amp; Sniffing</a></td><td><a href="https://www.wireshark.org/docs/wsug_html_chunked/">Wireshark User's Guide</a></td></tr>
-<tr><td class="wk">5</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td><a href="https://www.crypto101.io/">Crypto 101 — Ch. 1–7</a></td></tr>
-<tr><td class="wk">6</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/wireless-hacking.html">Wireless Hacking</a></td><td><a href="https://www.aircrack-ng.org/documentation.html">Aircrack-ng documentation</a></td></tr>
+<tr><td class="wk">4</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/network-hacking-sniffing.html">Network Hacking &amp; Sniffing</a></td><td>Get on the wire — sniffing, ARP poisoning, and man-in-the-middle at the network edge.</td></tr>
+<tr><td class="wk">5</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td>The math behind HTTPS, built then broken — you attack weak passwords, missing salt, and forged trust, not the cipher.</td></tr>
+<tr><td class="wk">6</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/wireless-hacking.html">Wireless Hacking</a></td><td>Crack the wireless door — find Wi-Fi by listening, capture the handshake, and break WEP/WPA.</td></tr>
 <tr class="sched-group"><td colspan="4">🖥️ Owning the Machine</td></tr>
-<tr><td class="wk">7</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/system-attacks.html">System Attacks</a></td><td><a href="https://www.offsec.com/metasploit-unleashed/">Metasploit Unleashed</a></td></tr>
-<tr><td class="wk">8</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/malware-trojans-dos.html">Malware, Trojans &amp; DoS</a></td><td><a href="https://attack.mitre.org/tactics/TA0011/">MITRE ATT&amp;CK — C2 (TA0011)</a></td></tr>
+<tr><td class="wk">7</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/system-attacks.html">System Attacks</a></td><td>Take Windows and Linux hosts — exploitation, privilege escalation, and holding control.</td></tr>
+<tr><td class="wk">8</td><td><span class="pill pill-dev">Device</span></td><td><a href="weeks/malware-trojans-dos.html">Malware, Trojans &amp; DoS</a></td><td>Persistence and disruption — malware, trojans, command-and-control, and denial-of-service.</td></tr>
 <tr class="sched-group"><td colspan="4">🌐 Breaking the Application</td></tr>
-<tr><td class="wk">9</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-servers-apps.html">Web Attacks I — Servers &amp; Apps</a></td><td><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a></td></tr>
-<tr><td class="wk">10</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-sqli-session.html">Web Attacks II — SQLi &amp; Session Hijacking</a></td><td><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP SQLi Prevention</a></td></tr>
+<tr><td class="wk">9</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-servers-apps.html">Web Attacks I — Servers &amp; Apps</a></td><td>The biggest attack surface — web server and web application flaws, mapped to the OWASP Top 10.</td></tr>
+<tr><td class="wk">10</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-sqli-session.html">Web Attacks II — SQLi &amp; Session Hijacking</a></td><td>Break the database and steal the session — SQL injection and session hijacking.</td></tr>
 <tr class="sched-group"><td colspan="4">🎭 Hacking the Human</td></tr>
-<tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering &amp; the Identity Layer</a></td><td><a href="https://chalasanisree-courses.github.io/aws-security-course/concepts/AI-in-SocialEngineeringAttacks.html">Identity Under Attack (interactive lesson)</a></td></tr>
+<tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering &amp; the Identity Layer</a></td><td>The wall with no patch — manipulate people, not machines. <em>Log in, not hack in.</em></td></tr>
 <tr class="sched-group"><td colspan="4">🎯 The Full Engagement</td></tr>
-<tr><td class="wk">12</td><td><span class="pill pill-found">All layers</span></td><td><a href="weeks/penetration-testing.html">Penetration Testing — Methodology &amp; Reporting</a></td><td><a href="https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-115.pdf">NIST SP 800-115 §5–8</a></td></tr>
+<tr><td class="wk">12</td><td><span class="pill pill-found">All layers</span></td><td><a href="weeks/penetration-testing.html">Penetration Testing — Methodology &amp; Reporting</a></td><td>Run the whole cycle across every layer, then write the professional report a client pays for.</td></tr>
 </tbody>
 </table>
 

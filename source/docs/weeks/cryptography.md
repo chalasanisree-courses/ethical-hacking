@@ -325,9 +325,9 @@ Every tool here reappears **over the air**. Offline hash cracking → cracking t
 
 </div>
 
-??? note "📚 References (click to expand)"
+## References
 
-    - **Crypto 101** (free book) — Ch. 1–7: ciphers, key exchange, public-key, hashes. [crypto101.io](https://www.crypto101.io/)
-    - **OWASP — Password Storage Cheat Sheet** (salting, bcrypt/argon2). [cheatsheetseries.owasp.org](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
-    - **MITRE ATT&CK** — T1600 · T1557 · T1553. [attack.mitre.org](https://attack.mitre.org/techniques/T1600/)
-    - **How HTTPS works** — an illustrated TLS handshake. [howhttps.works](https://howhttps.works/)
+- **Crypto 101** (free book) — Ch. 1–7: ciphers, key exchange, public-key, hashes. [crypto101.io](https://www.crypto101.io/)
+- **OWASP — Password Storage Cheat Sheet** (salting, bcrypt/argon2). [cheatsheetseries.owasp.org](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html)
+- **MITRE ATT&CK** — T1600 · T1557 · T1553. [attack.mitre.org](https://attack.mitre.org/techniques/T1600/)
+- **How HTTPS works** — an illustrated TLS handshake. [howhttps.works](https://howhttps.works/)
