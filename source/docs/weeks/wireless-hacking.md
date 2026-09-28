@@ -7,7 +7,7 @@ hide:
 
 # Week 6 · Wireless Hacking
 
-<span class="kc-badge">🧭 CEH life cycle · Recon → Scanning → Gaining Access (wireless)</span>
+<span class="kc-badge">🧭 Kill chain · Recon → Scanning → Gaining Access (wireless)</span>
 
 <div class="attck-strip" markdown="1">
 
@@ -87,15 +87,21 @@ The one detail that matters for capturing traffic: an AP talks on **one channel 
 WPA2's **management frames aren't protected**, so *anyone can forge a deauthentication frame.* That's the hinge between scanning and the attack: force a device to reconnect, and you capture the fresh handshake you need to crack.
 
 <svg viewBox="0 0 720 250" role="img" aria-label="Deauth sequence: the attacker forges a deauth pretending to be the AP; the client is kicked off and automatically reconnects; the fresh four-way handshake is captured by the attacker in monitor mode." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;height:auto;display:block;margin:14px auto;font-family:system-ui,sans-serif;font-size:12.5px;">
+  <!-- lifelines -->
   <g stroke="currentColor" stroke-opacity="0.28" stroke-dasharray="4 4"><line x1="95" y1="52" x2="95" y2="238"/><line x1="360" y1="52" x2="360" y2="238"/><line x1="625" y1="52" x2="625" y2="238"/></g>
+  <!-- headers -->
   <rect x="35" y="24" width="120" height="30" rx="7" fill="#c0392b"/><text x="95" y="43" text-anchor="middle" fill="#fff" font-weight="700">Attacker</text>
   <rect x="305" y="24" width="110" height="30" rx="7" fill="none" stroke="currentColor" stroke-opacity="0.5"/><text x="360" y="43" text-anchor="middle" fill="currentColor" font-weight="700">Client</text>
   <rect x="565" y="24" width="120" height="30" rx="7" fill="#0e6b82"/><text x="625" y="43" text-anchor="middle" fill="#fff" font-weight="700">Access Point</text>
+  <!-- 1 forged deauth -->
   <line x1="95" y1="86" x2="352" y2="86" stroke="#c0392b" stroke-width="2" marker-end="url(#ah)"/>
   <text x="100" y="79" fill="#c0392b" font-weight="700">① forged deauth — "you're disconnected" (spoofing the AP)</text>
+  <!-- 2 kicked off -->
   <text x="360" y="118" text-anchor="middle" fill="currentColor" font-style="italic">② client drops the connection</text>
+  <!-- 3 reconnect handshake -->
   <line x1="368" y1="150" x2="623" y2="150" stroke="currentColor" stroke-width="2" marker-end="url(#ag)"/>
   <text x="372" y="143" fill="currentColor" font-weight="700">③ auto-reconnect → 4-way handshake</text>
+  <!-- 4 captured -->
   <line x1="500" y1="196" x2="100" y2="196" stroke="#B45309" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#am)"/>
   <text x="150" y="220" fill="#B45309" font-weight="700">④ handshake captured in monitor mode → crack it offline</text>
   <defs>
@@ -111,7 +117,7 @@ What you read off the beacon — the **encryption type** — tells you which att
 
 ??? danger "💥 WEP — broken by design"
 
-    WEP's short **24-bit initialization vector (IV)** is sent in the clear and reused, and a weakness in **RC4's key scheduling** turns those repeats into leaked key bytes — so **every packet gives up a little key material.** Capture enough traffic and the key falls in minutes — *you extract it, you don't guess it* — no matter how long the password is. WEP should never appear in production, but it lingers on legacy gear.
+    WEP's short **initialization vector (IV)** is sent in the clear and the key is derived from it too simply, so **every packet leaks a little key material.** Capture enough traffic and the key falls in minutes — *you extract it, you don't guess it* — no matter how long the password is. WEP should never appear in production, but it lingers on legacy gear.
 
 ??? note "🤝 WPA2 — capture, then crack offline"
 
@@ -123,7 +129,7 @@ What you read off the beacon — the **encryption type** — tells you which att
 
 ??? info "🪪 Enterprise — certificates instead of a shared password"
 
-    A shared Wi-Fi password is a liability — everyone knows it, and people who leave still do. Enterprise Wi-Fi (**802.1X**) instead gives **each user their own credential** — a personal login or **certificate** — so there's no shared password to leak, and one person's access can be revoked without changing everyone else's.
+    A shared Wi-Fi password is a liability (people who leave still know it). Enterprise Wi-Fi (**802.1X**) has the AP prove its identity with a **certificate** the client verifies — the same idea as an HTTPS web server — so there's no shared secret to leak.
 
 **The attacker's toolkit** — the aircrack-ng workflow. Click a step:
 
@@ -206,18 +212,21 @@ Both live on **2.4 GHz** and dodge interference by **frequency hopping** across 
 The big structural difference from Wi-Fi: **there's no access point.** Wi-Fi is hub-and-spoke through an AP; Bluetooth is devices **pairing directly** in a *piconet*.
 
 <svg viewBox="0 0 720 240" role="img" aria-label="Left: Wi-Fi, several clients connect up through one central access point. Right: Bluetooth piconet, a phone links directly to earbuds, watch, and speaker with no access point." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;height:auto;display:block;margin:14px auto;font-family:system-ui,sans-serif;font-size:12px;">
+  <!-- divider -->
   <line x1="360" y1="18" x2="360" y2="222" stroke="currentColor" stroke-opacity="0.18"/>
+  <!-- LEFT: Wi-Fi -->
   <text x="175" y="30" text-anchor="middle" fill="currentColor" font-weight="700" font-size="13">Wi-Fi — through an access point</text>
   <g stroke="currentColor" stroke-opacity="0.4"><line x1="175" y1="78" x2="80" y2="150"/><line x1="175" y1="78" x2="175" y2="150"/><line x1="175" y1="78" x2="270" y2="150"/></g>
   <rect x="128" y="52" width="94" height="30" rx="7" fill="#0e6b82"/><text x="175" y="71" text-anchor="middle" fill="#fff" font-weight="700">Access Point</text>
   <g fill="none" stroke="currentColor" stroke-opacity="0.5"><rect x="40" y="150" width="80" height="26" rx="6"/><rect x="135" y="150" width="80" height="26" rx="6"/><rect x="230" y="150" width="80" height="26" rx="6"/></g>
   <g fill="currentColor" text-anchor="middle"><text x="80" y="167">Laptop</text><text x="175" y="167">Phone</text><text x="270" y="167">Tablet</text></g>
   <text x="175" y="205" text-anchor="middle" fill="currentColor" fill-opacity="0.7">everyone joins one network the AP advertises</text>
+  <!-- RIGHT: Bluetooth piconet -->
   <text x="545" y="30" text-anchor="middle" fill="currentColor" font-weight="700" font-size="13">Bluetooth — a piconet (no AP)</text>
   <g stroke="#0e6b82" stroke-width="1.5"><line x1="545" y1="120" x2="455" y2="70"/><line x1="545" y1="120" x2="635" y2="70"/><line x1="545" y1="120" x2="545" y2="185"/></g>
   <g fill="none" stroke="currentColor" stroke-opacity="0.5"><rect x="410" y="55" width="90" height="26" rx="6"/><rect x="590" y="55" width="90" height="26" rx="6"/><rect x="500" y="185" width="90" height="26" rx="6"/></g>
   <g fill="currentColor" text-anchor="middle"><text x="455" y="72">Earbuds</text><text x="635" y="72">Watch</text><text x="545" y="202">Speaker</text></g>
-  <rect x="487" y="104" width="116" height="32" rx="7" fill="#3949ab"/><text x="545" y="124" text-anchor="middle" fill="#fff" font-weight="700">Phone · central</text>
+  <rect x="497" y="104" width="96" height="32" rx="7" fill="#37414e"/><text x="545" y="124" text-anchor="middle" fill="#fff" font-weight="700">Phone · central</text>
 </svg>
 
 Every link is built in three steps — and each step is where an attack lives. Click through:
@@ -270,7 +279,7 @@ Every link is built in three steps — and each step is where an attack lives. C
 
 ??? danger "🔑 Pairing & keys — Just Works & KNOB"
 
-    **"Just Works"** has no code to confirm the peer, so a **man-in-the-middle** can slip into the pairing. **KNOB (2019)** attacks the key *negotiation* — forcing the encryption key down to as little as **one byte**, then brute-forcing it — even when a code was used. **Defenses (two different fixes):** numeric-comparison pairing (LE Secure Connections) stops the man-in-the-middle; a **minimum key-length floor** — enforced in patched firmware, where the Bluetooth standard now requires at least 7 bytes — blocks the KNOB downgrade.
+    **"Just Works"** has no code to confirm the peer, so a **man-in-the-middle** can slip into the pairing. **KNOB (2019)** attacks the key *negotiation* — forcing the encryption key down to as little as **one byte**, then brute-forcing it — even when a code was used. **Defense:** numeric-comparison pairing / LE Secure Connections.
 
 ??? danger "🧬 The stack itself — BlueBorne"
 
