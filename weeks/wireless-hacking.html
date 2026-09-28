@@ -649,10 +649,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-players" class="md-nav__link">
+  <a href="#the-players-a-station-an-access-point-and-the-signal-between" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The players
+        The players — a station, an access point, and the signal between
       
     </span>
   </a>
@@ -660,32 +660,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#station-access-point" class="md-nav__link">
+  <a href="#the-standards-bands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📻 Station &amp; access point
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ssid-vs-bssid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🏷️ SSID vs BSSID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ap-router" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔀 AP ≠ router
+        The standards &amp; bands
       
     </span>
   </a>
@@ -1483,10 +1461,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-players" class="md-nav__link">
+  <a href="#the-players-a-station-an-access-point-and-the-signal-between" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The players
+        The players — a station, an access point, and the signal between
       
     </span>
   </a>
@@ -1494,32 +1472,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#station-access-point" class="md-nav__link">
+  <a href="#the-standards-bands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📻 Station &amp; access point
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ssid-vs-bssid" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🏷️ SSID vs BSSID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ap-router" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔀 AP ≠ router
+        The standards &amp; bands
       
     </span>
   </a>
@@ -1722,35 +1678,28 @@
 <p>The same playbook as the rest of the course — <strong>recon, then scanning, then gaining access</strong> — just aimed at a radio instead of a wire. Because Wi-Fi broadcasts through the air, an attacker in range needs <strong>no physical access</strong>: just an adapter that can <em>listen</em>. This page follows the three lectures in order.</p>
 <h2 id="part-1-recon-scanning-building-the-map">Part 1 · Recon &amp; scanning — building the map<a class="headerlink" href="#part-1-recon-scanning-building-the-map" title="Permanent link">&para;</a></h2>
 <p>Recon and scanning are the <strong>first two phases</strong> of the CEH life cycle. As with the rest of the course, the goal is to <strong>build a map</strong> — like the crew in <em>Ocean's Eleven</em> putting pins on a board — except the target here is the <strong>wireless network itself</strong>: who the access points are, which standard and security they use, and which clients are talking to them.</p>
-<h3 id="the-players">The players<a class="headerlink" href="#the-players" title="Permanent link">&para;</a></h3>
-<div class="cards">
-<div class="card">
-<h3 id="station-access-point">📻 Station &amp; access point<a class="headerlink" href="#station-access-point" title="Permanent link">&para;</a></h3>
-<p>The <strong>station</strong> is the client — your laptop or phone. The <strong>access point (AP)</strong> is the radio it talks to. The signal between them <em>is</em> the Wi-Fi network — radio, not a cable.</p>
-</div>
-<div class="card">
-<h3 id="ssid-vs-bssid">🏷️ SSID vs BSSID<a class="headerlink" href="#ssid-vs-bssid" title="Permanent link">&para;</a></h3>
-<p>The <strong>SSID</strong> is the network <em>name</em> you pick ("CompanyWiFi") — and it can repeat. The <strong>BSSID</strong> is the AP's <em>MAC address</em> — unique to that one radio. <strong>One SSID, many BSSIDs.</strong></p>
-</div>
-<div class="card">
-<h3 id="ap-router">🔀 AP ≠ router<a class="headerlink" href="#ap-router" title="Permanent link">&para;</a></h3>
-<p>An access point is <em>just the radio bridge</em>. The box at home is an AP <strong>plus</strong> a router, switch, and firewall in one. Offices wire up <em>many</em> standalone APs, all advertising the same SSID.</p>
-</div>
-</div>
-<p>That last point is the difference between a big network and a home one. An <strong>office</strong> wires up many standalone APs — one or more per floor — each cabled to the corporate LAN but all advertising the <strong>same SSID</strong>, so you roam the building on one name. At <strong>home</strong>, a Wi-Fi <strong>extender</strong> instead forms a <em>mesh</em> with your router: only the router reaches the internet, and the extender just widens the coverage.</p>
-<h3 id="what-the-access-point-is-doing">What the access point is doing<a class="headerlink" href="#what-the-access-point-is-doing" title="Permanent link">&para;</a></h3>
-<p>An AP does three things, and the first one is what makes recon so easy:</p>
-<ol>
-<li><strong>Advertises itself</strong> — it sends out a <strong>beacon</strong> about ten times a second, carrying the network <strong>name</strong>, the <strong>channel</strong>, and the <strong>security type</strong> (WEP / WPA2 / WPA3).</li>
-<li><strong>Accepts</strong> clients — it runs a handshake, agrees on security, and lets the client join.</li>
-<li><strong>Relays</strong> data — once you're on, it shuttles your traffic to and from the internet.</li>
-</ol>
-<p>Because the beacon is a constant public broadcast, <strong>finding a network isn't hacking — it's tuning in</strong>, like turning a car radio to a station.</p>
-<div class="role-red">
-<p><strong>Recon = pure listening.</strong> Put the card in <strong>monitor mode</strong> (the Wi-Fi version of promiscuous mode) and you transmit <em>nothing</em> — you're invisible. You pick up the <strong>beacons</strong> from every AP (this is the <code>airodump-ng</code> table: BSSID, channel, encryption, name) <em>and</em> the <strong>probe requests</strong> clients leak — phones constantly calling out "is <em>HomeWiFi</em> here?" Both are recon.</p>
-<p><strong>Scanning = go active.</strong> Now you transmit: send <strong>probe requests</strong> or <strong>deauths</strong> to flush out hidden SSIDs and force devices to reveal themselves, and read from the captured frames <strong>which clients are on which AP</strong> — your target map.</p>
-</div>
-<p>The one detail that matters for capturing traffic: an AP talks on <strong>one channel at a time</strong>, like a radio station, so your card has to be tuned to that channel.</p>
+<h3 id="the-players-a-station-an-access-point-and-the-signal-between">The players — a station, an access point, and the signal between<a class="headerlink" href="#the-players-a-station-an-access-point-and-the-signal-between" title="Permanent link">&para;</a></h3>
+<p>First, <em>who is actually talking.</em> On one side is the <strong>station</strong> — the client, your laptop or phone. On the other is the <strong>access point (AP)</strong> — the radio the station talks to. And the <strong>radio signal between them <em>is</em> the Wi-Fi network</strong>: radio waves, not a cable. That's the whole cast.</p>
+<p><svg viewBox="0 0 720 190" role="img" aria-label="A station, the client laptop or phone, on the left connects by radio signal to an access point on the right. The signal between them is the Wi-Fi network. The network is named by its SSID; the access point is identified by its BSSID, which is its MAC address." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px;height:auto;display:block;margin:16px auto;font-family:system-ui,sans-serif;font-size:12px;">
+  <rect x="28" y="72" width="168" height="54" rx="8" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
+  <text x="112" y="96" text-anchor="middle" fill="currentColor" font-weight="700" font-size="13">Station</text>
+  <text x="112" y="114" text-anchor="middle" fill="currentColor" fill-opacity="0.7">the client — laptop / phone</text>
+  <rect x="524" y="72" width="168" height="54" rx="8" fill="#0e6b82"/>
+  <text x="608" y="96" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="13">Access Point</text>
+  <text x="608" y="114" text-anchor="middle" fill="#cfe6ec">BSSID = its MAC address</text>
+  <line x1="196" y1="99" x2="524" y2="99" stroke="currentColor" stroke-width="2" stroke-dasharray="6 5"/>
+  <g fill="none" stroke="#076D83" stroke-width="2.4" stroke-linecap="round">
+    <path d="M344 95 a24 24 0 0 1 32 0"/>
+    <path d="M335 87 a37 37 0 0 1 50 0"/>
+  </g>
+  <circle cx="360" cy="99" r="3.5" fill="#076D83"/>
+  <text x="360" y="62" text-anchor="middle" fill="#076D83" font-weight="700">SSID — the network's name</text>
+  <text x="360" y="150" text-anchor="middle" fill="currentColor" fill-opacity="0.75" font-style="italic">the signal between them is the Wi-Fi network — radio, not a cable</text>
+</svg></p>
+<p>Those two players are each <em>identified</em> by a label — and this is where SSID and BSSID come in. The whole network goes by a <strong>name, the SSID</strong> ("CompanyWiFi"), and the same SSID can be broadcast by many radios at once. Each individual access point is identified by its <strong>BSSID</strong>, which is simply that radio's <strong>MAC address</strong>. So <strong>one SSID can sit on many BSSIDs.</strong></p>
+<p>One clarification, because the words get used interchangeably: an <strong>access point is not a router.</strong> The AP is <em>only the radio bridge</em> — the box at home bundles an AP together with a router, a switch, and a firewall. An <strong>office</strong> wires up many standalone APs — one or more per floor, each cabled to the corporate LAN — all advertising the <em>same</em> SSID, so you roam the building on one name. At <strong>home</strong>, a Wi-Fi <strong>extender</strong> forms a <em>mesh</em> with your router to widen coverage, with only the router actually reaching the internet.</p>
+<h3 id="the-standards-bands">The standards &amp; bands<a class="headerlink" href="#the-standards-bands" title="Permanent link">&para;</a></h3>
+<p>The signal itself comes in generations — the <strong>802.11</strong> family — and which one an access point uses sets its speed, its range, and how many channels it has to work with.</p>
 <details class="note">
 <summary>📡 The 802.11 standards &amp; bands — click to expand</summary>
 <table>
@@ -1786,6 +1735,19 @@
 </table>
 <p>Think of it like roads. <strong>2.4 GHz</strong> is El Camino Real — it runs <em>far</em> and through walls, but it's a slow, congested two-lane road. <strong>5 / 6 GHz</strong> are the freeway — more lanes (channels) and much higher speed, but they don't reach as far. Higher frequency → less range, more bandwidth.</p>
 </details>
+<h3 id="what-the-access-point-is-doing">What the access point is doing<a class="headerlink" href="#what-the-access-point-is-doing" title="Permanent link">&para;</a></h3>
+<p>An AP does three things, and the first one is what makes recon so easy:</p>
+<ol>
+<li><strong>Advertises itself</strong> — it sends out a <strong>beacon</strong> about ten times a second, carrying the network <strong>name</strong>, the <strong>channel</strong>, and the <strong>security type</strong> (WEP / WPA2 / WPA3).</li>
+<li><strong>Accepts</strong> clients — it runs a handshake, agrees on security, and lets the client join.</li>
+<li><strong>Relays</strong> data — once you're on, it shuttles your traffic to and from the internet.</li>
+</ol>
+<p>Because the beacon is a constant public broadcast, <strong>finding a network isn't hacking — it's tuning in</strong>, like turning a car radio to a station.</p>
+<div class="role-red">
+<p><strong>Recon = pure listening.</strong> Put the card in <strong>monitor mode</strong> (the Wi-Fi version of promiscuous mode) and you transmit <em>nothing</em> — you're invisible. You pick up the <strong>beacons</strong> from every AP (this is the <code>airodump-ng</code> table: BSSID, channel, encryption, name) <em>and</em> the <strong>probe requests</strong> clients leak — phones constantly calling out "is <em>HomeWiFi</em> here?" Both are recon.</p>
+<p><strong>Scanning = go active.</strong> Now you transmit: send <strong>probe requests</strong> or <strong>deauths</strong> to flush out hidden SSIDs and force devices to reveal themselves, and read from the captured frames <strong>which clients are on which AP</strong> — your target map.</p>
+</div>
+<p>The one detail that matters for capturing traffic: an AP talks on <strong>one channel at a time</strong>, like a radio station, so your card has to be tuned to that channel.</p>
 <h3 id="the-deauth-trick-capturing-the-handshake">The deauth trick → capturing the handshake<a class="headerlink" href="#the-deauth-trick-capturing-the-handshake" title="Permanent link">&para;</a></h3>
 <p>Here's the hinge from recon into the actual attack. When a client first joins an AP, the two run a <strong>handshake</strong> that carries the secrets you'd want to crack — but if you walked into the coffee shop late, you <em>missed it</em>. WPA2's <strong>management frames aren't protected</strong>, so anyone can <strong>forge a deauthentication frame</strong> that looks like it came from the AP. Knock the client off, it reconnects automatically, and you capture a <strong>fresh handshake</strong> — which you take away and crack in Part 2.</p>
 <p><svg viewBox="0 0 720 250" role="img" aria-label="Deauth sequence: the attacker forges a deauth pretending to be the AP; the client is kicked off and automatically reconnects; the fresh four-way handshake is captured by the attacker in monitor mode." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:660px;height:auto;display:block;margin:14px auto;font-family:system-ui,sans-serif;font-size:12.5px;">
