@@ -415,7 +415,7 @@ Evade detection and hide the intrusion — log tampering, timestomping, and anti
 
 ### One attack, four ways to name it
 
-The attacker loop is simple: **reconnaissance** to study the target, then **land** — exploitation to get a foothold — then **expand** — escalate, move, and persist to reach the prize. The course itself is organized by the **CEH five phases**, and two named industry models — Lockheed Martin's **Cyber Kill Chain** and **MITRE ATT&CK** — describe the same sequence. Here's how they line up:
+The attacker loop is simple: **land** — reconnaissance and scanning to study the target, then exploitation to get a foothold — then **expand** — escalate, move, and persist to reach the prize. The course itself is organized by the **CEH five phases**, and two named industry models — Lockheed Martin's **Cyber Kill Chain** and **MITRE ATT&CK** — describe the same sequence. Here's how they line up:
 
 <div style="overflow-x:auto;margin:20px 0;" markdown="1">
 
@@ -434,15 +434,13 @@ The attacker loop is simple: **reconnaissance** to study the target, then **land
 <text x="8" y="151.0" font-size="9.2" fill="#6b7280">Lockheed Martin</text>
 <text x="8" y="225.0" font-size="11" font-weight="800" fill="#7a4a0b">MITRE ATT&amp;CK</text>
 <text x="8" y="239.0" font-size="9.2" fill="#6b7280">tactics / techniques</text>
-<rect x="138" y="10" width="300" height="34" rx="9" fill="none" stroke="#c2ccd8" stroke-width="1.5" stroke-dasharray="4 3"/>
-<text x="288" y="31.0" text-anchor="middle" font-size="10.5" font-weight="600" fill="#64748b">reconnaissance &middot; before the foothold</text>
-<rect x="446" y="10" width="146" height="34" rx="17" fill="#2b6cb0"/>
-<text x="519" y="32.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">LAND</text>
+<rect x="138" y="10" width="454" height="34" rx="17" fill="#2b6cb0"/>
+<text x="365" y="28.5" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">LAND</text>
+<text x="365" y="40.0" text-anchor="middle" font-size="8" fill="#cfe0f3">recon &amp; scanning &rarr; foothold</text>
 <text x="596" y="33.0" text-anchor="middle" font-size="16" font-weight="800" fill="#9aa3af">&#8250;</text>
-<rect x="600" y="10" width="146" height="34" rx="17" fill="#c0453a"/>
-<text x="673" y="32.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">EXPAND</text>
-<rect x="754" y="10" width="146" height="34" rx="9" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 3"/>
-<text x="827" y="31.0" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">not in the loop</text>
+<rect x="600" y="10" width="300" height="34" rx="17" fill="#c0453a"/>
+<text x="750" y="28.5" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff" letter-spacing="1">EXPAND</text>
+<text x="750" y="40.0" text-anchor="middle" font-size="8" fill="#f3cfc9">escalate &middot; move &middot; persist</text>
 <rect x="138" y="58" width="146" height="48" rx="9" fill="#0e6b82" stroke="#0a5666" stroke-width="1"/>
 <text x="211.0" y="87.0" text-anchor="middle" font-size="13" font-weight="800" fill="#ffffff">1 · Reconnaissance</text>
 <rect x="138" y="114" width="146" height="52" rx="9" fill="#eaf2fb" stroke="#b6cfe8" stroke-width="1"/>
