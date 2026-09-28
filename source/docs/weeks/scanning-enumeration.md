@@ -7,7 +7,7 @@ hide:
 
 # Week 3 · Scanning, Enumeration & Vulnerability Analysis
 
-<span class="kc-badge">🧭 Kill chain · Phase 2 — Scanning</span>
+<span class="kc-badge">🧭 CEH life cycle · Phase 2 — Scanning</span>
 
 The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the **attacker's** view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the **defender's** view.
 
@@ -128,7 +128,7 @@ A **port** is a numbered door on a machine; each open one is a service you might
 
 Two main styles (**TCP** = Transmission Control Protocol, **SYN** = the first packet of a TCP handshake):
 
-- `nmap -sS scanme.nmap.org` — **SYN "half-open" scan**: starts the handshake, never finishes it. Fast and quieter — the default.
+- `nmap -sS scanme.nmap.org` — **SYN "half-open" scan**: starts the handshake, never finishes it. Fast and quieter — the default (it needs **root/sudo**; without it Nmap falls back to a full connect scan).
 - `nmap -sT scanme.nmap.org` — **full connect scan**: completes every handshake. Reliable but **loud** (the target logs each one).
 - `nmap -sU scanme.nmap.org` — **UDP scan** for connectionless services (DNS, SNMP). Slow, but many important services live here.
 
@@ -168,7 +168,7 @@ Knowing it's Windows vs. Linux (and which version) narrows which attacks are eve
 Scanning finds the door; **enumeration** reads the nameplate on it. Once a service is identified, you interrogate it for detail you can act on — usernames, shared folders, group memberships. Each protocol leaks different things:
 
 - **SMB** (Server Message Block — Windows file sharing): shares, users, domain info — tools `enum4linux`, `smbclient`
-- **SNMP** (Simple Network Management Protocol): device configs, routing tables — and watch for the default `public` password, a classic finding
+- **SNMP** (Simple Network Management Protocol): device configs, routing tables — and watch for the default `public` **community string**, a classic finding
 - **LDAP** (directory service): the org's user and group tree
 - **SMTP** (email): valid usernames, which feed password attacks later
 

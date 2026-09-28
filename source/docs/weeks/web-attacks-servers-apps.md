@@ -7,7 +7,7 @@ hide:
 
 # Week 9 · Web Attacks I — Servers & Apps
 
-<span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span>
+<span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access (web)</span>
 
 <div class="attck-strip" markdown="1">
 

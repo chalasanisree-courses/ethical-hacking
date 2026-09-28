@@ -7,7 +7,7 @@ hide:
 
 # Week 2 · Reconnaissance & Footprinting
 
-<span class="kc-badge">🧭 Kill chain · Phase 1 — Reconnaissance</span>
+<span class="kc-badge">🧭 CEH life cycle · Phase 1 — Reconnaissance</span>
 
 The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the **attacker's** view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the **defender's** view.
 
@@ -63,7 +63,7 @@ A company keeps its internal network hidden — from the outside it's a **black 
 
 ## 3. The recon flow — click through it
 
-Six moves take you from a bare domain name to a full footprint. **Click each step** to see the tool, the command, and what it reveals about Coca-Cola. They escalate: the first steps are *passive* (the target never knows), and step 4 is the one that crosses into *active* (the target could notice).
+Six moves take you from a bare domain name to a full footprint. **Click each step** to see the tool, the command, and what it reveals about Coca-Cola. You **start passive** — the target never knows — and go **active** only when you need to dig deeper. Step 4 (the zone transfer) is the one that crosses that line and the target could notice.
 
 <div class="recon-strip" markdown="1">
 

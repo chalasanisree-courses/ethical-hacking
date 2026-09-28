@@ -7,7 +7,7 @@ hide:
 
 # Week 12 · Penetration Testing — Methodology & Reporting
 
-<span class="kc-badge">🧭 Kill chain · Phase 5 — Covering Tracks & Reporting</span>
+<span class="kc-badge">🧭 CEH life cycle · Phase 5 — Covering Tracks & Reporting</span>
 
 <div class="attck-strip" markdown="1">
 

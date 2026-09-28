@@ -7,7 +7,7 @@ hide:
 
 # Week 6 · Wireless Hacking
 
-<span class="kc-badge">🧭 Kill chain · Recon → Scanning → Gaining Access (wireless)</span>
+<span class="kc-badge">🧭 CEH life cycle · Recon → Scanning → Gaining Access (wireless)</span>
 
 <div class="attck-strip" markdown="1">
 

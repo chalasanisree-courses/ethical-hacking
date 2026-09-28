@@ -1823,9 +1823,9 @@
 </style>
 
 <h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (the quiet way)</span></p>
+<p><span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access (the quiet way)</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/techniques/T1557/002/" class="attck-tag" target="_blank">T1557.002 ARP Cache Poisoning</a> <a href="https://attack.mitre.org/tactics/TA0005/" class="attck-tag" target="_blank">TA0005 Defense Evasion</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/techniques/T1557/002/" class="attck-tag" target="_blank">T1557.002 ARP Cache Poisoning</a></p>
 </div>
 <p>This week alternates between the <span style="color:#c0392b;font-weight:700;">🔴 attacker's move</span> and the <span style="color:#0e6b82;font-weight:700;">🔵 blue team's answer</span> — the coloured line down the left tells you which one you're reading.</p>
 <div class="rt-rail">
@@ -1833,14 +1833,14 @@
 <div class="admonition abstract">
 <p>What you'll learn</p>
 <ul>
-<li>Where we are in the CEH kill chain — <strong>Phase 3, gaining access</strong> — and the two ways in</li>
+<li>Where we are in the CEH life cycle — <strong>Phase 3, gaining access</strong> — and the two ways in</li>
 <li>The <strong>quiet way</strong>: reading a password straight off the wire — and how the blue team answers it (<strong>encrypt everything + the firewall</strong>)</li>
 <li>Once <strong>inside</strong>, why listening to the network is <strong>reconnaissance from within</strong> — passive vs. active sniffing</li>
 <li><strong>ARP spoofing</strong> — becoming the man in the middle — and the blue-team answer (<strong>detect, inspect, segment</strong>)</li>
 </ul>
 </div>
 <h2 id="1-where-we-are-gaining-access">1. Where we are: gaining access<a class="headerlink" href="#1-where-we-are-gaining-access" title="Permanent link">&para;</a></h2>
-<p>We've been walking the attacker's life cycle — the <strong>CEH kill chain</strong>. We built the map (<strong>recon</strong>, Week 2), we tried the doors (<strong>scanning</strong>, Week 3), and now we're at <strong>Phase 3 — gaining access</strong>: actually getting in.</p>
+<p>We've been walking the attacker's life cycle — the <strong>CEH phases</strong>. We built the map (<strong>recon</strong>, Week 2), we tried the doors (<strong>scanning</strong>, Week 3), and now we're at <strong>Phase 3 — gaining access</strong>: actually getting in.</p>
 <figure>
 <svg viewBox="0 0 860 132" role="img" aria-label="The five CEH phases: Reconnaissance and Scanning are done, Gaining Access is where we are now, Maintaining Access and Covering Tracks come later." xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Segoe UI',system-ui,sans-serif;">
   <g fill="#c3cad6"><polygon points="160,60 177,60 177,54 189,62 177,70 177,64 160,64"/><polygon points="337,60 354,60 354,54 366,62 354,70 354,64 337,64"/><polygon points="515,60 532,60 532,54 544,62 532,70 532,64 515,64"/><polygon points="692,60 709,60 709,54 721,62 709,70 709,64 692,64"/></g>
@@ -2007,7 +2007,7 @@
 <figure><img src="../img/sniff-switch-real.png" width="470" alt="On a switch, the attacker uses ARP spoofing to sit as a man-in-the-middle, forcing traffic to detour through them." /></figure>
 </div>
 <h2 id="8-becoming-the-man-in-the-middle-arp-spoofing">8. Becoming the man in the middle — ARP spoofing<a class="headerlink" href="#8-becoming-the-man-in-the-middle-arp-spoofing" title="Permanent link">&para;</a></h2>
-<p>On a local network, machines find each other by <strong>MAC address</strong> using <strong>ARP</strong> (Address Resolution Protocol) — a trusting protocol with <strong>no authentication</strong>. Whoever answers "who has this IP?" first is believed and cached. ARP spoofing abuses exactly that: the attacker sends <strong>forged replies</strong> telling the victim <em>"I'm the gateway"</em> and telling the gateway <em>"I'm the victim."</em> Now every packet flows <strong>through</strong> the attacker — a man-in-the-middle who can read it, capture credentials, or change it in transit.</p>
+<p>On a local network, machines find each other by <strong>MAC address</strong> using <strong>ARP</strong> (Address Resolution Protocol) — a trusting protocol with <strong>no authentication</strong>. Any reply to "who has this IP?" is believed, and the most recent one <strong>overwrites</strong> what's cached. ARP spoofing abuses exactly that: the attacker sends <strong>forged replies</strong> telling the victim <em>"I'm the gateway"</em> and telling the gateway <em>"I'm the victim."</em> Now every packet flows <strong>through</strong> the attacker — a man-in-the-middle who can read it, capture credentials, or change it in transit.</p>
 <figure>
 <img src="../img/sniff-mitm.svg" width="820" alt="Before ARP poisoning the victim's traffic goes straight to the real gateway; after, forged ARP replies route every packet through the attacker, who relays it on to the gateway." /><br />
 <figcaption>Before: the victim's traffic goes straight to the real gateway. After forged ARP replies, every packet detours <strong>through the attacker</strong> — who quietly relays it on, so nothing looks broken.</figcaption>
@@ -2095,7 +2095,7 @@
 </div>
 <div class="admonition info">
 <p>Where this maps in MITRE ATT&amp;CK</p>
-<p><strong>MITRE ATT&amp;CK</strong> is a free public catalog of real attacker techniques, each with an ID. This week maps to <strong>T1040</strong> (Network Sniffing), <strong>T1557</strong> (Adversary-in-the-Middle) and its sub-technique <strong>T1557.002</strong> (ARP Cache Poisoning), and the evasion side to <strong>TA0005</strong> (Defense Evasion). Browse it at <a href="https://attack.mitre.org/techniques/T1557/002/">attack.mitre.org</a>.</p>
+<p><strong>MITRE ATT&amp;CK</strong> is a free public catalog of real attacker techniques, each with an ID. This week maps to <strong>T1040</strong> (Network Sniffing), <strong>T1557</strong> (Adversary-in-the-Middle) and its sub-technique <strong>T1557.002</strong> (ARP Cache Poisoning). Browse it at <a href="https://attack.mitre.org/techniques/T1557/002/">attack.mitre.org</a>.</p>
 </div>
 <div class="admonition quote">
 <p>Remember</p>

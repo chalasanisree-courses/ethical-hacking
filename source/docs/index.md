@@ -30,7 +30,7 @@ Students scan, test, hack, and secure systems, implement perimeter defenses, and
 
 ## How the course flows
 
-The course runs as one attack, from the outside in. You **get oriented**, **stalk the target**, then break through each layer of its defenses — network, host, application, and the data at its core — before turning to the softest wall of all, people, and finally running the whole thing as a real engagement. Every week is an interactive notes page tied to its place in the attack.
+The course runs as one attack, from the outside in. You **get oriented**, **stalk the target**, then break through each layer of its defenses — network, device, application, and data — before turning to the softest wall of all, people, and finally running the whole thing as a real engagement. Every week is an interactive notes page tied to its place in the attack.
 
 ### 🗓️ Full schedule at a glance
 

@@ -7,7 +7,7 @@ hide:
 
 # Week 10 · Web Attacks II — SQL Injection & Session Hijacking
 
-<span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access (web)</span>
+<span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access (web)</span>
 
 <div class="attck-strip" markdown="1">
 

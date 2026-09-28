@@ -7,7 +7,7 @@ hide:
 
 # Week 7 · System Attacks
 
-<span class="kc-badge">🧭 Kill chain · Phase 3 — Gaining Access</span>
+<span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access</span>
 
 <div class="attck-strip" markdown="1">
 

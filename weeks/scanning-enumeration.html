@@ -1639,7 +1639,7 @@
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-3-scanning-enumeration-vulnerability-analysis">Week 3 · Scanning, Enumeration &amp; Vulnerability Analysis<a class="headerlink" href="#week-3-scanning-enumeration-vulnerability-analysis" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Kill chain · Phase 2 — Scanning</span></p>
+<p><span class="kc-badge">🧭 CEH life cycle · Phase 2 — Scanning</span></p>
 <p>The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the <strong>attacker's</strong> view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the <strong>defender's</strong> view.</p>
 <div class="rt-rail">
 <p><span class="rail-label red">🔴 RED TEAM · attacker's view</span></p>
@@ -1733,7 +1733,7 @@
 </ul>
 <p>Two main styles (<strong>TCP</strong> = Transmission Control Protocol, <strong>SYN</strong> = the first packet of a TCP handshake):</p>
 <ul>
-<li><code>nmap -sS scanme.nmap.org</code> — <strong>SYN "half-open" scan</strong>: starts the handshake, never finishes it. Fast and quieter — the default.</li>
+<li><code>nmap -sS scanme.nmap.org</code> — <strong>SYN "half-open" scan</strong>: starts the handshake, never finishes it. Fast and quieter — the default (it needs <strong>root/sudo</strong>; without it Nmap falls back to a full connect scan).</li>
 <li><code>nmap -sT scanme.nmap.org</code> — <strong>full connect scan</strong>: completes every handshake. Reliable but <strong>loud</strong> (the target logs each one).</li>
 <li><code>nmap -sU scanme.nmap.org</code> — <strong>UDP scan</strong> for connectionless services (DNS, SNMP). Slow, but many important services live here.</li>
 </ul>
@@ -1757,7 +1757,7 @@
 <p>Scanning finds the door; <strong>enumeration</strong> reads the nameplate on it. Once a service is identified, you interrogate it for detail you can act on — usernames, shared folders, group memberships. Each protocol leaks different things:</p>
 <ul>
 <li><strong>SMB</strong> (Server Message Block — Windows file sharing): shares, users, domain info — tools <code>enum4linux</code>, <code>smbclient</code></li>
-<li><strong>SNMP</strong> (Simple Network Management Protocol): device configs, routing tables — and watch for the default <code>public</code> password, a classic finding</li>
+<li><strong>SNMP</strong> (Simple Network Management Protocol): device configs, routing tables — and watch for the default <code>public</code> <strong>community string</strong>, a classic finding</li>
 <li><strong>LDAP</strong> (directory service): the org's user and group tree</li>
 <li><strong>SMTP</strong> (email): valid usernames, which feed password attacks later</li>
 </ul>
