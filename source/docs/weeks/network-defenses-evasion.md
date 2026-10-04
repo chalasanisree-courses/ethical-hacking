@@ -12,347 +12,232 @@ hide:
 
 <div class="attck-strip" markdown="1">
 
-<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing Application</a> <a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag" target="_blank">T1059 Command & Scripting Interpreter</a> <a href="https://attack.mitre.org/techniques/T1041/" class="attck-tag" target="_blank">T1041 Exfiltration Over C2 Channel</a> <a href="https://attack.mitre.org/techniques/T1498/" class="attck-tag" target="_blank">T1498 Network Denial of Service</a>
+<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag" target="_blank">T1059 Command & Scripting</a> <a href="https://attack.mitre.org/techniques/T1041/" class="attck-tag" target="_blank">T1041 Exfil Over C2</a> <a href="https://attack.mitre.org/techniques/T1498/" class="attck-tag" target="_blank">T1498 Network DoS</a>
 
 </div>
 
 <div class="admonition abstract" markdown="1">
 
-What this page covers
+Two ways to beat a network
 
-- **The enterprise network we're attacking** — the perimeter, the DMZ, and the three-tier architecture behind it
-- **The firewall** — what it checks, and the two gaps that let everything else in
-- **One attack, start to finish** — exploit in the payload (ShellShock) → reverse shell → lateral movement → exfiltration
-- **The defenses that answer each gap** — IDS/IPS, the NGFW, host firewalls & segmentation, honeypots, the WAF — and, when nothing works, denial of service
+Facing a defended network, an attacker has **two approaches**: **get past** the defenses (evasion), or **bring the network down** (denial of service). We spend most of this week on the first — the defense equipment standing in the way, what each does, and how attackers slip past.
 
 </div>
 
-For the last few modules we've been working our way *toward* a company's network — mapping it, scanning it, sniffing it. The goal the whole time has been the same: get **into** the enterprise network. Until now we tried the **quiet way** — find a credential on the wire and log in like a regular employee, tripping no alarms. This week we assume that option is gone, so we do it the **loud way**: we go straight *through* the network's defenses.
+## Approach 1 · Evading the network defenses
 
-## The network we're breaking into
+This is the enterprise network you're attacking. **Click a defense box** (highlighted) to see what it does, its pros and cons — or **trace the attack** with the buttons below to watch an intruder ride through the same network.
 
-A company keeps its valuable data — customer records, credit-card data — on **database servers** deep inside. In front of those sit **application servers** running the code, and in front of *those* sit the **web servers** that the public actually talks to. That's the classic **three-tier architecture**: presentation (web), application, and data.
-
-The public has to reach the web servers — a retail site is no use if customers can't load it — so those web servers sit in a **DMZ** (demilitarized zone), a buffer between the open internet and the trusted internal network. A **strong perimeter** of firewalls and intrusion systems separates the internet (full of attackers like us) from everything inside.
-
-<svg viewBox="0 0 760 248" role="img" aria-label="The enterprise network. On the left, the internet, full of attackers. A network firewall sits on the perimeter. Behind it, inside a dashed enterprise boundary, a DMZ holds the public web server; behind the web server an application server; behind that the database server holding valuable data. Traffic flows inward from web to app to database." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:720px;height:auto;display:block;margin:20px auto;font-family:system-ui,sans-serif;">
-  <text x="52" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b" letter-spacing="0.5">INTERNET</text>
-  <text x="52" y="45" text-anchor="middle" font-size="9" fill="currentColor" fill-opacity="0.7">attackers</text>
-  <circle cx="52" cy="92" r="26" fill="none" stroke="#c0392b" stroke-width="1.6"/>
-  <text x="52" y="97" text-anchor="middle" font-size="18">🌐</text>
-  <line x1="80" y1="92" x2="120" y2="92" stroke="currentColor" stroke-opacity="0.55" stroke-width="2" marker-end="url(#ea)"/>
-  <rect x="122" y="66" width="52" height="52" rx="5" fill="none" stroke="#0e6b82" stroke-width="2"/>
-  <text x="148" y="88" text-anchor="middle" font-size="16">🧱</text>
-  <text x="148" y="106" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0e6b82">FIREWALL</text>
-  <text x="148" y="135" text-anchor="middle" font-size="8.5" fill="currentColor" fill-opacity="0.65">perimeter</text>
-  <rect x="196" y="20" width="548" height="208" rx="10" fill="none" stroke="currentColor" stroke-opacity="0.4" stroke-dasharray="5 4"/>
-  <text x="210" y="38" font-size="9.5" font-weight="700" fill="currentColor" fill-opacity="0.6" letter-spacing="0.5">ENTERPRISE NETWORK</text>
-  <rect x="210" y="52" width="150" height="150" rx="8" fill="#0e6b82" fill-opacity="0.06" stroke="#0e6b82" stroke-opacity="0.5" stroke-dasharray="4 3"/>
-  <text x="285" y="70" text-anchor="middle" font-size="9" font-weight="700" fill="#0e6b82" letter-spacing="0.5">DMZ</text>
-  <rect x="245" y="86" width="80" height="80" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
-  <text x="285" y="120" text-anchor="middle" font-size="22">🖥️</text>
-  <text x="285" y="142" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">Web server</text>
-  <text x="285" y="156" text-anchor="middle" font-size="8" fill="currentColor" fill-opacity="0.6">presentation</text>
-  <line x1="362" y1="127" x2="406" y2="127" stroke="currentColor" stroke-opacity="0.5" stroke-width="2" marker-end="url(#ea)"/>
-  <rect x="408" y="86" width="120" height="80" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.55"/>
-  <text x="468" y="120" text-anchor="middle" font-size="22">⚙️</text>
-  <text x="468" y="142" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">App server</text>
-  <text x="468" y="156" text-anchor="middle" font-size="8" fill="currentColor" fill-opacity="0.6">application</text>
-  <line x1="530" y1="127" x2="574" y2="127" stroke="currentColor" stroke-opacity="0.5" stroke-width="2" marker-end="url(#ea)"/>
-  <rect x="576" y="86" width="150" height="80" rx="6" fill="#B45309" fill-opacity="0.06" stroke="#B45309" stroke-opacity="0.6"/>
-  <text x="651" y="120" text-anchor="middle" font-size="22">🗄️</text>
-  <text x="651" y="142" text-anchor="middle" font-size="9.5" font-weight="700" fill="#B45309">Database</text>
-  <text x="651" y="156" text-anchor="middle" font-size="8" fill="currentColor" fill-opacity="0.6">valuable data · the goal</text>
-  <defs><marker id="ea" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="currentColor" fill-opacity="0.6"/></marker></defs>
-</svg>
-
-Our goal is all the way on the right — reach a database and get its data back out. Between us and that data sits a **stack of defenses**, and the thread for the whole week is this: *each one was added to cover a weakness in the one before it.*
-
-<div class="cards" markdown="1">
-
-<div class="card" markdown="1">
-
-### 🧱 Firewall
-
-The front gate. Checks every packet's **header** against rules and allows, drops, or rejects it.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 📹 IDS / IPS
-
-Watch the traffic — **including inside** the network — for attacks. The IDS alerts; the IPS also acts.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🧱➕ NGFW · host FW · honeypots
-
-A firewall that finally reads the **payload**, a lock on **every machine**, and **traps** for the curious.
-
-</div>
-
-<div class="card" markdown="1">
-
-### 🌀 WAF → DDoS
-
-Guard the **app** itself; and when you can't get in at all, **overwhelm** it instead.
-
-</div>
-
-</div>
-
-## Defense 1 — the network firewall
-
-The first thing in our way is the **network firewall**. It scans every packet, matches it against a set of rules, and then **allows**, **drops**, or **rejects** it — reading only the **header**.
-
-A packet has two parts. The **TCP/IP header** is the envelope: source and destination IP, source and destination port, and the protocol. The **payload** is the contents — here, the whole HTTP request. The firewall reads the header and *nothing else*.
-
-<svg viewBox="0 0 720 250" role="img" aria-label="An abstracted packet. The TCP/IP header holds source IP, destination IP, source port, destination port 80, and protocol TCP — this is all the firewall reads. The payload holds the full HTTP request, including the HTTP headers Host, User-Agent, and Cookie. The firewall never opens the payload, so the HTTP headers inside it are invisible to the firewall even though they are also called headers." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;height:auto;display:block;margin:18px auto;font-family:system-ui,sans-serif;">
-  <text x="172" y="38" text-anchor="end" font-size="12.5" font-weight="700" fill="#0e6b82">Firewall reads this</text>
-  <text x="172" y="55" text-anchor="end" font-size="10.5" fill="currentColor" fill-opacity="0.7">IP · port · protocol</text>
-  <line x1="176" y1="47" x2="187" y2="47" stroke="#0e6b82" stroke-width="2" marker-end="url(#fka)"/>
-  <text x="172" y="150" text-anchor="end" font-size="12.5" font-weight="700" fill="#B45309">Firewall never</text>
-  <text x="172" y="167" text-anchor="end" font-size="12.5" font-weight="700" fill="#B45309">opens this</text>
-  <line x1="176" y1="140" x2="187" y2="140" stroke="#B45309" stroke-width="2" marker-end="url(#fkb)"/>
-  <text x="192" y="22" font-size="9.5" font-weight="700" fill="#0e6b82" letter-spacing="1">TCP/IP HEADER</text>
-  <rect x="190" y="28" width="90" height="52" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.35"/>
-  <text x="235" y="46" text-anchor="middle" font-size="8.5" fill="currentColor" fill-opacity="0.6">Src IP</text>
-  <text x="235" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">7.7.7.7</text>
-  <rect x="284" y="28" width="90" height="52" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.35"/>
-  <text x="329" y="46" text-anchor="middle" font-size="8.5" fill="currentColor" fill-opacity="0.6">Dst IP</text>
-  <text x="329" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">web-srv</text>
-  <rect x="378" y="28" width="90" height="52" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.35"/>
-  <text x="423" y="46" text-anchor="middle" font-size="8.5" fill="currentColor" fill-opacity="0.6">Src Port</text>
-  <text x="423" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">51000</text>
-  <rect x="472" y="27" width="90" height="54" rx="4" fill="none" stroke="#0e6b82" stroke-width="2"/>
-  <text x="517" y="46" text-anchor="middle" font-size="8.5" fill="#0e6b82">Dst Port</text>
-  <text x="517" y="67" text-anchor="middle" font-size="13" font-weight="800" fill="#0e6b82">80</text>
-  <rect x="566" y="28" width="90" height="52" rx="4" fill="none" stroke="currentColor" stroke-opacity="0.35"/>
-  <text x="611" y="46" text-anchor="middle" font-size="8.5" fill="currentColor" fill-opacity="0.6">Protocol</text>
-  <text x="611" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">TCP</text>
-  <text x="192" y="103" font-size="9.5" font-weight="700" fill="#B45309" letter-spacing="1">PAYLOAD — the full HTTP request</text>
-  <rect x="190" y="110" width="466" height="92" rx="4" fill="#B45309" fill-opacity="0.05" stroke="currentColor" stroke-opacity="0.35"/>
-  <text x="206" y="132" font-size="12" font-family="Consolas,Menlo,monospace" fill="currentColor">GET /products?id=42 HTTP/1.1</text>
-  <text x="206" y="152" font-size="12" font-family="Consolas,Menlo,monospace" fill="currentColor">Host: www.campus.edu</text>
-  <text x="206" y="172" font-size="12" font-family="Consolas,Menlo,monospace" fill="currentColor">User-Agent: Mozilla/5.0</text>
-  <text x="206" y="192" font-size="12" font-family="Consolas,Menlo,monospace" fill="currentColor">Cookie: session=abc123</text>
-  <text x="360" y="228" text-anchor="middle" font-size="10.5" font-style="italic" fill="currentColor" fill-opacity="0.8">Watch the two "headers": the HTTP headers (Host, User-Agent, Cookie) live inside the payload — not the TCP/IP header.</text>
+<svg class="netdiag" viewBox="0 0 760 470" role="img" aria-label="Interactive enterprise network. Clickable defense equipment: the perimeter firewall, the IDS/IPS, the web application firewall, the host firewalls and segmentation around the internal servers, and a honeypot. Context nodes: the internet, the DMZ web server, the router, the application server, and the database. An attack path can be traced from the internet through the web server to the internal database.">
+  <text x="66" y="54" text-anchor="middle" font-size="24">🌐</text>
+  <text x="66" y="80" text-anchor="middle" class="lbl" fill="#c0392b">Internet</text>
+  <line x1="92" y1="74" x2="132" y2="74" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g id="net-node-firewall" class="net-node sel" role="button" tabindex="0" onclick="netShow('firewall')" aria-label="Firewall">
+    <rect class="box" x="134" y="46" width="104" height="58" rx="7"/>
+    <text x="186" y="76" text-anchor="middle" font-size="19">🧱</text>
+    <text x="186" y="96" text-anchor="middle" class="lbl">Firewall</text>
+  </g>
+  <line x1="238" y1="74" x2="280" y2="74" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g id="net-node-ids" class="net-node" role="button" tabindex="0" onclick="netShow('ids')" aria-label="IDS / IPS">
+    <rect class="box" x="282" y="46" width="108" height="58" rx="7"/>
+    <text x="336" y="76" text-anchor="middle" font-size="18">🛡️</text>
+    <text x="336" y="96" text-anchor="middle" class="lbl">IDS / IPS</text>
+  </g>
+  <line x1="390" y1="74" x2="432" y2="74" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g id="net-node-waf" class="net-node" role="button" tabindex="0" onclick="netShow('waf')" aria-label="Web Application Firewall">
+    <rect class="box" x="434" y="42" width="104" height="66" rx="7"/>
+    <text x="486" y="72" text-anchor="middle" font-size="18">🛡️</text>
+    <text x="486" y="90" text-anchor="middle" class="lbl">WAF</text>
+    <text x="486" y="101" text-anchor="middle" class="sub">app firewall</text>
+  </g>
+  <line x1="538" y1="74" x2="580" y2="74" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g class="ctx">
+    <rect class="box" x="582" y="42" width="112" height="66" rx="7"/>
+    <text x="638" y="72" text-anchor="middle" font-size="18">🖥️</text>
+    <text x="638" y="90" text-anchor="middle" class="lbl">Web server</text>
+    <text x="638" y="101" text-anchor="middle" class="sub">DMZ</text>
+  </g>
+  <line x1="186" y1="104" x2="186" y2="236" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <rect x="112" y="214" width="636" height="226" rx="11" fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="6 5"/>
+  <text x="128" y="233" class="sub" font-weight="700" fill-opacity="0.65">INTERNAL NETWORK</text>
+  <g class="ctx">
+    <rect class="box" x="140" y="238" width="96" height="56" rx="7"/>
+    <text x="188" y="266" text-anchor="middle" font-size="17">🔀</text>
+    <text x="188" y="285" text-anchor="middle" class="lbl">Router</text>
+  </g>
+  <line x1="236" y1="266" x2="296" y2="266" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g id="net-node-hostfw" class="net-node" role="button" tabindex="0" onclick="netShow('hostfw')" aria-label="Host firewalls and segmentation">
+    <rect class="box" x="298" y="232" width="128" height="68" rx="7"/>
+    <text x="362" y="262" text-anchor="middle" font-size="18">🧱🔒</text>
+    <text x="362" y="282" text-anchor="middle" class="lbl">Host firewalls</text>
+    <text x="362" y="293" text-anchor="middle" class="sub">+ segmentation</text>
+  </g>
+  <line x1="426" y1="266" x2="462" y2="266" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g class="ctx">
+    <rect class="box" x="464" y="238" width="92" height="56" rx="7"/>
+    <text x="510" y="266" text-anchor="middle" font-size="17">⚙️</text>
+    <text x="510" y="285" text-anchor="middle" class="lbl">App server</text>
+  </g>
+  <line x1="556" y1="266" x2="588" y2="266" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g class="ctx">
+    <rect class="box" x="590" y="238" width="104" height="56" rx="7"/>
+    <text x="642" y="266" text-anchor="middle" font-size="17">🗄️</text>
+    <text x="642" y="285" text-anchor="middle" class="lbl">Database</text>
+  </g>
+  <line x1="188" y1="294" x2="188" y2="348" stroke="currentColor" stroke-opacity="0.45" stroke-width="2" marker-end="url(#na)"/>
+  <g id="net-node-honeypot" class="net-node" role="button" tabindex="0" onclick="netShow('honeypot')" aria-label="Honeypot">
+    <rect class="box" x="134" y="350" width="120" height="58" rx="7"/>
+    <text x="194" y="380" text-anchor="middle" font-size="18">🍯</text>
+    <text x="194" y="400" text-anchor="middle" class="lbl">Honeypot</text>
+  </g>
+  <g id="cweb" class="atk-mark"><rect x="582" y="42" width="112" height="66" rx="7" fill="#c0392b" fill-opacity="0.12" stroke="#c0392b" stroke-width="2.5"/><text x="686" y="56" font-size="15">💥</text></g>
+  <g id="capp" class="atk-mark"><rect x="464" y="238" width="92" height="56" rx="7" fill="#c0392b" fill-opacity="0.12" stroke="#c0392b" stroke-width="2.5"/><text x="550" y="250" font-size="14">💥</text></g>
+  <g id="cdb" class="atk-mark"><rect x="590" y="238" width="104" height="56" rx="7" fill="#c0392b" fill-opacity="0.12" stroke="#c0392b" stroke-width="2.5"/><text x="686" y="250" font-size="14">💥</text></g>
+  <g id="atk-arrow-1" class="atk-arrow"><path d="M70,36 Q360,4 636,40" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ra)"/><text x="360" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">① exploit rides in the payload</text></g>
+  <g id="atk-arrow-2" class="atk-arrow"><path d="M638,112 L638,160 L66,160 L66,98" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ra)"/><text x="360" y="153" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">② reverse shell — outbound channel</text></g>
+  <g id="atk-arrow-3" class="atk-arrow"><path d="M638,114 L638,210 L510,210 L510,232" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ra)"/><path d="M556,276 L586,276" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ra)"/><text x="548" y="332" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">③ lateral movement</text></g>
+  <g id="atk-arrow-4" class="atk-arrow"><path d="M642,236 L642,184 L66,184 L66,98" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 4" marker-end="url(#ra)"/><text x="360" y="177" text-anchor="middle" font-size="10" font-weight="700" fill="#c0392b">④ exfiltrate the data out</text></g>
   <defs>
-    <marker id="fka" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0e6b82"/></marker>
-    <marker id="fkb" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#B45309"/></marker>
+    <marker id="na" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="currentColor" fill-opacity="0.5"/></marker>
+    <marker id="ra" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker>
   </defs>
 </svg>
 
-<div class="admonition note" markdown="1">
+<p class="net-hint">🛡️ Click a defense box for what it does · pros · cons —— or ⚔️ trace the attack:</p>
 
-⚠️ Two things both called "header"
+<div class="atk-strip" markdown="1">
 
-The **TCP/IP header** (IP, port, protocol) is what the firewall reads. The **HTTP headers** — `Host`, `User-Agent`, `Cookie` — are part of the HTTP request, which lives *inside the payload*. Same word, two different layers. The firewall sees the first and never the second. Hold onto this — it's the whole trick behind ShellShock in a moment.
+<div id="atk-step-1" class="atk-step" onclick="atkShow(1)" role="button" tabindex="0" style="background:#c0392b" markdown="1">
 
-</div>
-
-**How it decides.** It's simple rule-matching against the header — *allow port 80, block port 22*. When it says no, it can **drop** the packet silently (stealthy — the sender learns nothing) or **reject** it with a refusal message (which reveals that a firewall is even there). Most firewalls are set to **drop silently**, and to **default-deny**: block everything unless a rule explicitly allows it.
-
-> You already saw this from the other side in the **scanning** module: an nmap port came back **open**, **closed**, or **filtered** — and *filtered* is exactly a firewall silently dropping the probe.
-
-### The two problems with a header-only firewall
-
-<div class="role-red" markdown="1">
-
-**Problem 1 · Some ports must stay open.** A public web server in the DMZ needs ports **80** and **443** reachable, or customers can't use the site — so the firewall has to leave those doors open to the *entire* internet, not just trusted users.
-
-**Problem 2 · It only reads the header.** It checks *where* a packet is going, not *what it carries*. A packet addressed to the open web-server port is allowed — **even if its payload contains an exploit** for a bug on that server.
-
-**Put them together** and you have the attack: send traffic the firewall is happy to allow — to an open port — and hide the attack *inside the payload it never looks at.*
+<span class="num">STEP ①</span>Exploit the web server
 
 </div>
 
-## One attack, start to finish
+<div id="atk-step-2" class="atk-step" onclick="atkShow(2)" role="button" tabindex="0" style="background:#a93226" markdown="1">
 
-Here's how that plays out, step by step. Click through the chain:
-
-<div class="scan-strip" markdown="1">
-
-<div id="scan-node-1" class="scan-phase" onclick="scanShow(1)" role="button" tabindex="0" style="background:#c0392b" markdown="1">
-
-<span class="num">STEP ①</span>Exploit in the payload<small>ShellShock → code execution</small>
+<span class="num">STEP ②</span>Reverse shell
 
 </div>
 
-<div id="scan-node-2" class="scan-phase" onclick="scanShow(2)" role="button" tabindex="0" style="background:#B45309" markdown="1">
+<div id="atk-step-3" class="atk-step" onclick="atkShow(3)" role="button" tabindex="0" style="background:#8a1f14" markdown="1">
 
-<span class="num">STEP ②</span>Reverse shell<small>make the server dial out</small>
-
-</div>
-
-<div id="scan-node-3" class="scan-phase" onclick="scanShow(3)" role="button" tabindex="0" style="background:#0e6b82" markdown="1">
-
-<span class="num">STEP ③</span>Lateral movement<small>hop toward the data</small>
+<span class="num">STEP ③</span>Lateral movement
 
 </div>
 
-<div id="scan-node-4" class="scan-phase" onclick="scanShow(4)" role="button" tabindex="0" style="background:#223350" markdown="1">
+<div id="atk-step-4" class="atk-step" onclick="atkShow(4)" role="button" tabindex="0" style="background:#6a160e" markdown="1">
 
-<span class="num">STEP ④</span>Exfiltration<small>send the data out</small>
+<span class="num">STEP ④</span>Exfiltration
 
 </div>
 
 </div>
 
-<div id="scan-panel-1" class="scan-panel active" markdown="1">
+<div id="net-panel-firewall" class="net-panel active" markdown="1">
 
-**ShellShock — the exploit rides in the payload.** A real vulnerability from 2014. The attacker sends a normal-looking HTTP request to the web server on **port 80** — the firewall sees the right port and passes it. But look at the `User-Agent`, which is an **HTTP header** and therefore *payload* to the firewall:
+#### 🧱 Firewall — the perimeter gate (and the NGFW)
 
-`User-Agent: () { :; }; /bin/cat /etc/passwd`
+**What it does.** Sits at the edge and checks every packet's **header** (source/dest IP, port, protocol) against rules — **allow**, **drop**, or **reject**. A **next-gen firewall (NGFW)** goes further: it reads the **payload** too, identifies the real application, can decrypt TLS, and folds in an IPS.
 
-The web server runs a CGI script, and CGI copies incoming HTTP headers into **environment variables** handed to **Bash**. On a vulnerable Bash, the leading `() { :; };` tricks the shell into running the command that follows. So the trailing command executes on the server — **remote code execution**, as the web-server user. Here it reads `/etc/passwd` and the file comes back in the web response, *proving* the attacker can run arbitrary commands.
+**Pros.** Fast, simple, the essential first filter; default-deny blocks everything not explicitly allowed. An NGFW adds payload inspection and app awareness in one box.
 
-</div>
-
-<div id="scan-panel-2" class="scan-panel" markdown="1">
-
-**The reverse shell — make the server dial out.** Code execution that fires once per request isn't enough; the attacker wants a channel back in **whenever they like**. So the exploit runs one more command that opens a connection **outbound**, from the compromised web server to the attacker's own server on the internet.
-
-Why outbound? Because firewalls scrutinize connections coming **in**, but connections going **out** are usually trusted — servers need to reach the internet for updates and APIs. The firewall waves the outbound connection through as ordinary traffic, and now the attacker has a **standing channel** into the network.
+**Cons.** A basic firewall reads **only the header** — it must leave 80/443 open to the world, and can't see an exploit hidden in the payload (that's how ShellShock rides in on an allowed port — trace the attack above). Attackers beat an NGFW by **encrypting or fragmenting** the payload.
 
 </div>
 
-<div id="scan-panel-3" class="scan-panel" markdown="1">
+<div id="net-panel-ids" class="net-panel" markdown="1">
 
-**Lateral movement — hop toward the data.** From the foothold on the web server, the attacker reads its **logs and config** to learn which application and database servers it talks to. Then they reach those — one hop at a time, web server → app server → database — until they find a database with something valuable, like credit-card data.
+#### 🛡️ IDS / IPS — watches the traffic, inside too
 
-None of this crosses the perimeter firewall. It's all **host-to-host, inside** the network — and the firewall isn't on those internal paths.
+**What it does.** Monitors traffic — crucially **including internal, east-west traffic** — for **signatures** (known attacks) and **anomalies** (a web server querying a database it never touches). The **IDS** watches a copy and **alerts** (passive); the **IPS** sits **inline** and can **block** (active).
 
-</div>
+**Pros.** Sees what the firewall can't — payload-borne attacks, and the lateral movement and exfil happening *inside* the perimeter.
 
-<div id="scan-panel-4" class="scan-panel" markdown="1">
-
-**Exfiltration — send the data out.** The attacker pulls the data from the database and streams it back out through the channel they already opened. To make it even harder to spot, they **encrypt** what they send, so anyone watching sees only ciphertext leaving — indistinguishable from a normal upload.
-
-And here's the uncomfortable part: once the attacker is **inside**, nobody is watching. The firewall blocks *incoming* traffic, but the attacker is roaming the internal network freely — and the firewall never sees the outbound exfil as anything but trusted traffic leaving.
+**Cons.** Detection is **reactive**; signatures miss novel attacks; anomaly baselines need tuning or they drown you in false positives; an IDS only *alerts* (someone must be watching). Attackers go **low-and-slow** or **encrypt** to stay under the radar.
 
 </div>
 
-<div class="role-red" markdown="1">
+<div id="net-panel-waf" class="net-panel" markdown="1">
 
-**Why the whole chain works.** The firewall checked the *header* (port 80 — allowed) and never read the *payload* where the exploit hid. Then outbound was trusted, so the reverse shell slipped out. Then, **inside the perimeter, no one was watching the traffic at all**, so the attacker moved freely and carried the data out. Every gap here is what the next defenses are built to close.
+#### 🛡️ WAF — guards the application
 
-</div>
+**What it does.** A **Web Application Firewall** sits inline in front of the web server and reads the **full HTTP request**, blocking application-logic attacks the network defenses can't see — SQL injection, cross-site scripting.
 
-## Defense 2 — IDS / IPS: watch the traffic inside
+**Pros.** The only thing that catches a perfectly *valid-looking* request that abuses the app — e.g. `GET /product?id=1' OR '1'='1' --`, which dumps the whole database.
 
-The fix for that blind spot: don't only guard the edge — **monitor the traffic, including internal traffic**, for attacks.
-
-What do they look for? **Signatures** — patterns of known attacks — and **anomalies**: traffic that doesn't fit the normal baseline. A web server suddenly querying a database it never touches, or a large transfer leaving at an odd hour, is exactly the kind of anomaly that would have caught the quiet exfil we just watched.
-
-<div class="role-blue" markdown="1">
-
-**IDS vs IPS — the difference everyone asks about.** An **IDS** (Intrusion *Detection* System) watches a *copy* of the traffic and **raises an alert** — like a camera, it spots the intruder and calls it in, but it doesn't physically stop anything. An **IPS** (Intrusion *Prevention* System) does the same inspection but sits **inline**, in the path of the traffic, so it can **drop the packet or block the source** — not just alert. Same eyes; one watches, one acts.
+**Cons.** App-specific rules need constant tuning; obfuscated or encoded payloads can slip; it only covers web traffic. *(Full treatment in the web-hacking module.)*
 
 </div>
 
-The point: put sensors **inside** the network, not just at the perimeter. The IDS would have flagged the exfil as anomalous; the IPS could have cut it off.
+<div id="net-panel-hostfw" class="net-panel" markdown="1">
 
-## Defense 3 — the NGFW: a firewall that reads the payload
+#### 🧱🔒 Host firewalls + segmentation — locks on every machine
 
-Detection is good — but better to stop the exploit before it ever lands. So you might ask: *why not just make the firewall smarter and have it read the payload too?* That's exactly the **next-generation firewall (NGFW)**.
+**What it does.** A firewall on **each machine** (allow only the connections it truly needs), plus splitting the network into **zones** so traffic between them is controlled.
 
-An NGFW inspects **not just the TCP/IP header but the payload** — so in the ShellShock case it can spot the malicious content in the `User-Agent` and **block the packet at the door**. It also identifies the real application regardless of port, and can **decrypt TLS** to inspect encrypted traffic.
+**Pros.** Contains **lateral movement** — owning one server no longer hands over the next. Classic defense in depth: a breach in one zone stays in that zone.
 
-In effect, the **NGFW is the firewall and the IPS merged into one device** at the perimeter — the same deep payload inspection, now preventive and right at the gate.
-
-<div class="role-red" markdown="1">
-
-**The offense responds — the arms race.** Attackers hide the exploit by **encrypting** the payload or **fragmenting** it across many packets so no single one shows the full pattern. NGFWs answered by learning to **decrypt** and to **reassemble fragments** before they inspect. Every defense breeds a new offense, and every offense a better defense.
+**Cons.** Complex to configure and maintain at scale; a *valid* connection along an allowed path still works; it doesn't stop the attacker's initial foothold — only limits where they can go next.
 
 </div>
 
-## Defense 4 — host firewalls & segmentation
+<div id="net-panel-honeypot" class="net-panel" markdown="1">
 
-Even a smart perimeter firewall is still **one gate**. So push firewalls *inward*:
+#### 🍯 Honeypot — a decoy that trips a reliable alarm
 
-- **Host firewalls** — every machine runs its own firewall, allowing only the connections it genuinely needs. If the web server has no business reaching the finance database, its host firewall simply refuses that connection.
-- **Network segmentation** — don't run one big flat network where anyone inside can roam freely. Split it into **zones**, each with its own firewall, and control what may cross between them.
+**What it does.** A fake system with **no legitimate purpose**, made to look valuable. Nothing real has any reason to touch it — so **any** interaction is almost certainly an intruder, and fires a high-confidence alarm.
 
-<div class="role-blue" markdown="1">
+**Pros.** Near-**zero false positives**; reveals an attacker's presence and what they're after, early.
 
-**This is defense in depth.** Host firewalls and segmentation directly attack the **lateral movement** from our attack chain: if one segment (or one machine) is compromised, it doesn't hand the attacker the rest of the network. Owning one server is where it ends, not where it begins.
-
-</div>
-
-## Defense 5 — honeypots
-
-Companies also plant **honeypots** — decoy systems. There's **no legitimate reason** for normal traffic ever to touch one, so **any** interaction is almost certainly an intruder. A honeypot is dressed up to look valuable — like a juicy database — and the moment anyone pokes at it, it fires a **high-confidence alarm** with nearly no false positives, and shows the defender what the attacker was after.
-
-<div class="role-red" markdown="1">
-
-**Smell the bait.** From the attacker's side, be suspicious of a target that's **too easy** to reach, **oddly isolated** from everything else, or has **no real traffic** on it. A careful attacker tries to spot the decoy and avoid it — but many don't, which is exactly why honeypots work.
+**Cons.** Only helps **if** the attacker touches it — a careful one spots the decoy (too easy, oddly isolated, no real traffic) and avoids it. Adds setup and maintenance.
 
 </div>
 
-## A clean payload can still be an attack — SQL injection
+<div id="atk-panel-1" class="atk-panel" markdown="1">
 
-Everything so far assumed the payload carried something *malicious*. But a payload with **no malware at all** can still be an attack.
+#### ⚔️ Step ① — exploit the web server (ShellShock)
 
-Take a normal product lookup and craft the input:
-
-`GET /product?id=1' OR '1'='1' --`
-
-When the application builds its database query from that input, the `' OR '1'='1'` makes the condition **always true**, so the database returns **every** row instead of one product. This is **SQL injection**.
-
-<div class="role-red" markdown="1">
-
-**Why nothing above catches it.** There's no malware to scan for, and it's a perfectly valid HTTP request to a port that's *supposed* to be open. The firewall, the NGFW, and payload scanners all see nothing wrong — because nothing is wrong at the network level. It's the **application's own logic** being abused to return data it shouldn't.
+A normal-looking HTTP request to port 80 — the firewall sees the right port and passes it. But the `User-Agent` (which is *payload* to the firewall) carries `() { :; }; /bin/cat /etc/passwd`. The web server hands that header to Bash via CGI, the trailing command runs, and the attacker has **code execution** on the web server. *The firewall checked the header; the exploit was in the payload it never reads.*
 
 </div>
 
-Catching this takes a firewall that understands the application itself — a **Web Application Firewall (WAF)**. You can place firewalls at the **network** layer, at the **host** layer, and at the **application** layer; the WAF is that third kind. *We'll go deep on WAFs in the web-hacking module.*
+<div id="atk-panel-2" class="atk-panel" markdown="1">
 
-## Last resort — denial of service
+#### ⚔️ Step ② — reverse shell (dial out)
 
-Suppose every defense holds and you simply can't get in. There's still one move: stop trying to break in and **make sure no one else can get through either**. That's **denial of service** — it attacks **availability**, not access.
+Code execution that fires once isn't enough — so the exploit opens a connection **outbound**, from the web server back to the attacker's server. Firewalls scrutinize **inbound** traffic but trust **outbound**, so it sails through — a standing channel back into the network, on demand.
 
-Picture attackers trying to overwhelm a bank. The intent isn't to steal data from inside; it's to **bring the web servers down**. From one machine it's a **DoS**; from a **botnet** of hijacked machines — hundreds of thousands of bots flooding at once — it's a **distributed** denial of service, a **DDoS**, far harder to block because it hides behind thousands of sources.
+</div>
+
+<div id="atk-panel-3" class="atk-panel" markdown="1">
+
+#### ⚔️ Step ③ — lateral movement
+
+From the web server, the attacker reads logs and config to find the app and database servers, then hops to them — all **host-to-host, inside** the network, where the perimeter firewall can't see. This blindness is exactly what **IDS/IPS** and **host firewalls** are there to answer.
+
+</div>
+
+<div id="atk-panel-4" class="atk-panel" markdown="1">
+
+#### ⚔️ Step ④ — exfiltration
+
+The attacker pulls the data from the database and streams it back out through the channel already open, often **encrypted** so watchers see only ciphertext. The data walks out the front door as ordinary outbound traffic.
+
+</div>
+
+---
+
+## Approach 2 · Bringing the network down — DoS / DDoS
+
+The second approach is the opposite of subtle. If you can't get *in*, stop trying — and attack **availability** instead. A **denial-of-service** attack floods the target so real users can't get through. The goal isn't data; it's downtime.
 
 | Type | How it overwhelms |
 |---|---|
-| **Volumetric** | A flood of traffic — millions of requests, ICMP floods — until bandwidth is exhausted and real requests can't get through. |
-| **Protocol / state** | A **SYN flood**: open the TCP three-way handshake (SYN → SYN-ACK → …) but never send the final ACK. Thousands of **half-finished connections** fill the server's connection table so it can't accept anyone new. |
-| **Application** | Slow, partial requests that tie up the server's workers — low traffic, and hard to tell apart from genuinely slow users. |
+| **Volumetric** | Flood the bandwidth with traffic — ICMP floods, oversized pings — until real requests can't get through. |
+| **Protocol / state** | A **SYN flood**: start the TCP handshake but never finish it, filling the server's connection table with half-open connections. |
+| **Application** | Slow, partial requests that tie up the server's workers — low traffic, hard to tell from genuinely slow users. |
 
-<svg viewBox="0 0 680 150" role="img" aria-label="A SYN flood. The attacker sends a SYN to the server, the server replies SYN-ACK and reserves a connection slot, but the attacker never sends the final ACK. Repeated many times, the half-open connections fill the server's connection table." xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:560px;height:auto;display:block;margin:16px auto;font-family:system-ui,sans-serif;">
-  <text x="70" y="26" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b">Attacker</text>
-  <text x="610" y="26" text-anchor="middle" font-size="11" font-weight="700" fill="#0e6b82">Server</text>
-  <line x1="70" y1="34" x2="70" y2="140" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5"/>
-  <line x1="610" y1="34" x2="610" y2="140" stroke="currentColor" stroke-opacity="0.3" stroke-width="1.5"/>
-  <line x1="74" y1="52" x2="604" y2="52" stroke="#c0392b" stroke-width="1.8" marker-end="url(#sa)"/>
-  <text x="340" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b">① SYN</text>
-  <line x1="606" y1="82" x2="76" y2="82" stroke="#0e6b82" stroke-width="1.8" marker-end="url(#sb)"/>
-  <text x="340" y="77" text-anchor="middle" font-size="11" font-weight="700" fill="#0e6b82">② SYN-ACK — slot reserved</text>
-  <line x1="74" y1="112" x2="604" y2="112" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.6" stroke-dasharray="5 4"/>
-  <text x="340" y="107" text-anchor="middle" font-size="11" font-weight="700" fill="#c0392b">③ ACK — never sent ✕</text>
-  <text x="340" y="138" text-anchor="middle" font-size="10" font-style="italic" fill="currentColor" fill-opacity="0.8">Repeat thousands of times → the connection table fills with half-open connections.</text>
-  <defs>
-    <marker id="sa" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker>
-    <marker id="sb" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0e6b82"/></marker>
-  </defs>
-</svg>
-
-## The whole picture — each defense answers the gap before it
-
-| Defense | What it does | The gap it leaves |
-|---|---|---|
-| **Firewall** | Checks the header; allow / drop / reject | Can't see the payload |
-| *(the attack)* | Exploit in the payload → reverse shell → lateral movement → exfil | The perimeter is blind *inside* |
-| **IDS / IPS** | Watch traffic inside too; detect, and block | Better to stop the exploit at the door |
-| **NGFW** | Firewall + IPS in one; reads the payload | Evasion (encrypt / fragment), and app-logic attacks remain |
-| **Host FW + honeypots** | A lock on every machine; a trap for the curious | A perfectly valid request can still be an attack |
-| **WAF → then DDoS** | Guard the app; and when all else fails, overwhelm | — |
-
-Read it top to bottom: the firewall's gap lets the attack happen; the damage the attack does motivates IDS/IPS; detection motivates the NGFW; the remaining gaps motivate host firewalls, honeypots, and the WAF; and DDoS is the move for when you can't get in at all. That chain **is** the week.
+From one machine it's a **DoS**; from a **botnet** of hijacked machines flooding together it's a **DDoS** — far harder to block, and it hides the origin behind thousands of sources.
 
 ## Defender's view
 
@@ -360,20 +245,19 @@ Read it top to bottom: the firewall's gap lets the attack happen; the damage the
 
 How this looks from the SOC seat
 
-- **Egress filtering + TLS inspection** — watch what *leaves* the network, not just what enters, and decrypt at the gateway so encrypted exfil can actually be seen.
-- **Internal monitoring + baselines** — tuned IDS/IPS with good baselines catch both the quiet, anomalous lateral movement and the sudden spikes of a flood.
-- **Segment, and lock every host** — host firewalls and segmentation contain a breach to one zone instead of the whole network.
-- **Honeypots** — any hit at all is an instant, high-confidence signal that someone is inside and poking around.
-- **Rate limiting & upstream scrubbing** — absorb and filter a DDoS before it reaches the target.
+- **Egress filtering + TLS inspection** — watch what *leaves*, and decrypt at the gateway so encrypted exfil can be seen.
+- **Internal monitoring + baselines** — tuned IDS/IPS catch the quiet lateral movement and the sudden spikes of a flood.
+- **Segment, and lock every host** — contain a breach to one zone.
+- **Honeypots** — any hit is an instant, high-confidence signal.
+- **Rate limiting & upstream scrubbing** — absorb a DDoS before it reaches you.
 
-Underneath all of it is **zero trust**: getting through the perimeter earns you no trust inside. Verify and inspect everything, everywhere.
+Underneath it all is **zero trust**: getting through the perimeter earns no trust inside. Verify and inspect everywhere.
 
 </div>
 
 ## References
 
-- **NIST SP 800-41 Rev. 1 — Guidelines on Firewalls and Firewall Policy.** The standard reference on firewall types, placement, and rule design. [csrc.nist.gov/pubs/sp/800/41/r1/final](https://csrc.nist.gov/pubs/sp/800/41/r1/final)
-- **CVE-2014-6271 — "ShellShock."** The Bash environment-variable code-execution vulnerability. [nvd.nist.gov/vuln/detail/CVE-2014-6271](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)
-- **Snort — open-source IDS/IPS.** The classic signature-based intrusion detection/prevention engine and its rule language. [snort.org](https://www.snort.org/)
-- **Cloudflare Learning Center — What is a DDoS attack?** Clear, open-access explainer on DoS vs DDoS, botnets, and mitigation. [cloudflare.com/learning/ddos](https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/)
-- **MITRE ATT&CK** — Exploit Public-Facing Application (T1190) · Command & Scripting Interpreter (T1059) · Exfiltration Over C2 Channel (T1041) · Network Denial of Service (T1498). [T1190](https://attack.mitre.org/techniques/T1190/) · [T1059](https://attack.mitre.org/techniques/T1059/) · [T1041](https://attack.mitre.org/techniques/T1041/) · [T1498](https://attack.mitre.org/techniques/T1498/)
+- **NIST SP 800-41 Rev. 1 — Guidelines on Firewalls and Firewall Policy.** [csrc.nist.gov/pubs/sp/800/41/r1/final](https://csrc.nist.gov/pubs/sp/800/41/r1/final)
+- **CVE-2014-6271 — "ShellShock."** [nvd.nist.gov/vuln/detail/CVE-2014-6271](https://nvd.nist.gov/vuln/detail/CVE-2014-6271)
+- **Snort — open-source IDS/IPS.** [snort.org](https://www.snort.org/)
+- **Cloudflare — What is a DDoS attack?** [cloudflare.com/learning/ddos](https://www.cloudflare.com/learning/ddos/what-is-a-ddos-attack/)

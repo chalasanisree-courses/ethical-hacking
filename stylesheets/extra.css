@@ -270,3 +270,28 @@
     display: none !important;
   }
 }
+
+/* ---- Week 7 · interactive network-defense diagram (clickable defenses + attack trace) ---- */
+.netdiag{width:100%;max-width:760px;display:block;margin:10px auto 2px;font-family:system-ui,sans-serif}
+.netdiag .net-node{cursor:pointer}
+.netdiag .net-node .box{fill:#0e6b82;fill-opacity:.07;stroke:#0e6b82;stroke-width:1.7;transition:all .12s}
+.netdiag .net-node:hover .box{fill-opacity:.16}
+.netdiag .net-node.sel .box{stroke:#c0392b;stroke-width:3;fill:#c0392b;fill-opacity:.10}
+.netdiag .ctx .box{fill:none;stroke:currentColor;stroke-opacity:.38;stroke-width:1.2}
+.netdiag .lbl{font-size:10.5px;font-weight:700;fill:currentColor}
+.netdiag .sub{font-size:8px;fill:currentColor;fill-opacity:.6}
+.netdiag .atk-arrow{opacity:0;transition:opacity .25s}
+.netdiag .atk-arrow.on{opacity:1}
+.netdiag .atk-mark{opacity:0;transition:opacity .25s}
+.netdiag .atk-mark.on{opacity:1}
+.net-hint{text-align:center;font-size:.82rem;color:var(--md-default-fg-color--light);margin:2px 0 8px}
+.atk-strip{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.atk-step{flex:1;min-width:130px;cursor:pointer;text-align:center;border-radius:8px;padding:8px 6px;color:#fff;font-size:.9rem;transition:all .12s}
+.atk-step:hover{filter:brightness(1.08)}
+.atk-step.selected{box-shadow:0 4px 12px rgba(0,0,0,.22);transform:translateY(-2px)}
+.atk-step .num{display:block;font-weight:700;font-size:.66rem;opacity:.85;letter-spacing:.04em}
+.net-panel,.atk-panel{display:none;border:1px solid var(--md-default-fg-color--lightest);border-radius:10px;padding:2px 16px 8px;margin:8px 0 10px}
+.net-panel{border-left:4px solid #0e6b82}
+.atk-panel{border-left:4px solid #c0392b}
+.net-panel.active,.atk-panel.active{display:block}
+.net-panel h4,.atk-panel h4{margin:12px 0 6px;font-size:1.05rem}

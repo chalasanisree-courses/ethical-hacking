@@ -100,3 +100,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   title.dataset.ehHomeLinked = "1";
 });
+
+/* ---- Week 7 · interactive network-defense diagram (clickable defenses + attack trace) ---- */
+function _ehHideAll() {
+  var ps = document.querySelectorAll('.net-panel,.atk-panel');
+  for (var i = 0; i < ps.length; i++) { ps[i].classList.remove('active'); }
+  var ns = document.querySelectorAll('.net-node');
+  for (var j = 0; j < ns.length; j++) { ns[j].classList.remove('sel'); }
+  var ss = document.querySelectorAll('.atk-step');
+  for (var k = 0; k < ss.length; k++) { ss[k].classList.remove('selected'); }
+}
+function _ehMark(id, on) {
+  var e = document.getElementById(id);
+  if (e) { if (on) { e.classList.add('on'); } else { e.classList.remove('on'); } }
+}
+function _ehArrows(n) { for (var i = 1; i <= 4; i++) { _ehMark('atk-arrow-' + i, i === n); } }
+function netShow(id) {
+  _ehHideAll(); _ehArrows(0);
+  _ehMark('cweb', false); _ehMark('capp', false); _ehMark('cdb', false);
+  var p = document.getElementById('net-panel-' + id); if (p) { p.classList.add('active'); }
+  var n = document.getElementById('net-node-' + id); if (n) { n.classList.add('sel'); }
+}
+function atkShow(n) {
+  _ehHideAll(); _ehArrows(n);
+  _ehMark('cweb', n >= 1); _ehMark('capp', n >= 3); _ehMark('cdb', n >= 3);
+  var p = document.getElementById('atk-panel-' + n); if (p) { p.classList.add('active'); }
+  var s = document.getElementById('atk-step-' + n); if (s) { s.classList.add('selected'); }
+}
