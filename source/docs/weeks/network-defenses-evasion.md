@@ -103,35 +103,7 @@ This is the enterprise network you're attacking. **Click a defense box** (highli
   </defs>
 </svg>
 
-<p class="net-hint">🛡️ Click a defense box for what it does · pros · cons —— or ⚔️ trace the attack:</p>
-
-<div class="atk-strip" markdown="1">
-
-<div id="atk-step-1" class="atk-step" onclick="atkShow(1)" role="button" tabindex="0" style="background:#c0392b" markdown="1">
-
-<span class="num">STEP ①</span>Exploit the web server
-
-</div>
-
-<div id="atk-step-2" class="atk-step" onclick="atkShow(2)" role="button" tabindex="0" style="background:#a93226" markdown="1">
-
-<span class="num">STEP ②</span>Reverse shell
-
-</div>
-
-<div id="atk-step-3" class="atk-step" onclick="atkShow(3)" role="button" tabindex="0" style="background:#8a1f14" markdown="1">
-
-<span class="num">STEP ③</span>Lateral movement
-
-</div>
-
-<div id="atk-step-4" class="atk-step" onclick="atkShow(4)" role="button" tabindex="0" style="background:#6a160e" markdown="1">
-
-<span class="num">STEP ④</span>Exfiltration
-
-</div>
-
-</div>
+<p class="net-hint">🛡️ Click a defense box for <strong>what it does · pros · cons</strong>.</p>
 
 <div id="net-panel-firewall" class="net-panel active" markdown="1">
 
@@ -190,6 +162,36 @@ This is the enterprise network you're attacking. **Click a defense box** (highli
 **Pros.** Near-**zero false positives**; reveals an attacker's presence and what they're after, early.
 
 **Cons.** Only helps **if** the attacker touches it — a careful one spots the decoy (too easy, oddly isolated, no real traffic) and avoids it. Adds setup and maintenance.
+
+</div>
+
+<p class="net-hint">⚔️ Or trace the attacker's path through the same network:</p>
+
+<div class="atk-strip" markdown="1">
+
+<div id="atk-step-1" class="atk-step" onclick="atkShow(1)" role="button" tabindex="0" style="background:#c0392b" markdown="1">
+
+<span class="num">STEP ①</span>Exploit the web server
+
+</div>
+
+<div id="atk-step-2" class="atk-step" onclick="atkShow(2)" role="button" tabindex="0" style="background:#a93226" markdown="1">
+
+<span class="num">STEP ②</span>Reverse shell
+
+</div>
+
+<div id="atk-step-3" class="atk-step" onclick="atkShow(3)" role="button" tabindex="0" style="background:#8a1f14" markdown="1">
+
+<span class="num">STEP ③</span>Lateral movement
+
+</div>
+
+<div id="atk-step-4" class="atk-step" onclick="atkShow(4)" role="button" tabindex="0" style="background:#6a160e" markdown="1">
+
+<span class="num">STEP ④</span>Exfiltration
+
+</div>
 
 </div>
 

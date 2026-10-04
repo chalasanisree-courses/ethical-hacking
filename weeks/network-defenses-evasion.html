@@ -1657,22 +1657,8 @@
     <marker id="ra" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c0392b"/></marker>
   </defs>
 </svg></p>
-<p class="net-hint">🛡️ Click a defense box for what it does · pros · cons —— or ⚔️ trace the attack:</p>
+<p class="net-hint">🛡️ Click a defense box for <strong>what it does · pros · cons</strong>.</p>
 
-<div class="atk-strip">
-<div class="atk-step" id="atk-step-1" onclick="atkShow(1)" role="button" style="background:#c0392b" tabindex="0">
-<p><span class="num">STEP ①</span>Exploit the web server</p>
-</div>
-<div class="atk-step" id="atk-step-2" onclick="atkShow(2)" role="button" style="background:#a93226" tabindex="0">
-<p><span class="num">STEP ②</span>Reverse shell</p>
-</div>
-<div class="atk-step" id="atk-step-3" onclick="atkShow(3)" role="button" style="background:#8a1f14" tabindex="0">
-<p><span class="num">STEP ③</span>Lateral movement</p>
-</div>
-<div class="atk-step" id="atk-step-4" onclick="atkShow(4)" role="button" style="background:#6a160e" tabindex="0">
-<p><span class="num">STEP ④</span>Exfiltration</p>
-</div>
-</div>
 <div class="net-panel active" id="net-panel-firewall">
 <h4 id="firewall-the-perimeter-gate-and-the-ngfw">🧱 Firewall — the perimeter gate (and the NGFW)<a class="headerlink" href="#firewall-the-perimeter-gate-and-the-ngfw" title="Permanent link">&para;</a></h4>
 <p><strong>What it does.</strong> Sits at the edge and checks every packet's <strong>header</strong> (source/dest IP, port, protocol) against rules — <strong>allow</strong>, <strong>drop</strong>, or <strong>reject</strong>. A <strong>next-gen firewall (NGFW)</strong> goes further: it reads the <strong>payload</strong> too, identifies the real application, can decrypt TLS, and folds in an IPS.</p>
@@ -1702,6 +1688,22 @@
 <p><strong>What it does.</strong> A fake system with <strong>no legitimate purpose</strong>, made to look valuable. Nothing real has any reason to touch it — so <strong>any</strong> interaction is almost certainly an intruder, and fires a high-confidence alarm.</p>
 <p><strong>Pros.</strong> Near-<strong>zero false positives</strong>; reveals an attacker's presence and what they're after, early.</p>
 <p><strong>Cons.</strong> Only helps <strong>if</strong> the attacker touches it — a careful one spots the decoy (too easy, oddly isolated, no real traffic) and avoids it. Adds setup and maintenance.</p>
+</div>
+<p class="net-hint">⚔️ Or trace the attacker's path through the same network:</p>
+
+<div class="atk-strip">
+<div class="atk-step" id="atk-step-1" onclick="atkShow(1)" role="button" style="background:#c0392b" tabindex="0">
+<p><span class="num">STEP ①</span>Exploit the web server</p>
+</div>
+<div class="atk-step" id="atk-step-2" onclick="atkShow(2)" role="button" style="background:#a93226" tabindex="0">
+<p><span class="num">STEP ②</span>Reverse shell</p>
+</div>
+<div class="atk-step" id="atk-step-3" onclick="atkShow(3)" role="button" style="background:#8a1f14" tabindex="0">
+<p><span class="num">STEP ③</span>Lateral movement</p>
+</div>
+<div class="atk-step" id="atk-step-4" onclick="atkShow(4)" role="button" style="background:#6a160e" tabindex="0">
+<p><span class="num">STEP ④</span>Exfiltration</p>
+</div>
 </div>
 <div class="atk-panel" id="atk-panel-1">
 <h4 id="step-1-exploit-the-web-server-shellshock">⚔️ Step ① — exploit the web server (ShellShock)<a class="headerlink" href="#step-1-exploit-the-web-server-shellshock" title="Permanent link">&para;</a></h4>
