@@ -1,12 +1,12 @@
 ---
-title: Week 7 · Firewalls, IDS/IPS & Evasion
+title: Week 7 · Network Defense Evasion & DoS
 hide:
   - navigation
 ---
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 7 · Firewalls, IDS/IPS & Evasion
+# Week 7 · Network Defense Evasion & DoS
 
 <span class="kc-badge">🧭 CEH life cycle · Gaining Access — getting past the network defenses</span>
 

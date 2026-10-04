@@ -116,7 +116,7 @@ Defenders never rely on one wall. They build **layers** — the outermost is the
 
 Controls what traffic is even allowed onto the network: **firewalls, IDS/IPS, the DMZ,** and segmentation.
 
-**We attack it in:** [Recon](reconnaissance-footprinting.html) · [Scanning](scanning-enumeration.html) · **Network Hacking & Sniffing (here)** · [Wireless](wireless-hacking.html)
+**We attack it in:** [Recon](reconnaissance-footprinting.html) · [Scanning](scanning-enumeration.html) · **Network Hacking & Sniffing (here)** · [Wireless](wireless-hacking.html) · [Network Defense Evasion & DoS](network-defenses-evasion.html)
 
 </div>
 
@@ -126,7 +126,7 @@ Controls what traffic is even allowed onto the network: **firewalls, IDS/IPS, th
 
 Hardening the machines: **OS patching, antivirus/EDR, disk encryption,** host firewalls.
 
-**We attack it in:** [System Attacks](system-attacks.html) · [Malware, Trojans & DoS](malware-trojans-dos.html)
+**We attack it in:** [System Attacks, Malware & Persistence](system-attacks.html)
 
 </div>
 

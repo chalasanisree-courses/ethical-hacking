@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://chalasanisree-courses.github.io/ethical-hacking/weeks/system-attacks.html">
       
       
-        <link rel="prev" href="wireless-hacking.html">
+        <link rel="prev" href="network-defenses-evasion.html">
       
       
-        <link rel="next" href="malware-trojans-dos.html">
+        <link rel="next" href="web-attacks-servers-apps.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Week 7 · System Attacks - Ethical Hacking</title>
+        <title>Week 8 · System Attacks, Malware & Persistence - Ethical Hacking</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-7-system-attacks" class="md-skip">
+        <a href="#week-8-system-attacks-malware-persistence" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 7 · System Attacks
+              Week 8 · System Attacks, Malware & Persistence
             
           </span>
         </div>
@@ -596,6 +596,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="network-defenses-evasion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 · Network Defense Evasion & DoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -680,7 +708,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 · System Attacks
+    Week 8 · System Attacks, Malware & Persistence
   
 
     
@@ -698,7 +726,7 @@
   <span class="md-ellipsis">
     
   
-    Week 7 · System Attacks
+    Week 8 · System Attacks, Malware & Persistence
   
 
     
@@ -757,10 +785,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-post-exploitation" class="md-nav__link">
+  <a href="#4-post-exploitation-persistence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Post-exploitation
+        4. Post-exploitation &amp; persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-malware-the-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Malware — the taxonomy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-rat-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. The RAT lifecycle
       
     </span>
   </a>
@@ -793,34 +843,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="malware-trojans-dos.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Week 8 · Malware, Trojans & DoS
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1354,10 +1376,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-post-exploitation" class="md-nav__link">
+  <a href="#4-post-exploitation-persistence" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Post-exploitation
+        4. Post-exploitation &amp; persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-malware-the-taxonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Malware — the taxonomy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-the-rat-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. The RAT lifecycle
       
     </span>
   </a>
@@ -1406,23 +1450,24 @@
 
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-7-system-attacks">Week 7 · System Attacks<a class="headerlink" href="#week-7-system-attacks" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access</span></p>
+<h1 id="week-8-system-attacks-malware-persistence">Week 8 · System Attacks, Malware &amp; Persistence<a class="headerlink" href="#week-8-system-attacks-malware-persistence" title="Permanent link">&para;</a></h1>
+<p><span class="kc-badge">🧭 CEH life cycle · Phases 3–4 — Gaining → Maintaining Access</span></p>
 <div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag" target="_blank">T1059 Command &amp; Scripting</a> <a href="https://attack.mitre.org/techniques/T1068/" class="attck-tag" target="_blank">T1068 Exploit for PrivEsc</a></p>
+<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1068/" class="attck-tag" target="_blank">T1068 Exploit for PrivEsc</a> <a href="https://attack.mitre.org/techniques/T1071/" class="attck-tag" target="_blank">T1071 App-Layer C2</a> <a href="https://attack.mitre.org/techniques/T1219/" class="attck-tag" target="_blank">T1219 Remote Access Software</a></p>
 </div>
 <div class="admonition abstract">
 <p>What this page covers</p>
 <ul>
-<li>How an exploit turns a vulnerability into code execution</li>
-<li>The Metasploit workflow, end to end</li>
-<li>Privilege escalation on Windows and Linux</li>
-<li>Post-exploitation — and the trail it leaves</li>
+<li><strong>From vulnerability to shell</strong> — how an exploit becomes code execution, and the Metasploit workflow end to end</li>
+<li><strong>Privilege escalation</strong> — becoming root / SYSTEM on Windows and Linux</li>
+<li><strong>Post-exploitation &amp; persistence</strong> — surviving a reboot, pivoting, and collection</li>
+<li><strong>Malware</strong> — viruses, worms, trojans, RATs, and ransomware, and how command-and-control works</li>
 </ul>
 </div>
+<p>Last week we got <em>through</em> the perimeter. This week we land on an actual machine and take it over — turning one exploited service into full control of the host, then making that control <strong>stick</strong>. Exploitation gets you in; privilege escalation makes you root; persistence and malware let you <em>stay</em>. (Denial of service, which used to live here, now sits in <strong>Week 7 — Network Defense Evasion &amp; DoS</strong>.)</p>
 <h2 id="1-from-vulnerability-to-shell">1. From vulnerability to shell<a class="headerlink" href="#1-from-vulnerability-to-shell" title="Permanent link">&para;</a></h2>
 <p>This is the phase everything before it was building toward. You take a vulnerability found in Week 3's analysis, match it to an <strong>exploit</strong>, and deliver a <strong>payload</strong> that gives you code execution on the target. The key reality: exploitation almost always lands you as a <strong>low-privileged user</strong> — the account the vulnerable service runs as (<code>www-data</code>, a service account) — <em>not</em> as administrator. Getting in is step one; becoming root/SYSTEM is a separate fight (§3).</p>
-<p>Payloads range from a simple <strong>reverse shell</strong> (the target connects back to you, which sails through outbound-only firewalls) to a full <strong>Meterpreter</strong> session with file access, screenshotting, and pivoting built in.</p>
+<p>Payloads range from a simple <strong>reverse shell</strong> (the target connects back to you, which sails through outbound-only firewalls — exactly the trick from Week 7) to a full <strong>Meterpreter</strong> session with file access, screenshotting, and pivoting built in.</p>
 <h2 id="2-metasploit-the-exploitation-framework">2. Metasploit — the exploitation framework<a class="headerlink" href="#2-metasploit-the-exploitation-framework" title="Permanent link">&para;</a></h2>
 <p>Metasploit standardizes the whole process so you're not hand-writing exploits:</p>
 <ul>
@@ -1433,30 +1478,66 @@
 </ul>
 <p>Understanding this workflow is also what lets a defender recognize its very recognizable footprints.</p>
 <h2 id="3-privilege-escalation">3. Privilege escalation<a class="headerlink" href="#3-privilege-escalation" title="Permanent link">&para;</a></h2>
-<p>Click each to expand.</p>
-<p>🪟 Windows privesc</p>
+<p>Exploitation drops you in as a low-privileged user; privilege escalation is how you become root or SYSTEM.</p>
+<details class="note">
+<summary>🪟 Windows privesc</summary>
 <p>Unquoted service paths, weak service permissions, always-install-elevated policies, and token-impersonation ("Potato") attacks. Tools like <strong>WinPEAS</strong> enumerate the options automatically.</p>
-<p>🐧 Linux privesc</p>
+</details>
+<details class="note">
+<summary>🐧 Linux privesc</summary>
 <p>Misconfigured <strong>SUID</strong> binaries, permissive <strong>sudo</strong> rules (check <code>sudo -l</code>), writable cron jobs, and outdated kernels. <strong>LinPEAS</strong> and the <strong>GTFOBins</strong> catalog map the paths.</p>
-<p>🔑 Credential reuse</p>
+</details>
+<details class="note">
+<summary>🔑 Credential reuse</summary>
 <p>The fastest escalation is often no exploit at all — passwords reused across accounts, or credentials sitting in config files and scripts on the compromised host.</p>
-<h2 id="4-post-exploitation">4. Post-exploitation<a class="headerlink" href="#4-post-exploitation" title="Permanent link">&para;</a></h2>
-<p>Once you have privileged access, the objectives are <strong>persistence</strong> (surviving a reboot), <strong>pivoting</strong> (using this host to reach others — Week 4's techniques), and <strong>collection</strong> (the data the engagement was scoped to demonstrate access to). Every one of these actions leaves artifacts — new services, new scheduled tasks, unusual process trees — which is precisely what the defender hunts for.</p>
+</details>
+<h2 id="4-post-exploitation-persistence">4. Post-exploitation &amp; persistence<a class="headerlink" href="#4-post-exploitation-persistence" title="Permanent link">&para;</a></h2>
+<p>Once you have privileged access, the objectives are <strong>persistence</strong> (surviving a reboot), <strong>pivoting</strong> (using this host to reach others — Week 4's techniques), and <strong>collection</strong> (the data the engagement was scoped to demonstrate access to). Persistence is usually bought with <strong>registry run keys, scheduled tasks, or new services</strong> that relaunch your implant after a reboot. Every one of these actions leaves artifacts — new services, new scheduled tasks, unusual process trees — which is precisely what the defender hunts for.</p>
+<h2 id="5-malware-the-taxonomy">5. Malware — the taxonomy<a class="headerlink" href="#5-malware-the-taxonomy" title="Permanent link">&para;</a></h2>
+<p>Persistence at scale is what <strong>malware</strong> automates. The key distinction is <strong>propagation</strong> (how it spreads) vs. <strong>payload</strong> (what it does):</p>
+<ul>
+<li><strong>Virus</strong> — attaches to a file/program; spreads when that file runs.</li>
+<li><strong>Worm</strong> — self-propagates across a network with no user action (WannaCry spread this way).</li>
+<li><strong>Trojan</strong> — disguised as something legitimate; the user runs it willingly.</li>
+<li><strong>RAT (Remote Access Trojan)</strong> — a trojan whose payload gives the attacker ongoing remote control — the essence of <em>maintaining access</em>.</li>
+<li><strong>Ransomware</strong> — encrypts data for extortion; often the final payload of a longer intrusion.</li>
+</ul>
+<h2 id="6-the-rat-lifecycle">6. The RAT lifecycle<a class="headerlink" href="#6-the-rat-lifecycle" title="Permanent link">&para;</a></h2>
+<p>Click each stage to expand.</p>
+<details class="note">
+<summary>🔨 Build &amp; obfuscate</summary>
+<p>The attacker generates a payload (e.g., with <code>msfvenom</code>) and obfuscates/encodes it to slip past antivirus signature matching.</p>
+</details>
+<details class="note">
+<summary>📬 Deliver &amp; execute</summary>
+<p>The payload reaches the victim (phishing attachment, malicious download, trojanized installer) and runs — often via a document macro or a fake update.</p>
+</details>
+<details class="note">
+<summary>📡 Command &amp; control (C2)</summary>
+<p>The implant connects back to the attacker's C2 server, disguised as ordinary HTTPS or DNS traffic so it blends into normal outbound flow. (Same outbound-is-trusted logic as the Week 7 reverse shell — just automated and persistent.)</p>
+</details>
+<details class="note">
+<summary>🔒 Persist</summary>
+<p>Registry run keys, scheduled tasks, or services ensure the RAT survives reboots.</p>
+</details>
 <h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
 <div class="admonition defender">
 <p>How this looks from the SOC seat</p>
 <p>Exploitation is the <strong>highest-signal</strong> phase of the whole chain: a request to a vulnerable endpoint carrying an anomalous payload, immediately followed by an unexpected <strong>outbound</strong> connection (the reverse shell) and a service account suddenly spawning a shell or PowerShell. Privilege escalation is quieter and depends on host telemetry — <strong>Sysmon</strong> (Windows) or <strong>auditd</strong> (Linux) — being configured <em>before</em> the attack, watching for SUID/sudo abuse and token manipulation.</p>
-<p><strong>Best control:</strong> the single most effective remediation is <strong>patching</strong> so the exploit fails outright — backed by <strong>least-privilege</strong> service accounts, application allowlisting, and EDR to catch the post-exploitation behavior.</p>
+<p>Malware and C2 then show up as <strong>beaconing</strong> — small, regular outbound connections to an unfamiliar host at suspiciously even intervals — and as unusual process trees (a Word doc spawning PowerShell).</p>
+<p><strong>Best controls:</strong> the single most effective remediation is <strong>patching</strong> so the exploit fails outright — backed by <strong>least-privilege</strong> service accounts, application allowlisting, <strong>egress filtering + DNS monitoring</strong> to catch C2 leaving the network, and <strong>EDR</strong> to catch the post-exploitation and implant behavior on-host.</p>
 </div>
 <div class="admonition note">
-<p>Real-world context — EternalBlue &amp; WannaCry</p>
-<p>In 2017 the <strong>WannaCry</strong> ransomware used <strong>EternalBlue</strong> (MS17-010), an exploit for a flaw in Windows SMB, to get SYSTEM-level code execution on unpatched machines — then wormed itself across networks automatically, hitting hospitals, telecoms, and factories in over 150 countries within days. Microsoft had released the patch <strong>two months earlier</strong>. It's the definitive case for why "gaining access" plus "unpatched systems" is a catastrophe, and why patch management is the highest-value defense on this page.</p>
+<p>Real-world context</p>
+<p><strong>EternalBlue &amp; WannaCry (2017).</strong> The WannaCry ransomware used <strong>EternalBlue</strong> (MS17-010), an exploit for a flaw in Windows SMB, to get SYSTEM-level code execution on unpatched machines — then <strong>wormed</strong> itself across networks automatically, hitting hospitals, telecoms, and factories in over 150 countries within days. Microsoft had released the patch <strong>two months earlier</strong> — the definitive case for why "gaining access" plus "unpatched systems" is a catastrophe.</p>
+<p><strong>Emotet.</strong> Began as a banking trojan and evolved into a delivery platform — a RAT that, once resident, downloaded other malware (including ransomware) and used the victim's own contacts to spread. The textbook example of "maintaining access" as a business model, and of why C2 detection matters more than any single signature.</p>
 </div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Metasploit Unleashed</strong> (OffSec, free). <a href="https://www.offsec.com/metasploit-unleashed/">offsec.com/metasploit-unleashed</a></li>
 <li><strong>Kali Linux Revealed</strong> (official, free). <a href="https://www.kali.org/download-kali-linux-revealed-book/">kali.org book</a></li>
 <li><strong>GTFOBins</strong> (Linux privesc reference). <a href="https://gtfobins.github.io/">gtfobins.github.io</a></li>
+<li><strong>MITRE ATT&amp;CK</strong> — Exploit Public-Facing Application (T1190) · Exploitation for Privilege Escalation (T1068) · Command &amp; Control (TA0011) · Remote Access Software (T1219). <a href="https://attack.mitre.org/techniques/T1190/">T1190</a> · <a href="https://attack.mitre.org/techniques/T1068/">T1068</a> · <a href="https://attack.mitre.org/tactics/TA0011/">TA0011</a> · <a href="https://attack.mitre.org/techniques/T1219/">T1219</a></li>
 </ul>
 
 
@@ -1500,7 +1581,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="wireless-hacking.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 6 · Wireless Hacking">
+          <a href="network-defenses-evasion.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Week 7 · Network Defense Evasion &amp; DoS">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1510,20 +1591,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Week 6 · Wireless Hacking
+                Week 7 · Network Defense Evasion & DoS
               </div>
             </div>
           </a>
         
         
           
-          <a href="malware-trojans-dos.html" class="md-footer__link md-footer__link--next" aria-label="Next: Week 8 · Malware, Trojans &amp; DoS">
+          <a href="web-attacks-servers-apps.html" class="md-footer__link md-footer__link--next" aria-label="Next: Week 9 · Web Attacks I — Servers &amp; Apps">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Week 8 · Malware, Trojans & DoS
+                Week 9 · Web Attacks I — Servers & Apps
               </div>
             </div>
             <div class="md-footer__button md-icon">

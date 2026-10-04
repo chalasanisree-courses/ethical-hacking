@@ -537,7 +537,7 @@ Because one wall is never enough, defenders build **layers** — *defense in dep
 
 Controls what traffic is even allowed onto the network: **firewalls, IDS/IPS, the DMZ,** and network segmentation.
 
-**We attack it in:** [Recon](reconnaissance-footprinting.html) · [Scanning](scanning-enumeration.html) · [Network Hacking & Sniffing](network-hacking-sniffing.html) · [Wireless](wireless-hacking.html)
+**We attack it in:** [Recon](reconnaissance-footprinting.html) · [Scanning](scanning-enumeration.html) · [Network Hacking & Sniffing](network-hacking-sniffing.html) · [Wireless](wireless-hacking.html) · [Network Defense Evasion & DoS](network-defenses-evasion.html)
 
 </div>
 
@@ -547,7 +547,7 @@ Controls what traffic is even allowed onto the network: **firewalls, IDS/IPS, th
 
 Hardening the machines themselves: **OS patching, antivirus/EDR (endpoint detection & response), disk encryption,** and host-level firewalls.
 
-**We attack it in:** [System Attacks](system-attacks.html) · [Malware, Trojans & DoS](malware-trojans-dos.html)
+**We attack it in:** [System Attacks, Malware & Persistence](system-attacks.html)
 
 </div>
 
@@ -589,8 +589,8 @@ For the next twelve weeks **we play the attacker**, walking the kill chain again
 
 | Layer                   | What we attack it with                                                                                                                                                                            |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Network**             | [Recon](reconnaissance-footprinting.html) · [Scanning & Enumeration](scanning-enumeration.html) · [Network Hacking & Sniffing](network-hacking-sniffing.html) · [Wireless](wireless-hacking.html) |
-| **Device**              | [System Attacks](system-attacks.html) · [Malware, Trojans & DoS](malware-trojans-dos.html)                                                                                                        |
+| **Network**             | [Recon](reconnaissance-footprinting.html) · [Scanning & Enumeration](scanning-enumeration.html) · [Network Hacking & Sniffing](network-hacking-sniffing.html) · [Wireless](wireless-hacking.html) · [Network Defense Evasion & DoS](network-defenses-evasion.html) |
+| **Device**              | [System Attacks, Malware & Persistence](system-attacks.html)                                                                                                        |
 | **Application**         | [Web Attacks I](web-attacks-servers-apps.html) · [Web Attacks II — SQLi](web-attacks-sqli-session.html)                                                                                           |
 | **Data**                | [Cryptography](cryptography.html)                                                                                                                                                                 |
 | **Identity**            | [Social Engineering & the Identity Layer](social-engineering-identity.html)                                                                                                                       |
