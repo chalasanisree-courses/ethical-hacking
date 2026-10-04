@@ -113,7 +113,7 @@ This is the enterprise network you're attacking. **Click a defense box** (highli
 
 **Pros.** Fast, simple, the essential first filter; default-deny blocks everything not explicitly allowed. An NGFW adds payload inspection and app awareness in one box.
 
-**Cons.** A basic firewall reads **only the header** — it must leave 80/443 open to the world, and can't see an exploit hidden in the payload (that's how ShellShock rides in on an allowed port — trace the attack above). Attackers beat an NGFW by **encrypting or fragmenting** the payload.
+**Cons.** A basic firewall reads **only the header** — it must leave 80/443 open to the world, and can't see an exploit hidden in the payload (that's how ShellShock rides in on an allowed port — trace the attack above). An NGFW is only evaded where its deep inspection can't reach the content: **encrypted traffic slips past when TLS inspection isn't turned on** (it's costly, so often it isn't), or when the attacker uses encryption it can't open. *(Fragmenting the payload was a classic evasion; modern NGFWs reassemble the pieces before inspecting.)*
 
 </div>
 
@@ -207,7 +207,7 @@ A normal-looking HTTP request to port 80 — the firewall sees the right port an
 
 #### ⚔️ Step ② — reverse shell (dial out)
 
-Code execution that fires once isn't enough — so the exploit opens a connection **outbound**, from the web server back to the attacker's server. Firewalls scrutinize **inbound** traffic but trust **outbound**, so it sails through — a standing channel back into the network, on demand.
+Code execution that fires once isn't enough — so the exploit opens a connection **outbound**, from the web server back to the attacker's server. Firewalls scrutinize **inbound** traffic but trust **outbound**, so it sails through — an **open channel back into the network**. (Turning that into *persistent, on-demand* access — a service or cron job that relaunches it — is the **Maintaining Access** step, next week.)
 
 </div>
 
@@ -235,7 +235,7 @@ The second approach is the opposite of subtle. If you can't get *in*, stop tryin
 
 | Type | How it overwhelms |
 |---|---|
-| **Volumetric** | Flood the bandwidth with traffic — ICMP floods, oversized pings — until real requests can't get through. |
+| **Volumetric** | Flood the bandwidth with traffic — UDP/ICMP floods, and **amplification / reflection** (a small spoofed request to a DNS or NTP server triggers a huge response) — until real requests can't get through. |
 | **Protocol / state** | A **SYN flood**: start the TCP handshake but never finish it, filling the server's connection table with half-open connections. |
 | **Application** | Slow, partial requests that tie up the server's workers — low traffic, hard to tell from genuinely slow users. |
 

@@ -1663,7 +1663,7 @@
 <h4 id="firewall-the-perimeter-gate-and-the-ngfw">🧱 Firewall — the perimeter gate (and the NGFW)<a class="headerlink" href="#firewall-the-perimeter-gate-and-the-ngfw" title="Permanent link">&para;</a></h4>
 <p><strong>What it does.</strong> Sits at the edge and checks every packet's <strong>header</strong> (source/dest IP, port, protocol) against rules — <strong>allow</strong>, <strong>drop</strong>, or <strong>reject</strong>. A <strong>next-gen firewall (NGFW)</strong> goes further: it reads the <strong>payload</strong> too, identifies the real application, can decrypt TLS, and folds in an IPS.</p>
 <p><strong>Pros.</strong> Fast, simple, the essential first filter; default-deny blocks everything not explicitly allowed. An NGFW adds payload inspection and app awareness in one box.</p>
-<p><strong>Cons.</strong> A basic firewall reads <strong>only the header</strong> — it must leave 80/443 open to the world, and can't see an exploit hidden in the payload (that's how ShellShock rides in on an allowed port — trace the attack above). Attackers beat an NGFW by <strong>encrypting or fragmenting</strong> the payload.</p>
+<p><strong>Cons.</strong> A basic firewall reads <strong>only the header</strong> — it must leave 80/443 open to the world, and can't see an exploit hidden in the payload (that's how ShellShock rides in on an allowed port — trace the attack above). An NGFW is only evaded where its deep inspection can't reach the content: <strong>encrypted traffic slips past when TLS inspection isn't turned on</strong> (it's costly, so often it isn't), or when the attacker uses encryption it can't open. <em>(Fragmenting the payload was a classic evasion; modern NGFWs reassemble the pieces before inspecting.)</em></p>
 </div>
 <div class="net-panel" id="net-panel-ids">
 <h4 id="ids-ips-watches-the-traffic-inside-too">🛡️ IDS / IPS — watches the traffic, inside too<a class="headerlink" href="#ids-ips-watches-the-traffic-inside-too" title="Permanent link">&para;</a></h4>
@@ -1711,7 +1711,7 @@
 </div>
 <div class="atk-panel" id="atk-panel-2">
 <h4 id="step-2-reverse-shell-dial-out">⚔️ Step ② — reverse shell (dial out)<a class="headerlink" href="#step-2-reverse-shell-dial-out" title="Permanent link">&para;</a></h4>
-<p>Code execution that fires once isn't enough — so the exploit opens a connection <strong>outbound</strong>, from the web server back to the attacker's server. Firewalls scrutinize <strong>inbound</strong> traffic but trust <strong>outbound</strong>, so it sails through — a standing channel back into the network, on demand.</p>
+<p>Code execution that fires once isn't enough — so the exploit opens a connection <strong>outbound</strong>, from the web server back to the attacker's server. Firewalls scrutinize <strong>inbound</strong> traffic but trust <strong>outbound</strong>, so it sails through — an <strong>open channel back into the network</strong>. (Turning that into <em>persistent, on-demand</em> access — a service or cron job that relaunches it — is the <strong>Maintaining Access</strong> step, next week.)</p>
 </div>
 <div class="atk-panel" id="atk-panel-3">
 <h4 id="step-3-lateral-movement">⚔️ Step ③ — lateral movement<a class="headerlink" href="#step-3-lateral-movement" title="Permanent link">&para;</a></h4>
@@ -1734,7 +1734,7 @@
 <tbody>
 <tr>
 <td><strong>Volumetric</strong></td>
-<td>Flood the bandwidth with traffic — ICMP floods, oversized pings — until real requests can't get through.</td>
+<td>Flood the bandwidth with traffic — UDP/ICMP floods, and <strong>amplification / reflection</strong> (a small spoofed request to a DNS or NTP server triggers a huge response) — until real requests can't get through.</td>
 </tr>
 <tr>
 <td><strong>Protocol / state</strong></td>
