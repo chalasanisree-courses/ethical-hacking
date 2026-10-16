@@ -8,121 +8,260 @@ hide:
 
 # Week 8 · System Attacks, Malware & Persistence
 
-<span class="kc-badge">🧭 CEH life cycle · Phases 3–4 — Gaining → Maintaining Access</span>
+<span class="kc-badge">🧭 CEH life cycle — Gaining Access → Maintaining Access → Covering Tracks</span>
 
 <div class="attck-strip" markdown="1">
 
-<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1068/" class="attck-tag" target="_blank">T1068 Exploit for PrivEsc</a> <a href="https://attack.mitre.org/techniques/T1071/" class="attck-tag" target="_blank">T1071 App-Layer C2</a> <a href="https://attack.mitre.org/techniques/T1219/" class="attck-tag" target="_blank">T1219 Remote Access Software</a>
+<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1068/" class="attck-tag" target="_blank">T1068 Exploit for PrivEsc</a> <a href="https://attack.mitre.org/techniques/T1543/" class="attck-tag" target="_blank">T1543 Persistence</a> <a href="https://attack.mitre.org/techniques/T1003/" class="attck-tag" target="_blank">T1003 Credential Dumping</a> <a href="https://attack.mitre.org/techniques/T1021/" class="attck-tag" target="_blank">T1021 Lateral Movement</a> <a href="https://attack.mitre.org/techniques/T1071/" class="attck-tag" target="_blank">T1071 App-Layer C2</a> <a href="https://attack.mitre.org/techniques/T1048/" class="attck-tag" target="_blank">T1048 Exfil / Alt Protocol</a> <a href="https://attack.mitre.org/techniques/T1070/" class="attck-tag" target="_blank">T1070 Indicator Removal</a>
 
 </div>
 
-<div class="admonition abstract" markdown="1">
+!!! abstract "What this page covers"
 
-What this page covers
+    - **The loop** — the routine you run on every host: get in → escalate → persist → steal credentials → act / pivot
+    - **The board** — how the OS decides who can do what, and the 2×2 of identities that sets the goal
+    - **Each move in turn** — escalation, persistence and the RAT, staying hidden, credential theft, the pivot to the domain controller, and exfiltration
+    - **Stealth vs. covering tracks**, and the idea that ties it together: **malware is this loop, automated**
 
-- **From vulnerability to shell** — how an exploit becomes code execution, and the Metasploit workflow end to end
-- **Privilege escalation** — becoming root / SYSTEM on Windows and Linux
-- **Post-exploitation & persistence** — surviving a reboot, pivoting, and collection
-- **Malware** — viruses, worms, trojans, RATs, and ransomware, and how command-and-control works
+Last week we got *through* the perimeter. This week we're standing on a single machine with a foothold, and we ask the only question that matters next: **now what?** The answer is a routine — the same moves run on every host you reach:
+
+> **get in → escalate → persist → steal credentials → act / pivot** — then repeat on the next machine.
+
+Stealth runs *underneath* that whole routine — you're trying not to be noticed the entire time — and **covering your tracks** is the exit. We teach it on one running example, **ShellShock**, and translate to Windows as we go. The burglar analogy holds throughout: get in, don't get kicked out, find something worth taking, and leave without anyone realizing you were there.
+
+## Land and expand
+
+The machine you landed on may hold nothing worth taking — so the plan is **land and expand**: take full control of this host, look around, and use what you find to reach the next host. Repeat until you hit something valuable.
+
+- 🖥️ **Foothold** — land as a low-privilege user
+- 🔐 **Full control** — climb to root / SYSTEM
+- 🔑 **Harvest secrets** — passwords and cached credentials
+- 🌐 **Next host** — log in with the stolen keys → the new host is a fresh foothold, so run the loop again
+
+??? note "💡 Why you move *on the inside*"
+
+    The database and the other servers sit **inside** the network. The perimeter firewall guards the edge — the boundary between the internet and the inside — not host-to-host traffic. Once you're on one internal box, the rest are reachable. This is **lateral movement**, and it's where the week heads.
+
+??? note "💡 …and you don't always climb"
+
+    Match the move to the goal. To encrypt a user's files for ransom, or read the web app's own database, the foothold's privileges are often enough — no root needed. You climb to the superuser only when the goal needs the whole machine or a path deeper into the network.
+
+---
+
+## 1. Get in — credentials · code · config
+
+Recap of how we got here. There are only three ways onto a host — the **CCC** — and the same three come back as the ways to *climb* once you're inside.
+
+??? note "🔑 ① Credentials — steal a key"
+
+    No exploit at all — you just use a valid login. Steal an employee's password and log in as them from the internet; or phish a user into opening an attachment, and now your code runs **as them**. The quiet way.
+
+??? note "🐛 ② Code — exploit a bug"
+
+    Every program is written by humans, so it has bugs. **ShellShock** was a bug in **Bash** — the shell, *not* the web server — that let a crafted web request run a command. Others: **Dirty COW** (Linux kernel), **PrintNightmare** (Windows print service). You land at the privilege of whatever you broke.
+
+??? note "⚙️ ③ Config — abuse a setting"
+
+    Nothing is broken; a setting was just left too loose. User errors are everywhere, so this is often the *easiest* path. (Full worked example under [Escalate](#2-escalate-climb-to-the-superuser).)
+
+Through ShellShock we became `www-data` — the web server's **low-privilege service account**. Not root, not an administrator.
+
+!!! warning "Exploit ≠ escalation"
+
+    Getting code to run on the box is **initial access**, not privilege escalation. An exploit gives you **exactly** the privileges the broken process already had — no more. Climbing higher is the next, separate job.
+
+## The machine we're climbing
+
+Three layers, bottom to top: **hardware → operating system (the kernel) → applications**. Apps can't touch hardware directly — they ask the OS through **system calls**. Think of the kernel as a **security guard** with two jobs.
+
+- **Job 1 — mediate the hardware.** Your browser can't grab the network card itself; it asks the kernel, which time-slices that one card between every program that wants it at the same time.
+- **Job 2 — enforce identity.** Bob and Alice share a machine. When Bob's File Explorer reaches for one of Alice's private files, the kernel checks Bob's identity against the file's permissions — and denies it. **Every** file access runs through that check.
+
+That one check is the whole security model, and the week is about getting around it. The password hashes live in `/etc/shadow`, readable only by root:
+
+```
+$ ls -l /etc/shadow
+-rw-r----- 1 root shadow ... /etc/shadow
+```
+
+Owner **root** can read/write, group **shadow** can read, **others get nothing** — so our `www-data` foothold is simply denied. The lever that matters: **root (uid 0) bypasses every check**, which is exactly what makes it the goal.
+
+??? note "🪟 The Windows mirror"
+
+    Objects carry **ACLs** instead of rwx bits; the local superuser is **SYSTEM**; the password store is the **SAM** on disk and **LSASS** in memory, not `/etc/shadow`. Same model — identity decides access, and SYSTEM bypasses it.
+
+## Every process runs as someone
+
+When a Linux machine boots, the first process — **systemd** — runs as root and spawns everything else, so you get a tree of processes, each tagged with an identity. Those identities split two ways: **who they're for** × **how much power**.
+
+|             | **Low privilege**                       | **High privilege**                     |
+|-------------|-----------------------------------------|----------------------------------------|
+| **Human**   | ordinary user — `alice`                 | human admin — a sudoer / administrator  |
+| **Service** | low-priv service — `www-data`, `mysql`  | **superuser — `root` / `SYSTEM`**      |
+
+A foothold almost always drops you in the **bottom row**. The destination is the **top-right cell** — the local superuser, and `root` ≈ `SYSTEM` is that same role on either OS. A phished attachment runs with *your* identity; a printer service is a non-human **service account** with no business reading `/etc/shadow`, so it can't. The goal is always to climb to the top.
+
+## 2. Escalate — climb to the superuser
+
+A shell runs at the privilege of **whoever spawned it**. So escalation means getting something already privileged to run your code — through the same three routes (code · config · credentials). You don't guess; **LinPEAS / WinPEAS** enumerate every opening.
+
+Here's the **config** route in full — and notice it takes *two* mistakes together. An admin lets an operator run a root-owned backup script via `sudo` (reasonable), but also leaves the script writable by the operator's group:
+
+```
+$ id
+uid=1001(operator) gid=1001(operator) groups=operator,ops
+
+$ ls -l /opt/backup.sh
+-rwxrwxr-x 1 root ops  /opt/backup.sh      # group 'ops' can write — and we're in ops
+```
+
+??? danger "Reveal the exploit →"
+
+    ```
+    $ echo 'bash -i' >> /opt/backup.sh     # append one line: spawn a shell
+    $ sudo /opt/backup.sh
+    # whoami
+    root
+    ```
+
+    `sudo` runs **our edited** script as root, so the shell comes back as root. Neither mistake alone is enough — the grant was meant for a fixed, trusted script, and a writable script you run as *yourself* is harmless. It's the **combination** — run it as root *and* change what it does — that hands over the box.
+
+<div class="admonition defender" markdown="1">
+
+🛡 The defender's counter — least privilege
+
+Give every account and service only the power it genuinely needs. Then even when an attacker lands a foothold or finds one of these openings, there's very little to reach, and the climb to root stalls.
 
 </div>
 
-Last week we got *through* the perimeter. This week we land on an actual machine and take it over — turning one exploited service into full control of the host, then making that control **stick**. Exploitation gets you in; privilege escalation makes you root; persistence and malware let you *stay*. (Denial of service, which used to live here, now sits in **Week 7 — Network Defense Evasion & DoS**.)
+## 3. Persist — keeping the position, and the RAT
 
-## 1. From vulnerability to shell
+What you have right now is fragile. A **reverse shell** is one connection the box dials *outward*; it dies on a reboot, a dropped link, or — worst — a **patch of the hole you climbed in through**. **Persistence** means leaving a way back in, at your elevated level.
 
-This is the phase everything before it was building toward. You take a vulnerability found in Week 3's analysis, match it to an **exploit**, and deliver a **payload** that gives you code execution on the target. The key reality: exploitation almost always lands you as a **low-privileged user** — the account the vulnerable service runs as (`www-data`, a service account) — *not* as administrator. Getting in is step one; becoming root/SYSTEM is a separate fight (§3).
+- **Your own way back in.** Like a burglar copying the key: create a new admin/root account for yourself, or drop an **SSH key** into an account's `authorized_keys` — now you just log straight back in.
+- **Hook into startup**, so you're relaunched every reboot. 🐧 **Linux:** a cron job or a systemd service. 🪟 **Windows:** a registry **Run** key, a scheduled task, or a new service — add your malware there and it comes up alongside the legitimate ones.
 
-Payloads range from a simple **reverse shell** (the target connects back to you, which sails through outbound-only firewalls — exactly the trick from Week 7) to a full **Meterpreter** session with file access, screenshotting, and pivoting built in.
+**The RAT.** Tie those together and a **Remote Access Trojan** automates the whole return into one implant that does three jobs: it **persists** (survives reboot), it **calls home** to a command-and-control (C2) server, and it hands the operator **remote control**. A *trojan* because it's disguised; *remote-access* because it opens a channel back in.
 
-## 2. Metasploit — the exploitation framework
+**Beaconing is the tell.** The implant must check in — small, clockwork "phone-home" connections to an unfamiliar host. Why reach *out*? Inbound is heavily guarded and monitored, while traffic leaving the network looks like any employee browsing. Same "outbound is trusted" trick as the reverse shell, now automated and always on.
 
-Metasploit standardizes the whole process so you're not hand-writing exploits:
+??? example "Real case — SolarWinds (2020)"
 
-- **Modules** — thousands of pre-built exploits and auxiliary tools.
-- **`msfconsole`** — pick an exploit, set the target (`RHOSTS`) and your payload (`LHOST`/`LPORT`), and fire.
-- **Meterpreter** — a powerful in-memory payload for everything after the shell: `getsystem`, `hashdump`, `migrate`, pivoting to other hosts.
-- **`msfvenom`** — generate and encode standalone payloads for delivery.
+    A backdoor hidden inside a **signed** software update stayed dormant for ~2 weeks, then beaconed to command-and-control through traffic disguised as the product's own. Thousands of networks, undetected for months.
 
-Understanding this workflow is also what lets a defender recognize its very recognizable footprints.
+<div class="admonition defender" markdown="1">
 
-## 3. Privilege escalation
+🛡 The defender's counter — patch first
 
-Exploitation drops you in as a low-privileged user; privilege escalation is how you become root or SYSTEM.
+**Patch** is the #1 control: it closes the exact hole the exploit needs, so the exploit simply fails. It's precisely *because* a patch can lock the attacker out that they rush to persist first. Defenders also hunt for rogue Run keys, services, and tasks, and watch outbound traffic for beaconing.
 
-??? note "🪟 Windows privesc"
+</div>
 
-    Unquoted service paths, weak service permissions, always-install-elevated policies, and token-impersonation ("Potato") attacks. Tools like **WinPEAS** enumerate the options automatically.
+## Staying hidden
 
-??? note "🐧 Linux privesc"
+The whole time you operate, you're trying not to be seen — so stealth isn't a stage, it's a **band under the entire loop**. And the host is defended: client and server endpoints run **endpoint protection (EPP)** — classic antivirus, with modern **EDR** layered on top. Antivirus runs two checks, and each evasion beats one of them.
 
-    Misconfigured **SUID** binaries, permissive **sudo** rules (check `sudo -l`), writable cron jobs, and outdated kernels. **LinPEAS** and the **GTFOBins** catalog map the paths.
+- 📦 **Packing** — *beats the on-disk signature scan.* Signature AV knows what known malware looks like on disk; packing compresses and scrambles the file so it matches nothing on the list. Same malware, new fingerprint.
+- 🧬 **Process hollowing** — *beats the running-process watch.* Take a trusted OS process like `svchost`, gut it, and run your code inside under its good name. To the scanner it still looks like a legitimate process.
 
-??? note "🔑 Credential reuse"
+So defenders moved past signatures: **EDR** watches *behavior* — is this process writing to the registry, making connections it shouldn't? The malware's answer is to stay under the radar and not trip the alarms. And the deepest move of all:
 
-    The fastest escalation is often no exploit at all — passwords reused across accounts, or credentials sitting in config files and scripts on the compromised host.
+!!! danger "Rootkit — corrupt the reporter"
 
-## 4. Post-exploitation & persistence
+    AV and EDR are only as good as what the **OS reports** to them. Compromise the OS itself and it can report your process as normal — or not at all. The source they trust is now yours, so there's nothing left to detect.
 
-Once you have privileged access, the objectives are **persistence** (surviving a reboot), **pivoting** (using this host to reach others — Week 4's techniques), and **collection** (the data the engagement was scoped to demonstrate access to). Persistence is usually bought with **registry run keys, scheduled tasks, or new services** that relaunch your implant after a reboot. Every one of these actions leaves artifacts — new services, new scheduled tasks, unusual process trees — which is precisely what the defender hunts for.
+??? example "Real case — Stuxnet (2010)"
 
-## 5. Malware — the taxonomy
+    A kernel-level rootkit whose components were signed with **stolen but genuine** code-signing certificates. Hidden for months; targeted the centrifuges at Iran's Natanz facility.
 
-Persistence at scale is what **malware** automates. The key distinction is **propagation** (how it spreads) vs. **payload** (what it does):
+## 4. Steal credentials, then pivot
 
-- **Virus** — attaches to a file/program; spreads when that file runs.
-- **Worm** — self-propagates across a network with no user action (WannaCry spread this way).
-- **Trojan** — disguised as something legitimate; the user runs it willingly.
-- **RAT (Remote Access Trojan)** — a trojan whose payload gives the attacker ongoing remote control — the essence of *maintaining access*.
-- **Ransomware** — encrypts data for extortion; often the final payload of a longer intrusion.
+Now that you're the superuser, the stored secrets are finally readable. This is a different move from escalation: there you stole *one* credential to go **up** on this box; here you harvest *every* credential on it to go **out** to other boxes — and you couldn't have done it a moment ago, because it needs root.
 
-## 6. The RAT lifecycle
+- 🐧 **Linux** — grab `/etc/shadow` (the file we couldn't read before) and **crack the hashes offline** until the weak ones give up their passwords.
+- 🪟 **Windows** — the credentials of anyone recently logged in are cached in memory in **LSASS**. The classic tool **Mimikatz** scrapes them straight out; if an admin ever logged into this box, their credentials are sitting there.
 
-Click each stage to expand.
+Those keys feed **lateral movement** toward the **domain controller** — the server that holds the accounts and credentials for the *entire* network, centrally. Find the key to one room, then the key to the vault. Own the domain controller and you can log into *any* machine as a legitimate admin: **game over**. Each hop is a new foothold → rerun the loop.
 
-??? note "🔨 Build & obfuscate"
+??? example "Real case — Target (2013)"
 
-    The attacker generates a payload (e.g., with `msfvenom`) and obfuscates/encodes it to slip past antivirus signature matching.
+    Entry through a phished HVAC contractor's stolen vendor login, then lateral movement to the point-of-sale network — roughly 40 million card numbers. A worm is this same move, automated.
 
-??? note "📬 Deliver & execute"
+<div class="admonition defender" markdown="1">
 
-    The payload reaches the victim (phishing attachment, malicious download, trojanized installer) and runs — often via a document macro or a fake update.
+🛡 The defender's counter — protect the credentials
 
-??? note "📡 Command & control (C2)"
+**Credential Guard** and **LSASS protection** wall off that memory from Mimikatz; **unique local-admin passwords** stop one stolen password opening the rest; and **multi-factor authentication** means a stolen password alone isn't enough to log in.
 
-    The implant connects back to the attacker's C2 server, disguised as ordinary HTTPS or DNS traffic so it blends into normal outbound flow. (Same outbound-is-trusted logic as the Week 7 reverse shell — just automated and persistent.)
+</div>
 
-??? note "🔒 Persist"
+## 5. Act — exfiltrate, quietly
 
-    Registry run keys, scheduled tasks, or services ensure the RAT survives reboots.
+Eventually you reach the prize — the database of card numbers or SSNs. As a trusted admin, **reaching** the data is the easy part. **Getting it out** is the hard part, because a big transfer of sensitive data to an unfamiliar host lights up volume alerts and **DLP** (data-loss-prevention) tools. So the act is done under stealth.
+
+- 🐢 **Low and slow** — trickle the data out in small chunks over days, so there's never a volume spike to notice. Disguise it as ordinary **HTTPS** to a normal-looking site, and encrypt it so inspection can't read the contents.
+- 🕳️ **DNS tunneling** — every web request starts with a DNS lookup, so DNS is almost always allowed out. Encode the data into lookups (`chunk1.attacker.com`, `chunk2…`) and the network forwards each one to the attacker's DNS server. Many lookups, but the data leaves without an alarm.
+
+## Covering tracks — the exit
+
+The work is done; now clean up on the way out — and this is different from stealth. Stealth kept you unseen *while* operating; covering tracks is anti-forensics *afterward*. Like a burglar switching off the cameras **and** wiping what they already recorded.
+
+- 🎥 **Disable logging** — turn the cameras off before they record you
+- 🧹 **Clear logs** — event, auth, and shell history
+- 🕰️ **Timestomp** — fake file timestamps so planted files blend in
+
+Why bother? Two reasons. First, to **buy time** — the later anyone notices, the longer your access lasts and the colder the trail gets. Second, and bigger, to **defeat the forensic investigation**: when responders arrive to reconstruct how you got in, what you took, how long you stayed, and who you are, there's no evidence left to answer them.
+
+## Malware is this loop, automated
+
+Everything above was done by hand. Malware is simply that routine written as software — modules assembled like any other program, custom-built for a target.
+
+| Stage in the loop  | Malware component            |
+|--------------------|------------------------------|
+| get in             | dropper / exploit            |
+| escalate           | privilege-escalation module  |
+| persist            | persistence mechanism        |
+| steal credentials  | credential-theft module      |
+| act / pivot        | payload + C2                 |
+
+Stealth spans *every* stage — it's the band, not a box. Real samples use only the pieces they need, and the familiar names are just common bundles:
+
+- **virus** — infects existing files · **worm** — self-spreads, no user needed · **trojan** — disguised, run by a tricked user · **RAT** — ongoing remote control · **ransomware** — the encrypt-for-extortion payoff
+
+??? note "💣 Damage, not theft"
+
+    Not every attacker wants data. **Ransomware** encrypts your files and holds them for a ransom — and attacks on **industrial and refrigeration control systems** can manipulate physical equipment directly. When the goal is damage, the "act" looks different, but the routine to reach it is the same.
+
+One line to take away: **the loop is the spine, stealth is the band, malware is the tooling — run on every host you reach.**
 
 ## Defender's view
 
 <div class="admonition defender" markdown="1">
 
-How this looks from the SOC seat
+A control at every step
 
-Exploitation is the **highest-signal** phase of the whole chain: a request to a vulnerable endpoint carrying an anomalous payload, immediately followed by an unexpected **outbound** connection (the reverse shell) and a service account suddenly spawning a shell or PowerShell. Privilege escalation is quieter and depends on host telemetry — **Sysmon** (Windows) or **auditd** (Linux) — being configured *before* the attack, watching for SUID/sudo abuse and token manipulation.
+Because the attacker is *forced* to follow this routine, the defender gets to place a control at **every step** — that's what "defense in depth" means.
 
-Malware and C2 then show up as **beaconing** — small, regular outbound connections to an unfamiliar host at suspiciously even intervals — and as unusual process trees (a Word doc spawning PowerShell).
+| Attacker's move | Defender's control |
+|---|---|
+| Get in / escalate | **Patch** — closes the hole so the exploit fails |
+| Any foothold | **Least privilege** — limits what a compromise reaches |
+| Stay hidden | **EDR** — catches behavior packing can't hide |
+| Steal credentials | **Credential Guard · LAPS · MFA** — nothing worth stealing |
+| Exfiltrate | **DLP · outbound monitoring** — watches data leaving |
+| Cover tracks | **Protected telemetry** — logs they can't erase |
 
-**Best controls:** the single most effective remediation is **patching** so the exploit fails outright — backed by **least-privilege** service accounts, application allowlisting, **egress filtering + DNS monitoring** to catch C2 leaving the network, and **EDR** to catch the post-exploitation and implant behavior on-host.
-
-</div>
-
-<div class="admonition note" markdown="1">
-
-Real-world context
-
-**EternalBlue & WannaCry (2017).** The WannaCry ransomware used **EternalBlue** (MS17-010), an exploit for a flaw in Windows SMB, to get SYSTEM-level code execution on unpatched machines — then **wormed** itself across networks automatically, hitting hospitals, telecoms, and factories in over 150 countries within days. Microsoft had released the patch **two months earlier** — the definitive case for why "gaining access" plus "unpatched systems" is a catastrophe.
-
-**Emotet.** Began as a banking trojan and evolved into a delivery platform — a RAT that, once resident, downloaded other malware (including ransomware) and used the victim's own contacts to spread. The textbook example of "maintaining access" as a business model, and of why C2 detection matters more than any single signature.
+The routine is predictable, which is exactly what makes it defendable: the attacker has to get every step right; the defender only has to catch one.
 
 </div>
+
+## Recap
+
+**By hand:** get in (ShellShock → `www-data`) → escalate to root/SYSTEM → persist → stay hidden → harvest credentials → pivot toward the domain controller → exfiltrate the prize — logs cleared on the way out. **Automated:** the same loop handed to tools (dropper, privesc, persistence, cred theft, payload + C2) under a stealth layer — a RAT bundles several of the pieces, a worm loops the whole thing, ransomware is the payoff. Next week we move up a layer: **Web Attacks**, where the vulnerable thing is the application itself.
 
 ## References
 
+- **MITRE ATT&CK** — the technique tags above link straight to it. [attack.mitre.org](https://attack.mitre.org/)
+- **GTFOBins** — Linux privilege-escalation reference. [gtfobins.github.io](https://gtfobins.github.io/)
+- **LOLBAS** — the Windows equivalent (living-off-the-land binaries). [lolbas-project.github.io](https://lolbas-project.github.io/)
 - **Metasploit Unleashed** (OffSec, free). [offsec.com/metasploit-unleashed](https://www.offsec.com/metasploit-unleashed/)
-- **Kali Linux Revealed** (official, free). [kali.org book](https://www.kali.org/download-kali-linux-revealed-book/)
-- **GTFOBins** (Linux privesc reference). [gtfobins.github.io](https://gtfobins.github.io/)
-- **MITRE ATT&CK** — Exploit Public-Facing Application (T1190) · Exploitation for Privilege Escalation (T1068) · Command & Control (TA0011) · Remote Access Software (T1219). [T1190](https://attack.mitre.org/techniques/T1190/) · [T1068](https://attack.mitre.org/techniques/T1068/) · [TA0011](https://attack.mitre.org/tactics/TA0011/) · [T1219](https://attack.mitre.org/techniques/T1219/)
