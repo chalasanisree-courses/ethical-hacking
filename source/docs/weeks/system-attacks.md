@@ -8,6 +8,10 @@
 [data-md-color-scheme="slate"] .wk8{--w-navy:#9fb0d0;--w-ink:#e7edf6;--w-muted:#9fadc3;--w-surface:#1a2338;--w-card:#1f2a42;--w-line:#33405c;--w-teal:#3bb6ce;--w-tealink:#6fcde0;--w-red:#e4786c;--w-amber:#d8a646;--w-teal-t:#123038;--w-red-t:#331f1c;--w-amber-t:#322a16;--w-navy-t:#1b2740;}
 .wk8 *{box-sizing:border-box}
 .wk8 .lead{font-size:1.05rem;color:var(--w-muted);max-width:60ch;margin:.2rem 0 1.2rem}
+.wk8 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--w-tealink);margin:.1rem 0 .15rem}
+.wk8 .atk{font-size:.78rem;color:var(--w-muted);margin:0 0 .5rem}
+.wk8 .atk a{color:var(--w-tealink);text-decoration:none}
+.wk8 .atk a:hover{text-decoration:underline}
 .wk8 h2.w{font-size:1.4rem;margin:2.4rem 0 .3rem;color:var(--w-ink);scroll-margin-top:70px;display:flex;align-items:baseline;gap:.5rem}
 .wk8 h2.w .num{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--w-navy);border-radius:999px;padding:.15rem .55rem}
 .wk8 figure{margin:1rem 0;}
@@ -82,6 +86,8 @@
 </style>
 
 <div class="wk8" markdown="0">
+<p class="eyebrow">🧭 Owning the Machine · maintaining access, then covering tracks</p>
+<p class="atk">MITRE ATT&amp;CK · <a href="https://attack.mitre.org/techniques/T1190/" target="_blank" rel="noopener">T1190</a> · <a href="https://attack.mitre.org/techniques/T1068/" target="_blank" rel="noopener">T1068</a> · <a href="https://attack.mitre.org/techniques/T1003/" target="_blank" rel="noopener">T1003</a> · <a href="https://attack.mitre.org/techniques/T1071/" target="_blank" rel="noopener">T1071</a> · <a href="https://attack.mitre.org/techniques/T1070/" target="_blank" rel="noopener">T1070</a></p>
 <p class="lead">We're already through the perimeter, standing on one machine. This week is the <b>routine you run on every host</b> — and how a defender meets you at each step. One running example: ShellShock.</p>
 <div class="ceh" role="img" aria-label="CEH life cycle: phases 1 to 3 done, phase 4 Maintaining Access and phase 5 Covering Tracks are this week">
 <div class="ph done"><span class="n">Phase 1</span><div class="t">Reconnaissance</div></div>
@@ -210,7 +216,7 @@
 <defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"></polygon></marker>
 <marker id="ar3r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" style="fill:var(--w-red)"></polygon></marker></defs>
 </svg>
-<figcaption>A <b>RAT</b> (Remote Access Trojan) bundles persistence + remote control + a C2 channel. Its tell is <b>beaconing</b> — it reaches <i>out</i>, because outbound traffic is trusted far more than inbound. In <b>SolarWinds (2020)</b> a poisoned update beaconed home for ~2 weeks, unseen across thousands of networks.</figcaption>
+<figcaption>A <b>RAT</b> (Remote Access Trojan) bundles persistence + remote control + a C2 channel. Its tell is <b>beaconing</b> — it reaches <i>out</i>, because outbound traffic is trusted far more than inbound. In <b>SolarWinds (2020)</b> a poisoned update sat dormant ~2 weeks, then beaconed to its C2 quietly for months before anyone noticed — across thousands of networks.</figcaption>
 </figure>
 <div class="card def"><span class="mini">The defender's counter</span><h4>Patch first</h4><p>Patching closes the hole the exploit needs — the #1 control. It's <i>because</i> a patch can lock them out that attackers rush to persist. Defenders also hunt rogue Run keys/services and watch for beaconing.</p></div>
 <h2 class="w" id="s-stealth">Staying hidden</h2>
@@ -300,18 +306,17 @@
 </div>
 <div class="pills"><span class="pill"><b>Concept check:</b> the 2×2 of identities</span><span class="pill">the three ways in — <b>code · config · credentials</b></span><span class="pill">persistence</span><span class="pill">credential theft &amp; pass-the-hash</span><span class="pill">stealth</span><span class="pill">RAT &amp; C2</span><span class="pill">anti-forensics</span></div>
 <p style="font-size:.93rem;color:var(--w-muted)">The routine is predictable, which is what makes it defendable: the attacker must get every step right; the defender only has to catch one. Next week we move up a layer — <b>Web Attacks</b>.</p>
-<div id="references" style="border-top:1px solid var(--w-line);padding-top:1rem;margin-top:1.8rem">
-<span class="cap" style="display:block;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--w-muted);font-weight:700;margin-bottom:.5rem">References &amp; reading</span>
-<div class="pills">
-<span class="pill"><a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK</a> — the technique catalog (T1190, T1068, T1055, T1003, T1071, T1219, T1070)</span>
-<span class="pill"><a href="https://gtfobins.github.io/" target="_blank" rel="noopener">GTFOBins</a> — Linux privesc</span>
-<span class="pill"><a href="https://lolbas-project.github.io/" target="_blank" rel="noopener">LOLBAS</a> — Windows living-off-the-land</span>
-<span class="pill"><a href="https://www.offsec.com/metasploit-unleashed/" target="_blank" rel="noopener">Metasploit Unleashed</a></span>
-<span class="pill"><a href="https://www.kali.org/docs/" target="_blank" rel="noopener">Kali Linux docs</a></span>
 </div>
-<p style="font-size:.85rem;margin:.6rem 0 0"><a href="REPLACE_WITH_CANVAS_WEEK8_URL">↩ Back to the Week 8 module on Canvas</a> — labs, the concept-check quiz, and due dates.</p>
-</div>
-</div>
+
+## References
+
+- [MITRE ATT&CK](https://attack.mitre.org/) — technique catalog (T1190, T1068, T1055, T1003, T1071, T1219, T1070)
+- [GTFOBins](https://gtfobins.github.io/) — Linux privilege escalation
+- [LOLBAS](https://lolbas-project.github.io/) — Windows living-off-the-land
+- [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/)
+- [Kali Linux docs](https://www.kali.org/docs/)
+- [↩ Back to the Week 8 module on Canvas](REPLACE_WITH_CANVAS_WEEK8_URL) — labs, the concept-check quiz, and due dates
+
 <script>
 (function(){
   var root=document.querySelector('.wk8'); if(!root) return;
