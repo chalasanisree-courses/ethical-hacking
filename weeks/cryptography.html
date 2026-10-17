@@ -1401,10 +1401,7 @@
 </style>
 
 <h1 id="week-5-cryptography">Week 5 · Cryptography<a class="headerlink" href="#week-5-cryptography" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 Storming the Perimeter · the shield behind HTTPS — built, then broken</span></p>
-<div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1110/" class="attck-tag" target="_blank">T1110 Brute Force</a> <a href="https://attack.mitre.org/techniques/T1600/" class="attck-tag" target="_blank">T1600 Weaken Encryption</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 AiTM (downgrade)</a> <a href="https://attack.mitre.org/techniques/T1553/" class="attck-tag" target="_blank">T1553 Subvert Trust Controls</a></p>
-</div>
+<p><span class="kc-badge">🧭 Network · CEH: Gaining Access · Cryptography — the science that enables confidentiality, integrity, trust in all communications</span></p>
 <p>Last week HTTPS was the hero. This week we <strong>open the hood</strong> on that shield — and, because this is ethical hacking, we break it. The one idea to carry through: <strong>you almost never break the math. You break weak passwords, missing salt, reused keys, and forged identities — the <em>wrapper</em>, not the cipher.</strong></p>
 <p>Here's the precise version of what HTTPS does, which is itself the first crypto lesson: an attacker on the wire <strong>can still capture your packets</strong> — encryption doesn't hide that traffic <em>exists</em>, it hides the <strong>meaning</strong>. What they grab is gibberish.</p>
 <figure>
@@ -1601,14 +1598,19 @@ function jobTab(n){
 <li>Treat <strong>"roll your own crypto"</strong> as a finding — the algorithms are solid; the danger is how they're used.</li>
 </ul>
 </details>
-<details class="info">
-<summary>🗺️ MITRE ATT&amp;CK mapping (click to expand)</summary>
-<p><strong>MITRE ATT&amp;CK</strong> is a free public catalog of real attacker techniques. This week maps to <strong>T1110</strong> (Brute Force — offline cracking), <strong>T1600</strong> (Weaken Encryption), <strong>T1557</strong> (Adversary-in-the-Middle — the downgrade), and <strong>T1553</strong> (Subvert Trust Controls — forged/abused certificates). Browse it at <a href="https://attack.mitre.org/techniques/T1600/">attack.mitre.org</a>.</p>
-</details>
 <div class="admonition tip">
 <p>Next week →</p>
 <p>Every tool here reappears <strong>over the air</strong>. Offline hash cracking → cracking the <strong>Wi-Fi handshake</strong>; certificates and trust → the <strong>Evil Twin</strong>; reused keys → <strong>WEP</strong>. Same crypto, no wire to plug into. <strong>Week 6 · Wireless Hacking.</strong></p>
 </div>
+<details class="info">
+<summary>📎 In industry terms — CEH · Cyber Kill Chain · ATT&amp;CK</summary>
+<ul>
+<li><strong>CEH phase:</strong> Gaining Access (Phase 3) — at the network perimeter</li>
+<li><strong>Cyber Kill Chain:</strong> Delivery → Exploitation (downgrade &amp; forged trust); offline cracking after a breach</li>
+<li><strong>MITRE ATT&amp;CK:</strong> T1110 · T1600 · T1557 · T1553</li>
+</ul>
+<p>New to these frameworks? The full map is in <strong><a href="ethics-law-methodology.html">Week 1 · frameworks</a></strong>.</p>
+</details>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Crypto 101</strong> (free book) — Ch. 1–7: ciphers, key exchange, public-key, hashes. <a href="https://www.crypto101.io/">crypto101.io</a></li>

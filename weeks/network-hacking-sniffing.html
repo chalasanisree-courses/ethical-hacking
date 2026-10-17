@@ -1851,10 +1851,7 @@
 </style>
 
 <h1 id="week-4-network-hacking-sniffing">Week 4 · Network Hacking &amp; Sniffing<a class="headerlink" href="#week-4-network-hacking-sniffing" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access (the quiet way)</span></p>
-<div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/techniques/T1557/002/" class="attck-tag" target="_blank">T1557.002 ARP Cache Poisoning</a></p>
-</div>
+<p><span class="kc-badge">🧭 Network · CEH: Gaining Access · the quiet way in — listen on the wire, then get between two parties (MITM)</span></p>
 <p>This week alternates between the <span style="color:#c0392b;font-weight:700;">🔴 attacker's move</span> and the <span style="color:#0e6b82;font-weight:700;">🔵 blue team's answer</span> — the coloured line down the left tells you which one you're reading.</p>
 <div class="rt-rail">
 <p><span class="rail-label red">🔴 RED TEAM · the attack</span></p>
@@ -2121,15 +2118,20 @@
 </ol>
 <p><strong>Next week →</strong> we open the hood on the shield itself — <strong>Cryptography</strong>: how encryption actually protects the wire, and how attackers break it. Then <strong>Wireless Hacking</strong> (Week 6) takes the same idea into the air, and in Week 7 we finally <em>kick the door in</em> — exploiting a weak service instead of finding a key.</p>
 </div>
-<div class="admonition info">
-<p>Where this maps in MITRE ATT&amp;CK</p>
-<p><strong>MITRE ATT&amp;CK</strong> is a free public catalog of real attacker techniques, each with an ID. This week maps to <strong>T1040</strong> (Network Sniffing), <strong>T1557</strong> (Adversary-in-the-Middle) and its sub-technique <strong>T1557.002</strong> (ARP Cache Poisoning). Browse it at <a href="https://attack.mitre.org/techniques/T1557/002/">attack.mitre.org</a>.</p>
-</div>
 <div class="admonition quote">
 <p>Remember</p>
 <p>Network hacking is the <strong>quiet</strong> way in. <strong>Outside:</strong> cleartext hands you a key → the blue team <strong>encrypts everything</strong> and guards the perimeter with a <strong>firewall</strong>. <strong>Inside:</strong> listening is recon from within — <strong>passive</strong> on a hub, <strong>active</strong> (ARP spoofing → MITM) on a switch → the blue team <strong>detects</strong> the active moves (IDS/IPS, honeypots), <strong>inspects</strong> ARP, and <strong>segments</strong> the network. Attack, then answer, at every step.</p>
 </div>
 <hr />
+<details class="info">
+<summary>📎 In industry terms — CEH · Cyber Kill Chain · ATT&amp;CK</summary>
+<ul>
+<li><strong>CEH phase:</strong> Gaining Access (Phase 3) — passively</li>
+<li><strong>Cyber Kill Chain:</strong> Exploitation → Actions on Objectives (collection on the wire)</li>
+<li><strong>MITRE ATT&amp;CK:</strong> T1040 · T1557 · T1557.002</li>
+</ul>
+<p>New to these frameworks? The full map is in <strong><a href="ethics-law-methodology.html">Week 1 · frameworks</a></strong>.</p>
+</details>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Wireshark User's Guide.</strong> <a href="https://www.wireshark.org/docs/wsug_html_chunked/">wireshark.org/docs</a></li>

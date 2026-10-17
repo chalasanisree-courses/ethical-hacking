@@ -1691,10 +1691,7 @@
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-6-wireless-hacking">Week 6 · Wireless Hacking<a class="headerlink" href="#week-6-wireless-hacking" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 CEH life cycle · Recon → Scanning → Gaining Access (wireless)</span></p>
-<div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/techniques/T1110/" class="attck-tag" target="_blank">T1110 Brute Force</a></p>
-</div>
+<p><span class="kc-badge">🧭 Network · CEH: Recon → Scanning → Gaining Access · run the same find-it-then-break-it loop over the air against Wi-Fi</span></p>
 <div class="admonition abstract">
 <p>This week, in three lectures</p>
 <ul>
@@ -1985,6 +1982,15 @@
 <p>Handshake capture is passive and nearly invisible. What <em>is</em> detectable is the <strong>deauthentication flood</strong> used to force a re-handshake, and <strong>rogue / evil-twin access points</strong> broadcasting your SSID — both caught by a <strong>Wireless IDS (WIDS)</strong> watching for unexpected BSSIDs and deauth storms.</p>
 <p><strong>Best controls:</strong> <strong>WPA3</strong> (or WPA2 with a long, random passphrase), <strong>enterprise 802.1X</strong> instead of a shared key, and WIDS for rogue-AP detection. For guest Wi-Fi, isolate it from the corporate network entirely. For Bluetooth: disable discoverability, prefer <strong>LE Secure Connections</strong>, and <strong>patch the stack</strong>.</p>
 </div>
+<details class="info">
+<summary>📎 In industry terms — CEH · Cyber Kill Chain · ATT&amp;CK</summary>
+<ul>
+<li><strong>CEH phase:</strong> Recon → Scanning → Gaining Access (over the air)</li>
+<li><strong>Cyber Kill Chain:</strong> Reconnaissance → Exploitation</li>
+<li><strong>MITRE ATT&amp;CK:</strong> T1040 · T1557 · T1110</li>
+</ul>
+<p>New to these frameworks? The full map is in <strong><a href="ethics-law-methodology.html">Week 1 · frameworks</a></strong>.</p>
+</details>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Aircrack-ng documentation &amp; tutorials</strong> — the WEP/WPA cracking toolset (<code>airmon-ng</code> · <code>airodump-ng</code> · <code>aireplay-ng</code> · <code>aircrack-ng</code>). <a href="https://www.aircrack-ng.org/documentation.html">aircrack-ng.org/documentation</a></li>
