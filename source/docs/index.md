@@ -30,7 +30,7 @@ Students scan, test, hack, and secure systems, implement perimeter defenses, and
 
 ## How the course flows
 
-The course runs as one attack, from the outside in. You **get oriented**, **stalk the target**, then break through each layer of its defenses — network, device, application, and data — before turning to the softest wall of all, people, and finally running the whole thing as a real engagement. Every week is an interactive notes page tied to its place in the attack.
+The course runs as one attack, from the outside in. You **get oriented**, **stalk the target**, then break through each layer of its defenses — network, device, and application — before turning to the softest wall of all, people, and finally running the whole thing as a real engagement. Every week is an interactive notes page tied to its place in the attack.
 
 ### 🗓️ Full schedule at a glance
 
@@ -38,13 +38,13 @@ The course runs as one attack, from the outside in. You **get oriented**, **stal
 <thead><tr><th>Wk</th><th>Layer</th><th>Topic</th><th>What it covers</th></tr></thead>
 <tbody>
 <tr class="sched-group"><td colspan="4">🧭 Getting Oriented</td></tr>
-<tr><td class="wk">1</td><td><span class="pill pill-found">Foundation</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td>The whole framework in one week — the attacker/defender loop, threat vs. risk, NIST, the kill chain, and the law and ethics that authorize it all.</td></tr>
+<tr><td class="wk">1</td><td><span class="pill pill-found">Concept</span></td><td><a href="weeks/ethics-law-methodology.html">Framework, Law &amp; Ethics</a></td><td>The whole framework in one week — the attacker/defender loop, threat vs. risk, NIST, the kill chain, and the law and ethics that authorize it all.</td></tr>
 <tr class="sched-group"><td colspan="4">🔎 Stalking the Target</td></tr>
 <tr><td class="wk">2</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/reconnaissance-footprinting.html">Reconnaissance &amp; Footprinting</a></td><td>Profile the target from the outside — footprinting, OSINT, and mapping the attack surface before you touch it.</td></tr>
 <tr><td class="wk">3</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/scanning-enumeration.html">Scanning, Enumeration &amp; Vuln Analysis</a></td><td>Find what's reachable and what's weak — Nmap host discovery, port scanning, enumeration, and vulnerability analysis.</td></tr>
 <tr class="sched-group"><td colspan="4">📡 Storming the Perimeter</td></tr>
 <tr><td class="wk">4</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/network-hacking-sniffing.html">Network Hacking &amp; Sniffing</a></td><td>Get on the wire — sniffing, ARP poisoning, and man-in-the-middle at the network edge.</td></tr>
-<tr><td class="wk">5</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td>The math behind HTTPS, built then broken — you attack weak passwords, missing salt, and forged trust, not the cipher.</td></tr>
+<tr><td class="wk">5</td><td><span class="pill pill-found">Concept</span></td><td><a href="weeks/cryptography.html">Cryptography</a></td><td>The math behind HTTPS, built then broken — you attack weak passwords, missing salt, and forged trust, not the cipher.</td></tr>
 <tr><td class="wk">6</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/wireless-hacking.html">Wireless Hacking</a></td><td>Crack the wireless door — find Wi-Fi by listening, capture the handshake, and break WEP/WPA.</td></tr>
 <tr><td class="wk">7</td><td><span class="pill pill-net">Network</span></td><td><a href="weeks/network-defenses-evasion.html">Network Defense Evasion &amp; DoS</a></td><td>Storm the perimeter — get past firewalls, IDS/IPS and honeypots, exfiltrate over an encrypted channel, and deny service.</td></tr>
 <tr class="sched-group"><td colspan="4">🖥️ Owning the Machine</td></tr>
