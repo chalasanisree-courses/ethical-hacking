@@ -91,8 +91,7 @@ hide:
 </style>
 
 <div class="wk8" markdown="0">
-<p class="eyebrow">🧭 Owning the Machine · maintaining access, then covering tracks</p>
-<p class="atk">MITRE ATT&amp;CK · <a href="https://attack.mitre.org/techniques/T1190/" target="_blank" rel="noopener">T1190</a> · <a href="https://attack.mitre.org/techniques/T1068/" target="_blank" rel="noopener">T1068</a> · <a href="https://attack.mitre.org/techniques/T1003/" target="_blank" rel="noopener">T1003</a> · <a href="https://attack.mitre.org/techniques/T1071/" target="_blank" rel="noopener">T1071</a> · <a href="https://attack.mitre.org/techniques/T1070/" target="_blank" rel="noopener">T1070</a></p>
+<p class="eyebrow">🧭 Device · CEH: Maintaining Access &amp; Covering Tracks · the routine you run on every host you land on, before moving to the next</p>
 <p class="lead">We're already through the perimeter, standing on one machine. This week is the <b>routine you run on every host</b> — and how a defender meets you at each step. One running example: ShellShock.</p>
 <div class="ceh" role="img" aria-label="CEH life cycle: phases 1 to 3 done, phase 4 Maintaining Access and phase 5 Covering Tracks are this week">
 <div class="ph done"><span class="n">Phase 1</span><div class="t">Reconnaissance</div></div>
@@ -312,6 +311,14 @@ hide:
 <div class="pills"><span class="pill"><b>Concept check:</b> the 2×2 of identities</span><span class="pill">the three ways in — <b>code · config · credentials</b></span><span class="pill">persistence</span><span class="pill">credential theft &amp; pass-the-hash</span><span class="pill">stealth</span><span class="pill">RAT &amp; C2</span><span class="pill">anti-forensics</span></div>
 <p style="font-size:.93rem;color:var(--w-muted)">The routine is predictable, which is what makes it defendable: the attacker must get every step right; the defender only has to catch one. Next week we move up a layer — <b>Web Attacks</b>.</p>
 </div>
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Maintaining Access &amp; Covering Tracks (Phases 4–5)
+    - **Cyber Kill Chain:** Installation → Command &amp; Control → Actions on Objectives
+    - **MITRE ATT&CK:** T1190 · T1068 · T1003 · T1071 · T1070
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 

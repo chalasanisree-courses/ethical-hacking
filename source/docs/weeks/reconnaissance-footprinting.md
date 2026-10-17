@@ -7,7 +7,7 @@ hide:
 
 # Week 2 · Reconnaissance & Footprinting
 
-<span class="kc-badge">🧭 CEH life cycle · Phase 1 — Reconnaissance</span>
+<span class="kc-badge">🧭 Network · CEH: Reconnaissance · build a map of the target from public sources before touching it</span>
 
 The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the **attacker's** view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the **defender's** view.
 
@@ -272,18 +272,6 @@ The less there is to find, the safer you are.
 
 ------------------------------------------------------------------------
 
-## A note on MITRE ATT&CK
-
-<div class="admonition info" markdown="1">
-
-What is MITRE ATT&CK?
-
-You'll see **MITRE ATT&CK** referenced across this course. It's a free, public catalog — maintained by the nonprofit **MITRE** — of the real techniques attackers use, each with an ID. The recon on this page maps to the *Reconnaissance* section of that catalog: for example **T1590** (gathering victim **network** info — the DNS and Shodan work) and **T1589** (gathering victim **identity** info — the LinkedIn and OSINT work). Think of it as a shared dictionary so defenders and attackers can name techniques precisely. Browse it at [attack.mitre.org](https://attack.mitre.org/tactics/TA0043/).
-
-</div>
-
-------------------------------------------------------------------------
-
 ## Try it yourself
 
 <div class="admonition tip" markdown="1">
@@ -303,6 +291,14 @@ Reconnaissance = **build a map from public sources.** Add pins (systems **and** 
 </div>
 
 ------------------------------------------------------------------------
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Reconnaissance (Phase 1)
+    - **Cyber Kill Chain:** Reconnaissance
+    - **MITRE ATT&CK:** T1590 · T1589 — *Reconnaissance* (TA0043)
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 

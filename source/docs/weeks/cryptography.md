@@ -17,13 +17,7 @@ hide:
 
 # Week 5 · Cryptography
 
-<span class="kc-badge">🧭 Storming the Perimeter · the shield behind HTTPS — built, then broken</span>
-
-<div class="attck-strip" markdown="1">
-
-<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1110/" class="attck-tag" target="_blank">T1110 Brute Force</a> <a href="https://attack.mitre.org/techniques/T1600/" class="attck-tag" target="_blank">T1600 Weaken Encryption</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 AiTM (downgrade)</a> <a href="https://attack.mitre.org/techniques/T1553/" class="attck-tag" target="_blank">T1553 Subvert Trust Controls</a>
-
-</div>
+<span class="kc-badge">🧭 Network · CEH: Gaining Access · Cryptography — the science that enables confidentiality, integrity, trust in all communications</span>
 
 Last week HTTPS was the hero. This week we **open the hood** on that shield — and, because this is ethical hacking, we break it. The one idea to carry through: **you almost never break the math. You break weak passwords, missing salt, reused keys, and forged identities — the *wrapper*, not the cipher.**
 
@@ -313,10 +307,6 @@ Three jobs — **Confidentiality** (encryption), **Integrity** (hashing + signat
     - **Monitor certificates** — expiry, mismatches, Certificate Transparency logs for look-alike domains.
     - Treat **"roll your own crypto"** as a finding — the algorithms are solid; the danger is how they're used.
 
-??? info "🗺️ MITRE ATT&CK mapping (click to expand)"
-
-    **MITRE ATT&CK** is a free public catalog of real attacker techniques. This week maps to **T1110** (Brute Force — offline cracking), **T1600** (Weaken Encryption), **T1557** (Adversary-in-the-Middle — the downgrade), and **T1553** (Subvert Trust Controls — forged/abused certificates). Browse it at [attack.mitre.org](https://attack.mitre.org/techniques/T1600/).
-
 <div class="admonition tip" markdown="1">
 
 Next week →
@@ -324,6 +314,14 @@ Next week →
 Every tool here reappears **over the air**. Offline hash cracking → cracking the **Wi-Fi handshake**; certificates and trust → the **Evil Twin**; reused keys → **WEP**. Same crypto, no wire to plug into. **Week 6 · Wireless Hacking.**
 
 </div>
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Gaining Access (Phase 3) — at the network perimeter
+    - **Cyber Kill Chain:** Delivery → Exploitation (downgrade &amp; forged trust); offline cracking after a breach
+    - **MITRE ATT&CK:** T1110 · T1600 · T1557 · T1553
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 

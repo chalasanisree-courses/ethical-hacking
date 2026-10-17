@@ -7,7 +7,7 @@ hide:
 
 # Week 3 · Scanning, Enumeration & Vulnerability Analysis
 
-<span class="kc-badge">🧭 CEH life cycle · Phase 2 — Scanning</span>
+<span class="kc-badge">🧭 Network · CEH: Scanning · turn the recon map into a hit-list of live hosts, open ports, and services</span>
 
 The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the **attacker's** view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the **defender's** view.
 
@@ -267,18 +267,6 @@ The less that answers when someone knocks, the safer you are.
 
 ------------------------------------------------------------------------
 
-## A note on MITRE ATT&CK
-
-<div class="admonition info" markdown="1">
-
-What is MITRE ATT&CK?
-
-**MITRE ATT&CK** is a free, public catalog — maintained by the nonprofit **MITRE** — of the real techniques attackers use, each with an ID. This week's work maps to its *Discovery* and *Reconnaissance* sections: for example **T1046** (Network **Service** Discovery — the port and service scanning) and **T1018** (Remote **System** Discovery — host discovery). It's a shared dictionary so defenders and attackers can name techniques precisely. Browse it at [attack.mitre.org](https://attack.mitre.org/tactics/TA0007/).
-
-</div>
-
-------------------------------------------------------------------------
-
 ## Try it yourself
 
 <div class="admonition tip" markdown="1">
@@ -300,6 +288,14 @@ Scanning = **turn recon's map into a hit-list.** Find live hosts, open ports, se
 </div>
 
 ------------------------------------------------------------------------
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Scanning (Phase 2)
+    - **Cyber Kill Chain:** Reconnaissance (active)
+    - **MITRE ATT&CK:** T1046 · T1018 — *Discovery* (TA0007)
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 

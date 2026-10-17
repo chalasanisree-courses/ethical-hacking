@@ -7,13 +7,7 @@ hide:
 
 # Week 6 · Wireless Hacking
 
-<span class="kc-badge">🧭 CEH life cycle · Recon → Scanning → Gaining Access (wireless)</span>
-
-<div class="attck-strip" markdown="1">
-
-<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/techniques/T1110/" class="attck-tag" target="_blank">T1110 Brute Force</a>
-
-</div>
+<span class="kc-badge">🧭 Network · CEH: Recon → Scanning → Gaining Access · run the same find-it-then-break-it loop over the air against Wi-Fi</span>
 
 <div class="admonition abstract" markdown="1">
 
@@ -383,6 +377,14 @@ Handshake capture is passive and nearly invisible. What *is* detectable is the *
 **Best controls:** **WPA3** (or WPA2 with a long, random passphrase), **enterprise 802.1X** instead of a shared key, and WIDS for rogue-AP detection. For guest Wi-Fi, isolate it from the corporate network entirely. For Bluetooth: disable discoverability, prefer **LE Secure Connections**, and **patch the stack**.
 
 </div>
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Recon → Scanning → Gaining Access (over the air)
+    - **Cyber Kill Chain:** Reconnaissance → Exploitation
+    - **MITRE ATT&CK:** T1040 · T1557 · T1110
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 

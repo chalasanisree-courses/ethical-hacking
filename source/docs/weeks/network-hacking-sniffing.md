@@ -13,13 +13,7 @@ hide:
 
 # Week 4 · Network Hacking & Sniffing
 
-<span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access (the quiet way)</span>
-
-<div class="attck-strip" markdown="1">
-
-<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1040/" class="attck-tag" target="_blank">T1040 Network Sniffing</a> <a href="https://attack.mitre.org/techniques/T1557/" class="attck-tag" target="_blank">T1557 Adversary-in-the-Middle</a> <a href="https://attack.mitre.org/techniques/T1557/002/" class="attck-tag" target="_blank">T1557.002 ARP Cache Poisoning</a>
-
-</div>
+<span class="kc-badge">🧭 Network · CEH: Gaining Access · the quiet way in — listen on the wire, then get between two parties (MITM)</span>
 
 This week alternates between the <span style="color:#c0392b;font-weight:700;">🔴 attacker's move</span> and the <span style="color:#0e6b82;font-weight:700;">🔵 blue team's answer</span> — the coloured line down the left tells you which one you're reading.
 
@@ -431,14 +425,6 @@ Try it yourself — only on your own lab and your own traffic
 
 </div>
 
-<div class="admonition info" markdown="1">
-
-Where this maps in MITRE ATT&CK
-
-**MITRE ATT&CK** is a free public catalog of real attacker techniques, each with an ID. This week maps to **T1040** (Network Sniffing), **T1557** (Adversary-in-the-Middle) and its sub-technique **T1557.002** (ARP Cache Poisoning). Browse it at [attack.mitre.org](https://attack.mitre.org/techniques/T1557/002/).
-
-</div>
-
 <div class="admonition quote" markdown="1">
 
 Remember
@@ -448,6 +434,14 @@ Network hacking is the **quiet** way in. **Outside:** cleartext hands you a key 
 </div>
 
 ------------------------------------------------------------------------
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Gaining Access (Phase 3) — passively
+    - **Cyber Kill Chain:** Exploitation → Actions on Objectives (collection on the wire)
+    - **MITRE ATT&CK:** T1040 · T1557 · T1557.002
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 

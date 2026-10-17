@@ -8,13 +8,7 @@ hide:
 
 # Week 7 · Network Defense Evasion & DoS
 
-<span class="kc-badge">🧭 CEH life cycle · Gaining Access — getting past the network defenses</span>
-
-<div class="attck-strip" markdown="1">
-
-<span class="lbl">ATT&CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1059/" class="attck-tag" target="_blank">T1059 Command & Scripting</a> <a href="https://attack.mitre.org/techniques/T1041/" class="attck-tag" target="_blank">T1041 Exfil Over C2</a> <a href="https://attack.mitre.org/techniques/T1498/" class="attck-tag" target="_blank">T1498 Network DoS</a>
-
-</div>
+<span class="kc-badge">🧭 Network · CEH: Gaining Access · get past the network's defenses, or come in the loud way (DDoS)</span>
 
 <div class="admonition abstract" markdown="1">
 
@@ -256,6 +250,14 @@ How this looks from the SOC seat
 Underneath it all is **zero trust**: getting through the perimeter earns no trust inside. Verify and inspect everywhere.
 
 </div>
+
+??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
+
+    - **CEH phase:** Gaining Access (Phase 3)
+    - **Cyber Kill Chain:** Delivery → Exploitation; DoS = Actions on Objectives (impact)
+    - **MITRE ATT&CK:** T1190 · T1059 · T1041 · T1498
+
+    New to these frameworks? The full map is in **[Week 1 · frameworks](ethics-law-methodology.html)**.
 
 ## References
 
