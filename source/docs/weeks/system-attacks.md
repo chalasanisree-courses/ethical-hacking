@@ -315,7 +315,6 @@
 - [LOLBAS](https://lolbas-project.github.io/) — Windows living-off-the-land
 - [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/)
 - [Kali Linux docs](https://www.kali.org/docs/)
-- [↩ Back to the Week 8 module on Canvas](REPLACE_WITH_CANVAS_WEEK8_URL) — labs, the concept-check quiz, and due dates
 
 <script>
 (function(){

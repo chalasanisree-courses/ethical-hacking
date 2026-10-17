@@ -391,7 +391,7 @@ Keep the foothold alive and reach for the crown jewels: backdoors, trojans/**RAT
 
 <div class="kc-weeks" markdown="1">
 
-**Covered in:** *Malware, Trojans & DoS* · **ATT&CK tactics:** Persistence (TA0003), Command & Control (TA0011)
+**Covered in:** *System Attacks, Malware & Persistence* (DoS in *Network Defense Evasion*) · **ATT&CK tactics:** Persistence (TA0003), Command & Control (TA0011)
 
 </div>
 
