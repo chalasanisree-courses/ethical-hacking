@@ -61,6 +61,7 @@ nav:
   - The Full Engagement:
       - "Week 12 · Penetration Testing — Methodology & Reporting": weeks/penetration-testing.md
   - Reference:
+      - "Glossary": reference/glossary.md
       - "CEH Map": reference/ceh-map.md
       - "Tools": reference/tools.md
       - "Free Resource Library": reference/resources.md

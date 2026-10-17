@@ -1,0 +1,148 @@
+---
+hide:
+  - navigation
+---
+
+[← Course home](../index.html) · Ethical Hacking
+
+# Glossary · Weeks 1–8
+
+<style>
+.gloss{--g-ink:#1f2836;--g-muted:#5b6880;--g-surface:#f6f8fb;--g-card:#ffffff;--g-line:#e3e8f0;--g-teal:#0a7589;--g-tealink:#064a59;--g-teal-t:#e3f1f4;--g-amber:#a9700f;
+  font-family:var(--md-text-font,"Lato"),Helvetica,Arial,sans-serif;color:var(--g-ink);}
+[data-md-color-scheme="slate"] .gloss{--g-ink:#e7edf6;--g-muted:#9fadc3;--g-surface:#1a2338;--g-card:#1f2a42;--g-line:#33405c;--g-teal:#3bb6ce;--g-tealink:#6fcde0;--g-teal-t:#123038;--g-amber:#d8a646;}
+.gloss *{box-sizing:border-box}
+.gloss .lead{font-size:1.05rem;color:var(--g-muted);max-width:66ch;margin:.2rem 0 1.1rem}
+.gloss .tools{position:sticky;top:0;background:var(--md-default-bg-color,#fff);padding:.6rem 0 .7rem;z-index:5;border-bottom:1px solid var(--g-line);margin-bottom:1rem}
+.gloss .search{width:100%;max-width:420px;border:1px solid var(--g-line);border-radius:999px;padding:9px 16px;font:inherit;font-size:.95rem;color:var(--g-ink);background:var(--g-card)}
+.gloss .search::placeholder{color:var(--g-muted)}
+.gloss .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:.6rem}
+.gloss .chip{border:1px solid var(--g-line);background:var(--g-card);color:var(--g-tealink);border-radius:999px;padding:4px 11px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit}
+.gloss .chip:hover{border-color:var(--g-teal);background:var(--g-teal-t)}
+.gloss h2.g-cat{font-size:1.15rem;margin:1.8rem 0 .2rem;color:var(--g-ink);scroll-margin-top:120px;display:flex;align-items:baseline;gap:.5rem;border-bottom:2px solid var(--g-line);padding-bottom:.35rem}
+.gloss h2.g-cat .wk{font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--g-teal);border-radius:999px;padding:.15rem .5rem;white-space:nowrap}
+.gloss .g-entry{border-bottom:1px solid var(--g-line);padding:.85rem 0}
+.gloss .g-entry h4{margin:0 0 .25rem;font-size:1rem;color:var(--g-ink)}
+.gloss .g-entry h4 .syn{font-size:.78rem;font-weight:500;color:var(--g-muted)}
+.gloss .g-entry p{margin:.2rem 0;font-size:.92rem;line-height:1.5;color:var(--g-ink)}
+.gloss .g-entry .eg{font-size:.85rem;color:var(--g-muted)}
+.gloss .g-entry .eg b{color:var(--g-tealink)}
+.gloss code{background:var(--g-teal-t);color:var(--g-tealink);padding:1px 5px;border-radius:4px;font-size:.86em}
+.gloss .nohit{display:none;color:var(--g-muted);font-style:italic;padding:1rem 0}
+.gloss .g-entry.hide,.gloss h2.g-cat.hide{display:none}
+</style>
+
+<div class="gloss" markdown="0">
+<p class="lead">Plain-language definitions of the core concepts from Weeks 1–8 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
+<div class="tools">
+<input class="search" id="gsearch" type="search" placeholder="Search — e.g. sniffing, hash, privilege…" aria-label="Search the glossary">
+<div class="chips">
+<button class="chip" data-go="c-found">Wk 1 · Foundations</button>
+<button class="chip" data-go="c-recon">Wk 2 · Recon</button>
+<button class="chip" data-go="c-scan">Wk 3 · Scanning</button>
+<button class="chip" data-go="c-net">Wk 4 · Sniffing</button>
+<button class="chip" data-go="c-crypto">Wk 5 · Crypto</button>
+<button class="chip" data-go="c-wifi">Wk 6 · Wireless</button>
+<button class="chip" data-go="c-evade">Wk 7 · Evasion / DoS</button>
+<button class="chip" data-go="c-sys">Wk 8 · System & Malware</button>
+</div>
+</div>
+<p class="nohit" id="gnohit">No matches — try a different word.</p>
+<h2 class="g-cat" id="c-found"><span class="wk">Week 1</span> Foundations</h2>
+<div class="g-entry"><h4>Threat · vulnerability · risk</h4><p>A <b>vulnerability</b> is a weakness in a system; a <b>threat</b> is the person or thing that might exploit it; <b>risk</b> is the chance that happens times the damage it would do. You weigh risk to decide what to fix first — not every weakness is worth the same attention.</p></div>
+<div class="g-entry"><h4>Attack surface</h4><p>Every point where someone could try to get in — exposed services, open ports, logins, people. Shrinking the attack surface (turning off what you don't need) means fewer ways in to defend.</p></div>
+<div class="g-entry"><h4>Kill chain <span class="syn">land and expand</span></h4><p>The ordered stages of an attack — reconnaissance, scanning, gaining access, maintaining access, covering tracks. The shorthand is "land and expand": get onto one machine, then spread from it. This arc is the spine the whole course follows.</p></div>
+<div class="g-entry"><h4>Defense in depth</h4><p>Stacking independent layers of protection — network, device, application, data, identity — so no single failure lets an attacker through. If one layer is bypassed, the next still stands.</p></div>
+<div class="g-entry"><h4>CIA triad</h4><p>The three properties security protects: <b>Confidentiality</b> (only the right people can read it), <b>Integrity</b> (it hasn't been tampered with), and <b>Availability</b> (it's there when needed). Most attacks break one of these three.</p></div>
+<div class="g-entry"><h4>NIST Cybersecurity Framework</h4><p>The defender's playbook, in five functions: <b>Identify, Protect, Detect, Respond, Recover</b>. It organizes what a security program has to do, end to end.</p></div>
+<div class="g-entry"><h4>MITRE ATT&amp;CK</h4><p>A public catalog of real attacker techniques, each with an ID (like <code>T1190</code>). It gives defenders and pen-testers a shared vocabulary to describe, hunt for, and map out behavior.</p><p class="eg"><b>Where:</b> <a href="https://attack.mitre.org/" target="_blank" rel="noopener">attack.mitre.org</a></p></div>
+<div class="g-entry"><h4>Authorization &amp; scope</h4><p>What makes hacking <i>ethical</i>: written permission that spells out exactly what you may test and how far you may go. Same techniques without it are a crime — scope is the line.</p></div>
+<h2 class="g-cat" id="c-recon"><span class="wk">Week 2</span> Reconnaissance &amp; Footprinting</h2>
+<div class="g-entry"><h4>Reconnaissance <span class="syn">footprinting</span></h4><p>Building a map of the target before you touch it — its domains, addresses, people, and exposed services. Good recon is where a real engagement spends much of its time, because it tells you where to aim.</p></div>
+<div class="g-entry"><h4>Passive vs. active recon</h4><p><b>Passive</b> means gathering information without touching the target — reading public records, so you leave no trace. <b>Active</b> means probing the target directly, which is noisier and can be detected. The line matters both legally and for stealth.</p></div>
+<div class="g-entry"><h4>OSINT</h4><p>Open-Source Intelligence — assembling a picture from public data: websites, social media, job posts, breach dumps. Cheap, legal, and often surprisingly revealing.</p></div>
+<div class="g-entry"><h4>WHOIS</h4><p>The registration record for a domain — who owns it, when it was created, contact details. A starting point for mapping who and what you're looking at.</p><p class="eg"><b>Tool:</b> <code>whois</code></p></div>
+<div class="g-entry"><h4>DNS</h4><p>The internet's address book, translating names like <code>example.com</code> into IP addresses. Recon reads DNS to discover a target's hosts and services.</p><p class="eg"><b>Tools:</b> <code>dig</code>, <code>nslookup</code></p></div>
+<div class="g-entry"><h4>Zone transfer</h4><p>A request asking a DNS server to hand over its entire zone (all records at once). It's meant for server-to-server syncing — but a misconfigured server will give it to anyone, exposing the whole internal map. One of the few <i>active</i> recon steps.</p></div>
+<div class="g-entry"><h4>Certificate transparency</h4><p>Public logs of every TLS certificate issued. Because certs name the hosts they cover, searching these logs reveals subdomains an organization never advertised.</p><p class="eg"><b>Where:</b> <a href="https://crt.sh/" target="_blank" rel="noopener">crt.sh</a></p></div>
+<div class="g-entry"><h4>Shodan</h4><p>A search engine for internet-connected devices and services — it indexes what's exposed (servers, cameras, industrial gear) so you can find a target's front doors without scanning them yourself.</p><p class="eg"><b>Where:</b> <a href="https://www.shodan.io/" target="_blank" rel="noopener">shodan.io</a></p></div>
+<h2 class="g-cat" id="c-scan"><span class="wk">Week 3</span> Scanning, Enumeration &amp; Vulnerability Analysis</h2>
+<div class="g-entry"><h4>Host discovery</h4><p>Finding which addresses in a range are actually alive before you spend time on them — the "who's home?" step.</p><p class="eg"><b>Tool:</b> Nmap (ping sweep)</p></div>
+<div class="g-entry"><h4>Port scanning</h4><p>Probing a host to see which network ports are open — each open port is a door into a running service. The core move of active scanning.</p><p class="eg"><b>Tool:</b> Nmap</p></div>
+<div class="g-entry"><h4>Service &amp; version detection</h4><p>Going past "port 80 is open" to "Apache 2.4.49 is running here." Knowing the exact software and version is what lets you look up whether it has known holes.</p><p class="eg"><b>Tool:</b> Nmap <code>-sV</code></p></div>
+<div class="g-entry"><h4>OS fingerprinting</h4><p>Guessing the target's operating system from small quirks in how it replies to probes — Linux and Windows answer slightly differently. It narrows which attacks are even relevant.</p></div>
+<div class="g-entry"><h4>Enumeration</h4><p>Actively querying a service to pull out detail it will reveal — usernames, shares, software versions. Where scanning finds the doors, enumeration reads the nameplate on each one.</p></div>
+<div class="g-entry"><h4>Vulnerability scanner</h4><p>A tool that checks a system against a large database of known weaknesses and reports which ones it appears to have — so you learn what's likely exploitable without testing each flaw by hand. It's a <i>finder</i>, not an exploiter: it tells you where to look.</p><p class="eg"><b>Examples:</b> OpenVAS / Greenbone (the Greenbone console drives the OpenVAS engine), Nessus</p></div>
+<div class="g-entry"><h4>Vulnerability analysis</h4><p>Taking what scanning and enumeration found and matching it to known flaws to pick a realistic way in. This is the bridge from <i>mapping</i> the target to actually <i>breaking in</i>.</p></div>
+<h2 class="g-cat" id="c-net"><span class="wk">Week 4</span> Network Hacking &amp; Sniffing</h2>
+<div class="g-entry"><h4>Packet sniffing</h4><p>Capturing the traffic flowing across a network so you can read it. <b>Passive</b> sniffing just listens (easy on older shared networks); <b>active</b> sniffing is needed on modern switches, which only send each device its own traffic.</p><p class="eg"><b>Tools:</b> Wireshark, tcpdump</p></div>
+<div class="g-entry"><h4>ARP spoofing <span class="syn">ARP poisoning</span></h4><p>Lying to machines on a local network about which hardware (MAC) address belongs to which IP, so their traffic is sent to you instead of the real destination. The usual way to insert yourself into a conversation on a switched network.</p></div>
+<div class="g-entry"><h4>Man-in-the-middle <span class="syn">MITM</span></h4><p>Positioning yourself between two parties so everything they send passes through you — you can read it, and sometimes change it, while both sides believe they're talking directly. ARP spoofing is one way to get there.</p></div>
+<h2 class="g-cat" id="c-crypto"><span class="wk">Week 5</span> Cryptography</h2>
+<div class="g-entry"><h4>The three jobs of cryptography</h4><p>Crypto exists to provide <b>confidentiality</b> (keep it secret), <b>integrity</b> (prove it wasn't changed), and <b>authentication</b> (prove who sent it). Almost every crypto tool is doing one of these three.</p></div>
+<div class="g-entry"><h4>Symmetric vs. asymmetric encryption</h4><p><b>Symmetric</b> uses one shared secret key to lock and unlock — fast, but both sides must already share the key. <b>Asymmetric</b> uses a public/private key pair — anyone can encrypt to your public key, only your private key opens it — which solves the "how do we share a key" problem.</p><p class="eg"><b>Examples:</b> AES (symmetric), RSA (asymmetric)</p></div>
+<div class="g-entry"><h4>Hashing</h4><p>A one-way fingerprint of data: the same input always gives the same fixed-size output, but you can't reverse it back. Used to check integrity and to store passwords without keeping the password itself.</p><p class="eg"><b>Example:</b> SHA-256</p></div>
+<div class="g-entry"><h4>Salting</h4><p>Adding a unique random value before hashing a password, so two people with the same password get different hashes. It defeats precomputed <b>rainbow-table</b> lookups and forces an attacker to crack each one separately.</p></div>
+<div class="g-entry"><h4>Digital signature &amp; certificates</h4><p>Using a private key to sign data so anyone with the matching public key can verify it really came from you and wasn't altered. A <b>certificate</b> binds a public key to an identity, vouched for by a trusted authority (CA) — the basis of HTTPS trust.</p></div>
+<h2 class="g-cat" id="c-wifi"><span class="wk">Week 6</span> Wireless Hacking</h2>
+<div class="g-entry"><h4>Access point &amp; station</h4><p>The <b>access point (AP)</b> is the Wi-Fi base that devices connect through; a <b>station</b> is a client device (laptop, phone). Wireless attacks target the signal between them, which anyone in range can hear.</p></div>
+<div class="g-entry"><h4>WPA handshake</h4><p>The short authentication exchange when a device joins a protected Wi-Fi network. Capturing it gives an attacker the material to try cracking the password <i>offline</i>, away from the network.</p></div>
+<div class="g-entry"><h4>Deauthentication attack</h4><p>Forcing a connected device off the network with spoofed "disconnect" frames, so it automatically reconnects — and you capture the handshake as it does. The usual setup move before cracking.</p><p class="eg"><b>Tool:</b> aireplay-ng</p></div>
+<div class="g-entry"><h4>WEP · WPA · WPA2 · WPA3</h4><p>The Wi-Fi security standards, in order of an ongoing arms race: WEP (broken long ago), WPA and WPA2 (crackable with weak passwords), WPA3 (current, much harder). Which one is in use largely decides how exposed a network is.</p></div>
+<div class="g-entry"><h4>Evil twin</h4><p>A rogue access point that impersonates a legitimate one — same name — to lure devices into connecting, so the attacker can capture traffic or harvest credentials.</p></div>
+<div class="g-entry"><h4>Bluetooth: BR/EDR vs. BLE</h4><p><b>Classic Bluetooth (BR/EDR)</b> is built for continuous streams like audio; <b>Bluetooth Low Energy (BLE)</b> is built for small, infrequent bursts from low-power gadgets (wearables, sensors). They're different stacks with different weaknesses.</p></div>
+<div class="g-entry"><h4>Wireless cracking suite</h4><p>The collection of tools for capturing wireless traffic and attempting to recover keys — monitor-mode capture, deauth, and offline cracking in one toolkit.</p><p class="eg"><b>Example:</b> Aircrack-ng suite</p></div>
+<h2 class="g-cat" id="c-evade"><span class="wk">Week 7</span> Network Defense Evasion &amp; DoS</h2>
+<div class="g-entry"><h4>Firewall <span class="syn">NGFW</span></h4><p>The perimeter gate that allows or blocks traffic by rules (which ports, which addresses). A <b>next-generation firewall (NGFW)</b> looks deeper — into the application and content — not just the port number.</p></div>
+<div class="g-entry"><h4>IDS / IPS</h4><p>Intrusion <b>Detection</b> and <b>Prevention</b> Systems watch traffic for known-bad patterns. An IDS alerts; an IPS can actively block. They're how a network notices an attack in progress.</p></div>
+<div class="g-entry"><h4>WAF</h4><p>A Web Application Firewall sits in front of a website and filters app-layer attacks (like injection) that a normal network firewall wouldn't recognize.</p></div>
+<div class="g-entry"><h4>Network segmentation</h4><p>Dividing a network into separated zones so a breach in one can't freely reach the rest. It turns one compromise into a contained problem instead of a company-wide one.</p></div>
+<div class="g-entry"><h4>Honeypot</h4><p>A decoy system with no real purpose but to be touched — since no legitimate user should ever connect to it, any contact is a high-confidence alarm.</p></div>
+<div class="g-entry"><h4>Reverse shell</h4><p>Instead of the attacker connecting <i>in</i> (which the firewall blocks), the victim machine is made to dial <i>out</i> to the attacker — because outbound traffic is trusted far more. That outbound connection becomes the attacker's command channel.</p></div>
+<div class="g-entry"><h4>Lateral movement</h4><p>Moving from the first machine you compromised to others deeper inside the network. The perimeter firewall never sees it, because it's all happening <i>inside</i>.</p></div>
+<div class="g-entry"><h4>Exfiltration</h4><p>Getting stolen data out of the network without tripping alarms — the quiet final step, often trickled out slowly or disguised as ordinary traffic.</p></div>
+<div class="g-entry"><h4>DoS / DDoS</h4><p>A <b>Denial-of-Service</b> attack overwhelms a service so real users can't reach it. A <b>Distributed</b> DoS does it from many machines at once, making it far harder to block.</p></div>
+<h2 class="g-cat" id="c-sys"><span class="wk">Week 8</span> System Attacks, Malware &amp; Persistence</h2>
+<div class="g-entry"><h4>Privilege escalation</h4><p>Climbing from the low-privilege account you first land as (like a web-server service account) up to full control — <b>root</b> on Linux or <b>SYSTEM</b> on Windows. You get there by abusing one of three things: a code bug, a misconfiguration, or a reused credential.</p></div>
+<div class="g-entry"><h4>Foothold</h4><p>Your first access on a machine — usually a shell running as a weak, low-privilege account. It's the starting line, not the finish: everything else builds from it.</p></div>
+<div class="g-entry"><h4>Exploitation framework</h4><p>A toolkit that packages the code for breaking in and operating afterward, so you're not writing it from scratch. In <b>Metasploit</b>, an <i>exploit</i> module breaks in, an <i>auxiliary</i> module helps (scanning, checking a login), and a <i>payload</i> is what runs once you're in. You point it at a target, set the options, and launch.</p><p class="eg"><b>Example:</b> Metasploit Framework · <code>RHOSTS</code> = the target you're attacking; <code>LHOST</code>/<code>LPORT</code> = your machine and the port the victim connects back to</p></div>
+<div class="g-entry"><h4>Payload · reverse shell · Meterpreter</h4><p>The <b>payload</b> is the code that runs after an exploit succeeds. A <b>reverse shell</b> payload makes the victim dial back to you for command-line control (that's why you set <code>LHOST</code>). <b>Meterpreter</b> is Metasploit's feature-rich version of that shell — file access, screenshots, and more from one session.</p></div>
+<div class="g-entry"><h4>Privilege-escalation enumeration</h4><p>Scripts you run <i>after</i> you have a foothold that automatically scan the machine for ways up — misconfigurations, weak permissions, passwords left in files, outdated software — and print a ranked list, so you find the path to root without hunting by hand.</p><p class="eg"><b>Examples:</b> LinPEAS (Linux), WinPEAS (Windows) — "PEAS" = Privilege Escalation Awesome Scripts</p></div>
+<div class="g-entry"><h4>Practice target</h4><p>A machine built to be insecure on purpose — loaded with known vulnerabilities and weak settings — so you can attack it safely and legally while learning. (Don't confuse <b>Metasploitable</b>, the deliberately-vulnerable target, with <b>Metasploit</b>, the attacking framework you run against it.)</p><p class="eg"><b>Example:</b> Metasploitable (a Linux VM; PostgreSQL on it is set up with a weak login to break)</p></div>
+<div class="g-entry"><h4>Persistence</h4><p>Leaving yourself a reliable way back in, at your elevated privilege, so a reboot, a dropped connection, or a patch doesn't lock you out. Common mechanisms: a new account, an SSH key, a startup/registry entry, a scheduled task or cron job.</p></div>
+<div class="g-entry"><h4>RAT <span class="syn">Remote Access Trojan</span></h4><p>Malware that bundles the whole "operate the victim" job into one implant — remote control, a command channel, and (typically) persistence. Drop one and you have a dashboard over the machine: files, screen, shell.</p><p class="eg"><b>Example:</b> DarkComet</p></div>
+<div class="g-entry"><h4>Command and control <span class="syn">C2</span> &amp; beaconing</h4><p><b>C2</b> is the channel an implant uses to reach the attacker for orders and to send data back. <b>Beaconing</b> is its tell — the implant checks in on a regular schedule, reaching <i>outbound</i> (trusted) rather than waiting for an inbound connection (blocked). That clockwork pattern is what defenders hunt for.</p></div>
+<div class="g-entry"><h4>Credential dumping</h4><p>Once you're privileged, lifting the passwords, hashes, and tokens the machine keeps on hand so users and services can log in — from memory, the local password store, or files. Far easier than cracking, and it fuels the move to the next host.</p><p class="eg"><b>Example:</b> Mimikatz (scrapes logins from Windows LSASS memory)</p></div>
+<div class="g-entry"><h4>Pass-the-hash</h4><p>Reusing a stolen password <i>hash</i> to authenticate somewhere else without ever cracking it back to the plaintext — the system accepts the hash as proof. A fast way to spread using harvested credentials.</p></div>
+<div class="g-entry"><h4>Rootkit</h4><p>Malware that compromises the operating system itself so that the OS's own reports lie on the attacker's behalf — hiding files, processes, and connections. Since security tools trust what the OS tells them, there's nothing left to detect. The ultimate evasion.</p></div>
+<div class="g-entry"><h4>Packing</h4><p>Scrambling or compressing a malware file so that signature-based antivirus — which matches files against a known-bad list — sees an unfamiliar fingerprint. Same malware, new wrapper.</p></div>
+<div class="g-entry"><h4>Process hollowing</h4><p>Starting a legitimate, trusted process, emptying out its memory, and running malicious code inside its shell — so the task list shows a normal, trusted name while your code runs underneath it.</p></div>
+<div class="g-entry"><h4>EDR &amp; endpoint protection</h4><p><b>Endpoint Detection and Response</b> is modern host defense that watches how processes <i>behave</i> rather than just matching file signatures — so it can catch malware that packing has disguised. The reason attackers need behavioral evasions, not just a new wrapper.</p></div>
+<div class="g-entry"><h4>DNS tunneling</h4><p>Smuggling data out by hiding it inside DNS lookups — a protocol that firewalls almost always allow out and rarely inspect. Slow, but it slips past controls that would block a normal transfer.</p></div>
+<div class="g-entry"><h4>Domain controller</h4><p>The Windows server that holds every account's credentials for a whole network. Compromise it and you can log in anywhere as a legitimate admin — in attacker terms, game over.</p></div>
+<div class="g-entry"><h4>Malware taxonomy</h4><p>The familiar names just describe <i>how it spreads</i> and <i>what it does</i>: a <b>virus</b> infects files and spreads when they run; a <b>worm</b> self-spreads across the network with no help; a <b>trojan</b> is disguised as something legitimate; <b>ransomware</b> encrypts data for extortion; a <b>RAT</b> gives ongoing remote control. Real samples mix only the pieces they need.</p></div>
+</div>
+<script>
+(function(){
+  var root=document.querySelector('.gloss'); if(!root) return;
+  root.querySelectorAll('[data-go]').forEach(function(b){
+    b.addEventListener('click',function(){var el=document.getElementById(b.getAttribute('data-go')); if(el) el.scrollIntoView({behavior:'smooth',block:'start'});});
+  });
+  var box=document.getElementById('gsearch'), nohit=document.getElementById('gnohit');
+  var entries=[].slice.call(root.querySelectorAll('.g-entry'));
+  var cats=[].slice.call(root.querySelectorAll('h2.g-cat'));
+  if(box){box.addEventListener('input',function(){
+    var q=box.value.trim().toLowerCase(), any=false;
+    entries.forEach(function(e){
+      var hit=!q||e.textContent.toLowerCase().indexOf(q)>-1;
+      e.classList.toggle('hide',!hit); if(hit) any=true;
+    });
+    cats.forEach(function(c){
+      var n=c.nextElementSibling, show=false;
+      while(n&&n.classList&&n.classList.contains('g-entry')){ if(!n.classList.contains('hide')){show=true;break;} n=n.nextElementSibling; }
+      c.classList.toggle('hide',!show);
+    });
+    nohit.style.display=any?'none':'block';
+  });}
+})();
+</script>

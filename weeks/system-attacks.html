@@ -209,9 +209,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -701,6 +699,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 · System Attacks, Malware & Persistence
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="system-attacks.html" class="md-nav__link md-nav__link--active">
         
   
@@ -717,6 +733,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1078,6 +1124,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../reference/glossary.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../reference/ceh-map.html" class="md-nav__link">
         
   
@@ -1197,9 +1271,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1210,6 +1282,25 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1223,8 +1314,6 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
 
 
 
@@ -1236,6 +1325,10 @@
 [data-md-color-scheme="slate"] .wk8{--w-navy:#9fb0d0;--w-ink:#e7edf6;--w-muted:#9fadc3;--w-surface:#1a2338;--w-card:#1f2a42;--w-line:#33405c;--w-teal:#3bb6ce;--w-tealink:#6fcde0;--w-red:#e4786c;--w-amber:#d8a646;--w-teal-t:#123038;--w-red-t:#331f1c;--w-amber-t:#322a16;--w-navy-t:#1b2740;}
 .wk8 *{box-sizing:border-box}
 .wk8 .lead{font-size:1.05rem;color:var(--w-muted);max-width:60ch;margin:.2rem 0 1.2rem}
+.wk8 .eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--w-tealink);margin:.1rem 0 .15rem}
+.wk8 .atk{font-size:.78rem;color:var(--w-muted);margin:0 0 .5rem}
+.wk8 .atk a{color:var(--w-tealink);text-decoration:none}
+.wk8 .atk a:hover{text-decoration:underline}
 .wk8 h2.w{font-size:1.4rem;margin:2.4rem 0 .3rem;color:var(--w-ink);scroll-margin-top:70px;display:flex;align-items:baseline;gap:.5rem}
 .wk8 h2.w .num{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--w-navy);border-radius:999px;padding:.15rem .55rem}
 .wk8 figure{margin:1rem 0;}
@@ -1310,6 +1403,8 @@
 </style>
 
 <div class="wk8" markdown="0">
+<p class="eyebrow">🧭 Owning the Machine · maintaining access, then covering tracks</p>
+<p class="atk">MITRE ATT&amp;CK · <a href="https://attack.mitre.org/techniques/T1190/" target="_blank" rel="noopener">T1190</a> · <a href="https://attack.mitre.org/techniques/T1068/" target="_blank" rel="noopener">T1068</a> · <a href="https://attack.mitre.org/techniques/T1003/" target="_blank" rel="noopener">T1003</a> · <a href="https://attack.mitre.org/techniques/T1071/" target="_blank" rel="noopener">T1071</a> · <a href="https://attack.mitre.org/techniques/T1070/" target="_blank" rel="noopener">T1070</a></p>
 <p class="lead">We're already through the perimeter, standing on one machine. This week is the <b>routine you run on every host</b> — and how a defender meets you at each step. One running example: ShellShock.</p>
 <div class="ceh" role="img" aria-label="CEH life cycle: phases 1 to 3 done, phase 4 Maintaining Access and phase 5 Covering Tracks are this week">
 <div class="ph done"><span class="n">Phase 1</span><div class="t">Reconnaissance</div></div>
@@ -1335,21 +1430,21 @@
 <figure>
 <svg viewBox="0 0 640 150" role="img" aria-label="Land and expand: foothold, take full control, harvest secrets, move to the next host, then loop back">
 <g font-size="12" text-anchor="middle">
-<rect x="8" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="8" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="67" y="70" font-weight="700">🖥️ Foothold</text><text class="svg-m" x="67" y="88" font-size="10">low-priv user</text>
-<rect x="166" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="166" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="225" y="70" font-weight="700">🔓 Own it</text><text class="svg-m" x="225" y="88" font-size="10">climb to root</text>
-<rect x="324" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="324" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="383" y="70" font-weight="700">🔑 Harvest</text><text class="svg-m" x="383" y="88" font-size="10">creds &amp; keys</text>
-<rect x="482" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="482" y="48" width="118" height="52" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="541" y="70" font-weight="700">🌐 Next host</text><text class="svg-m" x="541" y="88" font-size="10">log in, repeat</text>
 <g class="teal-s" stroke-width="2" marker-end="url(#ar)">
-<line x1="128" y1="74" x2="162" y2="74"/><line x1="286" y1="74" x2="320" y2="74"/><line x1="444" y1="74" x2="478" y2="74"/>
+<line x1="128" y1="74" x2="162" y2="74"></line><line x1="286" y1="74" x2="320" y2="74"></line><line x1="444" y1="74" x2="478" y2="74"></line>
 </g>
-<path d="M541 102 L541 128 L67 128 L67 104" fill="none" class="teal-s" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar)"/>
+<path d="M541 102 L541 128 L67 128 L67 104" fill="none" class="teal-s" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar)"></path>
 <text class="teal" x="304" y="124" font-size="11" font-weight="700">↻ run the whole loop again, on toward the data</text>
 </g>
-<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"/></marker></defs>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"></polygon></marker></defs>
 </svg>
 <figcaption>Land on one host, take it fully, take its keys, move to the next — the firewall guards the edge, not traffic between inside hosts.</figcaption>
 </figure>
@@ -1365,23 +1460,23 @@
 <figure>
 <svg viewBox="0 0 540 250" role="img" aria-label="Three layers: applications on top ask the kernel through system calls; the kernel polices hardware access and checks identity on every file access; hardware at the bottom">
 <g text-anchor="middle">
-<rect x="70" y="14" width="400" height="48" rx="8" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="70" y="14" width="400" height="48" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="270" y="36" font-weight="700" font-size="13">APPLICATIONS</text>
 <text class="svg-m" x="270" y="52" font-size="10">browser · web server · Word — what you click on</text>
-<rect x="70" y="100" width="400" height="56" rx="8" style="fill:var(--w-teal-t)" class="teal-s" stroke-width="1.8"/>
+<rect x="70" y="100" width="400" height="56" rx="8" style="fill:var(--w-teal-t)" class="teal-s" stroke-width="1.8"></rect>
 <text x="270" y="124" font-weight="700" font-size="13" style="fill:var(--w-tealink)">OPERATING SYSTEM · the kernel</text>
 <text class="svg-m" x="270" y="142" font-size="10">the security guard — mediates hardware, checks identity on every access</text>
-<rect x="70" y="194" width="400" height="44" rx="8" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="70" y="194" width="400" height="44" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="270" y="221" font-weight="700" font-size="13">HARDWARE · CPU · memory · disk · network</text>
 <g class="svg-m" style="stroke:var(--w-muted)" stroke-width="1.6" marker-end="url(#ar2)" marker-start="url(#ar2b)">
-<line x1="200" y1="64" x2="200" y2="98"/><line x1="200" y1="158" x2="200" y2="192"/>
+<line x1="200" y1="64" x2="200" y2="98"></line><line x1="200" y1="158" x2="200" y2="192"></line>
 </g>
 <text class="svg-m" x="214" y="84" font-size="10" text-anchor="start" font-style="italic">system calls</text>
 <text class="svg-m" x="340" y="84" font-size="10" text-anchor="start" font-style="italic">↑ ask permission, every time</text>
 </g>
 <defs>
-<marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" style="fill:var(--w-muted)"/></marker>
-<marker id="ar2b" markerWidth="8" markerHeight="8" refX="1" refY="3" orient="auto"><polygon points="7,0 0,3 7,6" style="fill:var(--w-muted)"/></marker>
+<marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" style="fill:var(--w-muted)"></polygon></marker>
+<marker id="ar2b" markerWidth="8" markerHeight="8" refX="1" refY="3" orient="auto"><polygon points="7,0 0,3 7,6" style="fill:var(--w-muted)"></polygon></marker>
 </defs>
 </svg>
 <figcaption>Apps can't touch hardware directly — they ask the kernel. On every file access the kernel checks <i>who's asking</i>. Getting around that one check is the whole week. The hashes in <code>/etc/shadow</code> are root-only, so our <code>www-data</code> foothold is denied — and <b>root (uid 0) bypasses every check</b>, which is why it's the goal.</figcaption>
@@ -1412,6 +1507,7 @@
 <span class="ln pend" data-s="4"><span class="o">root</span></span>
 <span class="ln pend" data-s="4"><span class="nt">  sudo ran our edited script as root → root shell</span></span>
 </div>
+<p class="thint" style="margin:.2rem 0 0">Attackers don't guess — <b>LinPEAS / WinPEAS</b> scan the box and list every opening of all three kinds (the same checks a privesc module carries).</p>
 <div class="card def" style="margin-top:1rem"><span class="mini">The defender's counter</span><h4>Least privilege</h4><p>Give each account only the power it needs — then a foothold or a found opening reaches almost nothing, and the climb stalls.</p></div>
 <h2 class="w" id="s-persist"><span class="num">3</span> Persist — keep the position, and the RAT</h2>
 <p class="lead">Your foothold is fragile: a reboot, a dropped link, or a <b>patch of the hole you came in through</b> locks you out. So leave a way back in, at your elevated level.</p>
@@ -1422,22 +1518,22 @@
 <figure>
 <svg viewBox="0 0 560 150" role="img" aria-label="A RAT inside the network beacons outbound through the firewall to the attacker's command and control server; inbound is blocked">
 <g text-anchor="middle" font-size="12">
-<rect x="14" y="40" width="150" height="70" rx="9" class="node-fill node-line" stroke-width="1.5"/>
+<rect x="14" y="40" width="150" height="70" rx="9" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="89" y="66" font-weight="700">🐀 RAT</text><text class="svg-m" x="89" y="84" font-size="10">on the victim</text><text class="svg-m" x="89" y="99" font-size="10">(inside network)</text>
-<line x1="250" y1="24" x2="250" y2="126" style="stroke:var(--w-muted)" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="250" y1="24" x2="250" y2="126" style="stroke:var(--w-muted)" stroke-width="2" stroke-dasharray="4 4"></line>
 <text class="svg-m" x="250" y="18" font-size="10">firewall</text>
-<rect x="396" y="40" width="150" height="70" rx="9" style="fill:var(--w-red-t)" class="red" fill-opacity="1"/>
-<rect x="396" y="40" width="150" height="70" rx="9" fill="none" style="stroke:var(--w-red)" stroke-width="1.5"/>
+<rect x="396" y="40" width="150" height="70" rx="9" style="fill:var(--w-red-t)" class="red" fill-opacity="1"></rect>
+<rect x="396" y="40" width="150" height="70" rx="9" fill="none" style="stroke:var(--w-red)" stroke-width="1.5"></rect>
 <text x="471" y="70" font-weight="700" style="fill:var(--w-red)">C2 server</text><text class="svg-m" x="471" y="88" font-size="10">attacker, outside</text>
-<path d="M166 62 L394 62" fill="none" class="teal-s" stroke-width="2.2" marker-end="url(#ar3)"/>
+<path d="M166 62 L394 62" fill="none" class="teal-s" stroke-width="2.2" marker-end="url(#ar3)"></path>
 <text class="teal" x="280" y="54" font-size="10.5" font-weight="700">beacon — outbound looks normal ✓</text>
-<path d="M394 92 L166 92" fill="none" style="stroke:var(--w-red)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar3r)"/>
+<path d="M394 92 L166 92" fill="none" style="stroke:var(--w-red)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ar3r)"></path>
 <text x="280" y="108" font-size="10.5" font-weight="700" style="fill:var(--w-red)">inbound — blocked &amp; watched ✗</text>
 </g>
-<defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"/></marker>
-<marker id="ar3r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" style="fill:var(--w-red)"/></marker></defs>
+<defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"></polygon></marker>
+<marker id="ar3r" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" style="fill:var(--w-red)"></polygon></marker></defs>
 </svg>
-<figcaption>A <b>RAT</b> (Remote Access Trojan) bundles persistence + remote control + a C2 channel. Its tell is <b>beaconing</b> — it reaches <i>out</i>, because outbound traffic is trusted far more than inbound.</figcaption>
+<figcaption>A <b>RAT</b> (Remote Access Trojan) bundles persistence + remote control + a C2 channel. Its tell is <b>beaconing</b> — it reaches <i>out</i>, because outbound traffic is trusted far more than inbound. In <b>SolarWinds (2020)</b> a poisoned update sat dormant ~2 weeks, then beaconed to its C2 quietly for months before anyone noticed — across thousands of networks.</figcaption>
 </figure>
 <div class="card def"><span class="mini">The defender's counter</span><h4>Patch first</h4><p>Patching closes the hole the exploit needs — the #1 control. It's <i>because</i> a patch can lock them out that attackers rush to persist. Defenders also hunt rogue Run keys/services and watch for beaconing.</p></div>
 <h2 class="w" id="s-stealth">Staying hidden</h2>
@@ -1446,7 +1542,7 @@
 <div class="card"><span class="mini">Beats the on-disk scan</span><h4>📦 Packing</h4><p>Scramble the file so signature AV matches nothing on its known-bad list. Same malware, new fingerprint.</p></div>
 <div class="card"><span class="mini">Beats the process watch</span><h4>🧬 Process hollowing</h4><p>Gut a trusted process like <code>svchost</code> and run your code inside it — looks legitimate.</p></div>
 <div class="card"><span class="mini">The arms race</span><h4>🛰️ EDR watches behavior</h4><p>Modern EDR ignores fingerprints and asks: is this process acting wrong? So malware stays under the radar.</p></div>
-<div class="card red"><span class="mini">The ultimate evasion</span><h4>🫥 Rootkit</h4><p>AV/EDR trust what the OS reports. Compromise the OS itself and it lies for you — nothing left to detect.</p></div>
+<div class="card red"><span class="mini">The ultimate evasion</span><h4>🫥 Rootkit</h4><p>AV/EDR trust what the OS reports. Compromise the OS itself and it lies for you — nothing left to detect. <b>Stuxnet (2010)</b> hid at kernel level for months.</p></div>
 </div>
 <h2 class="w" id="s-creds"><span class="num">4</span> Steal credentials, then pivot</h2>
 <p class="lead">Now you're root, the stored secrets are readable. Different from Stage 2: there you stole <i>one</i> key to go <b>up</b>; here you harvest <i>all</i> of them to go <b>out</b> — and it needs root, so it only works now.</p>
@@ -1454,16 +1550,17 @@
 <div class="card"><span class="mini">🐧 Linux</span><h4><code>/etc/shadow</code></h4><p>Grab the hashes you couldn't read before and crack the weak ones offline.</p></div>
 <div class="card"><span class="mini">🪟 Windows</span><h4>LSASS + Mimikatz</h4><p>Recent logins are cached in memory — Mimikatz scrapes them straight out.</p></div>
 </div>
+<p class="thint" style="margin:.1rem 0 0">Often you don't even crack the hash — just <b>replay it</b> to authenticate elsewhere: <b>pass-the-hash</b>.</p>
 <figure>
 <svg viewBox="0 0 600 92" role="img" aria-label="Lateral movement: foothold to app server to database, all leading to the domain controller which is game over">
 <g text-anchor="middle" font-size="11.5">
-<rect x="6" y="28" width="104" height="42" rx="7" class="node-fill node-line" stroke-width="1.4"/><text class="svg-t" x="58" y="54" font-weight="700">Foothold</text>
-<rect x="150" y="28" width="104" height="42" rx="7" class="node-fill node-line" stroke-width="1.4"/><text class="svg-t" x="202" y="54" font-weight="700">App server</text>
-<rect x="294" y="28" width="104" height="42" rx="7" class="node-fill node-line" stroke-width="1.4"/><text class="svg-t" x="346" y="54" font-weight="700">Database</text>
-<rect x="446" y="20" width="148" height="58" rx="8" style="fill:var(--w-red-t);stroke:var(--w-red)" stroke-width="1.8"/><text x="520" y="44" font-weight="700" style="fill:var(--w-red)">Domain Controller</text><text class="svg-m" x="520" y="62" font-size="10">keys to everything · game over</text>
-<g class="teal-s" stroke-width="2" marker-end="url(#ar4)"><line x1="112" y1="49" x2="146" y2="49"/><line x1="256" y1="49" x2="290" y2="49"/><line x1="400" y1="49" x2="442" y2="49"/></g>
+<rect x="6" y="28" width="104" height="42" rx="7" class="node-fill node-line" stroke-width="1.4"></rect><text class="svg-t" x="58" y="54" font-weight="700">Foothold</text>
+<rect x="150" y="28" width="104" height="42" rx="7" class="node-fill node-line" stroke-width="1.4"></rect><text class="svg-t" x="202" y="54" font-weight="700">App server</text>
+<rect x="294" y="28" width="104" height="42" rx="7" class="node-fill node-line" stroke-width="1.4"></rect><text class="svg-t" x="346" y="54" font-weight="700">Database</text>
+<rect x="446" y="20" width="148" height="58" rx="8" style="fill:var(--w-red-t);stroke:var(--w-red)" stroke-width="1.8"></rect><text x="520" y="44" font-weight="700" style="fill:var(--w-red)">Domain Controller</text><text class="svg-m" x="520" y="62" font-size="10">keys to everything · game over</text>
+<g class="teal-s" stroke-width="2" marker-end="url(#ar4)"><line x1="112" y1="49" x2="146" y2="49"></line><line x1="256" y1="49" x2="290" y2="49"></line><line x1="400" y1="49" x2="442" y2="49"></line></g>
 </g>
-<defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"/></marker></defs>
+<defs><marker id="ar4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"></polygon></marker></defs>
 </svg>
 <figcaption>Stolen keys drive <b>lateral movement</b> toward the domain controller — the server that holds every account's credentials. Own it and you log into anything as a legit admin.</figcaption>
 </figure>
@@ -1477,13 +1574,13 @@
 <figure>
 <svg viewBox="0 0 560 96" role="img" aria-label="DNS tunneling: data is encoded into DNS lookups that pass the firewall to the attacker's DNS server">
 <g text-anchor="middle" font-size="11.5">
-<rect x="6" y="26" width="150" height="46" rx="8" class="node-fill node-line" stroke-width="1.4"/><text class="svg-t" x="81" y="46" font-weight="700">Stolen data</text><text class="svg-m" x="81" y="62" font-size="10">split into chunks</text>
-<line x1="270" y1="12" x2="270" y2="84" style="stroke:var(--w-muted)" stroke-width="2" stroke-dasharray="4 4"/><text class="svg-m" x="270" y="92" font-size="9.5">firewall (DNS allowed ✓)</text>
-<rect x="404" y="26" width="150" height="46" rx="8" style="fill:var(--w-red-t);stroke:var(--w-red)" stroke-width="1.6"/><text x="479" y="46" font-weight="700" style="fill:var(--w-red)">attacker DNS</text><text class="svg-m" x="479" y="62" font-size="10">reassembles it</text>
-<path d="M158 40 L402 40" fill="none" class="teal-s" stroke-width="2" marker-end="url(#ar5)"/>
+<rect x="6" y="26" width="150" height="46" rx="8" class="node-fill node-line" stroke-width="1.4"></rect><text class="svg-t" x="81" y="46" font-weight="700">Stolen data</text><text class="svg-m" x="81" y="62" font-size="10">split into chunks</text>
+<line x1="270" y1="12" x2="270" y2="84" style="stroke:var(--w-muted)" stroke-width="2" stroke-dasharray="4 4"></line><text class="svg-m" x="270" y="92" font-size="9.5">firewall (DNS allowed ✓)</text>
+<rect x="404" y="26" width="150" height="46" rx="8" style="fill:var(--w-red-t);stroke:var(--w-red)" stroke-width="1.6"></rect><text x="479" y="46" font-weight="700" style="fill:var(--w-red)">attacker DNS</text><text class="svg-m" x="479" y="62" font-size="10">reassembles it</text>
+<path d="M158 40 L402 40" fill="none" class="teal-s" stroke-width="2" marker-end="url(#ar5)"></path>
 <text class="teal" x="280" y="33" font-size="10" font-weight="700">chunk1.attacker.com · chunk2… →</text>
 </g>
-<defs><marker id="ar5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"/></marker></defs>
+<defs><marker id="ar5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"></polygon></marker></defs>
 </svg>
 <figcaption>Each DNS lookup smuggles a piece of the data out to the attacker's name server. Many lookups, but nothing trips.</figcaption>
 </figure>
@@ -1497,16 +1594,16 @@
 <svg viewBox="0 0 640 118" role="img" aria-label="Each loop stage maps to a malware module, with a stealth band spanning all stages">
 <g text-anchor="middle" font-size="11">
 <g>
-<rect x="6" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"/><text class="svg-m" x="65" y="30" font-size="9">GET IN</text><text class="svg-t" x="65" y="47" font-weight="700">dropper</text>
-<rect x="130" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"/><text class="svg-m" x="189" y="30" font-size="9">ESCALATE</text><text class="svg-t" x="189" y="47" font-weight="700">privesc</text>
-<rect x="254" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"/><text class="svg-m" x="313" y="30" font-size="9">PERSIST</text><text class="svg-t" x="313" y="47" font-weight="700">persistence</text>
-<rect x="378" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"/><text class="svg-m" x="437" y="30" font-size="9">STEAL</text><text class="svg-t" x="437" y="47" font-weight="700">cred theft</text>
-<rect x="502" y="14" width="132" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"/><text class="svg-m" x="568" y="30" font-size="9">ACT</text><text class="svg-t" x="568" y="47" font-weight="700">payload + C2</text>
+<rect x="6" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"></rect><text class="svg-m" x="65" y="30" font-size="9">GET IN</text><text class="svg-t" x="65" y="47" font-weight="700">dropper</text>
+<rect x="130" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"></rect><text class="svg-m" x="189" y="30" font-size="9">ESCALATE</text><text class="svg-t" x="189" y="47" font-weight="700">privesc</text>
+<rect x="254" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"></rect><text class="svg-m" x="313" y="30" font-size="9">PERSIST</text><text class="svg-t" x="313" y="47" font-weight="700">persistence</text>
+<rect x="378" y="14" width="118" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"></rect><text class="svg-m" x="437" y="30" font-size="9">STEAL</text><text class="svg-t" x="437" y="47" font-weight="700">cred theft</text>
+<rect x="502" y="14" width="132" height="44" rx="7" class="node-fill node-line" stroke-width="1.3"></rect><text class="svg-m" x="568" y="30" font-size="9">ACT</text><text class="svg-t" x="568" y="47" font-weight="700">payload + C2</text>
 </g>
-<rect x="6" y="70" width="628" height="30" rx="7" style="fill:var(--w-teal)"/><text x="320" y="89" font-weight="700" fill="#fff" font-size="12">STEALTH / armoring — packing · hollowing · rootkit — spans every stage</text>
+<rect x="6" y="70" width="628" height="30" rx="7" style="fill:var(--w-teal)"></rect><text x="320" y="89" font-weight="700" fill="#fff" font-size="12">STEALTH / armoring — packing · hollowing · rootkit — spans every stage</text>
 </g>
 </svg>
-<figcaption>Names are just common bundles of these pieces: <b>virus</b> infects files · <b>worm</b> self-spreads · <b>trojan</b> is disguised · <b>RAT</b> gives remote control · <b>ransomware</b> is the payoff.</figcaption>
+<figcaption>Names are just common bundles of these pieces: <b>virus</b> infects files (Melissa) · <b>worm</b> self-spreads (WannaCry) · <b>trojan</b> is disguised (Emotet) · <b>RAT</b> gives remote control (DarkComet — your lab) · <b>ransomware</b> is the payoff (CryptoLocker). Real samples use only the subset they need — a worm needs no C2; much ransomware skips persistence.</figcaption>
 </figure>
 <details class="more"><summary>💣 Damage, not theft <span class="cv">›</span></summary><div class="bd">Not every attacker wants data. Ransomware encrypts files for a ransom; attacks on industrial and refrigeration control systems can manipulate physical equipment directly. When the goal is damage, the "act" looks different, but the routine to reach it is the same.</div></details>
 <h2 class="w" id="s-defender">The defender's view</h2>
@@ -1518,9 +1615,25 @@
 <div class="card def"><span class="mini">Exfiltrate / cover tracks</span><p><b>DLP</b> · outbound monitoring · <b>protected logs</b> they can't erase</p></div>
 </div>
 <p class="oneliner">The <span class="k">loop</span> is the spine, <span class="k">stealth</span> is the band, <span class="r">malware</span> is the tooling — run on every host you reach.</p>
-<p style="font-size:.93rem;color:var(--w-muted)">The routine is predictable, which is what makes it defendable: the attacker must get every step right; the defender only has to catch one. Next week we move up a layer — <b>Web Attacks</b>.</p>
-<p style="font-size:.82rem;color:var(--w-muted);border-top:1px solid var(--w-line);padding-top:.8rem;margin-top:1.6rem" id="references"><b>References:</b> <a href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&amp;CK</a> · <a href="https://gtfobins.github.io/" target="_blank" rel="noopener">GTFOBins</a> · <a href="https://lolbas-project.github.io/" target="_blank" rel="noopener">LOLBAS</a> · <a href="https://www.offsec.com/metasploit-unleashed/" target="_blank" rel="noopener">Metasploit Unleashed</a></p>
+<h2 class="w" id="s-labs">This week — put it into practice</h2>
+<p class="lead">You'll run the loop two ways: by hand, then automated by a tool.</p>
+<div class="cards">
+<div class="card"><span class="mini">Lab 1 · by hand</span><h4>Remote &amp; Local Exploitation</h4><p>Exploit a vulnerable service on a Linux server with <b>Metasploit</b> → land a foothold → <b>escalate</b> to a privileged shell. Get in + climb, manually.</p></div>
+<div class="card red"><span class="mini">Lab 2 · automated</span><h4>Deploy a RAT</h4><p>Recover the admin password → log in over <b>RDP</b> → deploy <b>DarkComet</b> for command-and-control. The same loop, now bundled into one tool.</p></div>
 </div>
+<div class="pills"><span class="pill"><b>Concept check:</b> the 2×2 of identities</span><span class="pill">the three ways in — <b>code · config · credentials</b></span><span class="pill">persistence</span><span class="pill">credential theft &amp; pass-the-hash</span><span class="pill">stealth</span><span class="pill">RAT &amp; C2</span><span class="pill">anti-forensics</span></div>
+<p style="font-size:.93rem;color:var(--w-muted)">The routine is predictable, which is what makes it defendable: the attacker must get every step right; the defender only has to catch one. Next week we move up a layer — <b>Web Attacks</b>.</p>
+</div>
+
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> — technique catalog (T1190, T1068, T1055, T1003, T1071, T1219, T1070)</li>
+<li><a href="https://gtfobins.github.io/">GTFOBins</a> — Linux privilege escalation</li>
+<li><a href="https://lolbas-project.github.io/">LOLBAS</a> — Windows living-off-the-land</li>
+<li><a href="https://www.offsec.com/metasploit-unleashed/">Metasploit Unleashed</a></li>
+<li><a href="https://www.kali.org/docs/">Kali Linux docs</a></li>
+<li><a href="REPLACE_WITH_CANVAS_WEEK8_URL">↩ Back to the Week 8 module on Canvas</a> — labs, the concept-check quiz, and due dates</li>
+</ul>
 <script>
 (function(){
   var root=document.querySelector('.wk8'); if(!root) return;
@@ -1543,13 +1656,8 @@
 
 
 
-  
-  
 
 
-
-
-  
 
 
 
@@ -1572,8 +1680,6 @@
         <footer class="md-footer">
   
     
-      
-        
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
