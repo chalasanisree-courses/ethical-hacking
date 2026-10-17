@@ -17,7 +17,7 @@ hide:
 
 # Week 5 · Cryptography
 
-<span class="kc-badge">🧭 Network · CEH: Gaining Access · Cryptography — the science that enables confidentiality, integrity, trust in all communications</span>
+<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access</span><span class="eb-sep"> · </span><span class="eb-sum">Cryptography — the science that enables confidentiality, integrity, trust in all communications</span></span>
 
 Last week HTTPS was the hero. This week we **open the hood** on that shield — and, because this is ethical hacking, we break it. The one idea to carry through: **you almost never break the math. You break weak passwords, missing salt, reused keys, and forged identities — the *wrapper*, not the cipher.**
 

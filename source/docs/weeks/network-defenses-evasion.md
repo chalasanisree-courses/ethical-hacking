@@ -8,7 +8,7 @@ hide:
 
 # Week 7 · Network Defense Evasion & DoS
 
-<span class="kc-badge">🧭 Network · CEH: Gaining Access · get past the network's defenses, or come in the loud way (DDoS)</span>
+<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access</span><span class="eb-sep"> · </span><span class="eb-sum">get past the network's defenses, or come in the loud way (DDoS)</span></span>
 
 <div class="admonition abstract" markdown="1">
 

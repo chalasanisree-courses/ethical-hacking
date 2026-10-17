@@ -295,3 +295,18 @@
 .atk-panel{border-left:4px solid #c0392b}
 .net-panel.active,.atk-panel.active{display:block}
 .net-panel h4,.atk-panel h4{margin:12px 0 6px;font-size:1.05rem}
+
+
+/* Eyebrow role colours (layer / CEH phase / summary) */
+.kc-badge .eb-layer, .wk8 .eyebrow .eb-layer { color:#0d9488; }
+.kc-badge .eb-phase, .wk8 .eyebrow .eb-phase { color:#4f46e5; }
+.kc-badge .eb-sum,   .wk8 .eyebrow .eb-sum   { color:#475569; font-weight:500; }
+.kc-badge .eb-sep,   .wk8 .eyebrow .eb-sep   { color:#9aa6ba; }
+[data-md-color-scheme="slate"] .kc-badge .eb-layer,
+[data-md-color-scheme="slate"] .wk8 .eyebrow .eb-layer { color:#2dd4bf; }
+[data-md-color-scheme="slate"] .kc-badge .eb-phase,
+[data-md-color-scheme="slate"] .wk8 .eyebrow .eb-phase { color:#a5b4fc; }
+[data-md-color-scheme="slate"] .kc-badge .eb-sum,
+[data-md-color-scheme="slate"] .wk8 .eyebrow .eb-sum   { color:#c3ccda; }
+[data-md-color-scheme="slate"] .kc-badge .eb-sep,
+[data-md-color-scheme="slate"] .wk8 .eyebrow .eb-sep   { color:#5b6679; }

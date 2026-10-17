@@ -7,7 +7,7 @@ hide:
 
 # Week 3 · Scanning, Enumeration & Vulnerability Analysis
 
-<span class="kc-badge">🧭 Network · CEH: Scanning · turn the recon map into a hit-list of live hosts, open ports, and services</span>
+<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Scanning</span><span class="eb-sep"> · </span><span class="eb-sum">turn the recon map into a hit-list of live hosts, open ports, and services</span></span>
 
 The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the **attacker's** view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the **defender's** view.
 

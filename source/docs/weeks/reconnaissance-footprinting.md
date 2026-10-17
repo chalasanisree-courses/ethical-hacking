@@ -7,7 +7,7 @@ hide:
 
 # Week 2 · Reconnaissance & Footprinting
 
-<span class="kc-badge">🧭 Network · CEH: Reconnaissance · build a map of the target from public sources before touching it</span>
+<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Reconnaissance</span><span class="eb-sep"> · </span><span class="eb-sum">build a map of the target from public sources before touching it</span></span>
 
 The <span style="color:#c0392b;font-weight:700;">red line</span> down the left marks the **attacker's** view (most of this page). The <span style="color:#0e6b82;font-weight:700;">blue line</span> near the end marks the **defender's** view.
 

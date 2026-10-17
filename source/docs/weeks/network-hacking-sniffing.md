@@ -13,7 +13,7 @@ hide:
 
 # Week 4 · Network Hacking & Sniffing
 
-<span class="kc-badge">🧭 Network · CEH: Gaining Access · the quiet way in — listen on the wire, then get between two parties (MITM)</span>
+<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access</span><span class="eb-sep"> · </span><span class="eb-sum">the quiet way in — listen on the wire, then get between two parties (MITM)</span></span>
 
 This week alternates between the <span style="color:#c0392b;font-weight:700;">🔴 attacker's move</span> and the <span style="color:#0e6b82;font-weight:700;">🔵 blue team's answer</span> — the coloured line down the left tells you which one you're reading.
 

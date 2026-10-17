@@ -7,7 +7,7 @@ hide:
 
 # Week 6 · Wireless Hacking
 
-<span class="kc-badge">🧭 Network · CEH: Recon → Scanning → Gaining Access · run the same find-it-then-break-it loop over the air against Wi-Fi</span>
+<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Recon → Scanning → Gaining Access</span><span class="eb-sep"> · </span><span class="eb-sum">run the same find-it-then-break-it loop over the air against Wi-Fi</span></span>
 
 <div class="admonition abstract" markdown="1">
 
