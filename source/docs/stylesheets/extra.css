@@ -310,3 +310,6 @@
 [data-md-color-scheme="slate"] .wk8 .eyebrow .eb-sum   { color:#c3ccda; }
 [data-md-color-scheme="slate"] .kc-badge .eb-sep,
 [data-md-color-scheme="slate"] .wk8 .eyebrow .eb-sep   { color:#5b6679; }
+
+.kc-badge .eb-concept { color:#5c6675; font-weight:700; }
+[data-md-color-scheme="slate"] .kc-badge .eb-concept { color:#aeb6c4; }

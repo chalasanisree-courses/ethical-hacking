@@ -17,7 +17,7 @@ hide:
 
 # Week 5 · Cryptography
 
-<span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access</span><span class="eb-sep"> · </span><span class="eb-sum">Cryptography — the science that enables confidentiality, integrity, trust in all communications</span></span>
+<span class="kc-badge">🧭 <span class="eb-concept">Concept</span><span class="eb-sep"> · </span><span class="eb-sum">Cryptography — the science that enables confidentiality, integrity, trust in all communications</span></span>
 
 Last week HTTPS was the hero. This week we **open the hood** on that shield — and, because this is ethical hacking, we break it. The one idea to carry through: **you almost never break the math. You break weak passwords, missing salt, reused keys, and forged identities — the *wrapper*, not the cipher.**
 
@@ -317,7 +317,7 @@ Every tool here reappears **over the air**. Offline hash cracking → cracking t
 
 ??? info "📎 In industry terms — CEH · Cyber Kill Chain · ATT&CK"
 
-    - **CEH phase:** Gaining Access (Phase 3) — at the network perimeter
+    - **CEH phase:** cross-cutting — not a single phase (crypto underpins the perimeter and credential theft)
     - **Cyber Kill Chain:** Delivery → Exploitation (downgrade &amp; forged trust); offline cracking after a breach
     - **MITRE ATT&CK:** T1110 · T1600 · T1557 · T1553
 

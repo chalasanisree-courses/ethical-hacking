@@ -1401,7 +1401,7 @@
 </style>
 
 <h1 id="week-5-cryptography">Week 5 · Cryptography<a class="headerlink" href="#week-5-cryptography" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 <span class="eb-layer">Network</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access</span><span class="eb-sep"> · </span><span class="eb-sum">Cryptography — the science that enables confidentiality, integrity, trust in all communications</span></span></p>
+<p><span class="kc-badge">🧭 <span class="eb-concept">Concept</span><span class="eb-sep"> · </span><span class="eb-sum">Cryptography — the science that enables confidentiality, integrity, trust in all communications</span></span></p>
 <p>Last week HTTPS was the hero. This week we <strong>open the hood</strong> on that shield — and, because this is ethical hacking, we break it. The one idea to carry through: <strong>you almost never break the math. You break weak passwords, missing salt, reused keys, and forged identities — the <em>wrapper</em>, not the cipher.</strong></p>
 <p>Here's the precise version of what HTTPS does, which is itself the first crypto lesson: an attacker on the wire <strong>can still capture your packets</strong> — encryption doesn't hide that traffic <em>exists</em>, it hides the <strong>meaning</strong>. What they grab is gibberish.</p>
 <figure>
@@ -1605,7 +1605,7 @@ function jobTab(n){
 <details class="info">
 <summary>📎 In industry terms — CEH · Cyber Kill Chain · ATT&amp;CK</summary>
 <ul>
-<li><strong>CEH phase:</strong> Gaining Access (Phase 3) — at the network perimeter</li>
+<li><strong>CEH phase:</strong> cross-cutting — not a single phase (crypto underpins the perimeter and credential theft)</li>
 <li><strong>Cyber Kill Chain:</strong> Delivery → Exploitation (downgrade &amp; forged trust); offline cracking after a breach</li>
 <li><strong>MITRE ATT&amp;CK:</strong> T1110 · T1600 · T1557 · T1553</li>
 </ul>
