@@ -1513,7 +1513,9 @@
 <p>Most of the attacks below come down to the same thing: <strong>the app trusted input it should have checked.</strong> Validate what comes in, encode what goes out, and check <em>who</em> is asking for <em>what</em>.</p>
 </div>
 <h2 id="the-example-photoviewer">The example — PhotoViewer<a class="headerlink" href="#the-example-photoviewer" title="Permanent link">&para;</a></h2>
-<p>PhotoViewer is a photo-sharing app built as the classic <strong>three tiers</strong>: a <strong>web server</strong> (serves the page), an <strong>app server</strong> (the logic), and a <strong>data tier</strong> — a <strong>catalog database</strong> (who owns which photo, public or private, and <em>where it's stored</em>) plus the <strong>photo store</strong> itself. Walk a single request:</p>
+<p>PhotoViewer is a simple photo-sharing app: anyone can browse public photos, and once you log in you see your own. A <strong>free</strong> user browses and searches; a <strong>premium</strong> user can upload, tag, delete, and make a photo public.</p>
+<p><img alt="What PhotoViewer looks like — a premium user's view, with the free-vs-premium capabilities" class="atkfig" src="../img/photoviewer-app.png" /></p>
+<p>Under the hood it's the classic <strong>three tiers</strong>: a <strong>web server</strong> (serves the page), an <strong>app server</strong> (the logic), and a <strong>data tier</strong> — a <strong>catalog database</strong> (who owns which photo, public or private, and <em>where it's stored</em>) plus the <strong>photo store</strong> itself. Walk a single request:</p>
 <div class="wk8" markdown="0">
 <figure>
 <svg viewBox="0 0 640 226" role="img" aria-label="Request flow: Mary's browser logs in and gets a token, asks the app for her photos, the app queries the catalog database, returns JSON with storage URLs, and the browser fetches each photo directly from the photo store">

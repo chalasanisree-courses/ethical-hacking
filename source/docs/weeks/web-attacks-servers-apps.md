@@ -34,7 +34,11 @@ A **static** site that only hands out pages is almost nothing to attack — the 
 
 ## The example — PhotoViewer
 
-PhotoViewer is a photo-sharing app built as the classic **three tiers**: a **web server** (serves the page), an **app server** (the logic), and a **data tier** — a **catalog database** (who owns which photo, public or private, and *where it's stored*) plus the **photo store** itself. Walk a single request:
+PhotoViewer is a simple photo-sharing app: anyone can browse public photos, and once you log in you see your own. A **free** user browses and searches; a **premium** user can upload, tag, delete, and make a photo public.
+
+![What PhotoViewer looks like — a premium user's view, with the free-vs-premium capabilities](../img/photoviewer-app.png){ .atkfig }
+
+Under the hood it's the classic **three tiers**: a **web server** (serves the page), an **app server** (the logic), and a **data tier** — a **catalog database** (who owns which photo, public or private, and *where it's stored*) plus the **photo store** itself. Walk a single request:
 
 <div class="wk8" markdown="0">
 <figure>
