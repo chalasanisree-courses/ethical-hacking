@@ -17,7 +17,7 @@ hide:
 .wk8 .atk{font-size:.78rem;color:var(--w-muted);margin:0 0 .5rem}
 .wk8 .atk a{color:var(--w-tealink);text-decoration:none}
 .wk8 .atk a:hover{text-decoration:underline}
-.wk8 h2.w{font-size:1.4rem;margin:2.4rem 0 .3rem;color:var(--w-ink);scroll-margin-top:70px;display:flex;align-items:baseline;gap:.5rem}
+.wk8 h2.w{font-size:1.25rem;margin:2.4rem 0 .3rem;color:var(--w-ink);scroll-margin-top:70px;display:flex;align-items:baseline;gap:.5rem}
 .wk8 h2.w .num{font-size:.7rem;font-weight:700;letter-spacing:.06em;color:#fff;background:var(--w-navy);border-radius:999px;padding:.15rem .55rem}
 .wk8 figure{margin:1rem 0;}
 .wk8 figcaption{font-size:.82rem;color:var(--w-muted);margin-top:.4rem;text-align:center}
