@@ -91,7 +91,7 @@ hide:
 </style>
 
 <div class="wk8" markdown="0">
-<p class="eyebrow">🧭 <span class="eb-layer">Device</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Maintaining Access &amp; Covering Tracks</span><span class="eb-sep"> · </span><span class="eb-sum">the routine you run on every host you land on, before moving to the next</span></p>
+<span class="kc-badge">🧭 <span class="eb-layer">Device</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Maintaining Access &amp; Covering Tracks</span><span class="eb-sep"> · </span><span class="eb-sum">the routine you run on every host you land on, before moving to the next</span></span>
 <p class="lead">We're already through the perimeter, standing on one machine. This week is the <b>routine you run on every host</b> — and how a defender meets you at each step. One running example: ShellShock.</p>
 <div class="ceh" role="img" aria-label="CEH life cycle: phases 1 to 3 done, phase 4 Maintaining Access and phase 5 Covering Tracks are this week">
 <div class="ph done"><span class="n">Phase 1</span><div class="t">Reconnaissance</div></div>

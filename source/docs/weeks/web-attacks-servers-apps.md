@@ -92,7 +92,7 @@ hide:
 </style>
 
 <div class="wk8" markdown="0">
-<p class="eyebrow">🧭 <span class="eb-layer">Application</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access (web)</span><span class="eb-sep"> · </span><span class="eb-sum">attacking the layer your users actually touch — on one example app, PhotoViewer</span></p>
+<span class="kc-badge">🧭 <span class="eb-layer">Application</span><span class="eb-sep"> · </span><span class="eb-phase">CEH: Gaining Access (web)</span><span class="eb-sep"> · </span><span class="eb-sum">attacking the layer your users actually touch — on one example app, PhotoViewer</span></span>
 <p class="lead">We're through the network and off the host. Now the <b>application</b> — the part users interact with, exposed to the whole internet by design, and the biggest target there is. One running example all week: <b>PhotoViewer</b>, a photo-sharing app.</p>
 <div class="ceh" role="img" aria-label="CEH life cycle: phases 1 and 2 done, phase 3 Gaining Access at the application layer is this week">
 <div class="ph done"><span class="n">Phase 1</span><div class="t">Reconnaissance</div></div>
