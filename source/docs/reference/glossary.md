@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Glossary · Weeks 1–8
+# Glossary · Weeks 1–9
 
 <style>
 .gloss{--g-ink:#1f2836;--g-muted:#5b6880;--g-surface:#f6f8fb;--g-card:#ffffff;--g-line:#e3e8f0;--g-teal:#0a7589;--g-tealink:#064a59;--g-teal-t:#e3f1f4;--g-amber:#a9700f;
@@ -33,7 +33,7 @@ hide:
 </style>
 
 <div class="gloss" markdown="0">
-<p class="lead">Plain-language definitions of the core concepts from Weeks 1–8 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
+<p class="lead">Plain-language definitions of the core concepts from Weeks 1–9 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
 <div class="tools">
 <input class="search" id="gsearch" type="search" placeholder="Search — e.g. sniffing, hash, privilege…" aria-label="Search the glossary">
 <div class="chips">
@@ -45,6 +45,7 @@ hide:
 <button class="chip" data-go="c-wifi">Wk 6 · Wireless</button>
 <button class="chip" data-go="c-evade">Wk 7 · Evasion / DoS</button>
 <button class="chip" data-go="c-sys">Wk 8 · System & Malware</button>
+<button class="chip" data-go="c-web">Wk 9 · Web Attacks</button>
 </div>
 </div>
 <p class="nohit" id="gnohit">No matches — try a different word.</p>
@@ -126,6 +127,16 @@ hide:
 <div class="g-entry"><h4>Trojan</h4><p>Malware disguised as something the user <i>wants</i> to run — a game, a cracked app, an installer — so they launch it themselves. The disguise is the whole trick; once run, it does its real job underneath. Named for the wooden horse.</p><p class="eg"><b>Example:</b> Emotet — began as a banking trojan hidden in document attachments</p></div>
 <div class="g-entry"><h4>Backdoor</h4><p>A hidden way back into a system that skips the normal login, left behind so the attacker can return at will without re-exploiting anything. Often what a trojan or RAT quietly installs once it's in — and a core reason persistence matters.</p></div>
 <div class="g-entry"><h4>Ransomware</h4><p>Malware that encrypts the victim's files and demands payment for the key to unlock them — a final-impact payload whose goal is extortion, not stealth or theft. The clearest example of malware built purely to do damage.</p><p class="eg"><b>Examples:</b> CryptoLocker, WannaCry (worm + ransomware payload)</p></div>
+<h2 class="g-cat" id="c-web"><span class="wk">Week 9</span> Web Attacks I</h2>
+<div class="g-entry"><h4>OWASP <span class="syn">Open Worldwide Application Security Project</span></h4><p>A nonprofit that publishes free, community-driven web-security guidance. Best known for the <b>OWASP Top 10</b>.</p></div>
+<div class="g-entry"><h4>OWASP Top 10</h4><p>The reference list of the ten most critical web-application security risks, updated periodically — the shared vocabulary for classifying and prioritizing findings.</p><p class="eg"><b>This week:</b> A01 Broken Access Control · A03 Injection · A05 Security Misconfiguration</p></div>
+<div class="g-entry"><h4>Injection</h4><p>Any attack where untrusted <i>input</i> is treated as <i>code or commands</i> instead of plain data. The family includes SQL injection, OS command injection, and cross-site scripting. The fix is always the same shape: validate input, and encode or parameterize output.</p></div>
+<div class="g-entry"><h4>Cross-site scripting <span class="syn">XSS</span></h4><p>A flaw where an app takes user input and later writes it into a page as executable <b>script</b>, so it runs in another user's browser with <i>their</i> session. The classic payload steals the session cookie. Fix: encode output, set cookies <code>HttpOnly</code>, add a Content-Security-Policy.</p><p class="eg"><b>Example:</b> a photo caption set to a <code>&lt;script&gt;</code> tag · TweetDeck worm (2014)</p></div>
+<div class="g-entry"><h4>OS command injection</h4><p>Input the app pastes into a shell command and runs on the server. A <code>;</code> or <code>|</code> lets the attacker append their own command — often opening a reverse shell back to them. Fix: call library APIs instead of a shell, pass arguments as an array, allowlist input.</p><p class="eg"><b>Example:</b> a filename like <code>photo.jpg; &lt;command&gt;</code> · ImageMagick "ImageTragick" (2016)</p></div>
+<div class="g-entry"><h4>IDOR · broken access control <span class="syn">Insecure Direct Object Reference</span></h4><p>The app confirms you're logged in but never that the object you asked for is <i>yours</i> — so changing an id in the URL (<code>?id=123</code> → <code>124</code>) hands over someone else's record. Fix: check ownership on every object, server-side. The #1 risk on the OWASP Top 10.</p><p class="eg"><b>Example:</b> First American (2019) — ~885M files reached by changing a URL number</p></div>
+<div class="g-entry"><h4>Security misconfiguration</h4><p>A weakness that comes from an insecure <i>setting</i>, not buggy code: a public storage bucket, default credentials, directory listing left on, verbose errors that leak the schema, or an unpatched component. Fix: lock it down, change defaults, patch.</p><p class="eg"><b>Example:</b> Deep Root Analytics (2017) — ~198M voter records in a public bucket</p></div>
+<div class="g-entry"><h4>Web shell</h4><p>A small script an attacker uploads to a web server that gives command execution and a persistent way back in — often the end goal of command injection or a file-upload flaw.</p></div>
+<div class="g-entry"><h4>Three-tier architecture</h4><p>The standard web-app shape: a <b>web server</b> (serves the page), an <b>app server</b> (the logic), and a <b>data tier</b> (database + file storage). Kept separate so a hit on the internet-facing tier doesn't immediately hand over the data.</p></div>
 </div>
 <script>
 (function(){

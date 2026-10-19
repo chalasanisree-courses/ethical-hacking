@@ -23,7 +23,7 @@ hide:
 
 We're through the network and off the host. The last layer is the **application** — the part users actually touch, exposed to the whole internet by design, and the most-attacked thing an organization owns.
 
-Unlike the single-step attacks of earlier weeks, a web flaw can touch the **whole attack loop** — a way in, a planted web shell to persist, data stolen straight out. So we organize this week not by one lifecycle phase, but by the **OWASP Top 10**: the industry's shared list of the most critical web risks.
+Unlike the single-step attacks of earlier weeks, a web flaw can touch the **whole attack loop** — a way in, a planted web shell to persist, data stolen straight out. So we organize this week not by one lifecycle phase, but by the **OWASP Top 10** — the Open Worldwide Application Security Project's shared list of the most critical web risks.
 
 ## What makes a web app attackable
 
