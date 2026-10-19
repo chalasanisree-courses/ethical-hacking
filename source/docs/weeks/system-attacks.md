@@ -135,7 +135,11 @@ hide:
 </svg>
 <figcaption>Land on one host, take it fully, take its keys, move to the next — the firewall guards the edge, not traffic between inside hosts.</figcaption>
 </figure>
-<h2 class="w" id="s-getin"><span class="num">1</span> Get in — credentials · code · config</h2>
+</div>
+
+## 1 Get in — credentials · code · config { #s-getin }
+
+<div class="wk8" markdown="0">
 <p class="lead">Three ways onto a host — the <b>CCC</b> — the same three you'll reuse to climb.</p>
 <div class="cards">
 <div class="card"><span class="mini">🔑 Credentials</span><h4>Steal a key</h4><p>No exploit — just use a valid login. Steal a password, or phish a user into running your code as them. The quiet way.</p></div>
@@ -143,7 +147,11 @@ hide:
 <div class="card"><span class="mini">⚙️ Config</span><h4>Abuse a setting</h4><p>Nothing broken — a setting left too loose. User error is everywhere, so often the easiest path.</p></div>
 <div class="card red"><span class="mini">What you become</span><h4><code>www-data</code>, not root</h4><p>ShellShock lands you as the web server's <b>low-privilege service account</b>. Running code is <b>initial access</b> — climbing higher is a separate job.</p></div>
 </div>
-<h2 class="w" id="s-machine">The machine you're climbing</h2>
+</div>
+
+## The machine you're climbing { #s-machine }
+
+<div class="wk8" markdown="0">
 <figure>
 <svg viewBox="0 0 540 250" role="img" aria-label="Three layers: applications on top ask the kernel through system calls; the kernel polices hardware access and checks identity on every file access; hardware at the bottom">
 <g text-anchor="middle">
@@ -168,14 +176,22 @@ hide:
 </svg>
 <figcaption>Apps can't touch hardware directly — they ask the kernel. On every file access the kernel checks <i>who's asking</i>. Getting around that one check is the whole week. The hashes in <code>/etc/shadow</code> are root-only, so our <code>www-data</code> foothold is denied — and <b>root (uid 0) bypasses every check</b>, which is why it's the goal.</figcaption>
 </figure>
-<h2 class="w" id="s-identity">Every process runs as someone</h2>
+</div>
+
+## Every process runs as someone { #s-identity }
+
+<div class="wk8" markdown="0">
 <p class="lead">Boot starts <b>systemd</b> as root, which spawns everything else — each process tagged with an identity. Two axes: who it's for × how much power.</p>
 <div class="grid2" role="img" aria-label="2x2 of identities: you land as a low-privilege service account, the goal is the high-privilege superuser root or SYSTEM">
 <div class="cell hd"></div><div class="cell hd">Low privilege</div><div class="cell hd">High privilege</div>
 <div class="cell rh">Human</div><div class="cell">ordinary user — <code>alice</code></div><div class="cell">human admin — a sudoer</div>
 <div class="cell rh">Service</div><div class="cell land"><code>www-data</code>, <code>mysql</code><span class="tag">▲ you land here</span></div><div class="cell goal"><b>root / SYSTEM</b><span class="tag">● the goal</span></div>
 </div>
-<h2 class="w" id="s-esc"><span class="num">2</span> Escalate — climb to root</h2>
+</div>
+
+## 2 Escalate — climb to root { #s-esc }
+
+<div class="wk8" markdown="0">
 <p class="lead">A shell runs at the privilege of <b>whoever spawned it</b>. So escalation means getting something already privileged to run your code. The <b>config</b> route — two mistakes combine:</p>
 <div class="trow"><button class="runb" id="runT" type="button">▶ Step through the exploit</button><span class="thint" id="hintT">An operator can sudo-run a root script that's also writable.</span></div>
 <div class="term" id="term" role="img" aria-label="Terminal where a writable sudo script becomes a root shell">
@@ -196,7 +212,11 @@ hide:
 </div>
 <p class="thint" style="margin:.2rem 0 0">Attackers don't guess — <b>LinPEAS / WinPEAS</b> scan the box and list every opening of all three kinds (the same checks a privesc module carries).</p>
 <div class="card def" style="margin-top:1rem"><span class="mini">The defender's counter</span><h4>Least privilege</h4><p>Give each account only the power it needs — then a foothold or a found opening reaches almost nothing, and the climb stalls.</p></div>
-<h2 class="w" id="s-persist"><span class="num">3</span> Persist — keep the position, and the RAT</h2>
+</div>
+
+## 3 Persist — keep the position, and the RAT { #s-persist }
+
+<div class="wk8" markdown="0">
 <p class="lead">Your foothold is fragile: a reboot, a dropped link, or a <b>patch of the hole you came in through</b> locks you out. So leave a way back in, at your elevated level.</p>
 <div class="cards">
 <div class="card"><span class="mini">Your own way back</span><h4>Key to the door</h4><p>Create an admin/root account, or drop an SSH key in <code>authorized_keys</code> — log straight back in.</p></div>
@@ -223,7 +243,11 @@ hide:
 <figcaption>A <b>RAT</b> (Remote Access Trojan) bundles persistence + remote control + a C2 channel. Its tell is <b>beaconing</b> — it reaches <i>out</i>, because outbound traffic is trusted far more than inbound. In <b>SolarWinds (2020)</b> a poisoned update sat dormant ~2 weeks, then beaconed to its C2 quietly for months before anyone noticed — across thousands of networks.</figcaption>
 </figure>
 <div class="card def"><span class="mini">The defender's counter</span><h4>Patch first</h4><p>Patching closes the hole the exploit needs — the #1 control. It's <i>because</i> a patch can lock them out that attackers rush to persist. Defenders also hunt rogue Run keys/services and watch for beaconing.</p></div>
-<h2 class="w" id="s-stealth">Staying hidden</h2>
+</div>
+
+## Staying hidden { #s-stealth }
+
+<div class="wk8" markdown="0">
 <p class="lead">Stealth isn't a stage — it's a band under the whole loop. The host runs <b>endpoint protection (EPP/EDR)</b>, and each evasion beats one of its checks.</p>
 <div class="cards">
 <div class="card"><span class="mini">Beats the on-disk scan</span><h4>📦 Packing</h4><p>Scramble the file so signature AV matches nothing on its known-bad list. Same malware, new fingerprint.</p></div>
@@ -231,7 +255,11 @@ hide:
 <div class="card"><span class="mini">The arms race</span><h4>🛰️ EDR watches behavior</h4><p>Modern EDR ignores fingerprints and asks: is this process acting wrong? So malware stays under the radar.</p></div>
 <div class="card red"><span class="mini">The ultimate evasion</span><h4>🫥 Rootkit</h4><p>AV/EDR trust what the OS reports. Compromise the OS itself and it lies for you — nothing left to detect. <b>Stuxnet (2010)</b> hid at kernel level for months.</p></div>
 </div>
-<h2 class="w" id="s-creds"><span class="num">4</span> Steal credentials, then pivot</h2>
+</div>
+
+## 4 Steal credentials, then pivot { #s-creds }
+
+<div class="wk8" markdown="0">
 <p class="lead">Now you're root, the stored secrets are readable. Different from Stage 2: there you stole <i>one</i> key to go <b>up</b>; here you harvest <i>all</i> of them to go <b>out</b> — and it needs root, so it only works now.</p>
 <div class="cards">
 <div class="card"><span class="mini">🐧 Linux</span><h4><code>/etc/shadow</code></h4><p>Grab the hashes you couldn't read before and crack the weak ones offline.</p></div>
@@ -252,7 +280,11 @@ hide:
 <figcaption>Stolen keys drive <b>lateral movement</b> toward the domain controller — the server that holds every account's credentials. Own it and you log into anything as a legit admin.</figcaption>
 </figure>
 <div class="card def"><span class="mini">The defender's counter</span><h4>Protect the credentials</h4><p>Credential Guard &amp; LSASS protection wall off memory from Mimikatz; unique local-admin passwords stop one key opening the rest; <b>MFA</b> means a stolen password alone isn't enough.</p></div>
-<h2 class="w" id="s-act"><span class="num">5</span> Act — exfiltrate, quietly</h2>
+</div>
+
+## 5 Act — exfiltrate, quietly { #s-act }
+
+<div class="wk8" markdown="0">
 <p class="lead">Reaching the data is easy once you're a trusted admin. Getting it <b>out</b> is hard — a big transfer trips volume alerts and DLP. So the act is done under stealth.</p>
 <div class="cards">
 <div class="card"><span class="mini">🐢 Low and slow</span><h4>No volume spike</h4><p>Trickle it out in small chunks over days, disguised as ordinary HTTPS and encrypted so inspection can't read it.</p></div>
@@ -271,11 +303,19 @@ hide:
 </svg>
 <figcaption>Each DNS lookup smuggles a piece of the data out to the attacker's name server. Many lookups, but nothing trips.</figcaption>
 </figure>
-<h2 class="w" id="s-tracks">Cover your tracks — the exit</h2>
+</div>
+
+## Cover your tracks — the exit { #s-tracks }
+
+<div class="wk8" markdown="0">
 <p class="lead">Different from stealth: that kept you unseen <i>while</i> operating; this is anti-forensics <i>afterward</i> — switch off the cameras <b>and</b> wipe the tape.</p>
 <div class="pills"><span class="pill">🎥 <b>Disable logging</b></span><span class="pill">🧹 <b>Clear logs</b> — event, auth, shell history</span><span class="pill">🕰️ <b>Timestomp</b> — fake file timestamps</span></div>
 <p style="font-size:.93rem">Two goals: <b>buy time</b> (the later they notice, the colder the trail), and <b>defeat the forensic investigation</b> — leave no evidence of how you got in, what you took, or who you are.</p>
-<h2 class="w" id="s-malware">Malware is this loop, automated</h2>
+</div>
+
+## Malware is this loop, automated { #s-malware }
+
+<div class="wk8" markdown="0">
 <p class="lead">Everything above, done by hand, is exactly what malware does on its own — modules assembled like any program.</p>
 <figure>
 <svg viewBox="0 0 640 118" role="img" aria-label="Each loop stage maps to a malware module, with a stealth band spanning all stages">
@@ -293,7 +333,11 @@ hide:
 <figcaption>Names are just common bundles of these pieces: <b>virus</b> infects files (Melissa) · <b>worm</b> self-spreads (WannaCry) · <b>trojan</b> is disguised (Emotet) · <b>RAT</b> gives remote control (DarkComet — your lab) · <b>ransomware</b> is the payoff (CryptoLocker). Real samples use only the subset they need — a worm needs no C2; much ransomware skips persistence.</figcaption>
 </figure>
 <details class="more"><summary>💣 Damage, not theft <span class="cv">›</span></summary><div class="bd">Not every attacker wants data. Ransomware encrypts files for a ransom; attacks on industrial and refrigeration control systems can manipulate physical equipment directly. When the goal is damage, the "act" looks different, but the routine to reach it is the same.</div></details>
-<h2 class="w" id="s-defender">The defender's view</h2>
+</div>
+
+## The defender's view { #s-defender }
+
+<div class="wk8" markdown="0">
 <p class="lead">Because the attacker <i>must</i> walk this routine, the defender gets a control at every step — that's defense in depth.</p>
 <div class="cards">
 <div class="card def"><span class="mini">Get in / escalate</span><p><b>Patch</b> — the exploit fails · <b>least privilege</b> — a foothold can't climb</p></div>
