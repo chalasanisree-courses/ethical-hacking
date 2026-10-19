@@ -9,7 +9,7 @@ hide:
 
 <style>
 .wk8{--w-navy:#26324f;--w-ink:#1f2836;--w-muted:#5b6880;--w-surface:#f6f8fb;--w-card:#ffffff;--w-line:#e3e8f0;--w-teal:#0a7589;--w-tealink:#064a59;--w-red:#c1392b;--w-amber:#a9700f;--w-teal-t:#e3f1f4;--w-red-t:#f8e7e4;--w-amber-t:#f6edda;--w-navy-t:#eaedf4;
-  font-family:var(--md-text-font,"Lato"),Helvetica,Arial,sans-serif;color:var(--w-ink);}
+  font-family:inherit;color:var(--w-ink);}
 [data-md-color-scheme="slate"] .wk8{--w-navy:#9fb0d0;--w-ink:#e7edf6;--w-muted:#9fadc3;--w-surface:#1a2338;--w-card:#1f2a42;--w-line:#33405c;--w-teal:#3bb6ce;--w-tealink:#6fcde0;--w-red:#e4786c;--w-amber:#d8a646;--w-teal-t:#123038;--w-red-t:#331f1c;--w-amber-t:#322a16;--w-navy-t:#1b2740;}
 .wk8 *{box-sizing:border-box}
 .wk8 .lead{font-size:1.05rem;color:var(--w-muted);max-width:60ch;margin:.2rem 0 1.2rem}
@@ -23,8 +23,8 @@ hide:
 .wk8 figcaption{font-size:.82rem;color:var(--w-muted);margin-top:.4rem;text-align:center}
 .wk8 svg{max-width:100%;height:auto;color:var(--w-ink);display:block;margin:0 auto}
 .wk8 .node-fill{fill:var(--w-card)}.wk8 .node-line{stroke:var(--w-line)}.wk8 .teal{fill:var(--w-teal)}.wk8 .teal-s{stroke:var(--w-teal)}.wk8 .red{fill:var(--w-red)}.wk8 .amber{fill:var(--w-amber)}
-.wk8 .svg-t{fill:var(--w-ink);font-family:var(--md-text-font,"Lato"),sans-serif}
-.wk8 .svg-m{fill:var(--w-muted);font-family:var(--md-text-font,"Lato"),sans-serif}
+.wk8 .svg-t{fill:var(--w-ink);font-family:inherit}
+.wk8 .svg-m{fill:var(--w-muted);font-family:inherit}
 /* CEH strip */
 .wk8 .ceh{display:flex;flex-wrap:wrap;gap:6px;margin:1rem 0 1.4rem}
 .wk8 .ph{flex:1 1 130px;min-width:0;border:1px solid var(--w-line);border-radius:9px;background:var(--w-card);padding:.5rem .65rem}
@@ -302,12 +302,6 @@ hide:
 <div class="card def"><span class="mini">Exfiltrate / cover tracks</span><p><b>DLP</b> · outbound monitoring · <b>protected logs</b> they can't erase</p></div>
 </div>
 <p class="oneliner">The <span class="k">loop</span> is the spine, <span class="k">stealth</span> is the band, <span class="r">malware</span> is the tooling — run on every host you reach.</p>
-<h2 class="w" id="s-labs">This week — put it into practice</h2>
-<p class="lead">You'll run the loop two ways: by hand, then automated by a tool.</p>
-<div class="cards">
-<div class="card"><span class="mini">Lab 1 · by hand</span><h4>Remote &amp; Local Exploitation</h4><p>Exploit a vulnerable service on a Linux server with <b>Metasploit</b> → land a foothold → <b>escalate</b> to a privileged shell. Get in + climb, manually.</p></div>
-<div class="card red"><span class="mini">Lab 2 · automated</span><h4>Deploy a RAT</h4><p>Recover the admin password → log in over <b>RDP</b> → deploy <b>DarkComet</b> for command-and-control. The same loop, now bundled into one tool.</p></div>
-</div>
 <div class="pills"><span class="pill"><b>Concept check:</b> the 2×2 of identities</span><span class="pill">the three ways in — <b>code · config · credentials</b></span><span class="pill">persistence</span><span class="pill">credential theft &amp; pass-the-hash</span><span class="pill">stealth</span><span class="pill">RAT &amp; C2</span><span class="pill">anti-forensics</span></div>
 <p style="font-size:.93rem;color:var(--w-muted)">The routine is predictable, which is what makes it defendable: the attacker must get every step right; the defender only has to catch one. Next week we move up a layer — <b>Web Attacks</b>.</p>
 </div>
