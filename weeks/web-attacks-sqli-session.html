@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-10-web-attacks-ii-sql-injection-session-hijacking" class="md-skip">
+        <a href="#week-10-web-attacks-ii" class="md-skip">
           Skip to content
         </a>
       
@@ -867,10 +867,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-sql-injection-mechanics" class="md-nav__link">
+  <a href="#the-example-photoviewer-and-how-a-session-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. SQL injection mechanics
+        The example — PhotoViewer, and how a session works
       
     </span>
   </a>
@@ -878,46 +878,91 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-sqli-variants" class="md-nav__link">
+  <a href="#attacks-on-the-request" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. SQLi variants
+        Attacks on the request
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attacks on the request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ SQL injection
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-session-hijacking" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#server-side-request-forgery-ssrf" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Session hijacking
+        🌐 Server-side request forgery (SSRF)
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#4-defense" class="md-nav__link">
+  <a href="#attacks-on-identity-and-the-session" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Defense
+        Attacks on identity and the session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attacks on identity and the session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#broken-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Broken authentication
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#defenders-view" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#session-hijacking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defender's view
+        🎫 Session hijacking
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-site-request-forgery-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎣 Cross-site request forgery (CSRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1349,10 +1394,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-sql-injection-mechanics" class="md-nav__link">
+  <a href="#the-example-photoviewer-and-how-a-session-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. SQL injection mechanics
+        The example — PhotoViewer, and how a session works
       
     </span>
   </a>
@@ -1360,46 +1405,91 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-sqli-variants" class="md-nav__link">
+  <a href="#attacks-on-the-request" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. SQLi variants
+        Attacks on the request
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attacks on the request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ SQL injection
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-session-hijacking" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#server-side-request-forgery-ssrf" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Session hijacking
+        🌐 Server-side request forgery (SSRF)
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#4-defense" class="md-nav__link">
+  <a href="#attacks-on-identity-and-the-session" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Defense
+        Attacks on identity and the session
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attacks on identity and the session">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#broken-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔑 Broken authentication
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#defenders-view" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#session-hijacking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defender's view
+        🎫 Session hijacking
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-site-request-forgery-csrf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎣 Cross-site request forgery (CSRF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1434,56 +1524,118 @@
 
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
-<h1 id="week-10-web-attacks-ii-sql-injection-session-hijacking">Week 10 · Web Attacks II — SQL Injection &amp; Session Hijacking<a class="headerlink" href="#week-10-web-attacks-ii-sql-injection-session-hijacking" title="Permanent link">&para;</a></h1>
-<p><span class="kc-badge">🧭 CEH life cycle · Phase 3 — Gaining Access (web)</span></p>
-<div class="attck-strip">
-<p><span class="lbl">ATT&amp;CK</span> <a href="https://attack.mitre.org/techniques/T1190/" class="attck-tag" target="_blank">T1190 Exploit Public-Facing App</a> <a href="https://attack.mitre.org/techniques/T1185/" class="attck-tag" target="_blank">T1185 Browser Session Hijacking</a> <a href="https://attack.mitre.org/techniques/T1539/" class="attck-tag" target="_blank">T1539 Steal Web Session Cookie</a></p>
+<h1 id="week-10-web-attacks-ii">Week 10 · Web Attacks II<a class="headerlink" href="#week-10-web-attacks-ii" title="Permanent link">&para;</a></h1>
+<style>
+.wk8{color:var(--w-ink);--w-ink:#1f2836;--w-muted:#5b6880;--w-line:#e3e8f0;--w-card:#ffffff;--w-teal:#0a7589;--w-amber:#a9700f;--w-amber-t:#f6edda;font-family:inherit}
+[data-md-color-scheme="slate"] .wk8{--w-ink:#e7edf6;--w-muted:#9fadc3;--w-line:#33405c;--w-card:#1f2a42;--w-teal:#3bb6ce;--w-amber:#d8a646;--w-amber-t:#322a16}
+.wk8 figure{margin:1rem 0}
+.wk8 figcaption{font-size:.82rem;color:var(--w-muted);text-align:center;margin-top:.4rem}
+.wk8 svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.wk8 .node-fill{fill:var(--w-card)}.wk8 .node-line{stroke:var(--w-line)}.wk8 .teal{fill:var(--w-teal)}.wk8 .teal-s{stroke:var(--w-teal)}.wk8 .amber{fill:var(--w-amber)}
+.wk8 .svg-t{fill:var(--w-ink)}.wk8 .svg-m{fill:var(--w-muted)}
+.md-typeset .admonition img,.md-typeset details img{border:1px solid var(--md-default-fg-color--lightest);border-radius:10px;margin:.2rem 0 .6rem}
+.md-typeset .defense{color:var(--md-default-fg-color)}
+</style>
+
+<p><span class="kc-badge">🧭 <span class="eb-layer">Application</span><span class="eb-sep"> · </span><span class="eb-phase">OWASP Top 10</span><span class="eb-sep"> · </span><span class="eb-sum">the deepest injection, and attacks on identity — on the same PhotoViewer</span></span></p>
+<p>Last week opened the application layer and named the common web risks. This week goes deeper on the same app, in two directions: the single most damaging <strong>injection</strong> — into the <strong>database</strong> — and a twist where the app is tricked into making its <em>own</em> requests; then the attacks that target <strong>identity</strong> itself — logging in, holding a session, and acting through someone who is already logged in.</p>
+<p>We stay organized by the <strong>OWASP Top 10</strong> — the Open Worldwide Application Security Project's shared list of the most critical web risks.</p>
+<div class="admonition tip">
+<p class="admonition-title">The one idea for the week</p>
+<p>Two families, one sentence each. The app <strong>trusts input</strong> it should have checked — <em>injection</em> and <em>SSRF</em>. And the app <strong>trusts identity</strong> it should have verified — <em>authentication</em>, <em>sessions</em>, and the <em>requests</em> a logged-in browser sends.</p>
 </div>
-<div class="admonition abstract">
-<p>What this page covers</p>
+<h2 id="the-example-photoviewer-and-how-a-session-works">The example — PhotoViewer, and how a session works<a class="headerlink" href="#the-example-photoviewer-and-how-a-session-works" title="Permanent link">&para;</a></h2>
+<p>Same app as last week: a photo-sharing site where a <strong>free</strong> user browses public photos and a <strong>premium</strong> user (Mary) can upload, tag, and make photos public. New this week, we look at the part that proves <strong>who you are</strong>.</p>
+<p>The web is <strong>stateless</strong> — the server forgets you between clicks. So when you log in, the server hands your browser a <strong>session cookie</strong>: a random string that stands in for your identity. From then on, your browser sends that cookie with every request, and the server trusts it.</p>
+<div class="wk8" markdown="0">
+<figure>
+<svg viewBox="0 0 640 184" role="img" aria-label="Session flow: the browser logs in with a password, the server sets a session cookie, and the browser then sends that cookie automatically on every later request, which the server trusts as the user's identity">
+<g text-anchor="middle" font-size="11.5">
+<rect x="18" y="58" width="158" height="62" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
+<text class="svg-t" x="97" y="84" font-weight="700">🧑‍💻 Mary's browser</text><text class="svg-m" x="97" y="102" font-size="10">holds the cookie</text>
+<rect x="464" y="58" width="158" height="62" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
+<text class="svg-t" x="543" y="84" font-weight="700">PhotoViewer server</text><text class="svg-m" x="543" y="102" font-size="10">trusts the cookie</text>
+<path d="M176 74 L460 74" fill="none" class="teal-s" stroke-width="1.8" marker-end="url(#ar)"></path>
+<text class="svg-m" x="318" y="68" font-size="9.5">① POST login — username + password</text>
+<path d="M460 96 L176 96" fill="none" style="stroke:var(--w-amber)" stroke-width="1.8" marker-end="url(#ara)"></path>
+<text x="318" y="110" font-size="9.5" font-weight="700" style="fill:var(--w-amber)">② Set-Cookie: session=a3f9… — this IS your identity</text>
+<path d="M176 140 L460 140" fill="none" class="teal-s" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#ar)"></path>
+<text class="svg-m" x="318" y="156" font-size="9.5">③ every later request automatically carries that cookie</text>
+</g>
+<defs>
+<marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="teal"></polygon></marker>
+<marker id="ara" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="amber"></polygon></marker>
+</defs>
+</svg>
+<figcaption>The session cookie <b>is</b> your identity. Two of this week's attacks live right here: <b>steal</b> the cookie (session hijacking), or <b>make the browser send it</b> for you (CSRF).</figcaption>
+</figure>
+</div>
+
+<h2 id="attacks-on-the-request">Attacks on the request<a class="headerlink" href="#attacks-on-the-request" title="Permanent link">&para;</a></h2>
+<p>The app takes something you send and acts on it — a search, or a URL to fetch — without checking it hard enough.</p>
+<h3 id="sql-injection">🗄️ SQL injection<a class="headerlink" href="#sql-injection" title="Permanent link">&para;</a></h3>
+<p><em>OWASP A03 · input the app runs as a query, inside the database.</em></p>
+<details class="danger">
+<summary>Walk the attack — and the fix</summary>
+<p><img alt="SQL injection on PhotoApp: a search of ' OR '1'='1 drops the private filter and returns every user's photos" src="../img/sqli-photoapp.png" /></p>
+<p><strong>The move.</strong> The catalog search builds a database query by <strong>pasting your text into it</strong>. Type <code>' OR '1'='1</code> — the quote ends the string, the always-true <code>OR</code> cancels the "public only" filter, and <strong>every photo returns</strong>, private ones included. The same trick pulls the <code>users</code> table and its password hashes, which you then crack offline. The variants (UNION, error-based, blind) differ only by <em>what the app shows back</em>; <code>sqlmap</code> automates all of them.</p>
+<p><strong>Real world.</strong> <em>Heartland Payment Systems (2008)</em> — one SQL-injection flaw led to ~130 million card numbers stolen, the largest card breach of its day.</p>
+<p><strong>Defense.</strong> <strong>Parameterized queries</strong> (prepared statements) — the database is told your input is a <em>value</em>, never code, so the quote can't break out. This kills every variant at once. Add a <strong>least-privilege</strong> database account, and treat a <strong>WAF</strong> as a backstop, not the fix.</p>
+</details>
+<h3 id="server-side-request-forgery-ssrf">🌐 Server-side request forgery (SSRF)<a class="headerlink" href="#server-side-request-forgery-ssrf" title="Permanent link">&para;</a></h3>
+<p><em>OWASP A10 · you inject a destination, and the server fetches it for you.</em></p>
+<details class="danger">
+<summary>Walk the attack — and the fix</summary>
+<p><img alt="SSRF on PhotoApp: an import-from-URL field pointed at the cloud metadata endpoint returns the server's cloud credentials" src="../img/ssrf-photoapp.png" /></p>
+<p><strong>The move.</strong> An "import a photo from a URL" feature fetches whatever link you give it. Paste an <strong>internal</strong> address instead — the cloud <strong>metadata endpoint</strong> <code>169.254.169.254</code> — and the server, sitting <em>inside</em> the network, fetches it and hands back the app's <strong>cloud credentials</strong>. A firewall stops <em>you</em> reaching that address; it does not stop the server. The victim isn't a user — it's the <strong>trust boundary of the network</strong>.</p>
+<p><strong>Real world.</strong> <em>Capital One (2019)</em> — SSRF reached the AWS metadata endpoint, stole the server role's keys, and exposed ~100 million+ credit applications.</p>
+<p><strong>Defense.</strong> <strong>Allowlist</strong> exactly which hosts the server may fetch; block internal IP ranges and the metadata address; never echo the raw response back; on AWS, require <strong>IMDSv2</strong>.</p>
+</details>
+<h2 id="attacks-on-identity-and-the-session">Attacks on identity and the session<a class="headerlink" href="#attacks-on-identity-and-the-session" title="Permanent link">&para;</a></h2>
+<p>Here nothing is "injected." The app works perfectly — it just can't tell that the legitimate-looking user is really the attacker.</p>
+<h3 id="broken-authentication">🔑 Broken authentication<a class="headerlink" href="#broken-authentication" title="Permanent link">&para;</a></h3>
+<p><em>OWASP A07 · the login that never pushes back.</em></p>
+<details class="danger">
+<summary>Walk the attack — and the fix</summary>
+<p><img alt="Broken authentication on PhotoApp: an automated leaked-password list runs against the login until one works" src="../img/brokenauth-photoapp.png" /></p>
+<p><strong>The move.</strong> PhotoViewer's login has <strong>no attempt limit, allows weak passwords, and has no MFA</strong>. An attacker replays a list of leaked email/password pairs against it until one works — <strong>credential stuffing</strong> — and it lands because the user <strong>reused</strong> a password breached on another site.</p>
+<p><strong>Real world.</strong> <em>The North Face (2022)</em> — ~195,000 accounts taken over by credential stuffing.</p>
+<p><strong>Defense.</strong> <strong>Lockout + rate-limiting</strong> so guessing stops; a <strong>strong-password</strong> policy; and above all <strong>MFA</strong> — a stolen password alone is then no longer enough.</p>
+</details>
+<h3 id="session-hijacking">🎫 Session hijacking<a class="headerlink" href="#session-hijacking" title="Permanent link">&para;</a></h3>
+<p><em>OWASP A07 · the session token </em><em>is</em><em> your identity — so steal it.</em></p>
+<details class="danger">
+<summary>Walk the attack — and the fix</summary>
+<p><img alt="Session hijacking on PhotoApp: a stolen session cookie is pasted into the attacker's browser, logging in as Mary with no password" src="../img/sessionhijack-photoapp.png" /></p>
+<p><strong>The move.</strong> Because the server trusts the session cookie as proof of who you are, <strong>the token is your identity</strong>. Steal that cookie — by <strong>sniffing</strong> an unencrypted connection (Wireshark, from Week 4), or via <strong>XSS</strong> — and <strong>replay</strong> it in your own browser to become that user, with no password at all.</p>
+<p><strong>Real world.</strong> <em>Firesheep (2010)</em> — sites encrypted the <em>login</em> but sent the <em>session cookie</em> over plain HTTP afterward; a one-click Firefox add-on grabbed it off open Wi-Fi. It drove the move to HTTPS-everywhere.</p>
+<p><strong>Defense.</strong> <strong>HTTPS everywhere</strong> (kills sniffing); set cookies <strong>HttpOnly / Secure / SameSite</strong> (kills script theft and cross-site sending); <strong>rotate tokens</strong>, use <strong>short timeouts</strong>, and re-check identity with <strong>MFA</strong>.</p>
+</details>
+<h3 id="cross-site-request-forgery-csrf">🎣 Cross-site request forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Permanent link">&para;</a></h3>
+<p><em>OWASP A01 · the app honors a logged-in request it can't tell wasn't intended.</em></p>
+<details class="danger">
+<summary>Walk the attack — and the fix</summary>
+<p><img alt="CSRF on PhotoApp: a trap page auto-submits a change-email request to PhotoViewer, and the browser attaches the victim's cookie automatically" src="../img/csrf-photoapp.png" /></p>
+<p><strong>The move.</strong> A trap page hides a form that <strong>auto-submits</strong> to PhotoViewer — "change recovery email." The victim's browser <strong>attaches their session cookie automatically</strong>, so PhotoViewer sees a valid, logged-in request and obeys. The attacker steals <strong>nothing</strong> — no cookie, no password — they borrow the victim's logged-in browser. The mirror of session hijacking: <em>steal</em> the cookie, or <em>ride</em> it.</p>
+<p><strong>Real world.</strong> <em>ING Direct (2008)</em> — a CSRF flaw let attackers transfer money out of logged-in users' bank accounts.</p>
+<p><strong>Defense.</strong> An <strong>anti-CSRF token</strong> the trap page can't guess, and <strong>SameSite</strong> cookies so the browser won't attach the session to a cross-site request. Modern browsers now default cookies to <code>SameSite=Lax</code>, which closes most of this on its own.</p>
+</details>
+<details class="info">
+<summary>📎 In industry terms — OWASP · ATT&amp;CK</summary>
 <ul>
-<li>How SQL injection works and why it's still so damaging</li>
-<li>In-band, blind, and error-based SQLi</li>
-<li><strong>Session hijacking</strong> — stealing or forging a session to become the user</li>
-<li>Defenses: parameterized queries, secure sessions, least privilege</li>
+<li><strong>OWASP Top 10:</strong> A03 Injection (SQLi) · A10 Server-Side Request Forgery · A07 Identification &amp; Authentication Failures (broken auth, session hijacking) · A01 Broken Access Control (CSRF)</li>
+<li><strong>MITRE ATT&amp;CK:</strong> <a href="https://attack.mitre.org/techniques/T1190/">T1190 Exploit Public-Facing App</a> · <a href="https://attack.mitre.org/techniques/T1539/">T1539 Steal Web Session Cookie</a> · <a href="https://attack.mitre.org/techniques/T1185/">T1185 Browser Session Hijacking</a></li>
+<li>New to these frameworks? The full map is in <strong><a href="ethics-law-methodology.html">Week 1 · frameworks</a></strong>.</li>
 </ul>
-</div>
-<h2 id="1-sql-injection-mechanics">1. SQL injection mechanics<a class="headerlink" href="#1-sql-injection-mechanics" title="Permanent link">&para;</a></h2>
-<p>Untrusted input concatenated into a database query lets an attacker change the query's <em>meaning</em> — the classic <code>' OR 1=1 --</code> that turns a login check into "always true." From there: dump entire tables, bypass authentication, read/write files, and on some databases reach OS command execution.</p>
-<h2 id="2-sqli-variants">2. SQLi variants<a class="headerlink" href="#2-sqli-variants" title="Permanent link">&para;</a></h2>
-<p>Click each to expand.</p>
-<p>🔗 In-band (union / error-based)</p>
-<p>Results come straight back in the response — appended via <code>UNION SELECT</code>, or leaked through verbose database error messages.</p>
-<p>🕶️ Blind (boolean / time-based)</p>
-<p>No visible output, so you infer data one bit at a time — <code>AND 1=1</code> vs <code>AND 1=2</code> for boolean, or <code>SLEEP(5)</code> to read answers from response timing.</p>
-<p>🤖 Automation (sqlmap)</p>
-<p><code>sqlmap</code> automates detection and extraction across all these variants — powerful as an attacker, and a distinctive traffic pattern for defenders to recognize.</p>
-<h2 id="3-session-hijacking">3. Session hijacking<a class="headerlink" href="#3-session-hijacking" title="Permanent link">&para;</a></h2>
-<p>A logged-in user is tracked by a <strong>session token</strong> (usually a cookie). Steal or forge that token and you <em>are</em> that user — no password needed. This is conceptually close to the human/identity attacks in Module 7 ("become the user"), but here the mechanism is technical:</p>
-<ul>
-<li><strong>Token theft</strong> — via XSS (Week 9) reading <code>document.cookie</code>, or sniffing an unencrypted session (Week 4).</li>
-<li><strong>Session fixation</strong> — force a known session ID on the victim, then ride it after they log in.</li>
-<li><strong>Man-in-the-middle</strong> — intercept the token in transit.</li>
-</ul>
-<h2 id="4-defense">4. Defense<a class="headerlink" href="#4-defense" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>SQLi:</strong> parameterized queries / prepared statements eliminate the class entirely; add input validation, least-privilege DB accounts, and a WAF as depth.</li>
-<li><strong>Session hijacking:</strong> <code>Secure</code> + <code>HttpOnly</code> + <code>SameSite</code> cookies, TLS everywhere, session regeneration on login, and short idle timeouts.</li>
-</ul>
-<h2 id="defenders-view">Defender's view<a class="headerlink" href="#defenders-view" title="Permanent link">&para;</a></h2>
-<div class="admonition defender">
-<p>How this looks from the SOC seat</p>
-<p>SQLi shows as <strong>suspicious query strings</strong> in web logs (quotes, <code>UNION</code>, <code>--</code>, <code>SLEEP(</code>, encoded variants) and <strong>database error spikes</strong> from the app account. Session hijacking shows as <strong>one session used from two IPs/geographies or two devices at once</strong>, or a session that suddenly changes user-agent — exactly the kind of anomaly UEBA is built to catch.</p>
-<p><strong>Best control:</strong> parameterized queries kill SQLi at the source; for sessions, bind tokens to context and alert on impossible-travel / concurrent-session anomalies.</p>
-</div>
-<div class="admonition note">
-<p>Real-world context</p>
-<p>The 2008 <strong>Heartland Payment Systems</strong> breach — 130M+ card numbers — began with a <strong>SQL injection</strong> flaw in a web form that led to the payment network. Fifteen years later SQLi is still a top-cause web vulnerability, which is exactly why it gets its own week.</p>
-</div>
+</details>
+<p>This finishes the web application. Last week's map is in <strong><a href="web-attacks-servers-apps.html">Web Attacks I</a></strong>; next, the target stops being the app and becomes the <strong>person</strong> — <strong><a href="social-engineering-identity.html">Social engineering</a></strong>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>OWASP — SQL Injection</strong> · <strong>SQL Injection Prevention Cheat Sheet.</strong> <a href="https://owasp.org/www-community/attacks/SQL_Injection">Attack</a> · <a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">Prevention</a></li>
-<li><strong>OWASP — Session Management Cheat Sheet.</strong> <a href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html">cheatsheetseries.owasp.org</a></li>
+<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a> — the industry list of critical web risks</li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Web Security Testing Guide</a> — how to test for each</li>
+<li><a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a> — free hands-on labs for SQLi, SSRF, authentication, and CSRF</li>
+<li><a href="https://portswigger.net/web-security/sql-injection">SQL injection (PortSwigger)</a> · <a href="https://portswigger.net/web-security/ssrf">SSRF (PortSwigger)</a> · <a href="https://portswigger.net/web-security/csrf">CSRF (PortSwigger)</a></li>
+<li><a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> — T1190, T1539, T1185</li>
 </ul>
 
 
