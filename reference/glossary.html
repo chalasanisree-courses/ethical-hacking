@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#glossary-weeks-19" class="md-skip">
+        <a href="#glossary-weeks-110" class="md-skip">
           Skip to content
         </a>
       
@@ -1257,7 +1257,7 @@
 
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
-<h1 id="glossary-weeks-19">Glossary · Weeks 1–9<a class="headerlink" href="#glossary-weeks-19" title="Permanent link">&para;</a></h1>
+<h1 id="glossary-weeks-110">Glossary · Weeks 1–10<a class="headerlink" href="#glossary-weeks-110" title="Permanent link">&para;</a></h1>
 <style>
 .gloss{--g-ink:#1f2836;--g-muted:#5b6880;--g-surface:#f6f8fb;--g-card:#ffffff;--g-line:#e3e8f0;--g-teal:#0a7589;--g-tealink:#064a59;--g-teal-t:#e3f1f4;--g-amber:#a9700f;
   font-family:var(--md-text-font,"Lato"),Helvetica,Arial,sans-serif;color:var(--g-ink);}
@@ -1296,7 +1296,8 @@
 <button class="chip" data-go="c-wifi">Wk 6 · Wireless</button>
 <button class="chip" data-go="c-evade">Wk 7 · Evasion / DoS</button>
 <button class="chip" data-go="c-sys">Wk 8 · System & Malware</button>
-<button class="chip" data-go="c-web">Wk 9 · Web Attacks</button>
+<button class="chip" data-go="c-web">Wk 9 · Web Attacks I</button>
+<button class="chip" data-go="c-web2">Wk 10 · Web Attacks II</button>
 </div>
 </div>
 <p class="nohit" id="gnohit">No matches — try a different word.</p>
@@ -1388,6 +1389,17 @@
 <div class="g-entry"><h4>Security misconfiguration</h4><p>A weakness that comes from an insecure <i>setting</i>, not buggy code: a public storage bucket, default credentials, directory listing left on, verbose errors that leak the schema, or an unpatched component. Fix: lock it down, change defaults, patch.</p><p class="eg"><b>Example:</b> Deep Root Analytics (2017) — ~198M voter records in a public bucket</p></div>
 <div class="g-entry"><h4>Web shell</h4><p>A small script an attacker uploads to a web server that gives command execution and a persistent way back in — often the end goal of command injection or a file-upload flaw.</p></div>
 <div class="g-entry"><h4>Three-tier architecture</h4><p>The standard web-app shape: a <b>web server</b> (serves the page), an <b>app server</b> (the logic), and a <b>data tier</b> (database + file storage). Kept separate so a hit on the internet-facing tier doesn't immediately hand over the data.</p></div>
+<h2 class="g-cat" id="c-web2"><span class="wk">Week 10</span> Web Attacks II</h2>
+<div class="g-entry"><h4>SQL injection <span class="syn">SQLi</span></h4><p>Input the app glues into a database query, so your text runs as <b>SQL</b>. A quote closes the string and <code>' OR '1'='1</code> makes the filter always true — every row returns, private ones included; a <code>UNION</code> pulls other tables like usernames and password hashes. Fix: parameterized queries. <b>OWASP A03</b>.</p><p class="eg"><b>Example:</b> Heartland Payment Systems (2008) — ~130M card numbers</p></div>
+<div class="g-entry"><h4>Parameterized query <span class="syn">prepared statement</span></h4><p>The real fix for SQL injection: the query's structure is fixed in advance and the user's input is bound as a <i>value</i>, never as code — so a quote can't break out of the data. Kills every SQLi variant at once. Back it with a least-privilege database account.</p></div>
+<div class="g-entry"><h4>Server-side request forgery <span class="syn">SSRF</span></h4><p>You give the app a URL and it fetches it from <i>inside</i> its own network — so an internal address (like the cloud metadata endpoint <code>169.254.169.254</code>) hands back secrets you could never reach directly. The victim is the network's trust boundary. Fix: allowlist destinations, block internal ranges. <b>OWASP A10</b>.</p><p class="eg"><b>Example:</b> Capital One (2019) — ~100M+ credit applications via the AWS metadata endpoint</p></div>
+<div class="g-entry"><h4>Broken authentication</h4><p>Weaknesses in how a login proves identity: no attempt limit, weak passwords allowed, no MFA — so automated guessing eventually works. Fix: lockout + rate-limiting, strong-password policy, and MFA. <b>OWASP A07</b>.</p></div>
+<div class="g-entry"><h4>Credential stuffing</h4><p>Replaying username/password pairs <i>leaked from other breaches</i> against a login, betting that people reuse passwords. Distinct from brute force, which guesses many passwords from scratch.</p><p class="eg"><b>Example:</b> The North Face (2022) — ~195,000 accounts taken over</p></div>
+<div class="g-entry"><h4>Session cookie <span class="syn">session token</span></h4><p>A random string the server issues after login and trusts on every later request as proof of who you are — because HTTP is stateless and forgets you between clicks. The token <i>is</i> your identity: steal it and you are that user, no password needed.</p></div>
+<div class="g-entry"><h4>Session hijacking</h4><p>Taking over a logged-in session by <b>stealing</b> its session cookie and <b>replaying</b> it in a request. The cookie is grabbed by sniffing an unencrypted connection or via XSS. Fix: HTTPS everywhere, <code>HttpOnly</code>/<code>Secure</code>/<code>SameSite</code> cookies, token rotation. <b>OWASP A07</b>.</p><p class="eg"><b>Example:</b> Firesheep (2010) — grabbed cookies off open Wi-Fi</p></div>
+<div class="g-entry"><h4>Cross-site request forgery <span class="syn">CSRF</span></h4><p>A trap page makes the victim's <i>own browser</i> send a request to a site they're logged into; the browser auto-attaches the session cookie, so the app acts on it. The attacker never sees the cookie — the mirror of hijacking (<i>ride</i> the session vs. <i>steal</i> it). Fix: anti-CSRF tokens, <code>SameSite</code> cookies. <b>OWASP A01</b>.</p><p class="eg"><b>Example:</b> ING Direct (2008) — forced money transfers</p></div>
+<div class="g-entry"><h4>HttpOnly · Secure · SameSite <span class="syn">cookie flags</span></h4><p>Settings that protect a session cookie. <code>HttpOnly</code> blocks JavaScript from reading it (stops XSS theft); <code>Secure</code> sends it only over HTTPS; <code>SameSite</code> stops the browser attaching it to cross-site requests (stops CSRF). Which flag stops an attack tells you which attack it is.</p></div>
+<div class="g-entry"><h4>Multi-factor authentication <span class="syn">MFA</span></h4><p>Requiring a second proof of identity beyond the password — a phone prompt, a code, or a hardware key — so a stolen or guessed password alone isn't enough. The single most effective defense against credential stuffing and account takeover.</p></div>
 </div>
 <script>
 (function(){
