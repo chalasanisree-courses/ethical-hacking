@@ -867,10 +867,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-example-photoviewer-and-how-a-session-works" class="md-nav__link">
+  <a href="#how-a-session-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The example — PhotoViewer, and how a session works
+        How a session works
       
     </span>
   </a>
@@ -917,15 +917,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#attacks-on-identity-and-the-session" class="md-nav__link">
+  <a href="#attacks-on-identity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attacks on identity and the session
+        Attacks on identity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Attacks on identity and the session">
+    <nav class="md-nav" aria-label="Attacks on identity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -963,6 +963,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wrap
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1394,10 +1405,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-example-photoviewer-and-how-a-session-works" class="md-nav__link">
+  <a href="#how-a-session-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The example — PhotoViewer, and how a session works
+        How a session works
       
     </span>
   </a>
@@ -1444,15 +1455,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#attacks-on-identity-and-the-session" class="md-nav__link">
+  <a href="#attacks-on-identity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attacks on identity and the session
+        Attacks on identity
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Attacks on identity and the session">
+    <nav class="md-nav" aria-label="Attacks on identity">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1494,6 +1505,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#wrap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wrap
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1526,66 +1548,35 @@
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
 <h1 id="week-10-web-attacks-ii">Week 10 · Web Attacks II<a class="headerlink" href="#week-10-web-attacks-ii" title="Permanent link">&para;</a></h1>
 <style>
-.wk8{color:var(--w-ink);--w-ink:#1f2836;--w-muted:#5b6880;--w-line:#e3e8f0;--w-card:#ffffff;--w-teal:#0a7589;--w-amber:#a9700f;--w-amber-t:#f6edda;--w-teal-t:#e5f0f3;font-family:inherit}
-[data-md-color-scheme="slate"] .wk8{--w-ink:#e7edf6;--w-muted:#9fadc3;--w-line:#33405c;--w-card:#1f2a42;--w-teal:#3bb6ce;--w-amber:#d8a646;--w-amber-t:#322a16;--w-teal-t:#123038}
+.wk8{color:var(--w-ink);--w-ink:#1f2836;--w-muted:#5b6880;--w-line:#e3e8f0;--w-card:#ffffff;--w-teal:#0a7589;--w-amber:#a9700f;--w-surface:#eef2f7;font-family:inherit}
+[data-md-color-scheme="slate"] .wk8{--w-ink:#e7edf6;--w-muted:#9fadc3;--w-line:#33405c;--w-card:#1f2a42;--w-teal:#3bb6ce;--w-amber:#d8a646;--w-surface:#17202e}
 .wk8 figure{margin:1rem 0}
 .wk8 figcaption{font-size:.82rem;color:var(--w-muted);text-align:center;margin-top:.4rem}
 .wk8 svg{max-width:100%;height:auto;display:block;margin:0 auto}
 .wk8 .node-fill{fill:var(--w-card)}.wk8 .node-line{stroke:var(--w-line)}.wk8 .teal{fill:var(--w-teal)}.wk8 .teal-s{stroke:var(--w-teal)}.wk8 .amber{fill:var(--w-amber)}
 .wk8 .svg-t{fill:var(--w-ink)}.wk8 .svg-m{fill:var(--w-muted)}
-.md-typeset .admonition img,.md-typeset details img{border:1px solid var(--md-default-fg-color--lightest);border-radius:10px;margin:.2rem 0 .6rem}
-.md-typeset .defense{color:var(--md-default-fg-color)}
-/* interactive SQLi playground */
-.wk8 .sqli{border:1px solid var(--w-line);border-radius:12px;padding:16px 18px;background:var(--w-card);margin:1rem 0}
-.wk8 .sqli-cap{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--w-muted);margin-bottom:10px}
-.wk8 .sqli-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.wk8 .sqli-lab{font-size:.85rem;color:var(--w-muted)}
-.wk8 .sqli-in{flex:1;min-width:200px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88rem;padding:8px 11px;border:2px solid var(--w-teal);border-radius:8px;background:var(--md-default-bg-color);color:var(--w-ink)}
-.wk8 .sqli-btn{font-size:.85rem;font-weight:700;border:none;border-radius:8px;padding:9px 16px;background:var(--w-teal);color:#fff;cursor:pointer}
-.wk8 .sqli-presets{font-size:.78rem;color:var(--w-muted);margin:11px 0 3px}
-.wk8 .sqli-p{font-family:ui-monospace,monospace;font-size:.75rem;border:1px solid var(--w-line);background:transparent;color:var(--w-teal);border-radius:6px;padding:3px 8px;margin:3px 4px 0 0;cursor:pointer}
-.wk8 .sqli-p:hover{border-color:var(--w-teal)}
-.wk8 .sqli-qlab{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--w-muted);margin:13px 0 5px}
-.wk8 .sqli-code{background:#0f1720;border-radius:8px;padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;line-height:1.6;color:#cdd6e2;white-space:pre-wrap;word-break:break-word;margin:0}
-.wk8 .sqli-code .kw{color:#7fb0e0}.wk8 .sqli-code .inj{color:#f3736b;font-weight:700;background:rgba(243,115,107,.15);border-radius:3px;padding:0 2px}
-.wk8 .sqli-res{margin-top:11px;font-size:.88rem;padding:11px 13px;border-radius:8px;line-height:1.45}
-.wk8 .sqli-res.ok{background:var(--w-teal-t);color:var(--w-ink);border:1px solid var(--w-teal)}
-.wk8 .sqli-res.bad{background:#fbeceb;color:#8a2a22;border:1px solid #e3b3af}
-[data-md-color-scheme="slate"] .wk8 .sqli-res.bad{background:#331f1c;color:#e4a79f;border-color:#6b3a34}
-.wk8 .sqli-res b{font-weight:700}
-/* step-through hijack */
-.wk8 .hj{border:1px solid var(--w-line);border-radius:12px;padding:16px 18px;background:var(--w-card);margin:1rem 0}
-.wk8 .hj-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.wk8 .hj-btn{font-size:.85rem;font-weight:700;border:none;border-radius:8px;padding:9px 16px;background:var(--w-teal);color:#fff;cursor:pointer}
-.wk8 .hj-hint{font-size:.8rem;color:var(--w-muted)}
-.wk8 .hj-step{opacity:.22;transition:opacity .25s;border-left:3px solid var(--w-line);padding:8px 0 8px 14px;margin:12px 0;font-size:.88rem;color:var(--w-ink)}
-.wk8 .hj-step.on{opacity:1;border-left-color:var(--w-teal)}
-.wk8 .hj-step .n{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--w-teal)}
-.wk8 .hj-step code{font-family:ui-monospace,monospace;background:#0f1720;color:#cdd6e2;border-radius:5px;padding:4px 8px;display:inline-block;margin-top:5px;font-size:.78rem;white-space:pre-wrap}
-.wk8 .hj-step code .hot{color:#f3b14e;font-weight:700}.wk8 .hj-step code .ok{color:#7fd49a;font-weight:700}
-/* xss vs csrf */
-.wk8 .vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.6rem 0 0}
-@media(max-width:640px){.wk8 .vs{grid-template-columns:1fr}}
-.wk8 .vs-col{border:1px solid var(--w-line);border-radius:10px;padding:13px 15px;background:var(--w-card)}
-.wk8 .vs-col h4{margin:0 0 7px;font-size:.92rem;color:var(--w-ink)}
-.wk8 .vs-col ul{margin:0;padding-left:17px;font-size:.83rem;color:var(--w-muted);line-height:1.6}
-.wk8 .vs-col .tell{margin-top:9px;font-size:.8rem;color:var(--w-ink)}
-.wk8 .vs-col .tell b{color:var(--w-teal)}
+/* framed app screenshot — clearly "the app", not the page */
+.wk8 .appshot{border:1px solid var(--w-line);border-radius:12px;background:var(--w-surface);padding:11px 11px 8px;margin:1.1rem 0 .5rem;box-shadow:0 2px 12px rgba(20,30,48,.08)}
+[data-md-color-scheme="slate"] .wk8 .appshot{box-shadow:none}
+.wk8 .appshot .bar{display:flex;align-items:center;gap:7px;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--w-muted);margin:2px 3px 9px}
+.wk8 .appshot .bar .dot{width:8px;height:8px;border-radius:50%;background:var(--w-teal);display:inline-block}
+.wk8 .appshot img{display:block;width:100%;border-radius:8px;border:1px solid var(--w-line);margin:0}
+.wk8 .appshot .cap{font-size:.82rem;color:var(--w-muted);line-height:1.45;margin:9px 3px 1px}
+.wk8 .appshot .cap code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;color:var(--w-ink)}
 </style>
 
 <p><span class="kc-badge">🧭 <span class="eb-layer">Application</span><span class="eb-sep"> · </span><span class="eb-phase">OWASP Top 10</span><span class="eb-sep"> · </span><span class="eb-sum">the deepest injection, and attacks on identity — on the same PhotoViewer</span></span></p>
-<p>Last week opened the application layer and named the common web risks. This week goes deeper on the same app, in two directions: the single most damaging <strong>injection</strong> — into the <strong>database</strong> — and a twist where the app is tricked into making its <em>own</em> requests; then the attacks that target <strong>identity</strong> itself — logging in, holding a session, and acting through someone who is already logged in.</p>
-<p>We stay organized by the <strong>OWASP Top 10</strong> — the Open Worldwide Application Security Project's shared list of the most critical web risks.</p>
+<p>Last week opened the application layer and named the common web risks. This week goes deeper on the same app: the single most damaging <strong>injection</strong> — into the <strong>database</strong> — a twist where the app is tricked into making its <em>own</em> requests, and then the attacks that target <strong>identity</strong> itself.</p>
+<p>Each attack below is shown as a screen of <strong>PhotoViewer</strong>, the running example app, followed by the move and the fix.</p>
 <div class="admonition tip">
 <p class="admonition-title">The one idea for the week</p>
-<p>Two families, one sentence each. The app <strong>trusts input</strong> it should have checked — <em>injection</em> and <em>SSRF</em>. And the app <strong>trusts identity</strong> it should have verified — <em>authentication</em>, <em>sessions</em>, and the <em>requests</em> a logged-in browser sends.</p>
+<p>The app <strong>trusts input</strong> it should have checked (<em>injection</em>, <em>SSRF</em>), and it <strong>trusts identity</strong> it should have verified (<em>authentication</em>, <em>sessions</em>, and the <em>requests</em> a logged-in browser sends).</p>
 </div>
-<h2 id="the-example-photoviewer-and-how-a-session-works">The example — PhotoViewer, and how a session works<a class="headerlink" href="#the-example-photoviewer-and-how-a-session-works" title="Permanent link">&para;</a></h2>
-<p>Same app as last week: a photo-sharing site where a <strong>free</strong> user browses public photos and a <strong>premium</strong> user (Mary) can upload, tag, and make photos public. New this week, we look at the part that proves <strong>who you are</strong>.</p>
-<p>The web is <strong>stateless</strong> — the server forgets you between clicks. So when you log in, the server hands your browser a <strong>session cookie</strong>: a random string that stands in for your identity. From then on, your browser sends that cookie with every request, and the server trusts it.</p>
+<h2 id="how-a-session-works">How a session works<a class="headerlink" href="#how-a-session-works" title="Permanent link">&para;</a></h2>
+<p>The web is <strong>stateless</strong> — the server forgets you between clicks. So when you log in, the server hands your browser a <strong>session cookie</strong>: a random string that stands in for your identity, which your browser then sends with every later request. Two of this week's attacks come down to that cookie.</p>
 <div class="wk8" markdown="0">
 <figure>
-<svg viewBox="0 0 640 184" role="img" aria-label="Session flow: the browser logs in with a password, the server sets a session cookie, and the browser then sends that cookie automatically on every later request, which the server trusts as the user's identity">
+<svg viewBox="0 0 640 184" role="img" aria-label="Session flow: the browser logs in, the server sets a session cookie, and the browser sends that cookie automatically on every later request, which the server trusts as the user's identity">
 <g text-anchor="middle" font-size="11.5">
 <rect x="18" y="58" width="158" height="62" rx="8" class="node-fill node-line" stroke-width="1.5"></rect>
 <text class="svg-t" x="97" y="84" font-weight="700">🧑‍💻 Mary's browser</text><text class="svg-m" x="97" y="102" font-size="10">holds the cookie</text>
@@ -1603,188 +1594,79 @@
 <marker id="ara" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><polygon points="0,0 7,3 0,6" class="amber"></polygon></marker>
 </defs>
 </svg>
-<figcaption>The session cookie <b>is</b> your identity. Two of this week's attacks live right here: <b>steal</b> the cookie (session hijacking), or <b>make the browser send it</b> for you (CSRF).</figcaption>
 </figure>
 </div>
 
 <h2 id="attacks-on-the-request">Attacks on the request<a class="headerlink" href="#attacks-on-the-request" title="Permanent link">&para;</a></h2>
-<p>The app takes something you send and acts on it — a search, or a URL to fetch — without checking it hard enough.</p>
 <h3 id="sql-injection">🗄️ SQL injection<a class="headerlink" href="#sql-injection" title="Permanent link">&para;</a></h3>
 <p><em>OWASP A03 · input the app runs as a query, inside the database.</em></p>
-<p>The catalog search builds a database query by <strong>pasting your text into it</strong>. Try it below — type a normal word, then try breaking out of the quotes. Watch the query the app runs, and what comes back.</p>
 <div class="wk8" markdown="0">
-<div class="sqli">
-<div class="sqli-cap">🔎 PhotoViewer search — try an injection</div>
-<div class="sqli-row">
-<span class="sqli-lab">caption contains:</span>
-<input id="sqliIn" class="sqli-in" value="beach" spellcheck="false" autocomplete="off" aria-label="search input">
-<button id="sqliGo" class="sqli-btn" type="button">Search</button>
-</div>
-<div class="sqli-presets">try:
-<button class="sqli-p" type="button" data-v="beach">beach</button>
-<button class="sqli-p" type="button" data-v="beach' OR '1'='1">beach' OR '1'='1</button>
-<button class="sqli-p" type="button" data-v="x' UNION SELECT username, password_hash FROM users --">' UNION SELECT … FROM users</button>
-</div>
-<div class="sqli-qlab">The query the app runs</div>
-<pre class="sqli-code" id="sqliCode"></pre>
-<div class="sqli-res ok" id="sqliRes"></div>
+<div class="appshot">
+<div class="bar"><span class="dot"></span>PhotoViewer · the app</div>
+<img src="../img/sqli-photoapp.png" alt="PhotoViewer SQL injection: a search of ' OR '1'='1 returns every user's photos, private ones included">
+<div class="cap">A search of <code>' OR '1'='1</code> breaks out of the data into the query — the private filter falls away and every photo returns.</div>
 </div>
 </div>
 
-<details class="danger">
-<summary>Walk the attack — and the fix</summary>
-<p><img alt="SQL injection on PhotoViewer: a search of ' OR '1'='1 drops the private filter and returns every user's photos" src="../img/sqli-photoapp.png" /></p>
-<p><strong>The move.</strong> Type <code>' OR '1'='1</code> into the search. The quote ends the string, the always-true <code>OR</code> cancels the "public only" filter, and <strong>every photo returns</strong>, private ones included. The same trick pulls the <code>users</code> table and its password hashes, which you then crack offline. The variants (UNION, error-based, blind) differ only by <em>what the app shows back</em>; <code>sqlmap</code> automates all of them.</p>
-<p><strong>Real world.</strong> <em>Heartland Payment Systems (2008)</em> — one SQL-injection flaw led to ~130 million card numbers stolen, the largest card breach of its day.</p>
-<p><strong>Defense.</strong> <strong>Parameterized queries</strong> (prepared statements) — the database is told your input is a <em>value</em>, never code, so the quote can't break out. This kills every variant at once. Add a <strong>least-privilege</strong> database account, and treat a <strong>WAF</strong> as a backstop, not the fix.</p>
-</details>
+<p><strong>The move.</strong> The catalog search glues your text into a SQL query. A quote closes the string, <code>OR '1'='1</code> makes the <code>WHERE</code> always true, and the "public only" filter no longer matters — every photo returns. The same trick pulls the <code>users</code> table and its password hashes to crack offline.</p>
+<p><strong>Fix.</strong> <strong>Parameterized queries</strong> — the input is bound as a <em>value</em>, never code, so a quote can't break out. (Least-privilege DB account; a WAF only as a backstop.) <strong>Real world:</strong> <em>Heartland Payment Systems (2008)</em> — ~130 million card numbers.</p>
 <h3 id="server-side-request-forgery-ssrf">🌐 Server-side request forgery (SSRF)<a class="headerlink" href="#server-side-request-forgery-ssrf" title="Permanent link">&para;</a></h3>
-<p><em>OWASP A10 · you inject a destination, and the server fetches it for you.</em></p>
-<details class="danger">
-<summary>Walk the attack — and the fix</summary>
-<p><img alt="SSRF on PhotoViewer: an import-from-URL field pointed at the cloud metadata endpoint returns the server's cloud credentials" src="../img/ssrf-photoapp.png" /></p>
-<p><strong>The move.</strong> An "import a photo from a URL" feature fetches whatever link you give it. Paste an <strong>internal</strong> address instead — the cloud <strong>metadata endpoint</strong> <code>169.254.169.254</code> — and the server, sitting <em>inside</em> the network, fetches it and hands back the app's <strong>cloud credentials</strong>. A firewall stops <em>you</em> reaching that address; it does not stop the server. The victim isn't a user — it's the <strong>trust boundary of the network</strong>.</p>
-<p><strong>Real world.</strong> <em>Capital One (2019)</em> — SSRF reached the AWS metadata endpoint, stole the server role's keys, and exposed ~100 million+ credit applications.</p>
-<p><strong>Defense.</strong> <strong>Allowlist</strong> exactly which hosts the server may fetch; block internal IP ranges and the metadata address; never echo the raw response back; on AWS, require <strong>IMDSv2</strong>.</p>
-</details>
-<h2 id="attacks-on-identity-and-the-session">Attacks on identity and the session<a class="headerlink" href="#attacks-on-identity-and-the-session" title="Permanent link">&para;</a></h2>
-<p>Here nothing is "injected." The app works perfectly — it just can't tell that the legitimate-looking user is really the attacker.</p>
+<p><em>OWASP A10 · you give the app a destination, and the server fetches it for you.</em></p>
+<div class="wk8" markdown="0">
+<div class="appshot">
+<div class="bar"><span class="dot"></span>PhotoViewer · the app</div>
+<img src="../img/ssrf-photoapp.png" alt="PhotoViewer SSRF: an import-from-URL field pointed at the cloud metadata endpoint returns the server's cloud credentials">
+<div class="cap">Paste the cloud metadata URL <code>169.254.169.254</code> into "import from URL" and the server fetches its own credentials.</div>
+</div>
+</div>
+
+<p><strong>The move.</strong> "Import a photo from a URL" fetches whatever link you give it. Paste an <strong>internal</strong> address — the cloud metadata endpoint — and the server, sitting <em>inside</em> the network, fetches it and hands back the app's <strong>cloud keys</strong>. A firewall stops <em>you</em> reaching that address; it does not stop the server.</p>
+<p><strong>Fix.</strong> <strong>Allowlist</strong> which hosts the server may fetch; block internal ranges and the metadata address (use IMDSv2 on AWS). <strong>Real world:</strong> <em>Capital One (2019)</em> — ~100 million+ credit applications.</p>
+<h2 id="attacks-on-identity">Attacks on identity<a class="headerlink" href="#attacks-on-identity" title="Permanent link">&para;</a></h2>
 <h3 id="broken-authentication">🔑 Broken authentication<a class="headerlink" href="#broken-authentication" title="Permanent link">&para;</a></h3>
 <p><em>OWASP A07 · the login that never pushes back.</em></p>
-<details class="danger">
-<summary>Walk the attack — and the fix</summary>
-<p><img alt="Broken authentication on PhotoViewer: an automated leaked-password list runs against the login until one works" src="../img/brokenauth-photoapp.png" /></p>
-<p><strong>The move.</strong> PhotoViewer's login has <strong>no attempt limit, allows weak passwords, and has no MFA</strong>. An attacker replays a list of leaked email/password pairs against it until one works — <strong>credential stuffing</strong> — and it lands because the user <strong>reused</strong> a password breached on another site.</p>
-<p><strong>Real world.</strong> <em>The North Face (2022)</em> — ~195,000 accounts taken over by credential stuffing.</p>
-<p><strong>Defense.</strong> <strong>Lockout + rate-limiting</strong> so guessing stops; a <strong>strong-password</strong> policy; and above all <strong>MFA</strong> — a stolen password alone is then no longer enough.</p>
-</details>
+<div class="wk8" markdown="0">
+<div class="appshot">
+<div class="bar"><span class="dot"></span>PhotoViewer · the app</div>
+<img src="../img/brokenauth-photoapp.png" alt="PhotoViewer broken authentication: an automated leaked-password list runs against the login until one works">
+<div class="cap">No lockout, so an automated list of leaked passwords runs against the login until one hits.</div>
+</div>
+</div>
+
+<p><strong>The move.</strong> The login has no attempt limit, allows weak passwords, and has no MFA. An attacker replays leaked email/password pairs until one works — <strong>credential stuffing</strong> — landing because the user reused a password breached on another site.</p>
+<p><strong>Fix.</strong> <strong>Lockout + rate-limiting, a strong-password policy, and MFA</strong> above all. <strong>Real world:</strong> <em>The North Face (2022)</em> — ~195,000 accounts taken over.</p>
 <h3 id="session-hijacking">🎫 Session hijacking<a class="headerlink" href="#session-hijacking" title="Permanent link">&para;</a></h3>
 <p><em>OWASP A07 · the session token </em><em>is</em><em> your identity — so steal it, then replay it.</em></p>
-<p>Stealing the cookie is only half the attack — it becomes a hijack when you <strong>replay</strong> that cookie in a request. Step through the whole chain:</p>
 <div class="wk8" markdown="0">
-<div class="hj">
-<div class="hj-top">
-<button id="hjBtn" class="hj-btn" type="button">▶ Step through the hijack</button>
-<span class="hj-hint" id="hjHint">Three steps: steal the cookie → replay it → you're Mary.</span>
-</div>
-<div class="hj-step" id="hj-1"><span class="n">Step 1 · steal</span><br>A script injected via <b>XSS</b> (or <b>sniffing</b> on open Wi-Fi) grabs Mary's session cookie and sends it to the attacker.<br><code>session=<span class="hot">a3f9c1e8b7d24f60a1c8</span></code></div>
-<div class="hj-step" id="hj-2"><span class="n">Step 2 · replay</span><br>The attacker makes a request to PhotoViewer that <b>carries the stolen cookie</b> — no password anywhere.<br><code>GET /account  HTTP/1.1
-Host: photoapp.com
-Cookie: session=<span class="hot">a3f9c1e8b7d24f60a1c8</span></code></div>
-<div class="hj-step" id="hj-3"><span class="n">Step 3 · become Mary</span><br>The server only checks the cookie, so it answers as if Mary asked. Session hijacked.<br><code><span class="ok">200 OK · Welcome back, Mary</span></code></div>
+<div class="appshot">
+<div class="bar"><span class="dot"></span>PhotoViewer · the app</div>
+<img src="../img/sessionhijack-photoapp.png" alt="PhotoViewer session hijacking: a stolen session cookie is replayed in the attacker's browser, logging in as Mary with no password">
+<div class="cap">A stolen session cookie, replayed in the attacker's browser — now logged in as Mary, no password.</div>
 </div>
 </div>
 
-<details class="danger">
-<summary>Walk the attack — and the fix</summary>
-<p><img alt="Session hijacking on PhotoViewer: a stolen session cookie is replayed in the attacker's browser, logging in as Mary with no password" src="../img/sessionhijack-photoapp.png" /></p>
-<p><strong>The move.</strong> Because the server trusts the session cookie as proof of who you are, <strong>the token is your identity</strong>. Steal that cookie — by <strong>sniffing</strong> an unencrypted connection (Wireshark, from Week 4), or via <strong>XSS</strong> — and <strong>replay</strong> it in a request to become that user, with no password at all.</p>
-<p><strong>Real world.</strong> <em>Firesheep (2010)</em> — sites encrypted the <em>login</em> but sent the <em>session cookie</em> over plain HTTP afterward; a one-click Firefox add-on grabbed it off open Wi-Fi. It drove the move to HTTPS-everywhere.</p>
-<p><strong>Defense.</strong> <strong>HTTPS everywhere</strong> (kills sniffing); set cookies <strong>HttpOnly / Secure / SameSite</strong> (kills script theft and cross-site sending); <strong>rotate tokens</strong>, use <strong>short timeouts</strong>, and re-check identity with <strong>MFA</strong>.</p>
-</details>
+<p><strong>The move.</strong> The server trusts the session cookie as proof of who you are, so the token <strong>is</strong> you. Steal it — by <strong>sniffing</strong> an unencrypted connection (Wireshark, from Week 4) or via <strong>XSS</strong> — and <strong>replay</strong> it in a request to become that user, with no password.</p>
+<p><strong>Fix.</strong> <strong>HTTPS everywhere; HttpOnly / Secure / SameSite cookies; short timeouts and MFA.</strong> <strong>Real world:</strong> <em>Firesheep (2010)</em> — session cookies grabbed off open Wi-Fi, which drove the move to HTTPS-everywhere.</p>
 <h3 id="cross-site-request-forgery-csrf">🎣 Cross-site request forgery (CSRF)<a class="headerlink" href="#cross-site-request-forgery-csrf" title="Permanent link">&para;</a></h3>
 <p><em>OWASP A01 · the app honors a logged-in request it can't tell wasn't intended.</em></p>
-<details class="danger">
-<summary>Walk the attack — and the fix</summary>
-<p><img alt="CSRF on PhotoViewer: a trap page auto-submits a change-email request to PhotoViewer, and the browser attaches the victim's cookie automatically" src="../img/csrf-photoapp.png" /></p>
-<p><strong>The move.</strong> A trap page hides a form that <strong>auto-submits</strong> to PhotoViewer — "change recovery email." The victim's browser <strong>attaches their session cookie automatically</strong>, so PhotoViewer sees a valid, logged-in request and obeys. The attacker steals <strong>nothing</strong> — no cookie, no password — they borrow the victim's logged-in browser. The mirror of session hijacking: <em>steal</em> the cookie, or <em>ride</em> it.</p>
-<p><strong>Real world.</strong> <em>ING Direct (2008)</em> — a CSRF flaw let attackers transfer money out of logged-in users' bank accounts.</p>
-<p><strong>Defense.</strong> An <strong>anti-CSRF token</strong> the trap page can't guess, and <strong>SameSite</strong> cookies so the browser won't attach the session to a cross-site request. Modern browsers now default cookies to <code>SameSite=Lax</code>, which closes most of this on its own.</p>
-</details>
-<p><strong>Don't confuse XSS and CSRF.</strong> Both ride a logged-in session, but they're opposites — and the giveaway is <em>whether the attacker's script runs on the target site and reads the cookie</em>:</p>
 <div class="wk8" markdown="0">
-<div class="vs">
-<div class="vs-col">
-<h4>📝 XSS → cookie theft</h4>
-<ul>
-<li>Attacker's script runs <b>inside the target page</b></li>
-<li>It <b>reads</b> the cookie (<code>document.cookie</code>)</li>
-<li>Attacker ends up <b>holding the token</b> — replay anytime</li>
-</ul>
-<div class="tell">Stopped by <b>HttpOnly</b> — script can't read the cookie.</div>
-</div>
-<div class="vs-col">
-<h4>🎣 CSRF</h4>
-<ul>
-<li><b>No script on the target</b>, ever</li>
-<li>Never sees the cookie — the <b>browser</b> auto-attaches it</li>
-<li>Attacker forces <b>one action</b>, in the victim's browser</li>
-</ul>
-<div class="tell">Stopped by <b>SameSite</b> — browser won't attach it cross-site.</div>
-</div>
+<div class="appshot">
+<div class="bar"><span class="dot"></span>PhotoViewer · the app</div>
+<img src="../img/csrf-photoapp.png" alt="PhotoViewer CSRF: a trap page auto-submits a change-email request to PhotoViewer, and the browser attaches the victim's cookie automatically">
+<div class="cap">A trap page makes Mary's browser POST to PhotoViewer; her session cookie rides along automatically.</div>
 </div>
 </div>
 
-<details class="info">
-<summary>📎 In industry terms — OWASP · ATT&amp;CK</summary>
-<ul>
-<li><strong>OWASP Top 10:</strong> A03 Injection (SQLi) · A10 Server-Side Request Forgery · A07 Identification &amp; Authentication Failures (broken auth, session hijacking) · A01 Broken Access Control (CSRF)</li>
-<li><strong>MITRE ATT&amp;CK:</strong> <a href="https://attack.mitre.org/techniques/T1190/">T1190 Exploit Public-Facing App</a> · <a href="https://attack.mitre.org/techniques/T1539/">T1539 Steal Web Session Cookie</a> · <a href="https://attack.mitre.org/techniques/T1185/">T1185 Browser Session Hijacking</a></li>
-<li>New to these frameworks? The full map is in <strong><a href="ethics-law-methodology.html">Week 1 · frameworks</a></strong>.</li>
-</ul>
-</details>
-<p>This finishes the web application. Last week's map is in <strong><a href="web-attacks-servers-apps.html">Web Attacks I</a></strong>; next, the target stops being the app and becomes the <strong>person</strong> — <strong><a href="social-engineering-identity.html">Social engineering</a></strong>.</p>
+<p><strong>The move.</strong> A trap page auto-submits a request to PhotoViewer — "change recovery email." Mary's browser attaches her session cookie <strong>automatically</strong>, so the app obeys. The attacker never sees the cookie — they <em>ride</em> it. (The mirror of session hijacking: <em>steal</em> the cookie, or <em>ride</em> it.)</p>
+<p><strong>Fix.</strong> <strong>Anti-CSRF tokens</strong> and <strong>SameSite</strong> cookies — now the browser default, which closes most of this on its own. <strong>Real world:</strong> <em>ING Direct (2008)</em> — forced money transfers out of logged-in accounts.</p>
+<h2 id="wrap">Wrap<a class="headerlink" href="#wrap" title="Permanent link">&para;</a></h2>
+<p>This finishes the web application — <strong>code</strong> (SQLi, SSRF, the input attacks) and <strong>credentials</strong> (broken auth, session hijacking, CSRF, the identity attacks). Last week's map is in <strong><a href="web-attacks-servers-apps.html">Web Attacks I</a></strong>; next, the target stops being the app and becomes the <strong>person</strong> — <strong><a href="social-engineering-identity.html">Social engineering</a></strong>.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a> — the industry list of critical web risks</li>
+<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10</a> — A03 Injection · A10 SSRF · A07 Identification &amp; Authentication Failures · A01 Broken Access Control</li>
 <li><a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Web Security Testing Guide</a> — how to test for each</li>
-<li><a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a> — free hands-on labs for SQLi, SSRF, authentication, and CSRF</li>
-<li><a href="https://portswigger.net/web-security/sql-injection">SQL injection (PortSwigger)</a> · <a href="https://portswigger.net/web-security/ssrf">SSRF (PortSwigger)</a> · <a href="https://portswigger.net/web-security/csrf">CSRF (PortSwigger)</a></li>
-<li><a href="https://attack.mitre.org/">MITRE ATT&amp;CK</a> — T1190, T1539, T1185</li>
+<li><a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a> — free labs for <a href="https://portswigger.net/web-security/sql-injection">SQLi</a>, <a href="https://portswigger.net/web-security/ssrf">SSRF</a>, and <a href="https://portswigger.net/web-security/csrf">CSRF</a></li>
 </ul>
-<script>
-(function(){
-  // ---- interactive SQL injection playground ----
-  var inp=document.getElementById('sqliIn'), code=document.getElementById('sqliCode'), res=document.getElementById('sqliRes');
-  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  function render(){
-    if(!inp||!code||!res) return;
-    var v=inp.value;
-    var low=v.toLowerCase();
-    var injected = v.indexOf("'")>-1 && (low.indexOf("or '1'='1")>-1 || low.indexOf("or 1=1")>-1 || low.indexOf("union")>-1 || low.indexOf("--")>-1 || low.indexOf(" or ")>-1);
-    // visible query with the user's literal text (quotes shown), injection span highlighted
-    var shown='%'+esc(v)+'%';
-    if(injected){
-      // highlight everything from the first quote onward as "broke out"
-      var i=esc(v).indexOf('&#39;'); if(i<0) i=esc(v).indexOf("'");
-      var pre=esc(v).slice(0,i), rest=esc(v).slice(i);
-      shown='%'+pre+'<span class="inj">'+rest+'</span>%';
-    }
-    code.innerHTML='<span class="kw">SELECT</span> * <span class="kw">FROM</span> photos <span class="kw">WHERE</span> caption <span class="kw">LIKE</span> \''+shown+'\' <span class="kw">AND</span> public = 1;';
-    if(low.indexOf("union")>-1){
-      res.className='sqli-res bad';
-      res.innerHTML='⚠️ <b>Users table dumped.</b> The UNION stapled a second query on — usernames and password hashes come back where captions should: <code style="font-family:ui-monospace,monospace">mary : 5f4dcc3b…, david : e99a18c4…</code> → crack offline.';
-    } else if(injected){
-      res.className='sqli-res bad';
-      res.innerHTML='⚠️ <b>12 of 12 photos returned — everyone’s, private included.</b> The quote closed the string and <code style="font-family:ui-monospace,monospace">OR \'1\'=\'1\'</code> made the <code style="font-family:ui-monospace,monospace">WHERE</code> always true, so <code style="font-family:ui-monospace,monospace">public = 1</code> no longer matters.';
-    } else {
-      res.className='sqli-res ok';
-      var n = v.trim()==='' ? 'all public' : '3 public';
-      res.innerHTML='✓ <b>'+n+' “'+(esc(v.trim())||'…')+'” photos.</b> Your input stayed inside the quotes — treated as text to match, exactly as intended.';
-    }
-  }
-  if(inp){
-    inp.addEventListener('input',render);
-    document.getElementById('sqliGo').addEventListener('click',render);
-    var ps=document.querySelectorAll('.sqli-p');
-    for(var k=0;k<ps.length;k++){ps[k].addEventListener('click',function(){inp.value=this.getAttribute('data-v');render();inp.focus();});}
-    render();
-  }
-  // ---- session-hijacking step-through ----
-  var hjBtn=document.getElementById('hjBtn'), hjHint=document.getElementById('hjHint'), hjCur=0, hjMax=3;
-  function hjRender(){
-    for(var i=1;i<=hjMax;i++){var e=document.getElementById('hj-'+i); if(e){ if(i<=hjCur) e.classList.add('on'); else e.classList.remove('on'); }}
-    if(hjCur===0) hjHint.textContent='Three steps: steal the cookie → replay it → you’re Mary.';
-    else if(hjCur<hjMax) hjHint.textContent='Step '+hjCur+' of '+hjMax+' — keep going.';
-    else hjHint.textContent='Hijacked — no password was ever used. Click to replay.';
-    hjBtn.textContent = hjCur>=hjMax ? '↻ Replay' : (hjCur===0 ? '▶ Step through the hijack' : '▶ Next step');
-  }
-  if(hjBtn){
-    hjBtn.addEventListener('click',function(){ hjCur = hjCur>=hjMax ? 0 : hjCur+1; hjRender(); });
-    hjRender();
-  }
-})();
-</script>
 
 
 
