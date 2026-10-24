@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#glossary-weeks-110" class="md-skip">
+        <a href="#glossary-weeks-111" class="md-skip">
           Skip to content
         </a>
       
@@ -1257,7 +1257,7 @@
 
 
 <p><a href="../index.html">← Course home</a> · Ethical Hacking</p>
-<h1 id="glossary-weeks-110">Glossary · Weeks 1–10<a class="headerlink" href="#glossary-weeks-110" title="Permanent link">&para;</a></h1>
+<h1 id="glossary-weeks-111">Glossary · Weeks 1–11<a class="headerlink" href="#glossary-weeks-111" title="Permanent link">&para;</a></h1>
 <style>
 .gloss{--g-ink:#1f2836;--g-muted:#5b6880;--g-surface:#f6f8fb;--g-card:#ffffff;--g-line:#e3e8f0;--g-teal:#0a7589;--g-tealink:#064a59;--g-teal-t:#e3f1f4;--g-amber:#a9700f;
   font-family:var(--md-text-font,"Lato"),Helvetica,Arial,sans-serif;color:var(--g-ink);}
@@ -1284,7 +1284,7 @@
 </style>
 
 <div class="gloss" markdown="0">
-<p class="lead">Plain-language definitions of the core concepts from Weeks 1–9 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
+<p class="lead">Plain-language definitions of the core concepts from Weeks 1–11 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
 <div class="tools">
 <input class="search" id="gsearch" type="search" placeholder="Search — e.g. sniffing, hash, privilege…" aria-label="Search the glossary">
 <div class="chips">
@@ -1298,6 +1298,7 @@
 <button class="chip" data-go="c-sys">Wk 8 · System & Malware</button>
 <button class="chip" data-go="c-web">Wk 9 · Web Attacks I</button>
 <button class="chip" data-go="c-web2">Wk 10 · Web Attacks II</button>
+<button class="chip" data-go="c-se">Wk 11 · Social Engineering</button>
 </div>
 </div>
 <p class="nohit" id="gnohit">No matches — try a different word.</p>
@@ -1400,6 +1401,18 @@
 <div class="g-entry"><h4>Cross-site request forgery <span class="syn">CSRF</span></h4><p>A trap page makes the victim's <i>own browser</i> send a request to a site they're logged into; the browser auto-attaches the session cookie, so the app acts on it. The attacker never sees the cookie — the mirror of hijacking (<i>ride</i> the session vs. <i>steal</i> it). Fix: anti-CSRF tokens, <code>SameSite</code> cookies. <b>OWASP A01</b>.</p><p class="eg"><b>Example:</b> ING Direct (2008) — forced money transfers</p></div>
 <div class="g-entry"><h4>HttpOnly · Secure · SameSite <span class="syn">cookie flags</span></h4><p>Settings that protect a session cookie. <code>HttpOnly</code> blocks JavaScript from reading it (stops XSS theft); <code>Secure</code> sends it only over HTTPS; <code>SameSite</code> stops the browser attaching it to cross-site requests (stops CSRF). Which flag stops an attack tells you which attack it is.</p></div>
 <div class="g-entry"><h4>Multi-factor authentication <span class="syn">MFA</span></h4><p>Requiring a second proof of identity beyond the password — a phone prompt, a code, or a hardware key — so a stolen or guessed password alone isn't enough. The single most effective defense against credential stuffing and account takeover.</p></div>
+<h2 class="g-cat" id="c-se"><span class="wk">Week 11</span> Social Engineering &amp; the Identity Layer</h2>
+<div class="g-entry"><h4>Social engineering</h4><p>Attacking the <i>person</i> instead of the machine — manipulating someone into handing over access, so you <b>log in, not hack in</b>. No exploit, no malware; the "vulnerability" is human judgment. Targets the innermost layer, <b>identity</b>.</p></div>
+<div class="g-entry"><h4>Phishing · spear phishing · whaling</h4><p>Lure messages that trick a victim into clicking a fake login or running a payload. <b>Phishing</b> is a dragnet blast; <b>spear phishing</b> is researched and aimed at one person; <b>whaling</b> targets a big fish (CEO/CFO) for a bigger payoff.</p><p class="eg"><b>Example:</b> Google &amp; Facebook (2013–2015) — ~$100M via fake-invoice BEC</p></div>
+<div class="g-entry"><h4>Vishing <span class="syn">voice phishing</span></h4><p>Phishing over a phone call — often impersonating an employee to the IT help desk to get an MFA reset. (<b>Smishing</b> is the same idea over SMS.) The human help desk is the target.</p><p class="eg"><b>Example:</b> MGM Resorts (2023) — a 10-minute vishing call, ~$100M</p></div>
+<div class="g-entry"><h4>Pretexting</h4><p>Inventing a believable scenario and identity — "I'm from IT," "I lost my phone" — to make the request feel legitimate. The story that carries every social-engineering attack.</p></div>
+<div class="g-entry"><h4>Authentication factors <span class="syn">know · have · are</span></h4><p>The three proofs of identity: <b>something you know</b> (password, PIN), <b>something you have</b> (phone, hardware key), <b>something you are</b> (face, voice). Social engineering has a way to beat each — and AI now beats "what you are" too.</p></div>
+<div class="g-entry"><h4>MFA bombing <span class="syn">MFA fatigue</span></h4><p>Spamming a user with push-approval prompts until, worn down, they tap <i>approve</i> just to make it stop. Defeats "something you have" with annoyance, not code. Fix: number-matching MFA, rate-limiting, FIDO2.</p><p class="eg"><b>Example:</b> Uber (2022) — a contractor approved a bombed prompt</p></div>
+<div class="g-entry"><h4>SIM swapping</h4><p>Convincing a mobile carrier to move a victim's number to the attacker's SIM, so SMS codes and calls arrive at the attacker — defeating phone-based MFA.</p></div>
+<div class="g-entry"><h4>Deepfake · voice cloning</h4><p>Generative-AI fakes of a real person's face or voice — a voice clone needs ~3 seconds of audio (~$2), and video can be faked live on a call. Beats "what you are" at a distance. Defense: verify out-of-band, FIDO2, on-device biometrics.</p><p class="eg"><b>Example:</b> Arup (2024) — $25M wired after an all-deepfake video call</p></div>
+<div class="g-entry"><h4>FIDO2 <span class="syn">hardware security key</span></h4><p>A phishing-resistant "something you have": cryptographic challenge–response bound to the real site, with a private key that never leaves the device. A deepfake can fake a face but not the key on your desk.</p></div>
+<div class="g-entry"><h4>UEBA · SOAR</h4><p><b>UEBA</b> (user &amp; entity behavior analytics) learns each account's normal behavior and flags anomalies — a reset credential logging in from a new device and immediately hitting admin functions. <b>SOAR</b> then auto-responds: revoke, quarantine, alert. The defender's AI catches the behavior the disguise can't hide.</p></div>
+<div class="g-entry"><h4>Tailgating <span class="syn">physical social engineering</span></h4><p>Walking through a secured door behind a badged employee — the in-person half of social engineering, alongside shoulder surfing, dumpster diving, and RFID-badge cloning. Fix: mantraps, visitor escort, clean-desk, a challenge culture.</p></div>
 </div>
 <script>
 (function(){
