@@ -142,10 +142,6 @@ The web is **stateless** — the server forgets you between clicks. So when you 
 </div>
 </div>
 
-## Wrap
-
-This finishes the web application — **code** (SQLi, SSRF, the input attacks) and **credentials** (broken auth, session hijacking, CSRF, the identity attacks). Last week's map is in **[Web Attacks I](web-attacks-servers-apps.html)**; next, the target stops being the app and becomes the **person** — **[Social engineering](social-engineering-identity.html)**.
-
 ## References
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/) — A03 Injection · A10 SSRF · A07 Identification &amp; Authentication Failures · A01 Broken Access Control

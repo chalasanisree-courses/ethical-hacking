@@ -179,12 +179,6 @@ The data sits behind **defense in depth** — two locks, plus lifecycle controls
 
 </div>
 
-## Bridge — or skip the vault entirely
-
-Everything here assumed you had to fight through the data's own locks. But there's a shortcut: don't crack the vault — **steal the person who holds the keys.** That's next.
-
-➡️ **[Hacking the Human →](social-engineering-identity.html)**
-
 ## References
 
 - [MITRE ATT&CK — Exfiltration (TA0010)](https://attack.mitre.org/tactics/TA0010/) and [Steganography (T1027.003)](https://attack.mitre.org/techniques/T1027/003/)

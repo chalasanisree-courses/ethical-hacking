@@ -206,16 +206,17 @@ Human judgment isn't reliable, so you defend with things AI can't fake, backed b
 
 </div>
 
-## <span class="twemoji">![](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdib3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE0LjQgNkgyMHYxMGgtN2wtLjQtMkg3djdINVY0aDl6bS0uNCA4aDJ2LTJoMnYtMmgtMlY4aC0ydjJsLTEtMlY2aC0ydjJIOVY2SDd2MmgydjJIN3YyaDJ2LTJoMnYyaDJ2LTJsMSAyem0tMy00VjhoMnYyem0zIDBoMnYyaC0yeiI+PC9wYXRoPjwvc3ZnPg==)</span> Final Project — the MGM breach
+## Case study — the MGM breach
 
-Your capstone applies the **Week 12 reporting methodology** to a real identity-layer attack: the **September 2023 MGM Resorts breach** (Scattered Spider). Attackers looked up a privileged employee on LinkedIn, vished the IT help desk, claimed a lost phone, got MFA reset, escalated **Okta → Azure admin**, and deployed ransomware — a **10-minute phone call, zero malware to get in, ~$100M** in damage.
+The **September 2023 MGM Resorts breach** (Scattered Spider) is this whole chapter in a single attack — and no malware was needed to get in:
 
-**Deliverable — a professional incident / pen-test report covering:**
+1.  **Reconnaissance** — they looked up a privileged employee on **LinkedIn**: name, role, department.
+2.  **Vishing** — they called the **IT help desk** posing as that employee: *"I lost my phone, I need my MFA reset."*
+3.  **MFA hijack** — the helpful agent reset it, handing over the account.
+4.  **Escalation** — they used that foothold in **Okta** to become super-admin, and because Okta was the trust root for the cloud, that became **Azure admin** too.
+5.  **Ransomware** — Vegas went dark. A **10-minute phone call**, **zero malware** to get in, and roughly **$100M** in damage.
 
-1.  **Attack reconstruction** — the full timeline, each step mapped to MITRE ATT&CK.
-2.  **Identity-layer analysis** — why "log in, not hack in" made this so effective (no exploit to detect).
-3.  **Layered defense design** — which controls (FIDO2, blind PINs, quorum approval, cool-off sandbox, UEBA) would have broken the chain, and *where*.
-4.  **The AI dimension** — how deepfakes / voice cloning would supercharge the same attack, and what changes for the defender.
+The sharpest detail: **no AI was used** — Scattered Spider were simply skilled human impersonators. So the question that defines where this is heading is what happens when **generative AI** removes even that barrier. It already has — a **$25M** deepfake-video wire transfer at **Arup (2024)**, and a cloned-CEO voice call at **Ferrari (2024)** caught only when the exec asked a personal question the AI couldn't answer. The attacker's AI *creates* the disguise; the defender's AI (**behavioral analytics / UEBA**) has to *detect the behavior* the disguise can't hide.
 
 Go deeper in the companion lesson: **[Identity Under Attack: When AI Targets the Weakest Link →](../human-layer/identity-under-attack.html)**.
 
