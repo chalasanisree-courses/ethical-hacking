@@ -150,7 +150,7 @@ Protecting the data itself: **encryption, backups,** tight access control — wh
 
 *Who* can log in and *what* they can do — MFA, IAM, least privilege. Break identity and you don't hack in, you **log in**.
 
-**We attack it in:** [Social Engineering & the Identity Layer](social-engineering-identity.html)
+**We attack it in:** [Social Engineering](social-engineering-identity.html)
 
 </div>
 

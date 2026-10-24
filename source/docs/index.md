@@ -53,7 +53,7 @@ The course runs as one attack, from the outside in. You **get oriented**, **stal
 <tr><td class="wk">9</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-servers-apps.html">Web Attacks I</a></td><td>The biggest attack surface, on one example app — a misconfigured server, then the code bugs attackers walk through: XSS, command injection, and broken access control (IDOR). Sorted by whose mistake it is — code, config, or credentials.</td></tr>
 <tr><td class="wk">10</td><td><span class="pill pill-app">Application</span></td><td><a href="weeks/web-attacks-sqli-session.html">Web Attacks II — SQLi &amp; Session Hijacking</a></td><td>Break the database and steal the session — SQL injection and session hijacking.</td></tr>
 <tr class="sched-group"><td colspan="4">🎭 Hacking the Human</td></tr>
-<tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering &amp; the Identity Layer</a></td><td>The wall with no patch — manipulate people, not machines. <em>Log in, not hack in.</em></td></tr>
+<tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering</a></td><td>The wall with no patch — manipulate people, not machines. <em>Log in, not hack in.</em></td></tr>
 <tr class="sched-group"><td colspan="4">🎯 The Full Engagement</td></tr>
 <tr><td class="wk">12</td><td><span class="pill pill-found">All layers</span></td><td><a href="weeks/penetration-testing.html">Penetration Testing — Methodology &amp; Reporting</a></td><td>Run the whole cycle across every layer, then write the professional report a client pays for.</td></tr>
 </tbody>

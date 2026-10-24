@@ -899,7 +899,7 @@
   <span class="md-ellipsis">
     
   
-    Week 11 · Social Engineering & the Identity Layer
+    Week 11 · Social Engineering
   
 
     
@@ -1401,7 +1401,7 @@
 <div class="g-entry"><h4>Cross-site request forgery <span class="syn">CSRF</span></h4><p>A trap page makes the victim's <i>own browser</i> send a request to a site they're logged into; the browser auto-attaches the session cookie, so the app acts on it. The attacker never sees the cookie — the mirror of hijacking (<i>ride</i> the session vs. <i>steal</i> it). Fix: anti-CSRF tokens, <code>SameSite</code> cookies. <b>OWASP A01</b>.</p><p class="eg"><b>Example:</b> ING Direct (2008) — forced money transfers</p></div>
 <div class="g-entry"><h4>HttpOnly · Secure · SameSite <span class="syn">cookie flags</span></h4><p>Settings that protect a session cookie. <code>HttpOnly</code> blocks JavaScript from reading it (stops XSS theft); <code>Secure</code> sends it only over HTTPS; <code>SameSite</code> stops the browser attaching it to cross-site requests (stops CSRF). Which flag stops an attack tells you which attack it is.</p></div>
 <div class="g-entry"><h4>Multi-factor authentication <span class="syn">MFA</span></h4><p>Requiring a second proof of identity beyond the password — a phone prompt, a code, or a hardware key — so a stolen or guessed password alone isn't enough. The single most effective defense against credential stuffing and account takeover.</p></div>
-<h2 class="g-cat" id="c-se"><span class="wk">Week 11</span> Social Engineering &amp; the Identity Layer</h2>
+<h2 class="g-cat" id="c-se"><span class="wk">Week 11</span> Social Engineering</h2>
 <div class="g-entry"><h4>Social engineering</h4><p>Attacking the <i>person</i> instead of the machine — manipulating someone into handing over access, so you <b>log in, not hack in</b>. No exploit, no malware; the "vulnerability" is human judgment. Targets the innermost layer, <b>identity</b>.</p></div>
 <div class="g-entry"><h4>Phishing · spear phishing · whaling</h4><p>Lure messages that trick a victim into clicking a fake login or running a payload. <b>Phishing</b> is a dragnet blast; <b>spear phishing</b> is researched and aimed at one person; <b>whaling</b> targets a big fish (CEO/CFO) for a bigger payoff.</p><p class="eg"><b>Example:</b> Google &amp; Facebook (2013–2015) — ~$100M via fake-invoice BEC</p></div>
 <div class="g-entry"><h4>Vishing <span class="syn">voice phishing</span></h4><p>Phishing over a phone call — often impersonating an employee to the IT help desk to get an MFA reset. (<b>Smishing</b> is the same idea over SMS.) The human help desk is the target.</p><p class="eg"><b>Example:</b> MGM Resorts (2023) — a 10-minute vishing call, ~$100M</p></div>

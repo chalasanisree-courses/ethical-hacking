@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 11 · Social Engineering & the Identity Layer
+# Week 11 · Social Engineering
 
 <style>
 .wk8{color:var(--w-ink);--w-ink:#1f2836;--w-muted:#5b6880;--w-line:#e3e8f0;--w-card:#ffffff;--w-teal:#0a7589;--w-amber:#a9700f;--w-surface:#eef2f7;font-family:inherit}

@@ -304,7 +304,7 @@ We'll track this all term. Most of the weeks ahead live on one of these phases (
 
 One track runs parallel to this
 
-**Social Engineering & the Identity Layer** is deliberately *off* this diagram. Social engineering doesn't exploit a machine; it manipulates a person so the attacker can **log in, not hack in**. It's a parallel track we close the course on.
+**Social Engineering** is deliberately *off* this diagram. Social engineering doesn't exploit a machine; it manipulates a person so the attacker can **log in, not hack in**. It's a parallel track we close the course on.
 
 </div>
 
@@ -577,7 +577,7 @@ Protecting the data itself: **encryption, backups,** and tight access control. T
 
 *Who* is allowed to log in and *what* they can do — MFA, **IAM (identity & access management)**, least privilege. Break identity and you don't hack in, you **log in**.
 
-**We attack it in:** [Social Engineering & the Identity Layer](social-engineering-identity.html)
+**We attack it in:** [Social Engineering](social-engineering-identity.html)
 
 </div>
 
@@ -593,7 +593,7 @@ For the next twelve weeks **we play the attacker**, walking the kill chain again
 | **Device**              | [System Attacks, Malware & Persistence](system-attacks.html)                                                                                                        |
 | **Application**         | [Web Attacks I](web-attacks-servers-apps.html) · [Web Attacks II — SQLi](web-attacks-sqli-session.html)                                                                                           |
 | **Data**                | [Cryptography](cryptography.html)                                                                                                                                                                 |
-| **Identity**            | [Social Engineering & the Identity Layer](social-engineering-identity.html)                                                                                                                       |
+| **Identity**            | [Social Engineering](social-engineering-identity.html)                                                                                                                       |
 | **The full engagement** | [Penetration Testing](penetration-testing.html) — land & expand, end to end                                                                                                                       |
 
 ## 9. What makes it *ethical* — law & authorization

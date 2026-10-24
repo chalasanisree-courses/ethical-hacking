@@ -57,7 +57,7 @@ nav:
       - "Week 9 · Web Attacks I": weeks/web-attacks-servers-apps.md
       - "Week 10 · Web Attacks II — SQLi & Session Hijacking": weeks/web-attacks-sqli-session.md
   - Hacking the Human:
-      - "Week 11 · Social Engineering & the Identity Layer": weeks/social-engineering-identity.md
+      - "Week 11 · Social Engineering": weeks/social-engineering-identity.md
   - The Full Engagement:
       - "Week 12 · Penetration Testing — Methodology & Reporting": weeks/penetration-testing.md
   - Reference:
