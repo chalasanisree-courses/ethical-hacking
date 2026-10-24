@@ -56,6 +56,8 @@ nav:
   - Breaking the Application:
       - "Week 9 · Web Attacks I": weeks/web-attacks-servers-apps.md
       - "Week 10 · Web Attacks II — SQLi & Session Hijacking": weeks/web-attacks-sqli-session.md
+  - Cracking the Vault:
+      - "Week 11 · Cracking the Vault": weeks/cracking-the-vault.md
   - Hacking the Human:
       - "Week 11 · Social Engineering": weeks/social-engineering-identity.md
   - The Full Engagement:
