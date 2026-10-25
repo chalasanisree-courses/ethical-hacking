@@ -59,9 +59,9 @@ nav:
   - Hacking the Human:
       - "Week 11 · Social Engineering": weeks/social-engineering-identity.md
   - Cracking the Vault:
-      - "Week 11 · Cracking the Vault": weeks/cracking-the-vault.md
+      - "Week 11 · Attacking the Data Layer": weeks/cracking-the-vault.md
   - The Full Engagement:
-      - "Week 12 · The Full Engagement": weeks/penetration-testing.md
+      - "Week 12 · Penetration Testing": weeks/penetration-testing.md
   - Reference:
       - "Glossary": reference/glossary.md
       - "CEH Map": reference/ceh-map.md

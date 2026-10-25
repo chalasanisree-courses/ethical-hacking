@@ -32,7 +32,7 @@ Reconnaissance, scanning / enumeration / vuln analysis, sniffing, wireless, syst
 Concept, discussion & project topics
 
 - **Ethics & law** — lecture and the Maurushat reading (Week 1).
-- **Social engineering** — the Module 6 "Hacking the Human" track (Week 11); assessed via the **MGM final project**.
+- **Social engineering** — the Module 6 "Hacking the Human" track (Week 11).
 - **Pentest methodology & reporting** — lecture and the full engagement (Week 12).
 - **Bluetooth, honeypots / IDS specifics, physical security** — lecture sub-topics.
 

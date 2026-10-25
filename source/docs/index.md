@@ -55,9 +55,9 @@ The course runs as one attack, from the outside in. You **get oriented**, **stal
 <tr class="sched-group"><td colspan="4">🎭 Hacking the Human</td></tr>
 <tr><td class="wk">11</td><td><span class="pill pill-idty">Identity</span></td><td><a href="weeks/social-engineering-identity.html">Social Engineering</a></td><td>The wall with no patch — manipulate people, not machines. <em>Log in, not hack in.</em></td></tr>
 <tr class="sched-group"><td colspan="4">🔐 Cracking the Vault</td></tr>
-<tr><td class="wk">11</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cracking-the-vault.html">Cracking the Vault</a></td><td>Go straight for the crown jewels — defeat the data’s two locks (access control &amp; encryption), scrape it from memory, and exfiltrate it out past DLP.</td></tr>
+<tr><td class="wk">11</td><td><span class="pill pill-data">Data</span></td><td><a href="weeks/cracking-the-vault.html">Attacking the Data Layer</a></td><td>Go straight for the crown jewels — defeat the data’s two locks (access control &amp; encryption), scrape it from memory, and exfiltrate it out past DLP.</td></tr>
 <tr class="sched-group"><td colspan="4">🎯 The Full Engagement</td></tr>
-<tr><td class="wk">12</td><td><span class="pill pill-found">All layers</span></td><td><a href="weeks/penetration-testing.html">The Full Engagement — Pen Testing, Roles &amp; AI</a></td><td>The whole course run as one authorized engagement — scope, methodology, the report — plus the pen-tester / forensic roles and how AI is changing the field. <em>Optional capstone.</em></td></tr>
+<tr><td class="wk">12</td><td><span class="pill pill-found">All layers</span></td><td><a href="weeks/penetration-testing.html">Penetration Testing</a></td><td>The whole course run as one authorized engagement — scope, methodology, the report — plus the pen-tester / forensic roles and how AI is changing the field. <em>Optional capstone.</em></td></tr>
 </tbody>
 </table>
 

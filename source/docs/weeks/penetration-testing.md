@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Week 12 · The Full Engagement
+# Week 12 · Penetration Testing
 
 <style>
 .wk8{color:var(--w-ink);--w-ink:#1f2836;--w-muted:#5b6880;--w-line:#e3e8f0;--w-card:#ffffff;--w-teal:#0a7589;--w-amber:#a9700f;--w-green:#2e7d53;--w-violet:#5b4b8a;--w-surface:#eef2f7;font-family:inherit}
@@ -62,7 +62,7 @@ So — how is everything we learned actually useful? It's two of the main jobs i
 <span class="tag vi">After · reconstruct</span>
 <h4>Forensic investigator</h4>
 <p>After a breach, they piece together what happened — how the attacker got in, what they touched, and how far they got — working backwards from the evidence left behind.</p>
-<p class="note vi">optional lab for this role too</p>
+<p class="note vi">the defensive mirror image</p>
 </div>
 </div>
 </div>
@@ -164,31 +164,10 @@ In 2025, an AI system called **XBOW** became the **#1 ranked bug hunter on Hacke
 
 The technical skill — finding and exploiting — is becoming a **commodity**. The judgment and accountability around it are not. The job isn't disappearing; it's moving up a level, from *"I can run the tools"* to *"I know what it means, and I'll stand behind it."*
 
-## Two optional labs — one per role
-
-This week is a capstone, and it's **optional** — no graded work during finals. But there are two optional labs, one for each role, and together they close the loop.
-
-<div class="wk8" markdown="0">
-<div class="grid2">
-<div class="rcard feat">
-<span class="tag">Before · Pen tester</span>
-<h4>System Hacking Methodologies</h4>
-<p>Run a full offensive engagement end to end: enumerate, exploit your way in, escalate to Domain Admin, hide and exfiltrate a file over an encrypted channel, and cover your tracks. AI-assisted — Part 2's story in your own hands.</p>
-</div>
-<div class="rcard">
-<span class="tag vi">After · Forensic investigator</span>
-<h4>Recreating an Attack</h4>
-<p>You arrive after the fact, handed a compromised box, and work backwards to figure out exactly how it was broken — enumerate it, read it, and reconstruct the exploit.</p>
-</div>
-</div>
-</div>
-
-One before, one after. Do both and you've stood on both sides of an attack.
-
 ## Keep going
 
 !!! tip "Capture the Flag — and where to practice"
-    **Capture the Flag (CTF)** is the gamified, safe, legal version of everything we've done: you're dropped into a deliberately vulnerable system and your job is to break in far enough to grab a planted token — the *flag* — which proves you got there. Free, endless practice lives at **Hack The Box**, **TryHackMe**, and **PicoCTF** (HTB Academy has an ~$8/month student plan for the guided courses). The two labs above are essentially your first two CTFs — and the **CEH** exam is the natural next credential.
+    **Capture the Flag (CTF)** is the gamified, safe, legal version of everything we've done: you're dropped into a deliberately vulnerable system and your job is to break in far enough to grab a planted token — the *flag* — which proves you got there. Free, endless practice lives at **Hack The Box**, **TryHackMe**, and **PicoCTF** (HTB Academy has an ~$8/month student plan for the guided courses). Start with the beginner tracks on any of those — and the **CEH** exam is a natural next credential.
 
 ## References
 
