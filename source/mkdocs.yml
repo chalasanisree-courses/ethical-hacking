@@ -61,7 +61,7 @@ nav:
   - Cracking the Vault:
       - "Week 11 · Cracking the Vault": weeks/cracking-the-vault.md
   - The Full Engagement:
-      - "Week 12 · Penetration Testing — Methodology & Reporting": weeks/penetration-testing.md
+      - "Week 12 · The Full Engagement": weeks/penetration-testing.md
   - Reference:
       - "Glossary": reference/glossary.md
       - "CEH Map": reference/ceh-map.md

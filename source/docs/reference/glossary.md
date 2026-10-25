@@ -5,7 +5,7 @@ hide:
 
 [← Course home](../index.html) · Ethical Hacking
 
-# Glossary · Weeks 1–11
+# Glossary · Weeks 1–12
 
 <style>
 .gloss{--g-ink:#1f2836;--g-muted:#5b6880;--g-surface:#f6f8fb;--g-card:#ffffff;--g-line:#e3e8f0;--g-teal:#0a7589;--g-tealink:#064a59;--g-teal-t:#e3f1f4;--g-amber:#a9700f;
@@ -33,7 +33,7 @@ hide:
 </style>
 
 <div class="gloss" markdown="0">
-<p class="lead">Plain-language definitions of the core concepts from Weeks 1–11 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
+<p class="lead">Plain-language definitions of the core concepts from Weeks 1–12 — what each one <i>is</i>, what it's <i>for</i>, and the tools you'll meet doing it. Type in the box to filter, or jump to a week.</p>
 <div class="tools">
 <input class="search" id="gsearch" type="search" placeholder="Search — e.g. sniffing, hash, privilege…" aria-label="Search the glossary">
 <div class="chips">
@@ -48,6 +48,8 @@ hide:
 <button class="chip" data-go="c-web">Wk 9 · Web Attacks I</button>
 <button class="chip" data-go="c-web2">Wk 10 · Web Attacks II</button>
 <button class="chip" data-go="c-se">Wk 11 · Social Engineering</button>
+<button class="chip" data-go="c-data">Wk 11 · Cracking the Vault</button>
+<button class="chip" data-go="c-pentest">Wk 12 · The Full Engagement</button>
 </div>
 </div>
 <p class="nohit" id="gnohit">No matches — try a different word.</p>
@@ -162,6 +164,27 @@ hide:
 <div class="g-entry"><h4>FIDO2 <span class="syn">hardware security key</span></h4><p>A phishing-resistant "something you have": cryptographic challenge–response bound to the real site, with a private key that never leaves the device. A deepfake can fake a face but not the key on your desk.</p></div>
 <div class="g-entry"><h4>UEBA · SOAR</h4><p><b>UEBA</b> (user &amp; entity behavior analytics) learns each account's normal behavior and flags anomalies — a reset credential logging in from a new device and immediately hitting admin functions. <b>SOAR</b> then auto-responds: revoke, quarantine, alert. The defender's AI catches the behavior the disguise can't hide.</p></div>
 <div class="g-entry"><h4>Tailgating <span class="syn">physical social engineering</span></h4><p>Walking through a secured door behind a badged employee — the in-person half of social engineering, alongside shoulder surfing, dumpster diving, and RFID-badge cloning. Fix: mantraps, visitor escort, clean-desk, a challenge culture.</p></div>
+<h2 class="g-cat" id="c-data"><span class="wk">Week 11</span> Cracking the Vault — Data Layer</h2>
+<div class="g-entry"><h4>Data layer <span class="syn">the crown jewels</span></h4><p>The innermost target — the valuable enterprise data every other layer exists to protect. Reaching it is the point of the whole attack; everything else was just the way in.</p></div>
+<div class="g-entry"><h4>The two locks</h4><p>Data at rest sits behind <b>access control</b> (<i>am I allowed to read it?</i>) and <b>encryption</b> (<i>do I have the key?</i>). You rarely brute-force either — you <b>become authorized</b> and you <b>steal the key</b>.</p></div>
+<div class="g-entry"><h4>Data states <span class="syn">at rest · in transit · in use</span></h4><p>Data is protected — and stolen — differently by state. <b>At rest</b> (disks, databases, backups) → encryption; <b>in transit</b> (over the network) → TLS; <b>in use</b> (being processed in memory) → the hardest to protect, because it must be plaintext for the CPU.</p></div>
+<div class="g-entry"><h4>Encryption at rest · TDE <span class="syn">transparent data encryption</span></h4><p>Encrypts the stored data but decrypts <i>automatically</i> for any authorized process — so it's <b>transparent</b> to the app and the DBA. The lesson: you don't crack the cipher, you <b>become an authorized process</b> and the vault opens itself.</p></div>
+<div class="g-entry"><h4>Memory scraping <span class="syn">data in use</span></h4><p>Grabbing data from RAM while it's being processed, where it has to be plaintext — the CPU can't compute on ciphertext, so that's where you take it.</p><p class="eg"><b>Example:</b> Target (2013) — card numbers scraped from POS memory</p></div>
+<div class="g-entry"><h4>Exfiltration</h4><p>Getting stolen data <i>out</i> of the network — the last step, past the guards on the exit. Attackers sometimes encrypt it with their own key first, so defenders can't inspect what's leaving.</p></div>
+<div class="g-entry"><h4>DLP <span class="syn">data loss prevention</span></h4><p>Controls that watch the exits for sensitive data leaving — only as good as their visibility. If they can't inspect the traffic, they're blind.</p><p class="eg"><b>Example:</b> Equifax (2017) — an expired certificate blinded outbound inspection for ~2.5 months</p></div>
+<div class="g-entry"><h4>Encryption vs hashing vs steganography</h4><p>Three ways to handle a message. <b>Encryption</b> hides the <i>meaning</i> (reversible with a key); <b>hashing</b> <i>destroys</i> the meaning (one-way, irreversible); <b>steganography</b> hides the <i>existence</i> — tucking data inside an innocent image so the guard sees only a photo.</p></div>
+<h2 class="g-cat" id="c-pentest"><span class="wk">Week 12</span> The Full Engagement — Penetration Testing</h2>
+<div class="g-entry"><h4>Penetration testing <span class="syn">pen test</span></h4><p>An authorized, scoped attempt to break into an environment on purpose, so the weak points get found and fixed before a real attacker finds them. The whole course, run as one operation.</p></div>
+<div class="g-entry"><h4>Scope · rules of engagement</h4><p>The signed agreement that says exactly what you may attack and what's off-limits — one machine, one app, or the whole network. <b>Out of scope is out of bounds.</b> This authorization is the only thing separating a pen tester from a criminal.</p></div>
+<div class="g-entry"><h4>Vulnerability assessment · pen test · red team</h4><p><b>Vuln assessment</b> finds and lists weaknesses; <b>pen test</b> exploits them to prove the risk is real; <b>red team</b> emulates a real adversary over time to test whether the defenders even notice.</p></div>
+<div class="g-entry"><h4>Black · white · grey box</h4><p>How much the tester is told going in. <b>Black box</b> — nothing, like a real outsider; <b>white box</b> — full access and source; <b>grey box</b> — partial, the common case.</p></div>
+<div class="g-entry"><h4>The methodology</h4><p>The repeatable phases that make results defensible: recon → scanning &amp; enumeration → gaining access → escalation &amp; persistence → covering tracks → analysis &amp; reporting. Every week of this course was one phase.</p></div>
+<div class="g-entry"><h4>Covering tracks</h4><p>The attacker's phase of hiding the intrusion — clearing logs, timestomping, disabling tooling. A pen tester does the <b>opposite</b>: documents every step so the client can retrace it. Understanding it is what lets a defender reconstruct an attack.</p></div>
+<div class="g-entry"><h4>The report <span class="syn">the deliverable</span></h4><p>The actual product. Each finding carries a <b>risk rating</b> (CVSS), <b>evidence</b>, <b>business impact</b>, and <b>remediation</b>. You're paid to leave the client safer — and that happens in the write-up, not the break-in.</p></div>
+<div class="g-entry"><h4>Pen tester vs forensic investigator</h4><p>Two roles, split by timing. The <b>pen tester</b> comes <i>before</i> an attack to prevent it; the <b>forensic investigator</b> comes <i>after</i> to reconstruct what happened from the evidence left behind.</p></div>
+<div class="g-entry"><h4>Capture the Flag <span class="syn">CTF</span></h4><p>Gamified, legal hacking practice — break into a deliberately vulnerable system to grab a planted token, the <i>flag</i>. Free practice at Hack The Box, TryHackMe, and PicoCTF.</p></div>
+<div class="g-entry"><h4>NIST SP 800-115 · PTES</h4><p>Named methodologies that formalize a test so results are repeatable and comparable. A recognized framework is part of what separates a professional engagement from random hacking.</p></div>
+<div class="g-entry"><h4>AI in penetration testing</h4><p>AI now automates the <i>finding</i> — in 2025 the tool <b>XBOW</b> topped HackerOne's US bug-bounty leaderboard, beating every human. What stays human: <b>judgment</b> (what matters to this business), <b>accountability</b> (someone signs the report), and <b>validation</b> (what's actually real).</p></div>
 </div>
 <script>
 (function(){
